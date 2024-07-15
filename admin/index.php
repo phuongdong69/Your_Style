@@ -1,5 +1,7 @@
 <?php
-    echo "admin youstyle";
+
+include "./layout/header.php";
+include "./layout/home.php";
+include "./layout/footer.php";
 
 
-?>
