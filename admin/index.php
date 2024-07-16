@@ -1,4 +1,5 @@
 <?php
+
     include "layout/header.php";
     include "layout/box_left.php";
  
@@ -44,6 +45,7 @@
             case 'tables': 
                 include "./view/tables.php";
                 break;
+
 
             default:
             include "./layout/home.php";
