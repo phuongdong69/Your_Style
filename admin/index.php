@@ -1,58 +1,61 @@
 <?php
+    
+    $pageController = new PageController();    
+        class PageController {
+            private $actions = [
+                'buttons' => "./view/buttons.php",
+                'cards' => "./view/cards.php",
+                'color' => "./view/utilities-color.php",
+                'border' => "./view/utilities-border.php",
+                'utilities-animation' => "./view/utilities-animation.php",
+                'other' => "./view/utilities-other.php",
+                'login' => "./view/login.php",
+                'register' => "./view/register.php",
+                'forgot-password' => "./view/forgot-password.php",
+                '404' => "./view/404.php",
+                'blank' => "./view/blank.php",
+                'charts' => "./view/charts.php",
+                'tables' => "./view/tables.php",
+            ];
 
-    include "layout/header.php";
-    include "layout/box_left.php";
- 
-    if(isset($_GET['act'])){
-        switch ($_GET['act']) {
-   
-            case 'buttons':
-                include "./view/buttons.php";
-                break;
-            case 'cards':
-                include "./view/cards.php";
-                break;
-            case 'color': //utilities-color
-                include "./view/utilities-color.php";
-                break;
-            case 'border': //utilities-border
-                include "./view/utilities-border.php";
-                break;
-            case 'utilities-animation': //utilities-animation
-                include "./view/utilities-animation.php";
-                break;
-            case 'other': //utilities-other
-                include "./view/utilities-other.php";
-                break;
-            case 'login': // Dang Nhap
-                include "./view/login.php";
-                break;
-            case 'register': //dang ky
-                include "./view/register.php";
-                break;
-            case 'forgot-password': // Quen mat khau
-                include "./view/forgot-password.php";
-                break;
-            case '404': 
-                include "./view/404.php";
-                break;
-            case 'blank': 
-                include "./view/blank.php";
-                break;
-            case 'charts': 
-                include "./view/charts.php";
-                break;
-            case 'tables': 
-                include "./view/tables.php";
-                break;
+            public function __construct() {
+                $this->loadHeader();
+                $this->loadBoxLeft();
+                $this->route();
+                $this->loadFooter();
+            }
 
+            private function loadHeader() {
+                include "layout/header.php";
+            }
 
-            default:
-            include "./layout/home.php";
-                break;
+            private function loadBoxLeft() {
+                include "layout/box_left.php";
+            }
+
+            private function loadFooter() {
+                include "layout/footer.php";
+            }
+
+            private function route() {
+                if (isset($_GET['act'])) {
+                    $action = $_GET['act'];
+                    $this->loadView($action);
+                } else {
+                    $this->loadHome();
+                }
+            }
+
+            private function loadView($action) {
+                if (array_key_exists($action, $this->actions)) {
+                    include $this->actions[$action];
+                } else {
+                    $this->loadHome();
+                }
+            }
+
+            private function loadHome() {
+                include "./layout/home.php";
+            }
         }
-    }else{
-        include "layout/home.php";
-    }
-    include "layout/footer.php";
-?>
+        ?>
