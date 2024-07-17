@@ -7,6 +7,12 @@
         case "news": //tin tức
             include "view/news.php";
             break;
+        case "cart": //giỏ hàng
+            include "view/cart.php";
+            break;
+        case "details": //Chi Tiết SP
+            include "view/details.php";
+            break;
         case 'introduce': //giới thiệu
             include "view/introduce.php";
             break;
