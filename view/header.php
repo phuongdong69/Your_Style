@@ -179,7 +179,7 @@
             </div>
          </div>
          <script>
-            <script>
+            
     document.querySelector('.dropdown-toggle').addEventListener('click', function(event) {
         // Prevent default action to avoid jumping to the link immediately
         event.preventDefault();
@@ -188,4 +188,4 @@
     });
 </script>
 
-         </script>
+         
