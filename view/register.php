@@ -328,6 +328,9 @@
                               <button>
                                 Đăng Ký
                               </button>
+                              <button>
+                                <a href="index.php?act=login">Đăng Nhập</a>
+                              </button>
                             </div>
                           </div>
                         </div>

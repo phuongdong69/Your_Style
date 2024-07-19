@@ -19,8 +19,9 @@
             ];
 
             public function __construct() {
-                $this->loadHeader();
                 $this->loadBoxLeft();
+                $this->loadHeader();
+                
                 $this->route();
                 $this->loadFooter();
             }
