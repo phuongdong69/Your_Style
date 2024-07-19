@@ -1,5 +1,4 @@
 <?php
-
     
     $pageController = new PageController();    
         class PageController {
@@ -19,14 +18,12 @@
                 'tables' => "./view/tables.php",
             ];
 
-
             public function __construct() {
                 $this->loadHeader();
                 $this->loadBoxLeft();
                 $this->route();
                 $this->loadFooter();
             }
-
 
             private function loadHeader() {
                 include "layout/header.php";
@@ -56,10 +53,9 @@
                     $this->loadHome();
                 }
             }
-~
+
             private function loadHome() {
                 include "./layout/home.php";
             }
         }
         ?>
-
