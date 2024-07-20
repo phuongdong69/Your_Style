@@ -51,9 +51,9 @@
                             <form>
                               <div class="form-row">
                                 <label class="lebel-abs">
-                                  Email 
+                                  Tên đăng nhập 
                                   <strong class="red">
-                                    *
+                                  
                                   </strong>
                                 </label>
                                 <input type="text" class="input namefild" name="">
@@ -74,6 +74,9 @@
                               </p>
                               <button>
                                 Đăng Nhập
+                              </button>
+                              <button>
+                               <a href="index.php?act=register"> Đăng Ký</a>
                               </button>
                             </form>
                           </div>
