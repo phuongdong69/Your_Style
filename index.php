@@ -10,6 +10,12 @@
         case "cart": //giỏ hàng
             include "view/cart.php";
             break;
+        case "mua": //Mua Ngay
+            include "view/mua.php";
+            break;
+        case "pttt": //Mua Ngay
+            include "view/pttt.php";
+            break;
         case "details": //Chi Tiết SP
             include "view/details.php";
             break;
