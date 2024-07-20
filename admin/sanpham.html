@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Style - Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="sp.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <li id="search" class="search">
+            <form>
+                <input class="search-input" placeholder="Tìm Kiếm" type="text" value="" name="search">
+                <button class="search-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            
+         </li>
+        <div class="hea-right">
+            <ul>
+                <li class="login-logout">
+                    <a class="nav" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                    <div class="collapse">
+                        <div class="">
+                            <a class="item" href="index.php?act=login">Đăng Nhập</a>
+                            <a class="item" href="index.php?act=register">Đăng Ký</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <nav class="box-left">
+        <div class="logo">              
+            <a href="index.html"><img src="/z5613796303251_0df7407cc28d8200079c638466473baf-removebg-preview.png" alt=""></a>
+        </div>
+        <hr>
+        <ul>
+            <li><a href="index.php?act=dashboard"><i class="fas fa-tachometer"></i> Dashboard</a></li><hr>
+            <li><a href="sanpham.html"><i class="fas fa-box"></i> Sản Phẩm</a></li><hr>
+            <li><a href="index.php?act=comments"><i class="fas fa-comments"></i> Bình Luận</a></li><hr>
+            <li><a href="index.php?act=customers"><i class="fas fa-users"></i> Khách Hàng</a></li><hr>
+        </ul>
+    </nav>
+
+    <article>
+     
+        <div class="row2">
+
+            <div class="row2 font_title">
+             <h1>
+               Danh Sách Sản Phẩm Hiện Có</h1>
+          
+            </div>
+            <div class="row2 form_content ">
+             <form action="#" method="POST">
+              <div class="row2 mb10 formds_loai">
+              
+              <table>
+               <tr>
+                   
+                   <th>Mã Sản Phẩm</th>
+                   <th>TÊN Sản Phẩm</th>
+                   <th>Hình Ảnh</th>
+                   <th>Giá</th>
+                   <th>Mô Tả</th>
+                   <th>Thao Tác</th>
+               
+               </tr>
+
+               <!-- code php phần list ra sp -->
+              
+              
+               
+              </table>
+              </div>
+              <div class="row mb10 ">
+            <a href=""> <input  class="mr20" type="button" value="Thêm Sản Phẩm"></a>
+              </div>
+             </form>
+            </div>
+           </div>
+    </article>
+
+    <div class="home">
+        Dashboard
+    </div>
+
+    <footer>
+        Copy right &copy; Team ET
+    </footer>
+</body>
+</html>
