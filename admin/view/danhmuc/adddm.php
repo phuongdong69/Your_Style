@@ -5,25 +5,18 @@
     </div>
     <div class="row2 form_content ">
       <form action="index.php?act=adddm" method="POST" enctype="multipart/form-data">
-
-        <div class="row2 mb10">
-          <label>danh mục</label> <br>
-          <select name="id_cate" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-          </select>
-        </div>
-
         <div class="row2 mb10">
           <label> Tên danh mục </label> <br>
-          <input type="text" name="name_cate" placeholder="nhập vào tên danh mục" required>
+          <input type="text" name="name" placeholder="nhập vào tên danh mục" required>
         </div>
 
         <div class="row2 mb10">
           <label>Trạng thái</label> <br>
-          <select name="status_cate" required>
-            <option value="mùa đông">mùa đông</option>
-            <option value="mùa hè">mùa hè</option>
+          <select name="status" required>
+            <option value="Mùa xuân">Mùa xuân</option>
+            <option value="Mùa hạ">Mùa hạ</option>
+            <option value="Mùa thu">Mùa thu</option>
+            <option value="Mùa đông">Mùa đông</option>
           </select>
         </div>
 

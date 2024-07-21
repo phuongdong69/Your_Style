@@ -1,12 +1,8 @@
 <?php
-function load_product($kw, $id_brands) {
-    $sql = "SELECT * FROM `product` WHERE 1";
-    if ($kw != "") {
-        $sql .= " AND name LIKE '%$kw%'"; // Chỉnh lại câu lệnh SQL cho đúng cú pháp
-    }
-    if ($id_brands > 0) {
-        $sql .= " AND id_brands = '$id_brands'";
-    }
+
+function load_product(){
+    $sql = "SELECT * FROM `product` "; "SELECT `product`.`id`,`product`.`id_cate`,`category`.`id` FROM `product`
+    join `category` on `product`.`id_cate` = `category`.`id` ";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }

@@ -45,11 +45,13 @@
           <input type="datetime-local" name="update_at" placeholder="Cập nhật sản phẩm lúc" value="<?= $update_at ?>">
         </div>
 
+        
         <div class="row2 mb10">
           <label>danh mục</label> <br>
           <select name="id_cate" required>
-            <option value="1" <?= $id_cate == 1 ? 'selected' : '' ?>>danh mục 1</option>
-            <option value="2" <?= $id_cate == 2 ? 'selected' : '' ?>>danh mục 2</option>
+            <?php foreach ($listdanhmuc as $category): ?>
+            <option value="<?= ($category['id']) ?>" <?= $id_cate == $category['id'] ? 'selected' : '' ?>><?= ($category['name']) ?></option>
+            <?php endforeach; ?>
           </select>
         </div>
 
