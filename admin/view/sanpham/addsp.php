@@ -24,11 +24,6 @@
         </div>
 
         <div class="row2 mb10">
-          <label>Giá gốc </label> <br>
-          <input type="number" name="price" placeholder="nhập giá tiền" required>
-        </div>
-
-        <div class="row2 mb10">
           <label>Giá sale </label> <br>
           <input type="number" name="priceSale" placeholder="nhập giá sale" required>
         </div>
@@ -46,26 +41,26 @@
           </select>
         </div>
 
-        <div class="row2 mb10">
+        <div style="width: 200px;" class="row2 mb10">
           <label>Tạo lúc</label> <br>
           <input type="datetime-local" name="create_at" placeholder="Tạo sản phẩm lúc">
         </div>
 
-        <div class="row2 mb10">
-          <label>cập nhật lúc</label> <br>
+        <div style="width: 200px;" class="row2 mb10">
+          <label>Cập nhật lúc</label> <br>
           <input type="datetime-local" name="update_at" placeholder="Tạo sản phẩm lúc">
         </div>
 
-        <div class="row2 mb10">
-          <label>danh mục</label> <br>
+        <div style="width: 200px;" class="row2 mb10">
+          <label>Danh mục</label> <br>
           <select name="id_cate" required>
             <option value="1">áo thun</option>
             <option value="2">áo khoác</option>
           </select>
         </div>
 
-        <div class="row2 mb10">
-          <label>nhãn hàng</label> <br>
+        <div style="width: 200px;" class="row2 mb10">
+          <label>Nhãn hàng</label> <br>
           <select name="id_brands" required>
             <option value="1">Nhãn hàng 1</option>
             <option value="2">Nhãn hàng 2</option>

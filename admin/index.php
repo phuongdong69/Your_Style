@@ -6,7 +6,12 @@ include "layout/box_left.php";
 include "../Model/pdo.php";
 include "../Model/product.php";
 include "../Model/category.php";
-include "../Model/galery.php";
+
+include "../Model/size.php";
+
+include "../Model/color.php";
+
+
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
             //Danh sách sản phẩm
@@ -18,7 +23,6 @@ if (isset($_GET['act'])) {
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $name = $_POST['name'];
                 $description = $_POST['description'];
-                $price = $_POST['price'];
                 $priceSale = $_POST['priceSale'];
                 $quantity = $_POST['quantity'];
                 $status = $_POST['status'];
@@ -26,7 +30,7 @@ if (isset($_GET['act'])) {
                 $update_at = $_POST['update_at'];
                 $id_cate = $_POST['id_cate'];
                 $id_brands = $_POST['id_brands'];
-                insert_product($name, $description, $price, $priceSale, $quantity, $status, $create_at, $update_at, $id_cate, $id_brands);
+                insert_product($name, $description, $priceSale, $quantity, $status, $create_at, $update_at, $id_cate, $id_brands);
                 $thongbao = "Thêm thành công";
             }
             $listdanhmuc = load_category();
@@ -41,14 +45,13 @@ if (isset($_GET['act'])) {
                 $id = $_POST['id'];
                 $name = $_POST['name'];
                 $description = $_POST['description'];
-                $price = $_POST['price'];
                 $priceSale = $_POST['priceSale'];
                 $quantity = $_POST['quantity'];
                 $status = $_POST['status'];
                 $update_at = $_POST['update_at'];
                 $id_cate = $_POST['id_cate'];
                 $id_brands = $_POST['id_brands'];
-                update_product($name, $description, $price, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
+                update_product($name, $description, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
                 $thongbao = "Cập nhật thành công";
             }
             $listdanhmuc = load_category();
@@ -69,6 +72,7 @@ if (isset($_GET['act'])) {
             }
             include "./view/danhmuc/adddm.php";
             break;
+
         case 'updatedm':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $danhmuc = load_one_category($_GET['id']);
@@ -86,6 +90,9 @@ if (isset($_GET['act'])) {
             $listdanhmuc = load_category();
             include "./view/danhmuc/updatedm.php";
             break;
+
+            
+    
             // case 'showimg':
             // if(isset($_GET['id']) && $_GET['id'] > 0){
             //     $listproduct=load_one_product($id);
@@ -160,7 +167,7 @@ if (isset($_GET['act'])) {
 
             include "./view/galery/update.php";
             break;
-        case 'deletesp':
+        case 'deleteimg':
             if (isset($_GET["id"]) & $_GET["id"] > 0) {
                 // echo "thực hiện xoá" . $_GET["id"];
                 delete_galery($_GET["id"]);
@@ -172,9 +179,83 @@ if (isset($_GET['act'])) {
             include "./view/sanpham/listsp.php";
 
             break;
+
+       
+       
+
+
+            // color
+        case 'listcl':
+            $listcolor = load_color();
+            include "./view/color/listcl.php";
+            break;
+        case 'addcl':
+            if (isset($_POST['themcolor']) && ($_POST['themcolor'])) {
+                $name = $_POST['name'];
+                insert_color($name);
+                $thongbao = "Thêm thành công";
+            }
+            include "./view/color/addcl.php";
+            break;
+        case 'updatecl':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $color = load_one_color($_GET['id']);
+                extract($color);
+            }
+
+            if (isset($_POST['capnhatcolor'])) {
+                $name = trim($_POST['name']);
+                update_color($name, $_GET['id']);
+                $thongbao = "Cập nhật thành công";
+                $color = load_one_color($_GET['id']);
+                extract($color);
+            }
+            $listcolor = load_color();
+            include "./view/color/updatecl.php";
+            break;
+
+            if (isset($_POST['capnhatdanhmuc'])) {
+                $name = trim($_POST['name']);
+                $status = trim($_POST['status']);
+                update_category($name, $status, $_GET['id']);
+                $thongbao = "Cập nhật thành công";
+                $danhmuc = load_one_category($_GET['id']);
+                extract($danhmuc);
+            }
+            $listdanhmuc = load_category();
+            include "./view/danhmuc/updatedm.php";
+            break;
+            // Size
+        case 'listsz':
+            $listsize = load_size();
+            include "./view/size/listsz.php";
+            break;
+        case 'addsz':
+            if (isset($_POST['themsize']) && ($_POST['themsize'])) {
+                $sizeValue = $_POST['sizeValue'];
+                insert_size($sizeValue);
+                $thongbao = "Thêm thành công";
+            }
+            include "./view/size/addsz.php";
+            break;
+        case 'updatesz':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $size = load_one_size($_GET['id']);
+                extract($size);
+            }
+
+            if (isset($_POST['capnhatsize'])) {
+                $sizeValue = trim($_POST['sizeValue']);
+                update_size($_GET['id'], $sizeValue);
+                $thongbao = "Cập nhật thành công";
+                $size = load_one_size($_GET['id']);
+                extract($size);
+            }
+            $listsize = load_size();
+            include "./view/size/updatesz.php";
+            break;
     }
 } else {
     include "layout/home.php";
-    //ố dè
 }
 include "layout/footer.php";
