@@ -16,21 +16,23 @@
                         <?php
                         foreach ($listanh as $gallery) {
                             extract($gallery);
-                            $imgPath = "../img/" . $image;
-                            $id_product = $id;
-                            $updateimg = "?act=updateimg&id_product=" . $id_product;
-                            $addimg_pro = "?act=addimg&id_product=" . $id_product;
-                            
+                            $imgPath = "./img/" . $image;
+                            $updateimg = "?act=updateimg&id=" . $id;
+                            $addimg_pro = "?act=addimg";
+                            $xoaUrl = "?act=deletesp&id=" . $id
                         ?>
                             <tr>
                                 <td><?= $id ?></td>
                                 <td>
-                                    <img src="<?= $imgPath ?>" alt="" width="100px" height="100px">
+                                    <img src="<?= $imgPath ?>" alt="" width="100px" height="100px"><?= $imgPath ?>
                                 </td>
                                 <td><?= $id_product ?></td>
                                 <td>
                                     <a href="<?= $updateimg ?>">
                                         <input type="button" value="Sửa">
+                                    </a>
+                                    <a onclick="return confirm('Bạn có muốn xoá không?')" href="<?= $xoaUrl ?>">
+                                        <input type="button" value="Xóa">
                                     </a>
                                 </td>
                             </tr>
@@ -40,6 +42,7 @@
                 <div class="row mb10">
                     <a href="<?= $addimg_pro ?>"><input class="mr20" type="button" value="Thêm ảnh"></a>
                     <a href="index.php?act=listsp"><input class="mr20" type="button" value="Danh sách sản phẩm"></a>
+
                 </div>
             </form>
         </div>

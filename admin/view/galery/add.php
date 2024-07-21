@@ -13,7 +13,7 @@
            <div class="row2 mb10">
           <label> TÊN SẢN PHẨM </label> <br>
           <select name="id_product" id="">
-              <?php foreach ($pro as $listpro) :
+              <?php foreach ($listproduct as $listpro) :
                 extract ($listpro);
                 
                 ?>

@@ -5,12 +5,33 @@
         VALUES (NULL, '$image', '$id_product');";
         return pdo_execute($sql);
     }
-    function load_galery(){
-        $sql = "SELECT * FROM `galery`";"SELECT `galery`.`id`,`galery`.`image`,`product`.`name` FROM `galery`
-        join `product` on `product`.`id_galery` = `galery`.`id`";
+    function load_galery($id_product){
+        // // $sql ="SELECT `galery`.`id`,`galery`.`image`,`galery`.`id_product` FROM `galery`
+        // -- join `product` on `product`.`id` = `galery`.`id` 
+        $sql ="SELECT * FROM `galery`
+        where `galery`.`id_product` = $id_product;";
         $listanh = pdo_query($sql);
         return $listanh;
     }
+    
+        function load_one_galery($id){
+            $sql = "SELECT * FROM `galery` where `id` =". $id;
+            return pdo_query_one($sql);
+        }
+    
+    function update_galery($image,$id){
+        $sql= "UPDATE `galery` SET `image` = '$image' where `id`= $id";
+        return pdo_execute($sql);
+    }
+    function delete_galery($id){
+        $sql = "DELETE FROM `galery`
+        WHERE `galery`.`id` = ".$id;
+        return pdo_execute($sql);
+    }
+    // function update_category($name, $status, $id){
+    //     $sql = "UPDATE `category` SET `name` = '$name', `status` = '$status' WHERE `id` = $id;";
+    //     return pdo_execute($sql);
+    // }
     // function load_gallery($id_product) {
     //     $sql = "SELECT `gallery`.`id`, `gallery`.`image_url`, `product`.`name` 
     //             FROM `gallery`
