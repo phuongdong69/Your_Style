@@ -14,7 +14,13 @@ include "../Model/color.php";
 
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
-            //Danh sách sản phẩm
+
+        case 'home':
+            include "./layout/home.php";
+            break;
+        //Danh sách sản phẩm
+        
+
         case 'listsp': //done show
             $listSanPham = load_product("", 0);
             include "./view/sanpham/listsp.php";
@@ -185,6 +191,9 @@ if (isset($_GET['act'])) {
 
 
             // color
+
+              
+
         case 'listcl':
             $listcolor = load_color();
             include "./view/color/listcl.php";
@@ -214,17 +223,7 @@ if (isset($_GET['act'])) {
             include "./view/color/updatecl.php";
             break;
 
-            if (isset($_POST['capnhatdanhmuc'])) {
-                $name = trim($_POST['name']);
-                $status = trim($_POST['status']);
-                update_category($name, $status, $_GET['id']);
-                $thongbao = "Cập nhật thành công";
-                $danhmuc = load_one_category($_GET['id']);
-                extract($danhmuc);
-            }
-            $listdanhmuc = load_category();
-            include "./view/danhmuc/updatedm.php";
-            break;
+            
             // Size
         case 'listsz':
             $listsize = load_size();
