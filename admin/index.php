@@ -6,6 +6,7 @@ include "layout/box_left.php";
 include "../Model/pdo.php"; 
 include "../Model/product.php";
 include "../Model/category.php";
+include "../Model/size.php";
 
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
@@ -86,7 +87,53 @@ if (isset($_GET['act'])) {
                 $listdanhmuc = load_category();
                 include "./view/danhmuc/updatedm.php";
                 break;
+            case 'addimg':
+                if (isset($_GET['id']) && $_GET['id'] > 0){
+                    $danhmuc = load_one_category($_GET['id']);
+                    extract($danhmuc);
+                }
             
+                if (isset($_POST['capnhatdanhmuc'])){
+                    $name = trim($_POST['name']);
+                    $status = trim($_POST['status']);
+                    update_category($name, $status, $_GET['id']);
+                    $thongbao = "Cập nhật thành công";
+                    $danhmuc = load_one_category($_GET['id']);
+                    extract($danhmuc);
+                }
+                $listdanhmuc = load_category();
+                include "./view/danhmuc/updatedm.php";
+                break;
+            // Size
+            case 'listsz': 
+                $listsize = load_size(); 
+                include "./view/size/listsz.php";
+                break;
+            case 'addsz':
+                    if (isset($_POST['themsize']) && ($_POST['themsize'])) {
+                        $sizeValue = $_POST['sizeValue'];
+                        insert_size($sizeValue);
+                        $thongbao = "Thêm thành công";
+                    } 
+                    include "./view/size/addsz.php";
+                    break;
+            case 'updatesz':
+                if (isset($_GET['id']) && $_GET['id'] > 0){
+                    $size = load_one_size($_GET['id']);
+                    extract($size);
+                }
+            
+                if (isset($_POST['capnhatsize'])){
+                    $sizeValue = trim($_POST['sizeValue']);
+                    update_size($_GET['id'], $sizeValue);
+                    $thongbao = "Cập nhật thành công";
+                    $size = load_one_size($_GET['id']);
+                    extract($size);
+                }
+                $listsize = load_size();
+                include "./view/size/updatesz.php";
+                break;
+
     }
 } else {
     include "layout/home.php";

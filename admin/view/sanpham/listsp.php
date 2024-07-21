@@ -42,6 +42,7 @@
                                 <a href="<?= $suaUrl ?>">
                                 <input type="button" value="Sửa">
                                 </a>
+                               
                             </td>
                         </tr>
                         <?php } ?>
