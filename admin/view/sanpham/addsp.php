@@ -59,12 +59,8 @@
         <div class="row2 mb10">
           <label>danh mục</label> <br>
           <select name="id_cate" required>
-            
-            <?php 
-            foreach ($listdanhmuc as $category) :
-            extract ($category);?>
-            <option value="<?= $id?>"><?= $name?></option>
-            <?php endforeach;?>
+            <option value="1">áo thun</option>
+            <option value="2">áo khoác</option>
           </select>
         </div>
 
