@@ -13,8 +13,13 @@
         case "mua": //Mua Ngay
             include "view/mua.php";
             break;
-        case "pttt": //Mua Ngay
-            include "view/pttt.php";
+
+        case "ptttatm": //Mua Ngay
+            include "view/ptttatm.php";
+            break;
+        case "ptttmm": //Mua Ngay
+            include "view/ptttmm.php";
+
             break;
         case "details": //Chi Tiết SP
             include "view/details.php";
