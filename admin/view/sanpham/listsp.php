@@ -25,6 +25,8 @@
                         foreach ($listSanPham as $product) {
                             extract($product);
                             $suaUrl = "?act=updatesp&id=".$id;
+                            $img = "?act=showimg&id_product=".$id;
+                            $id_product = $id;
                         ?>
                         <tr>
                             <td><?= $id ?></td>
@@ -41,6 +43,9 @@
                             <td>
                                 <a href="<?= $suaUrl ?>">
                                 <input type="button" value="Sửa">
+                                </a>
+                                <a href="<?= $img ?>">
+                                <input type="button" value="img">
                                 </a>
                             </td>
                         </tr>
