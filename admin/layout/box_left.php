@@ -7,6 +7,8 @@
             <li><a href="index.php?act=dashboard"><i class="fas fa-tachometer"></i> Dashboard</a></li><hr>
             <li><a href="index.php?act=listsp"><i class="fas fa-box"></i> Danh sách Sản Phẩm</a></li><hr>
             <li><a href="index.php?act=listdm"><i class="fas fa-tags"></i> Danh Mục Sản Phẩm</a></li><hr>
+            <li><a href="index.php?act=listpd"><i class="fas fa-tags"></i> Chi Tiết Sản Phẩm</a></li><hr>
+            <li><a href="index.php?act=listcl"><i class="fas fa-tags"></i> COLOR</a></li><hr>
             <li><a href="index.php?act=comments"><i class="fas fa-comments"></i> Bình Luận</a></li><hr>
             <li><a href="index.php?act=customers"><i class="fas fa-users"></i> Khách Hàng</a></li><hr>
         </ul>
