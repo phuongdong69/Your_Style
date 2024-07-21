@@ -44,9 +44,11 @@
                                 <a href="<?= $suaUrl ?>">
                                 <input type="button" value="Sửa">
                                 </a>
+
                                 <a href="<?= $img ?>">
                                 <input type="button" value="img">
                                 </a>
+
                             </td>
                         </tr>
                         <?php } ?>
