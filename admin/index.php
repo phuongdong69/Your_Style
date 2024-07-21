@@ -90,6 +90,7 @@ if (isset($_GET['act'])) {
     }
 } else {
     include "layout/home.php";
+    //ố dè
 }
 include "layout/footer.php";
 ?>
