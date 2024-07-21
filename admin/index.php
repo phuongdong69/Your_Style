@@ -60,15 +60,26 @@ if (isset($_GET['act'])) {
             break;
         case 'adddm':
             if (isset($_POST['themdanhmuc']) && ($_POST['themdanhmuc'])) {
-                $id_cate = $_POST['id_cate'];
-                $name_cate = $_POST['name_cate'];
-                $status_cate = $_POST['status_cate'];
-                insert_category($id_cate,$name_cate,$status_cate);
+                $name= $_POST['name'];
+                $status = $_POST['status'];
+                insert_category($name,$status);
                 $thongbao = "Thêm thành công";
             } 
             include "./view/danhmuc/adddm.php";
             break;
         case 'updatedm':
+            if (isset($_GET['id']) && $_GET['id'] > 0){
+                $danhmuc = load_one_category($_GET['id']);
+                extract($danhmuc);
+              
+            }
+            
+            if (isset($_POST['capnhatdanhmuc'])){
+                $name = trim($_POST['name']);
+                $status = trim($_POST['status']);
+                update_category($name,$status,$_GET['id']);
+                $thongbao = "Cập nhật thành công";
+            }
             include "./view/danhmuc/updatedm.php";
             break;
         
