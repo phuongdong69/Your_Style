@@ -7,7 +7,7 @@
       <form action="index.php?act=addcl" method="POST" enctype="multipart/form-data">
         <div class="row2 mb10">
           <label> Màu </label> <br>
-          <input type="text" name="name" placeholder="nhập vào tên danh mục" required>
+          <input type="text" name="name" placeholder="nhập vào tên color" required>
         </div>
         <input class="mr20" type="submit" name="themcolor" value="THÊM MỚI">
         <a href="index.php?act=listcl"><input  class="mr20" type="button" value="DANH SÁCH"></a>
