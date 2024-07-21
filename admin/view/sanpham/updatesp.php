@@ -18,11 +18,6 @@
         </div>
 
         <div class="row2 mb10">
-          <label>Giá gốc</label> <br>
-          <input type="number" name="price" placeholder="nhập giá tiền" value="<?= $price ?>" required>
-        </div>
-
-        <div class="row2 mb10">
           <label>Giá sale</label> <br>
           <input type="number" name="priceSale" placeholder="nhập giá sale" value="<?= $priceSale ?>" required>
         </div>

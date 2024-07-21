@@ -11,7 +11,6 @@
                             <th>Mã</th>
                             <th>Tên</th>
                             <th>Mô tả</th>
-                            <th>Giá gốc</th>
                             <th>Giá sale</th>
                             <th>Số lượng</th>
                             <th>Trạng thái</th>
@@ -32,7 +31,6 @@
                             <td><?= $id ?></td>
                             <td><?= $name ?></td>
                             <td><?= $description ?></td>
-                            <td><?= $price ?></td>
                             <td><?= $priceSale ?></td>
                             <td><?= $quantity ?></td>
                             <td><?= $status ?></td>
