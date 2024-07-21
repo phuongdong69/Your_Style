@@ -53,10 +53,8 @@
                     Lincoln Corner Unit Products
                   </h5>
                   <p>
-                    <img alt="" src="images/star.png">
-                    <a class="review_num" href="#">
-                      02 Review(s)
-                    </a>
+                    
+                    
                   </p>
                   <p>
                     Availability: 

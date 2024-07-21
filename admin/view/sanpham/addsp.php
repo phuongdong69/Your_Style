@@ -1,54 +1,86 @@
 <article>
-<div class="row2">
-         <div class="row2 font_title">
-          <h1>THÊM MỚI SẢN PHẨM</h1>
-         </div>
-         <div class="row2 form_content ">
-          <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
-           <div  class="row2 mb10 form_content_container">
-           <label> Danh Mục </label> <br>
-            <select style="margin-right: 1250px;" class="sl1" name="">
+  <div class="row2">
+    <div class="row2 font_title">
+      <h1>THÊM MỚI SẢN PHẨM</h1>
+    </div>
+    <div class="row2 form_content ">
+      <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
+            <!-- <div  class="row2 mb10 form_content_container">
+            <label> Danh Mục </label> <br>
+              <select style="margin-right: 1250px;" class="sl1" name="">
+                  
+                  <option value=""></option>
+              </select>
+            </div> -->
 
-
-              <!-- code php show all danh muc tu dtb -->
-
-
-                <option value=""></option>
-            </select>
-           </div>
-           <div class="row2 mb10">
-            <label>Tên Sản Phẩm </label> <br>
-            <input type="text" name="tensp" placeholder="Nhập tên sản phẩm">
-           </div>
-
-           <div class="row2 mb10">
-            <label>Hình Ảnh </label> <br>
-            <input  type="file" name="hinh" >
-           </div>
-
-
-           <div class="row2 mb10">
-            <label>Giá Sản Phẩm </label> <br>
-            <input type="text" name="giasp" placeholder="Nhập giá sản phẩm">
-           </div>
-           
-           <div class="row2 mb10">
-            <label>Mô Tả Sản Phẩm </label> <br>
-            <textarea style="float:left;" name="mota" id="" placeholder="Mô tả sản phẩm"></textarea>
-           </div>
-           <div class="row mb10 ">
-         <input class="mr20" type="submit" name="themmoi" value="THÊM MỚI">
-
-         <a href="index.php?act=listsp"><input  class="mr20" type="button" value="DANH SÁCH"></a>
-           </div>
-    
-           <!-- code thong bao da nhap thanh cong -->
-
-          </form>
-</body>
-
-         </div>
+        <div class="row2 mb10">
+          <label> TÊN SẢN PHẨM </label> <br>
+          <input type="text" name="name" placeholder="nhập vào tên sản phẩm" required>
         </div>
-   
-    
+            
+        <div class="row2 mb10">
+          <label>Mô tả</label> <br>
+          <input type="text" name="description" placeholder="nhập vào mô tả sản phẩm" required>
+        </div>
+
+        <div class="row2 mb10">
+          <label>Giá gốc </label> <br>
+          <input type="number" name="price" placeholder="nhập giá tiền" required>
+        </div>
+
+        <div class="row2 mb10">
+          <label>Giá sale </label> <br>
+          <input type="number" name="priceSale" placeholder="nhập giá sale" required>
+        </div>
+
+        <div class="row2 mb10">
+          <label>Số lượng</label> <br>
+          <input type="number" name="quantity" placeholder="nhập số lượng" required>
+        </div>
+
+        <div class="row2 mb10">
+          <label>Trạng thái</label> <br>
+          <select name="status" required>
+            <option value="còn hàng">Còn hàng</option>
+            <option value="hết hàng">Hết hàng</option>
+          </select>
+        </div>
+
+        <div style="width: 200px;" class="row2 mb10">
+          <label>Tạo lúc</label> <br>
+          <input type="datetime-local" name="create_at" placeholder="Tạo sản phẩm lúc">
+        </div>
+
+        <div style="width: 200px;" class="row2 mb10">
+          <label>Cập nhật lúc</label> <br>
+          <input type="datetime-local" name="update_at" placeholder="Tạo sản phẩm lúc">
+        </div>
+
+        <div style="width: 200px;" class="row2 mb10">
+          <label>Danh mục</label> <br>
+          <select name="id_cate" required>
+            <option value="1">danh mục 1</option>
+            <option value="2">danh mục 2</option>
+          </select>
+        </div>
+
+        <div style="width: 200px;" class="row2 mb10">
+          <label>Nhãn hàng</label> <br>
+          <select name="id_brands" required>
+            <option value="1">Nhãn hàng 1</option>
+            <option value="2">Nhãn hàng 2</option>
+          </select>
+        </div>
+
+        <input class="mr20" type="submit" name="themmoi" value="THÊM MỚI">
+        <a href="index.php?act=listsp"><input  class="mr20" type="button" value="DANH SÁCH"></a>
+
+        <?php
+          if(isset($thongbao) &&($thongbao != "")){
+            echo $thongbao;
+          } 
+        ?>
+      </form>
+    </div>
+  </div>
 </article>

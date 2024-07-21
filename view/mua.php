@@ -105,8 +105,8 @@
                                  <div class="payment-method">
                                   <span>Phương thức thanh toán</span>
                                   <div class="payment-links">
-                                      <a href="https://momo.vn" target="_blank">Thanh toán qua MoMo</a>
-                                      <a href="index.php?act=pttt">Thanh toán qua ATM</a>
+                                      <a href="index.php?act=ptttmm">Thanh toán qua MoMo</a>
+                                      <a href="index.php?act=ptttatm">Thanh toán qua ATM</a>
                                       <!-- <a href="index.php?act=pttt" target="_blank">Thanh toán qua ATM</a> -->
                                   </div>
                               </div>
