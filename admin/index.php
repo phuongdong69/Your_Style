@@ -132,7 +132,10 @@ if (isset($_GET['act'])) {
                         include "./view/color/updatecl.php";
                         break;
 
+<<<<<<< HEAD
             
+=======
+>>>>>>> efa7db58e1092f52a39b3bae25ac26c25c08659a
                 if (isset($_POST['capnhatdanhmuc'])){
                     $name = trim($_POST['name']);
                     $status = trim($_POST['status']);
