@@ -20,3 +20,4 @@ function load_one_category($id){
     return pdo_query_one($sql);
 }
 ?>
+
