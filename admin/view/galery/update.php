@@ -10,8 +10,8 @@
             <?php
                 $img = $image;
             ?>
-            <input type="file" name="image" value = "<?= ($img == $image) ? 'selected' : '' ?>" >
-            <? var_dump($image)?>
+            <input type="file" name="image" >
+            
             <?php
               $hinhPath = "./img/".$image;
               if(is_file($hinhPath)){
