@@ -15,7 +15,15 @@ include "../Model/brand.php";
 
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
+
             //Danh sách sản phẩm
+        case 'home':
+            include "./layout/home.php";
+            break;
+        //Danh sách sản phẩm
+        
+
+
         case 'listsp': //done show
             $listSanPham = load_product("", 0);
             include "./view/sanpham/listsp.php";
@@ -91,20 +99,6 @@ if (isset($_GET['act'])) {
             $listdanhmuc = load_category();
             include "./view/danhmuc/updatedm.php";
             break;
-
-            
-    
-            // case 'showimg':
-            // if(isset($_GET['id']) && $_GET['id'] > 0){
-            //     $listproduct=load_one_product($id);
-            //     extract($listproduct);
-            //     $id_product = $id;
-            // }
-
-            //     $listanh = load_galery($id_product);
-
-            //     include "./view/galery/showimg.php";
-            //     break;
         case 'showimg':
             if (isset($_GET['id_product']) && $_GET['id_product'] > 0) {
                 // $danhmuc = load_one_category($_GET['id_product']);
@@ -186,93 +180,66 @@ if (isset($_GET['act'])) {
 
 
             // color
-            case 'listcl':
-                $listcolor = load_color();
-                include "./view/color/listcl.php";
-                break;
-                case 'addcl':
-                    if (isset($_POST['themcolor']) && ($_POST['themcolor'])) {
-                        $name = $_POST['name'];
-                        insert_color($name);
-                        $thongbao = "Thêm thành công";
-                    } 
-                    include "./view/color/addcl.php";
-                    break;
-                    case 'updatecl':
-                        if (isset($_GET['id']) && $_GET['id'] > 0){
-                            $color = load_one_color($_GET['id']);
-                            extract($color);
-                        }
-                    
-                        if (isset($_POST['capnhatcolor'])){
-                            $name = trim($_POST['name']);
-                            update_color($name, $_GET['id']);
-                            $thongbao = "Cập nhật thành công";
-                            $color = load_one_color($_GET['id']);
-                            extract($color);
-                        }
-                        $listcolor = load_color();
-                        include "./view/color/updatecl.php";
-                        break;
-            // Size
-            case 'listsz': 
-                $listsize = load_size(); 
-                include "./view/size/listsz.php";
-                break;
-            case 'addsz':
-                    if (isset($_POST['themsize']) && ($_POST['themsize'])) {
-                        $sizeValue = $_POST['sizeValue'];
-                        insert_size($sizeValue);
-                        $thongbao = "Thêm thành công";
-                    } 
-                    include "./view/size/addsz.php";
-                    break;
-            case 'updatesz':
-                if (isset($_GET['id']) && $_GET['id'] > 0){
-                    $size = load_one_size($_GET['id']);
-                    extract($size);
-                }
-            
-                if (isset($_POST['capnhatsize'])){
-                    $sizeValue = trim($_POST['sizeValue']);
-                    update_size($_GET['id'], $sizeValue);
-                    $thongbao = "Cập nhật thành công";
-                    $size = load_one_size($_GET['id']);
-                    extract($size);
-                }
-                $listsize = load_size();
-                include "./view/size/updatesz.php";
-                break;
-                // color
-            case 'listbr':
-                $listbrands = load_brands ();
-                include "./view/brands/listbr.php";
-                break;
-                case 'addbr':
-                    if (isset($_POST['thembrand']) && ($_POST['thembrand'])) {
-                        $name = $_POST['name'];
-                        insert_brands($name);
-                        $thongbao = "Thêm thành công";
-                    } 
-                    include "./view/brands/addbr.php";
-                    break;
-                    case 'updatebr':
-                        if (isset($_GET['id']) && $_GET['id'] > 0){
-                            $brands = load_one_brands($_GET['id']);
-                            extract($brands);
-                        }
-                    
-                        if (isset($_POST['capnhatbrand'])){
-                            $name = trim($_POST['name']);
-                            update_brands($name, $_GET['id']);
-                            $thongbao = "Cập nhật thành công";
-                            $brands = load_one_brands($_GET['id']);
-                            extract($brands);
-                        }
-                        $listbrands = load_brands();
-                        include "./view/brands/updatebr.php";
-                        break;
+        case 'listcl':
+            $listcolor = load_color();
+            include "./view/color/listcl.php";
+            break;
+        case 'addcl':
+            if (isset($_POST['themcolor']) && ($_POST['themcolor'])) {
+                $name = $_POST['name'];
+                insert_color($name);
+                $thongbao = "Thêm thành công";
+            }
+            include "./view/color/addcl.php";
+            break;
+        case 'updatecl':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $color = load_one_color($_GET['id']);
+                extract($color);
+            }
 
+            if (isset($_POST['capnhatcolor'])) {
+                $name = trim($_POST['name']);
+                update_color($name, $_GET['id']);
+                $thongbao = "Cập nhật thành công";
+                $color = load_one_color($_GET['id']);
+                extract($color);
+            }
+            $listcolor = load_color();
+            include "./view/color/updatecl.php";
+            break;
+
+            
+            // Size
+        case 'listsz':
+            $listsize = load_size();
+            include "./view/size/listsz.php";
+            break;
+        case 'addsz':
+            if (isset($_POST['themsize']) && ($_POST['themsize'])) {
+                $sizeValue = $_POST['sizeValue'];
+                insert_size($sizeValue);
+                $thongbao = "Thêm thành công";
+            }
+            include "./view/size/addsz.php";
+            break;
+        case 'updatesz':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $size = load_one_size($_GET['id']);
+                extract($size);
+            }
+
+
+            if (isset($_POST['capnhatsize'])) {
+                $sizeValue = trim($_POST['sizeValue']);
+                update_size($_GET['id'], $sizeValue);
+                $thongbao = "Cập nhật thành công";
+                $size = load_one_size($_GET['id']);
+                extract($size);
+            }
+            $listsize = load_size();
+            include "./view/size/updatesz.php";
+            break;
     }
 } else {
     include "layout/home.php";
