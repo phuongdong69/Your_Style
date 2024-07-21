@@ -19,9 +19,9 @@
                             $suadm = "?act=updatedm&id=".$id;
                         ?>
                         <tr>
-                            <td><?= $id_cate?></td>
-                            <td><?= $name_cate ?></td>
-                            <td><?= $status_cate ?></td>
+                            <td><?= $id?></td>
+                            <td><?= $name ?></td>
+                            <td><?= $status ?></td>
                             <td>
                                 <a href="<?= $suadm ?>">
                                 <input type="button" value="Sửa">

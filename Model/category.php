@@ -5,8 +5,18 @@ function load_category(){
     return $listcategory;
 }
 
-function insert_category($id_cate,$name_cate,$status_cate){
-    $sql = "INSERT INTO `category` (`id_cate`, `name_cate`,`status_cate`) VALUES ('$id_cate','$name_cate','$status_cate');";
+function insert_category($name,$status){
+    $sql = "INSERT INTO `category` ( `id`,`name`,`status`) 
+    VALUES (NULL, '$name', '$status');";
     return pdo_execute($sql);
-} 
+}
+function update_category($name, $status, $id){
+    $sql = "UPDATE `category` SET `name` = '$name', `status` = '$status' WHERE `id` = $id;";
+    return pdo_execute($sql);
+}
+
+function load_one_category($id){
+    $sql = "SELECT * FROM `category` WHERE `id`=$id;";
+    return pdo_query_one($sql);
+}
 ?>
