@@ -19,7 +19,7 @@
                             <th>Cập nhật lúc</th>
                             <th>Danh mục</th>
                             <th>Brand</th>
-                            <th>Sửa</th>
+                            <th>Chức năng</th>
                         </tr>
                         <?php
                         foreach ($listSanPham as $product) {
