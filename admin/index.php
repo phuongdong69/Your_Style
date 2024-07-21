@@ -29,6 +29,7 @@ if (isset($_GET['act'])) {
                 insert_product($name, $description, $price, $priceSale, $quantity, $status, $create_at, $update_at , $id_cate, $id_brands);
             $thongbao="Thêm thành công";
             }
+            $listdanhmuc = load_category();
             include "./view/sanpham/addsp.php";
             break;
         case 'updatesp': //sửa done
@@ -50,42 +51,42 @@ if (isset($_GET['act'])) {
                     update_product($name, $description, $price, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
                     $thongbao = "Cập nhật thành công";
                 }
+                $listdanhmuc = load_category();
         include "./view/sanpham/updatesp.php";
         break;
 
         //Danh mục sản phẩm
         case 'listdm': //done danh mục
-            $listcategory = load_category("", 0); // Gọi hàm load_category()
+            $listcategory = load_category("", 0); 
             include "./view/danhmuc/listdm.php";
             break;
         case 'adddm':
             if (isset($_POST['themdanhmuc']) && ($_POST['themdanhmuc'])) {
-                $name= $_POST['name'];
+                $name = $_POST['name'];
                 $status = $_POST['status'];
                 insert_category($name,$status);
                 $thongbao = "Thêm thành công";
             } 
             include "./view/danhmuc/adddm.php";
             break;
-        case 'updatedm':
-            if (isset($_GET['id']) && $_GET['id'] > 0){
-                $danhmuc = load_one_category($_GET['id']);
-                extract($danhmuc);
-              
-            }
+            case 'updatedm':
+                if (isset($_GET['id']) && $_GET['id'] > 0){
+                    $danhmuc = load_one_category($_GET['id']);
+                    extract($danhmuc);
+                }
             
-            if (isset($_POST['capnhatdanhmuc'])){
-                $name = trim($_POST['name']);
-                $status = trim($_POST['status']);
-                update_category($name,$status,$_GET['id']);
-                $thongbao = "Cập nhật thành công";
-            }
-            include "./view/danhmuc/updatedm.php";
-            break;
-        
-        default:
-            include "./layout/home.php";
-            break;
+                if (isset($_POST['capnhatdanhmuc'])){
+                    $name = trim($_POST['name']);
+                    $status = trim($_POST['status']);
+                    update_category($name, $status, $_GET['id']);
+                    $thongbao = "Cập nhật thành công";
+                    $danhmuc = load_one_category($_GET['id']);
+                    extract($danhmuc);
+                }
+                $listdanhmuc = load_category();
+                include "./view/danhmuc/updatedm.php";
+                break;
+            
     }
 } else {
     include "layout/home.php";
