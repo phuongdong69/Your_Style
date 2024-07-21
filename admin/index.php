@@ -132,21 +132,7 @@ if (isset($_GET['act'])) {
                         include "./view/color/updatecl.php";
                         break;
 
-<<<<<<< HEAD
-            
-=======
->>>>>>> efa7db58e1092f52a39b3bae25ac26c25c08659a
-                if (isset($_POST['capnhatdanhmuc'])){
-                    $name = trim($_POST['name']);
-                    $status = trim($_POST['status']);
-                    update_category($name, $status, $_GET['id']);
-                    $thongbao = "Cập nhật thành công";
-                    $danhmuc = load_one_category($_GET['id']);
-                    extract($danhmuc);
-                }
-                $listdanhmuc = load_category();
-                include "./view/danhmuc/updatedm.php";
-                break;
+
             // Size
             case 'listsz': 
                 $listsize = load_size(); 
