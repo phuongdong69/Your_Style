@@ -6,7 +6,11 @@ include "layout/box_left.php";
 include "../Model/pdo.php"; 
 include "../Model/product.php";
 include "../Model/category.php";
+
 include "../Model/size.php";
+
+include "../Model/color.php";
+
 
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
@@ -87,12 +91,44 @@ if (isset($_GET['act'])) {
                 $listdanhmuc = load_category();
                 include "./view/danhmuc/updatedm.php";
                 break;
+
             case 'addimg':
                 if (isset($_GET['id']) && $_GET['id'] > 0){
                     $danhmuc = load_one_category($_GET['id']);
                     extract($danhmuc);
                 }
-            
+
+
+            // color
+            case 'listcl':
+                $listcolor = load_color();
+                include "./view/color/listcl.php";
+                break;
+                case 'addcl':
+                    if (isset($_POST['themcolor']) && ($_POST['themcolor'])) {
+                        $name = $_POST['name'];
+                        insert_color($name);
+                        $thongbao = "Thêm thành công";
+                    } 
+                    include "./view/color/addcl.php";
+                    break;
+                    case 'updatecl':
+                        if (isset($_GET['id']) && $_GET['id'] > 0){
+                            $color = load_one_color($_GET['id']);
+                            extract($color);
+                        }
+                    
+                        if (isset($_POST['capnhatcolor'])){
+                            $name = trim($_POST['name']);
+                            update_color($name, $_GET['id']);
+                            $thongbao = "Cập nhật thành công";
+                            $color = load_one_color($_GET['id']);
+                            extract($color);
+                        }
+                        $listcolor = load_color();
+                        include "./view/color/updatecl.php";
+                        break;
+
                 if (isset($_POST['capnhatdanhmuc'])){
                     $name = trim($_POST['name']);
                     $status = trim($_POST['status']);
@@ -137,7 +173,6 @@ if (isset($_GET['act'])) {
     }
 } else {
     include "layout/home.php";
-    //ố dè
 }
 include "layout/footer.php";
 ?>

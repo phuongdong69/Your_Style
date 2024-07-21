@@ -7,6 +7,7 @@ function load_product(){
     return $listsanpham;
 }
 
+
 function load_one_product($id){
     $sql = "SELECT * FROM `product` where id =". $id;
     return pdo_query_one($sql);
