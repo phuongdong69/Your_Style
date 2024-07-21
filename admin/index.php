@@ -23,7 +23,6 @@ if (isset($_GET['act'])) {
             if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
                 $name = $_POST['name'];
                 $description = $_POST['description'];
-                $price = $_POST['price'];
                 $priceSale = $_POST['priceSale'];
                 $quantity = $_POST['quantity'];
                 $status = $_POST['status'];
@@ -31,7 +30,7 @@ if (isset($_GET['act'])) {
                 $update_at = $_POST['update_at'];
                 $id_cate = $_POST['id_cate'];
                 $id_brands = $_POST['id_brands'];
-                insert_product($name, $description, $price, $priceSale, $quantity, $status, $create_at, $update_at , $id_cate, $id_brands);
+                insert_product($name, $description, $priceSale, $quantity, $status, $create_at, $update_at , $id_cate, $id_brands);
             $thongbao="Thêm thành công";
             }
             $listdanhmuc = load_category();
@@ -46,14 +45,13 @@ if (isset($_GET['act'])) {
                     $id = $_POST['id'];
                     $name = $_POST['name'];
                     $description = $_POST['description'];
-                    $price = $_POST['price'];
                     $priceSale = $_POST['priceSale'];
                     $quantity = $_POST['quantity'];
                     $status = $_POST['status'];
                     $update_at = $_POST['update_at'];
                     $id_cate = $_POST['id_cate'];
                     $id_brands = $_POST['id_brands'];
-                    update_product($name, $description, $price, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
+                    update_product($name, $description, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
                     $thongbao = "Cập nhật thành công";
                 }
                 $listdanhmuc = load_category();
