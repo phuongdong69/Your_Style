@@ -1,8 +1,11 @@
 <?php
 
 function load_product(){
-    $sql = "SELECT * FROM `product` "; "SELECT `product`.`id`,`product`.`id_cate`,`category`.`id` FROM `product`
+    $sql = "SELECT * FROM `product` "; 
+    "SELECT `product`.`id`,`product`.`id_cate`,`category`.`id` FROM `product`
     join `category` on `product`.`id_cate` = `category`.`id` ";
+    "SELECT `product`.`id`,`product`.`id_brands`,`brands`.`id` FROM `product`
+    join `brands` on `product`.`id_brands` = `brands`.`id` ";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }

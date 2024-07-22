@@ -1,7 +1,7 @@
 <article>
     <div class="row2">
         <div class="row2 font_title">
-            <h1>THÊM chi tiết sản phẩm</h1>
+            <h1>Thêm chi tiết sản phẩm</h1>
         </div>
         <div class="row2 form_content ">
             <form action="index.php?act=addpd" method="POST" enctype="multipart/form-data">
