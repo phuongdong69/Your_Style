@@ -11,9 +11,13 @@ include "../Model/galery.php";
 include "../Model/color.php";
 include "../Model/brand.php";
 include "../Model/product_detail.php";
+<<<<<<< HEAD
+include "../Model/bill_status.php";
+=======
 include "../Model/role.php";
 
 
+>>>>>>> f90b78dc90f9848a5d4e952af6af216bc275f050
 
 
 if (isset($_GET['act'])) {
@@ -96,7 +100,7 @@ if (isset($_GET['act'])) {
         case 'updatepd':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $product = load_one_product_detail($_GET['id']);
-               
+
                 extract($product);
                 $pro = load_name_product_detail($id_product);
                 extract($pro);
@@ -107,8 +111,8 @@ if (isset($_GET['act'])) {
                 // $id_product = $_POST['id_product'];
                 $id_size = $_POST['id_size'];
                 $id_color = $_POST['id_color'];
-                
-                update_productdetail($price,$id_size,$id_color,$id);
+
+                update_productdetail($price, $id_size, $id_color, $id);
                 $thongbao = "Thêm thành công";
             }
             // var_dump($id);
@@ -121,7 +125,37 @@ if (isset($_GET['act'])) {
             break;
 
 
+            //Bill_Status
 
+        case 'listbs':
+            $listbs = load_bs();
+            include "./view/bill_status/list.php";
+            break;
+
+        case 'addbs':
+            if (isset($_POST['addbs']) ) {
+                $status = $_POST['status'];
+                insert_color($status);
+                $thongbao = "Thêm thành công";
+            }
+            include "./view/bill_status/add.php";
+            break;
+
+        case 'updatebs':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $bs = load_one_bs($_GET['id']);
+                extract($bs);
+            }
+
+            if (isset($_POST['updatebs'])) {
+                $status = trim($_POST['status']);
+                update_bs($status, $_GET['id']);
+                $thongbao = "Cập nhật thành công";
+                
+            }
+            // $listbs = update_bs($id);
+            include "./view/bill_status/update.php";
+            break;
 
             //product_detail
 
