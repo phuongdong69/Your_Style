@@ -33,7 +33,7 @@
                             <td><?= $payment ?></td>
                             <td><?= $note ?></td>
                             <td>
-                                <a href="<?= $suaUrl ?>">
+                                <a href="<?= $suabdt ?>">
                                 <input type="button" value="Sửa">
                                 </a>
                             </td>

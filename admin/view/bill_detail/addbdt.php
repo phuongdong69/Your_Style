@@ -16,20 +16,20 @@
         </div>
 
         <div style="width: 200px;" class="row2 mb10">
-          <label>mã đơn hàng</label> <br>
-          <select name="id_bill" required>
-            <?php foreach ($listbill as $bill): ?>
-            <option value="<?= $bill['id'] ?>"><?= $bill['id'] ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
+            <label>mã đơn hàng</label> <br>
+            <select name="id_bill" required>
+              <?php foreach ($listbill as $bill): ?>
+              <option value="<?= $bill['id'] ?>"><?= $bill['id'] ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
             
         <div style="width: 200px;" class="row2 mb10">
           <label>mã voucher</label> <br>
           <select name="id_voucher" >
             <option value=""></option>
-            <option value="giảm 50k">giảm 50k</option>
-            <option value="giảm 100k">giảm 100k</option>
+            <option value="1">50</option>
+            <option value="2">100</option>
           </select>
         </div>
 

@@ -12,10 +12,25 @@ function load_bill_detail(){
     return $listbdt;
 }
 
-function insert_bill_detail($id_product,$id_bill,$id_voucher,$id_bill_status,$quantity,$payment,$note){
-    $sql = "INSERT INTO `bill_detail` (`id`,`id_product`, `id_bill`,  `id_voucher`, `id_bill_status`,`quantity`, `payment`, `note`)
-            VALUES (NULL,'$id_product', '$id_bill',  '$id_voucher', '$id_bill_status','$quantity', '$payment', '$note')";
+function load_one_bill_detail($id){
+    $sql = "SELECT * FROM `bill_detail` where id =". $id;
+    return pdo_query_one($sql);
+}
+
+function update_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note, $id) {
+    $sql = "UPDATE `bill_detail`
+    SET `id_product` = '$id_product', `id_bill` = '$id_bill',  `id_voucher` = '$id_voucher', `id_bill_status` = '$id_bill_status',
+    `quantity` = '$quantity', `payment` = '$payment', `note` = '$note'
+    WHERE `id` = $id;";
     return pdo_execute($sql);
 }
+
+
+function insert_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note) {
+    $sql = "INSERT INTO `bill_detail` (`id_product`, `id_bill`, `id_voucher`, `id_bill_status`, `quantity`, `payment`, `note`)
+            VALUES ('$id_product', '$id_bill', '$id_voucher', '$id_bill_status', '$quantity', '$payment', '$note')";
+    return pdo_execute($sql);
+}
+
 
 ?>
