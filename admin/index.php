@@ -10,9 +10,11 @@ include "../Model/size.php";
 include "../Model/galery.php";
 include "../Model/color.php";
 include "../Model/brand.php";
+
 include "../Model/product_detail.php";
 include "../Model/bill.php";
 include "../Model/role.php";
+
 
 
 
@@ -158,6 +160,7 @@ if (isset($_GET['act'])) {
             break;
 
             //galery
+
         case 'showimg':
             if (isset($_GET['id_product']) && $_GET['id_product'] > 0) {
                 $listanh = load_galery($_GET['id_product']);
@@ -288,7 +291,9 @@ if (isset($_GET['act'])) {
             include "./view/size/updatesz.php";
             break;
 
+
             // end size
+
 
             // brand
         case 'listbr':
@@ -319,6 +324,7 @@ if (isset($_GET['act'])) {
             $listbrands = load_brands();
             include "./view/brands/updatebr.php";
             break;
+
 
             // role
             case 'listrole':
@@ -352,6 +358,7 @@ if (isset($_GET['act'])) {
                 break;
 
             //end role
+
 
 
     }
