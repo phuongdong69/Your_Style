@@ -11,13 +11,13 @@ include "../Model/galery.php";
 include "../Model/color.php";
 include "../Model/brand.php";
 include "../Model/product_detail.php";
-<<<<<<< HEAD
+
 include "../Model/bill_status.php";
-=======
+
 include "../Model/role.php";
 
 
->>>>>>> f90b78dc90f9848a5d4e952af6af216bc275f050
+
 
 
 if (isset($_GET['act'])) {
