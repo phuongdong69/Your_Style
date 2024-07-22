@@ -11,7 +11,7 @@ include "../Model/galery.php";
 include "../Model/color.php";
 include "../Model/brand.php";
 include "../Model/product_detail.php";
-
+include "../Model/bill.php";
 include "../Model/bill_status.php";
 
 include "../Model/role.php";
@@ -446,7 +446,67 @@ if (isset($_GET['act'])) {
 
             //end role
 
+            //bill
+        case 'listbill':
+            $listbill = load_bill();
+            include "./view/bill/listbill.php";
+            break;
+        case 'deletebill':
+            if (isset($_GET["id"]) & $_GET["id"] > 0) {
+                delete_bill($_GET["id"]);
+                echo "<script>
+                        alert('Xoá thành công. Nhấn ok để chuyển trang danh sách');
+                        </script>";
+            }
+            $listbill = load_bill();
+            include "./view/bill/listbill.php";
 
+            break;
+
+        case 'addbill':
+            if (isset($_POST['thembill']) && ($_POST['thembill'])) {
+                $creat_at = $_POST['creat_at'];
+                $name = $_POST['name'];
+                $phoneNumber = $_POST['phoneNumber'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                insert_bill($creat_at,$name,$phoneNumber,$email,$address);
+                $thongbao = "Thêm thành công";
+            }
+            include "./view/bill/addbill.php";
+            break;
+
+            case 'updatebill':
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $bill = load_one_bill($_GET['id']);
+                    extract($bill);
+                }
+            
+                if (isset($_POST['capnhatbill'])) {
+                    $id = trim($_POST['id']);
+                    $id_user = isset($_POST['id_user']) ? trim($_POST['id_user']) : null;
+                    $creat_at = trim($_POST['creat_at']);
+                    $name = trim($_POST['name']);
+                    $phoneNumber = trim($_POST['phoneNumber']);
+                    $email = trim($_POST['email']);
+                    $address = trim($_POST['address']);
+                    
+                    if ($id_user === '') {
+                        $id_user = null; // Handle empty id_user as NULL
+                    }
+            
+                    update_bill($id, $creat_at, $id_user, $name, $phoneNumber, $email, $address);
+                    $thongbao = "Cập nhật thành công";
+                    $bill = load_one_bill($id);
+                    extract($bill);
+                }
+                
+                $listbill = load_category();
+                include "./view/bill/updatebill.php";
+                break;
+            
+
+        //end bill
 
     }
 } else {

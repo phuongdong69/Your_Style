@@ -8,11 +8,7 @@
       
       <div class="row2 mb10">
         <label>ROLE</label><br>
-        <select name="roleName" required>
-          <option value="0" <?= ($roleName == '0') ? 'selected' : '' ?>>Khách Hàng</option>
-          <option value="10" <?= ($roleName == '10') ? 'selected' : '' ?>>Quản Trị Viên</option>
-     
-        </select>
+        <input type="text" name="roleName" value="<?= $roleName ?>" placeholder="thêm vai trò">
       </div>
       <input class="mr20" type="submit" name="capnhatrole" value="CẬP NHẬT">
       <a href="index.php?act=listrole"><input type="button" value="DANH SÁCH ROLE"></a>

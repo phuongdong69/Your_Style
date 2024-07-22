@@ -9,11 +9,7 @@
 
         <div style="width: 200px;" class="row2 mb10">
           <label>Chọn Role</label> <br>
-          <select name="roleName" required>
-            <option value="" hidden></option>
-            <option value="0">Khách Hàng</option>
-            <option value="10">Quản Trị Viên</option>
-          </select>
+          <input type="text" name="roleName" placeholder="thêm vai trò">
         </div>
 
         <input class="mr20" type="submit" name="themrole" value="THÊM MỚI">
