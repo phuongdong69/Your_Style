@@ -27,6 +27,9 @@ if (isset($_GET['act'])) {
             break;
             //Danh sách sản phẩm
 
+            //Danh sách sản phẩm
+
+
 
 
         case 'listsp': //done show
@@ -71,6 +74,60 @@ if (isset($_GET['act'])) {
             $listdanhmuc = load_category();
             include "./view/sanpham/updatesp.php";
             break;
+
+            //product_detail
+
+        case 'listpd':
+            $listpd = load_productdetail();
+            include "./view/productdetail/listpd.php";
+            break;
+
+        case 'addpd':
+            if (isset($_POST['addpd']) && ($_POST['addpd'])) {
+                $id_product = $_POST['id_product'];
+                $id_size = $_POST['id_size'];
+                $id_color = $_POST['id_color'];
+                $price = $_POST['price'];
+                insert_productdetail($price, $id_product, $id_size, $id_color);
+                $thongbao = "Thêm thành công";
+            }
+            // $listdanhmuc = load_category();
+            $listproduct = load_product();
+            $listsize = load_size();
+            $listcolor = load_color();
+
+            include "./view/productdetail/addpd.php";
+            break;
+
+        case 'updatepd':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $product = load_one_product_detail($_GET['id']);
+               
+                extract($product);
+                $pro = load_name_product_detail($id_product);
+                extract($pro);
+                var_dump($name);
+            }
+            if (isset($_POST['updatepd'])) {
+                $price = $_POST['price'];
+                // $id_product = $_POST['id_product'];
+                $id_size = $_POST['id_size'];
+                $id_color = $_POST['id_color'];
+                
+                update_productdetail($price,$id_size,$id_color,$id);
+                $thongbao = "Thêm thành công";
+            }
+            // var_dump($id);
+            // $listdanhmuc = load_category();
+            $listproduct = load_product();
+            $listsize = load_size();
+            $listcolor = load_color();
+
+            include "./view/productdetail/updatepd.php";
+            break;
+
+
+
 
             //product_detail
 
@@ -260,6 +317,7 @@ if (isset($_GET['act'])) {
             break;
 
 
+
             // Size
         case 'listsz':
             $listsize = load_size();
@@ -297,6 +355,7 @@ if (isset($_GET['act'])) {
 
             // brand
         case 'listbr':
+            $listbrands = load_brands();
             $listbrands = load_brands();
             include "./view/brands/listbr.php";
             break;
