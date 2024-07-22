@@ -19,7 +19,7 @@
                             $imgPath = "./img/" . $image;
                             $updateimg = "?act=updateimg&id=" . $id;
                             $addimg_pro = "?act=addimg";
-                            $xoaUrl = "?act=deletesp&id=" . $id;
+                            $xoaUrl = "?act=deleteimg&id=" . $id;
                         ?>
                             <tr>
                                 <td><?= $id ?></td>
