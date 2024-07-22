@@ -129,7 +129,7 @@ if (isset($_GET['act'])) {
         case 'addbs':
             if (isset($_POST['addbs']) ) {
                 $status = $_POST['status'];
-                insert_color($status);
+                insert_bill_status($status);
                 $thongbao = "Thêm thành công";
             }
             include "./view/bill_status/add.php";
@@ -143,7 +143,8 @@ if (isset($_GET['act'])) {
 
             if (isset($_POST['updatebs'])) {
                 $status = trim($_POST['status']);
-                update_bs($status, $_GET['id']);
+                // $id = $_POST['id'];
+                update_bs($status, $id);
                 $thongbao = "Cập nhật thành công";
                 
             }

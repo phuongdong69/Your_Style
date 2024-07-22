@@ -9,7 +9,7 @@
           <label> Status </label> <br>
           <input type="text" name="status" placeholder="nhập tên trạng thái" required>
         </div>
-        <input class="mr20" type="submit" name="thembs" value="THÊM MỚI">
+        <input class="mr20" type="submit" name="addbs" value="THÊM MỚI">
         <a href="index.php?act=listbs"><input  class="mr20" type="button" value="DANH SÁCH"></a>
 
         <?php
