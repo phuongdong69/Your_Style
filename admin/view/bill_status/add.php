@@ -1,7 +1,7 @@
 <article>
   <div class="row2">
     <div class="row2 font_title">
-      <h1>THÊM trạng thái bill</h1>
+      <h1>Thêm trạng thái đơn hàng</h1>
     </div>
     <div class="row2 form_content ">
       <form action="index.php?act=addbs" method="POST" enctype="multipart/form-data">

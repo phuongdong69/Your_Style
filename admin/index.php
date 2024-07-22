@@ -12,6 +12,7 @@ include "../Model/color.php";
 include "../Model/brand.php";
 include "../Model/product_detail.php";
 include "../Model/bill_status.php";
+include "../Model/billdetail.php";
 include "../Model/role.php";
 
 if (isset($_GET['act'])) {
@@ -83,7 +84,6 @@ if (isset($_GET['act'])) {
                 insert_productdetail($price, $id_product, $id_size, $id_color);
                 $thongbao = "Thêm thành công";
             }
-            // $listdanhmuc = load_category();
             $listproduct = load_product();
             $listsize = load_size();
             $listcolor = load_color();
@@ -118,6 +118,28 @@ if (isset($_GET['act'])) {
             include "./view/productdetail/updatepd.php";
             break;
 
+            //billdetail
+            case 'listbdt':
+                $listbdt = load_bill_detail();
+                include "./view/bill_detail/listbdt.php";
+                break;
+
+                case 'addbdt':
+                    if (isset($_POST['thembdt']) && ($_POST['thembdt'])) {
+                        $id_product = $_POST['id_product'];
+                        $id_bill = $_POST['id_bill'];
+                        $id_voucher = $_POST['id_voucher'];
+                        $id_bill_status = $_POST['id_bill_status'];
+                        $quantity = $_POST['quantity'];
+                        $payment = $_POST['payment'];
+                        $note = $_POST['note'];
+                        insert_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note);
+                        $thongbao = "Thêm thành công";
+                    }
+                    $listSanPham = load_product();
+                    $listbs = load_bs();
+                    include "./view/bill_detail/addbdt.php";
+                    break;
 
             //Bill_Status
 
@@ -126,31 +148,31 @@ if (isset($_GET['act'])) {
             include "./view/bill_status/list.php";
             break;
 
-        case 'addbs':
-            if (isset($_POST['addbs']) ) {
-                $status = $_POST['status'];
-                insert_bill_status($status);
-                $thongbao = "Thêm thành công";
-            }
-            include "./view/bill_status/add.php";
-            break;
-
-        case 'updatebs':
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $bs = load_one_bs($_GET['id']);
-                extract($bs);
-            }
-
-            if (isset($_POST['updatebs'])) {
-                $status = trim($_POST['status']);
-                // $id = $_POST['id'];
-                update_bs($status, $id);
-                $thongbao = "Cập nhật thành công";
-                
-            }
-            // $listbs = update_bs($id);
-            include "./view/bill_status/update.php";
-            break;
+            case 'addbs':
+                if (isset($_POST['thembs'])) {
+                    $status = $_POST['status'];
+                    insert_bill_status($status); 
+                    $thongbao = "Thêm thành công";
+                }
+                include "./view/bill_status/add.php";
+                break;
+    
+                case 'updatebs':
+                    if (isset($_GET['id']) && $_GET['id'] > 0) {
+                        $bs = load_one_bs($_GET['id']);
+                        extract($bs);
+                    }
+        
+                    if (isset($_POST['updatebs'])) {
+                        $status = trim($_POST['status']);
+                        $id = $_POST['id'];
+                        update_bs($status, $id);
+                        $thongbao = "Cập nhật thành công";
+                        $bs = load_one_bs($id);
+                        extract($bs);
+                    }
+                    include "./view/bill_status/update.php";
+                    break;
 
             //product_detail
 
