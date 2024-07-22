@@ -24,7 +24,7 @@
         </div>
 
         <input class="mr20" type="submit" name="themanh" value="THÊM MỚI">
-        <a href="index.php?act=showimg"><input  class="mr20" type="button" value="DANH SÁCH"></a>
+        <a href="index.php?act=listsp"><input  class="mr20" type="button" value="DANH SÁCH"></a>
         
         <?php
           if(isset($thongbao) &&($thongbao != "")){

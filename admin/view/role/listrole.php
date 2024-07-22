@@ -16,7 +16,7 @@
                         foreach ($listrole as $role) {
                             extract($role);
                             $suarole = "?act=updaterole&id=".$id;
-                            // $xoarole = "?act=deleterole&id=".$id;
+                            
                         ?>
                         <tr>
                             <td><?= $id ?></td>
@@ -26,9 +26,6 @@
                                 <a href="<?= $suarole ?>">
                                 <input type="button" value="Sửa">
                                 </a>
-                                <!-- <a onclick="return confirm('Bạn có muốn xoá ROLE này không?')" href="<?= $xoarole ?>">
-                                        <input type="button" value="Xóa">
-                                </a> -->
                             </td>
                         </tr>
                         <?php } ?>

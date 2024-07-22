@@ -1,7 +1,7 @@
 <article>
     <div class="row2">
         <div class="row2 font_title">
-            <h1>Danh mục BRAND</h1>
+            <h1>Trạng thái đơn hàng</h1>
         </div>
         <div class="row2 form_content ">
             <form action="index.php?act=listbs" method="POST">
@@ -13,7 +13,7 @@
                             <th>Chức năng</th>
                         </tr>
                         <?php
-                        foreach ($listbs  as $bill_status) {
+                        foreach ($listbs as $bill_status) {
                             extract($bill_status);
                             $suabr = "?act=updatebs&id=".$id;
                         ?>
