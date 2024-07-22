@@ -10,9 +10,7 @@ include "../Model/size.php";
 include "../Model/galery.php";
 include "../Model/color.php";
 include "../Model/brand.php";
-
 include "../Model/product_detail.php";
-include "../Model/bill.php";
 include "../Model/role.php";
 
 
@@ -25,13 +23,6 @@ if (isset($_GET['act'])) {
         case 'home':
             include "./layout/home.php";
             break;
-            //Danh sách sản phẩm
-
-            //Danh sách sản phẩm
-
-
-
-
 
         case 'listsp': //done show
             $listSanPham = load_product("", 0);
@@ -52,6 +43,7 @@ if (isset($_GET['act'])) {
                 $thongbao = "Thêm thành công";
             }
             $listdanhmuc = load_category();
+            $listbrands = load_brands();
             include "./view/sanpham/addsp.php";
             break;
         case 'updatesp': //sửa done
@@ -73,6 +65,7 @@ if (isset($_GET['act'])) {
                 $thongbao = "Cập nhật thành công";
             }
             $listdanhmuc = load_category();
+            $listbrands = load_brands();
             include "./view/sanpham/updatesp.php";
             break;
 

@@ -51,10 +51,11 @@
         </div>
 
         <div class="row2 mb10">
-          <label>nhãn hàng</label> <br>
+          <label>brand</label> <br>
           <select name="id_brands" required>
-            <option value="1" <?= $id_brands == 1 ? 'selected' : '' ?>>Nhãn hàng 1</option>
-            <option value="2" <?= $id_brands == 2 ? 'selected' : '' ?>>Nhãn hàng 2</option>
+            <?php foreach ($listbrands as $brand): ?>
+            <option value="<?= $brand['id'] ?>"><?= $brand['name'] ?></option>
+            <?php endforeach; ?>
           </select>
         </div>
 
