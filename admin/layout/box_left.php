@@ -15,6 +15,7 @@
             <li><a href="index.php?act=listrole"><i class="fas fa-users"></i> ROLE</a></li><hr>
             <li><a href="index.php?act=comments"><i class="fas fa-comments"></i> Bình Luận</a></li><hr>
             <li><a href="index.php?act=customers"><i class="fas fa-users"></i> Khách Hàng</a></li><hr>
+            <li><a href="index.php?act=listrole"><i class="fas fa-users"></i> ROLE</a></li><hr>
             
             
             

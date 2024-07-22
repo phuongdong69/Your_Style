@@ -23,13 +23,6 @@ if (isset($_GET['act'])) {
         case 'home':
             include "./layout/home.php";
             break;
-            //Danh sách sản phẩm
-
-            //Danh sách sản phẩm
-
-
-
-
 
         case 'listsp': //done show
             $listSanPham = load_product("", 0);
