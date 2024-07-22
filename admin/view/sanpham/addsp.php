@@ -3,16 +3,8 @@
     <div class="row2 font_title">
       <h1>THÊM MỚI SẢN PHẨM</h1>
     </div>
-    <div class="row2 form_content ">
+    <div class="row2 form_content">
       <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
-            <!-- <div  class="row2 mb10 form_content_container">
-            <label> Danh Mục </label> <br>
-              <select style="margin-right: 1250px;" class="sl1" name="">
-                  
-                  <option value=""></option>
-              </select>
-            </div> -->
-
         <div class="row2 mb10">
           <label> TÊN SẢN PHẨM </label> <br>
           <input type="text" name="name" placeholder="nhập vào tên sản phẩm" required>
@@ -54,26 +46,28 @@
         <div style="width: 200px;" class="row2 mb10">
           <label>Danh mục</label> <br>
           <select name="id_cate" required>
-            <option value="1">áo thun</option>
-            <option value="2">áo khoác</option>
+            <?php foreach ($listdanhmuc as $category): ?>
+            <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+            <?php endforeach; ?>
           </select>
         </div>
 
         <div style="width: 200px;" class="row2 mb10">
           <label>Nhãn hàng</label> <br>
           <select name="id_brands" required>
-            <option value="1">Nhãn hàng 1</option>
-            <option value="2">Nhãn hàng 2</option>
+            <?php foreach ($listbrands as $brand): ?>
+            <option value="<?= $brand['id'] ?>"><?= $brand['name'] ?></option>
+            <?php endforeach; ?>
           </select>
         </div>
 
         <input class="mr20" type="submit" name="themmoi" value="THÊM MỚI">
-        <a href="index.php?act=listsp"><input  class="mr20" type="button" value="DANH SÁCH"></a>
+        <a href="index.php?act=listsp"><input class="mr20" type="button" value="DANH SÁCH"></a>
 
         <?php
           if(isset($thongbao) &&($thongbao != "")){
             echo $thongbao;
-          } 
+          }
         ?>
       </form>
     </div>

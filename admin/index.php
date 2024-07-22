@@ -44,6 +44,7 @@ if (isset($_GET['act'])) {
                 $thongbao = "Thêm thành công";
             }
             $listdanhmuc = load_category();
+            $listbrands = load_brands();
             include "./view/sanpham/addsp.php";
             break;
         case 'updatesp': //sửa done
@@ -65,6 +66,7 @@ if (isset($_GET['act'])) {
                 $thongbao = "Cập nhật thành công";
             }
             $listdanhmuc = load_category();
+            $listbrands = load_brands();
             include "./view/sanpham/updatesp.php";
             break;
 
