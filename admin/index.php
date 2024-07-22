@@ -149,7 +149,7 @@ if (isset($_GET['act'])) {
             break;
 
             case 'addbs':
-                if (isset($_POST['thembs'])) {
+                if (isset($_POST['addbs'])) {
                     $status = $_POST['status'];
                     insert_bill_status($status); 
                     $thongbao = "Thêm thành công";

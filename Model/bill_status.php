@@ -10,7 +10,7 @@ function load_bs(){
 }
 
 function update_bs($status, $id){
-    $sql = "UPDATE `bill_status` SET `status` = '$status' WHERE `id` = $id;";
+    $sql = "UPDATE `bill_status` SET `status` = '$status' WHERE `id` = $id";
     return pdo_execute($sql);
 }
 
