@@ -64,71 +64,7 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="product-tag leftbar">
-                <h3 class="title">
-                  Products 
-                  <strong>
-                    Tags
-                  </strong>
-                </h3>
-                <ul>
-                  <li>
-                    <a href="#">
-                      Lincoln us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      SDress for Girl
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Corner
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Window
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      PG
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Oscar
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bath room
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      PSD
-                    </a>
-                  </li>
-                </ul>
-              </div> -->
-              <!-- <div class="get-newsletter leftbar">
-                <h3 class="title">
-                  Get 
-                  <strong>
-                    newsletter
-                  </strong>
-                </h3>
-                <p>
-                  Casio G Shock Digital Dial Black.
-                </p>
-                <form>
-                  <input class="email" type="text" name="" placeholder="Your Email...">
-                  <input class="submit" type="submit" value="Submit">
-                </form>
-              </div> -->
+              
               <div class="fbl-box leftbar">
                 <h3 class="title">
                   Facebook
@@ -190,7 +126,7 @@
                 <ol class="checkout-steps">
                  
                   <li class="steps active">
-                    <a href="checkout.html" class="step-title">
+                    <a href="" class="step-title">
                      Thông Tin Đăng Ký
                     </a>
                     <div class="step-description">
@@ -327,6 +263,9 @@
                               </p>
                               <button>
                                 Đăng Ký
+                              </button>
+                              <button>
+                                <a href="index.php?act=login">Đăng Nhập</a>
                               </button>
                             </div>
                           </div>

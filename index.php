@@ -7,6 +7,23 @@
         case "news": //tin tức
             include "view/news.php";
             break;
+        case "cart": //giỏ hàng
+            include "view/cart.php";
+            break;
+        case "mua": //Mua Ngay
+            include "view/mua.php";
+            break;
+
+        case "ptttatm": //Mua Ngay
+            include "view/ptttatm.php";
+            break;
+        case "ptttmm": //Mua Ngay
+            include "view/ptttmm.php";
+
+            break;
+        case "details": //Chi Tiết SP
+            include "view/details.php";
+            break;
         case 'introduce': //giới thiệu
             include "view/introduce.php";
             break;

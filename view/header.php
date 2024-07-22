@@ -40,8 +40,8 @@
                            </div>
                            <div class="col-md-3">
                               <ul class="usermenu">
-                                 <li><a href="index.php?act=login" class="log">Đăng nhập</a></li>
-                                 <li><a href="index.php?act=register" class="reg">Đăng ký</a></li>
+                                 <li><a href="index.php?act=login" class="log">Đăng nhập / Đăng Ký</a></li>
+                                 <!-- <li><a href="index.php?act=register" class="reg">Đăng ký</a></li> -->
                               </ul>
                            </div>
                         </div>
@@ -53,69 +53,14 @@
                               <form><input class="search-submit" type="submit" value=""><input class="search-input" placeholder="Enter your search term..." type="text" value="" name="search"></form>
                            </li>
                            <li class="option-cart">
-                              <a href="#" class="cart-icon">cart <span class="cart_no">*</span></a>
-                              <ul class="option-cart-item">
-                                 <li>
-                                    <div class="cart-item">
-                                       <div class="image"><img src="images/products/thum/products-01.png" alt=""></div>
-                                       <div class="item-description">
-                                          <p class="name">Lincoln chair</p>
-                                          <p>Size: <span class="light-red">One size</span><br>Quantity: <span class="light-red">01</span></p>
-                                       </div>
-                                       <div class="right">
-                                          <p class="price">$30.00</p>
-                                          <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="cart-item">
-                                       <div class="image"><img src="images/products/thum/products-02.png" alt=""></div>
-                                       <div class="item-description">
-                                          <p class="name">Lincoln chair</p>
-                                          <p>Size: <span class="light-red">One size</span><br>Quantity: <span class="light-red">01</span></p>
-                                       </div>
-                                       <div class="right">
-                                          <p class="price">$30.00</p>
-                                          <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li><span class="total">Tổng: <strong>$60.00</strong></span><button class="checkout" onClick="location.href='checkout.html'">Kiểm tra</button></li>
-                              </ul>
+                              <a href="index.php?act=cart" class="cart-icon">cart <span class="cart_no"></span></a>
+                              
                            </li>
                         </ul>
                         <div style="margin-left: 110px;" class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
                         <div class="navbar-collapse collapse">
                            <ul class="nav navbar-nav">
-                              <!-- <li>
-                                 <a href="index_layout.html" >Home</a>
-                                 <div class="dropdown-menu">
-                                    <ul class="mega-menu-links">
-                                     
-                                       
-                                    </ul>
-                                 </div>
-                              </li> -->
-                              <!-- <li><a href="productgird.html">men</a></li>
-                              <li><a href="productlitst.html">women</a></li> -->
-                              <!-- <li class="dropdown">
-                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nam</a>
-                                 <div class="dropdown-menu mega-menu">
-                                    <div class="row">
-                                       <div class="col-md-6 col-sm-6">
-                                          <ul class="mega-menu-links">
-                                             <li><a href="productgird.html">Quần Nam</a></li>
-                                             <li><a href="productgird.html">Áo Nam</a></li>
-                                          
-                                          </ul>
-                                       </div>
-                                       
-                                    </div>
-                                 </div>
-                           
-                              </li>
-                                 -->
+                             
                                  <ul class="nav navbar-nav">
                                  <li><a href="index.php?act=hotnew">HÀNG MỚI</a></li>
                                  <li class="dropdown">
@@ -179,7 +124,7 @@
             </div>
          </div>
          <script>
-            <script>
+            
     document.querySelector('.dropdown-toggle').addEventListener('click', function(event) {
         // Prevent default action to avoid jumping to the link immediately
         event.preventDefault();
@@ -188,4 +133,4 @@
     });
 </script>
 
-         </script>
+         
