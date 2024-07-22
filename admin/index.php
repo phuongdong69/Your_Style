@@ -6,20 +6,24 @@ include "layout/box_left.php";
 include "../Model/pdo.php";
 include "../Model/product.php";
 include "../Model/category.php";
-
 include "../Model/size.php";
-
+include "../Model/galery.php";
 include "../Model/color.php";
+include "../Model/brand.php";
+
+
 
 
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
 
+            //Danh sách sản phẩm
         case 'home':
             include "./layout/home.php";
             break;
         //Danh sách sản phẩm
         
+
 
         case 'listsp': //done show
             $listSanPham = load_product("", 0);
@@ -97,37 +101,17 @@ if (isset($_GET['act'])) {
             include "./view/danhmuc/updatedm.php";
             break;
 
-            
-    
-            // case 'showimg':
-            // if(isset($_GET['id']) && $_GET['id'] > 0){
-            //     $listproduct=load_one_product($id);
-            //     extract($listproduct);
-            //     $id_product = $id;
-            // }
-
-            //     $listanh = load_galery($id_product);
-
-            //     include "./view/galery/showimg.php";
-            //     break;
+        //galery
         case 'showimg':
             if (isset($_GET['id_product']) && $_GET['id_product'] > 0) {
-                // $danhmuc = load_one_category($_GET['id_product']);
                 $listanh = load_galery($_GET['id_product']);
 
                 extract($listanh);
             }
-
-            // $listanh = load_galery($_GET['id_product']);
-
             include "./view/galery/showimg.php";
             break;
 
         case 'addimg':
-            // if (isset($_GET['id']) && $_GET['id'] > 0) {
-            //     $pro = load_product($_GET['id']);
-            //     extract($pro);
-            // }
             if (isset($_POST['themanh'])) {
 
                 // Xử lý hình ảnh 
@@ -140,11 +124,9 @@ if (isset($_GET['act'])) {
                     echo "Có lỗi trong quá trình upload file";
                 }
                 $id_product = $_POST['id_product'];
-                // Gọi model để thực hiện câu lệnh insert
                 insert_galery($image, $id_product);
                 $thongBao = "Thêm sản phẩm thành công";
             }
-            // $listanh = load_galery($_GET['id_product']);
             $listproduct = load_product();
             include "./view/galery/add.php";
             break;
@@ -186,17 +168,7 @@ if (isset($_GET['act'])) {
 
             break;
 
-       
-       
-
-
             // color
-
-<<<<<<< HEAD
-
-=======
-              
-
         case 'listcl':
             $listcolor = load_color();
             include "./view/color/listcl.php";
@@ -227,7 +199,6 @@ if (isset($_GET['act'])) {
             break;
 
             
->>>>>>> a13666566252bc297df0ba7febc9c5b7b745c531
             // Size
         case 'listsz':
             $listsize = load_size();
@@ -247,6 +218,7 @@ if (isset($_GET['act'])) {
                 extract($size);
             }
 
+
             if (isset($_POST['capnhatsize'])) {
                 $sizeValue = trim($_POST['sizeValue']);
                 update_size($_GET['id'], $sizeValue);
@@ -257,6 +229,35 @@ if (isset($_GET['act'])) {
             $listsize = load_size();
             include "./view/size/updatesz.php";
             break;
+        // brand
+        case 'listbr':
+            $listbrands = load_brands ();
+            include "./view/brands/listbr.php";
+            break;
+            case 'addbr':
+                if (isset($_POST['thembrand']) && ($_POST['thembrand'])) {
+                    $name = $_POST['name'];
+                    insert_brands($name);
+                    $thongbao = "Thêm thành công";
+                } 
+                include "./view/brands/addbr.php";
+                break;
+                case 'updatebr':
+                    if (isset($_GET['id']) && $_GET['id'] > 0){
+                        $brands = load_one_brands($_GET['id']);
+                        extract($brands);
+                    }
+                
+                    if (isset($_POST['capnhatbrand'])){
+                        $name = trim($_POST['name']);
+                        update_brands($name, $_GET['id']);
+                        $thongbao = "Cập nhật thành công";
+                        $brands = load_one_brands($_GET['id']);
+                        extract($brands);
+                    }
+                    $listbrands = load_brands();
+                    include "./view/brands/updatebr.php";
+                    break;
     }
 } else {
     include "layout/home.php";
