@@ -142,9 +142,33 @@ if (isset($_GET['act'])) {
                     }
                     $listSanPham = load_product();
                     $listbs = load_bs();
+                    $listbill = load_bill();
                     include "./view/bill_detail/addbdt.php";
                     break;
 
+                    case 'updatebdt':
+                        if (isset($_GET['id']) && $_GET['id'] > 0) {
+                            $bill_detail = load_one_bill_detail($_GET['id']);
+                            extract($bill_detail);
+                        }
+                        if (isset($_POST['capnhatbdt'])) {
+                            $id = $_POST['id'];
+                            $id_product = $_POST['id_product'];
+                            $id_bill = $_POST['id_bill'];
+                            $id_voucher = $_POST['id_voucher'];
+                            $id_bill_status = $_POST['id_bill_status'];
+                            $quantity = $_POST['quantity'];
+                            $payment = $_POST['payment'];
+                            $note = $_POST['note'];
+                            update_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note, $id);
+                            $thongbao = "Cập nhật thành công";
+                        }
+                        $listSanPham = load_product();
+                        $listbs = load_bs();
+                        $listbill = load_bill();
+                        include "./view/bill_detail/updatebdt.php";
+                        break;
+            
             //Bill_Status
 
         case 'listbs':
