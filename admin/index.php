@@ -32,6 +32,7 @@ if (isset($_GET['act'])) {
 
 
 
+
         case 'listsp': //done show
             $listSanPham = load_product("", 0);
             include "./view/sanpham/listsp.php";
