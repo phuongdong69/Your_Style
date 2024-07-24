@@ -1,5 +1,5 @@
 
-      <div class="clearfix">
+<div class="clearfix">
       </div>
       <div class="container_fullwidth">
         <div class="container shopping-cart">
@@ -101,9 +101,13 @@
               </table>
               <div class="clearfix">
               </div>
-              <form action="">
-        
-               <button style="float: right;font-size: 20px; margin-right: 200px;"  ><a href="index.php?act=mua">Mua Ngay</a></button>
+              <form action="cartd.php">
+              <input type="number" name="soluong" min="1" max="10" value="1">
+              <input type="submit" value="Đặt Hàng" name="addcart">
+              <input type="hidden" name="tensp" value="vay">
+              <input type="hidden" name="gia" value="100">
+              <input type="hidden" name="anh" value="images/products/small/products-06.png">
+               <!-- <button style="float: right;font-size: 20px; margin-right: 200px;"  ><a href="index.php?act=mua">Mua Ngay</a></button> -->
               </form>
         </div>
       </div>
