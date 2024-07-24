@@ -7,6 +7,7 @@
             <div class="col-md-9">
               <div class="products-details">
                 <div class="preview_image">
+                  
                   <div class="preview-small">
                     <img id="zoom_03" src="images/products/medium/products-01.jpg" data-zoom-image="images/products/Large/products-01.jpg" alt="">
                   </div>

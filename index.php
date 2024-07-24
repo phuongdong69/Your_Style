@@ -1,6 +1,6 @@
 <?php
     include "view/header.php";
-
+    include "Model/product.php";
    if(isset($_GET['act'])){
     switch ($_GET['act']) {
         //service dịch vụ

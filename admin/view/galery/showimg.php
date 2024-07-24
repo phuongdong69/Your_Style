@@ -18,7 +18,7 @@
                             extract($gallery);
                             $imgPath = "./img/" . $image;
                             $updateimg = "?act=updateimg&id=" . $id;
-                            $addimg_pro = "?act=addimg";
+                            $addimg_pro = "act=addimg&id_product=";
                             $xoaUrl = "?act=deleteimg&id=" . $id;
                         ?>
                             <tr>
