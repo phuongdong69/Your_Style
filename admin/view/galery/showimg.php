@@ -18,7 +18,7 @@
                             extract($gallery);
                             $imgPath = "./img/" . $image;
                             $updateimg = "?act=updateimg&id=" . $id;
-                            $addimg_pro = "act=addimg&id_product=";
+                            $addimg_pro = "?act=addimg";
                             $xoaUrl = "?act=deleteimg&id=" . $id;
                         ?>
                             <tr>
@@ -40,7 +40,7 @@
                     </table>
                 </div>
                 <div class="row mb10">
-                    <a href="<?= $addimg_pro ?>"><input class="mr20" type="button" value="Thêm ảnh"></a>
+                    <a href="index.php?act=addimg"><input class="mr20" type="button" value="Thêm ảnh"></a>
                     <a href="index.php?act=listsp"><input class="mr20" type="button" value="Danh sách sản phẩm"></a>
 
                 </div>
