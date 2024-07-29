@@ -11,13 +11,9 @@ include "../Model/galery.php";
 include "../Model/color.php";
 include "../Model/brand.php";
 include "../Model/product_detail.php";
-
-include "../Model/bill.php";
 include "../Model/bill_status.php";
-include "../Model/role.php";
 include "../Model/billdetail.php";
-
-
+include "../Model/role.php";
 
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
@@ -142,33 +138,9 @@ if (isset($_GET['act'])) {
                     }
                     $listSanPham = load_product();
                     $listbs = load_bs();
-                    $listbill = load_bill();
                     include "./view/bill_detail/addbdt.php";
                     break;
 
-                    case 'updatebdt':
-                        if (isset($_GET['id']) && $_GET['id'] > 0) {
-                            $bill_detail = load_one_bill_detail($_GET['id']);
-                            extract($bill_detail);
-                        }
-                        if (isset($_POST['capnhatbdt'])) {
-                            $id = $_POST['id'];
-                            $id_product = $_POST['id_product'];
-                            $id_bill = $_POST['id_bill'];
-                            $id_voucher = $_POST['id_voucher'];
-                            $id_bill_status = $_POST['id_bill_status'];
-                            $quantity = $_POST['quantity'];
-                            $payment = $_POST['payment'];
-                            $note = $_POST['note'];
-                            update_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note, $id);
-                            $thongbao = "Cập nhật thành công";
-                        }
-                        $listSanPham = load_product();
-                        $listbs = load_bs();
-                        $listbill = load_bill();
-                        include "./view/bill_detail/updatebdt.php";
-                        break;
-            
             //Bill_Status
 
         case 'listbs':
@@ -299,26 +271,44 @@ if (isset($_GET['act'])) {
             }
             include "./view/galery/showimg.php";
             break;
-
-        case 'addimg':
-            if (isset($_POST['themanh'])) {
-
-                // Xử lý hình ảnh 
-                $image = $_FILES['image']['name'];
-                $target_dir = "./img/";
-                $target_file = $target_dir . basename($image);
-                if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-                    echo "upload thành công";
-                } else {
-                    echo "Có lỗi trong quá trình upload file";
+            case 'addimg':
+                if (isset($_POST['themanh'])) {
+    
+                    // Xử lý hình ảnh 
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "./img/";
+                    $target_file = $target_dir . basename($image);
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                        echo "upload thành công";
+                    } else {
+                        echo "Có lỗi trong quá trình upload file";
+                    }
+                    $id_product = $_POST['id_product'];
+                    insert_galery($image, $id_product);
+                    $thongBao = "Thêm sản phẩm thành công";
                 }
-                $id_product = $_POST['id_product'];
-                insert_galery($image, $id_product);
-                $thongBao = "Thêm sản phẩm thành công";
-            }
-            $listproduct = load_product();
-            include "./view/galery/add.php";
-            break;
+                $listproduct = load_product();
+                include "./view/galery/add.php";
+                break;
+        // case 'addimg':
+        //     if (isset($_POST['themanh'])) {
+
+        //         // Xử lý hình ảnh 
+        //         $image = $_FILES['image']['name'];
+        //         $target_dir = "./img/";
+        //         $target_file = $target_dir . basename($image);
+        //         if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+        //             echo "upload thành công";
+        //         } else {
+        //             echo "Có lỗi trong quá trình upload file";
+        //         }
+        //         $id_product = $_POST['id_product'];
+        //         insert_galery($image, $id_product);
+        //         $thongBao = "Thêm sản phẩm thành công";
+        //     }
+        //     $listproduct = load_product();
+        //     include "./view/galery/add.php";
+        //     break;
         case 'updateimg':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $one_galery = load_one_galery($_GET['id']);
@@ -344,6 +334,7 @@ if (isset($_GET['act'])) {
 
             include "./view/galery/update.php";
             break;
+            
         case 'deleteimg':
             if (isset($_GET["id"]) & $_GET["id"] > 0) {
                 // echo "thực hiện xoá" . $_GET["id"];
@@ -491,67 +482,7 @@ if (isset($_GET['act'])) {
 
             //end role
 
-            //bill
-        case 'listbill':
-            $listbill = load_bill();
-            include "./view/bill/listbill.php";
-            break;
-        case 'deletebill':
-            if (isset($_GET["id"]) & $_GET["id"] > 0) {
-                delete_bill($_GET["id"]);
-                echo "<script>
-                        alert('Xoá thành công. Nhấn ok để chuyển trang danh sách');
-                        </script>";
-            }
-            $listbill = load_bill();
-            include "./view/bill/listbill.php";
 
-            break;
-
-        case 'addbill':
-            if (isset($_POST['thembill']) && ($_POST['thembill'])) {
-                $creat_at = $_POST['creat_at'];
-                $name = $_POST['name'];
-                $phoneNumber = $_POST['phoneNumber'];
-                $email = $_POST['email'];
-                $address = $_POST['address'];
-                insert_bill($creat_at,$name,$phoneNumber,$email,$address);
-                $thongbao = "Thêm thành công";
-            }
-            include "./view/bill/addbill.php";
-            break;
-
-            case 'updatebill':
-                if (isset($_GET['id']) && $_GET['id'] > 0) {
-                    $bill = load_one_bill($_GET['id']);
-                    extract($bill);
-                }
-            
-                if (isset($_POST['capnhatbill'])) {
-                    $id = trim($_POST['id']);
-                    $id_user = isset($_POST['id_user']) ? trim($_POST['id_user']) : null;
-                    $creat_at = trim($_POST['creat_at']);
-                    $name = trim($_POST['name']);
-                    $phoneNumber = trim($_POST['phoneNumber']);
-                    $email = trim($_POST['email']);
-                    $address = trim($_POST['address']);
-                    
-                    if ($id_user === '') {
-                        $id_user = null; // Handle empty id_user as NULL
-                    }
-            
-                    update_bill($id, $creat_at, $id_user, $name, $phoneNumber, $email, $address);
-                    $thongbao = "Cập nhật thành công";
-                    $bill = load_one_bill($id);
-                    extract($bill);
-                }
-                
-                $listbill = load_category();
-                include "./view/bill/updatebill.php";
-                break;
-            
-
-        //end bill
 
     }
 } else {
