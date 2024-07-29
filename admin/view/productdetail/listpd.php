@@ -39,6 +39,7 @@
                 </div>
                 <div class="row mb10 ">
                     <a href="?act=addpd"><input class="mr20" type="button" value="Thêm chi tiết sản phẩm"></a>
+                    <a href="?act=listsp"><input class="mr20" type="button" value="Danh sách sản phẩm"></a>
                 </div>
             </form>
         </div>

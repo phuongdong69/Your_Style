@@ -12,7 +12,6 @@
                 </a>
                 <ul class="dropdown-menu">
                 <li><a href="index.php?act=listsp"><i class="fas fa-box"></i> Danh sách Sản Phẩm</a></li><hr>
-                <li><a href="index.php?act=listpd"><i class="fas fa-tags"></i> Chi Tiết Sản Phẩm</a></li><hr>
                 <li><a href="index.php?act=listdm"><i class="fas fa-tags"></i> Danh Mục Sản Phẩm</a></li><hr>
                 <li><a href="index.php?act=listbdt"><i class="fas fa-tag"></i> Chi tiết đơn hàng</a></li><hr>
                 <li><a href="index.php?act=listbs"><i class="fas fa-users"></i> Trạng thái đơn hàng</a></li><hr>
