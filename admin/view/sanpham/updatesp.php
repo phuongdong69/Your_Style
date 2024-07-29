@@ -1,3 +1,12 @@
+<?php
+$hinhpath = "../admin/img/".$img;
+if(is_file($hinhpath)){
+  $imgTag = "<img src='".$hinhpath."' width='120px' height='80px'>";
+} else {
+  $imgTag = "No Photo";
+}
+?>                
+
 <article>
   <div class="row2">
     <div class="row2 font_title">
@@ -6,10 +15,17 @@
     <div class="row2 form_content">
       <form action="index.php?act=updatesp" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $id ?>"> <!-- Hidden input for id -->
-        
+        <input type="hidden" name="existing_image" value="<?= $img ?>"> <!-- Hidden field for existing image -->
+
         <div class="row2 mb10">
           <label>TÊN SẢN PHẨM</label> <br>
           <input type="text" name="name" placeholder="nhập vào tên sản phẩm" value="<?= $name ?>" required>
+        </div>
+
+        <div class="row2 mb10">
+          <label>Hình ảnh</label><br>
+          <?= $imgTag ?>
+          <input type="file" name="hinh">
         </div>
             
         <div class="row2 mb10">
@@ -39,13 +55,12 @@
           <label>cập nhật lúc</label> <br>
           <input type="datetime-local" name="update_at" placeholder="Cập nhật sản phẩm lúc" value="<?= $update_at ?>">
         </div>
-
         
         <div class="row2 mb10">
           <label>danh mục</label> <br>
           <select name="id_cate" required>
             <?php foreach ($listdanhmuc as $category): ?>
-            <option value="<?= ($category['id']) ?>" <?= $id_cate == $category['id'] ? 'selected' : '' ?>><?= ($category['name']) ?></option>
+            <option value="<?= $category['id'] ?>" <?= $id_cate == $category['id'] ? 'selected' : '' ?>><?= $category['name'] ?></option>
             <?php endforeach; ?>
           </select>
         </div>
@@ -54,7 +69,7 @@
           <label>brand</label> <br>
           <select name="id_brands" required>
             <?php foreach ($listbrands as $brand): ?>
-            <option value="<?= $brand['id'] ?>"><?= $brand['name'] ?></option>
+            <option value="<?= $brand['id'] ?>" <?= $id_brands == $brand['id'] ? 'selected' : '' ?>><?= $brand['name'] ?></option>
             <?php endforeach; ?>
           </select>
         </div>
