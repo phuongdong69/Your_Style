@@ -1,4 +1,24 @@
 <?php
+    include "./Model/category.php";
+    include "./Model/galery.php";
+    include "./Model/product.php";
+    include "./Model/product_detail.php";
+    include "./Model/size.php";
+    include "./Model/brand.php";
+    include "./Model/bill_status.php";
+    include "./Model/billdetail.php";
+    include "./Model/color.php";
+    include "./Model/pdo.php";
+    
+    
+
+
+
+
+
+
+
+
     include "view/header.php";
     include "Model/product.php";
    if(isset($_GET['act'])){

@@ -11,13 +11,9 @@ include "../Model/size.php";
 include "../Model/color.php";
 include "../Model/brand.php";
 include "../Model/product_detail.php";
-
-include "../Model/bill.php";
 include "../Model/bill_status.php";
-include "../Model/role.php";
 include "../Model/billdetail.php";
-
-
+include "../Model/role.php";
 
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
@@ -375,6 +371,95 @@ if (isset($_GET['act'])) {
             $listdanhmuc = load_category();
             include "./view/danhmuc/updatedm.php";
             break;
+
+            //galery
+
+        case 'showimg':
+            if (isset($_GET['id_product']) && $_GET['id_product'] > 0) {
+                $listanh = load_galery($_GET['id_product']);
+
+                extract($listanh);
+            }
+            include "./view/galery/showimg.php";
+            break;
+            case 'addimg':
+                if (isset($_POST['themanh'])) {
+    
+                    // Xử lý hình ảnh 
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "./img/";
+                    $target_file = $target_dir . basename($image);
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                        echo "upload thành công";
+                    } else {
+                        echo "Có lỗi trong quá trình upload file";
+                    }
+                    $id_product = $_POST['id_product'];
+                    insert_galery($image, $id_product);
+                    $thongBao = "Thêm sản phẩm thành công";
+                }
+                $listproduct = load_product();
+                include "./view/galery/add.php";
+                break;
+        // case 'addimg':
+        //     if (isset($_POST['themanh'])) {
+
+        //         // Xử lý hình ảnh 
+        //         $image = $_FILES['image']['name'];
+        //         $target_dir = "./img/";
+        //         $target_file = $target_dir . basename($image);
+        //         if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+        //             echo "upload thành công";
+        //         } else {
+        //             echo "Có lỗi trong quá trình upload file";
+        //         }
+        //         $id_product = $_POST['id_product'];
+        //         insert_galery($image, $id_product);
+        //         $thongBao = "Thêm sản phẩm thành công";
+        //     }
+        //     $listproduct = load_product();
+        //     include "./view/galery/add.php";
+        //     break;
+        case 'updateimg':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $one_galery = load_one_galery($_GET['id']);
+                extract($one_galery);
+                // var_dump($tintuc);
+            }
+            if (isset($_POST['updateanh'])) {
+
+                // Xử lý hình ảnh 
+                $image = $_FILES['image']['name'];
+                $target_dir = "./img/";
+                $target_file = $target_dir . basename($image);
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                    echo "upload thành công";
+                    update_galery($image, $id);
+                    $thongBao = "Thêm sản phẩm thành công";
+                }
+                // $id_product = $_POST['id_product'];
+                // Gọi model để thực hiện câu lệnh insert
+
+
+            }
+
+            include "./view/galery/update.php";
+            break;
+            
+        case 'deleteimg':
+            if (isset($_GET["id"]) & $_GET["id"] > 0) {
+                // echo "thực hiện xoá" . $_GET["id"];
+                delete_galery($_GET["id"]);
+                echo "<script>
+                     alert('Xoá thành công. Nhấn ok để chuyển trang danh sách');
+                     </script>";
+            }
+            $listSanPham = load_product("", 0);
+            include "./view/sanpham/listsp.php";
+
+            break;
+
+
 
             // color
         case 'listcl':
