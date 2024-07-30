@@ -185,7 +185,6 @@ if (isset($_GET['act'])) {
                 extract($product);
                 $pro = load_name_product_detail($id_product);
                 extract($pro);
-                var_dump($name);
             }
             if (isset($_POST['updatepd'])) {
                 $price = $_POST['price'];

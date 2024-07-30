@@ -9,8 +9,6 @@
 
                 <div class="row2 mb10">
                         <label> Product's name  </label> <?= $name ?><br>
-                        
-                        <!-- <input type="text" name="price" placeholder="nhập giá sản phẩm" value="">  -->
                     </div>
                     
                     <div class="row2 mb10">
@@ -41,8 +39,7 @@
                         <label> Price </label> <br>
                         <input type="text" name="price" placeholder="nhập giá sản phẩm" value="<?= $price ?>">
                     </div>
-
-
+                    
                     <input class="mr20" type="submit" name="updatepd" value="Cập nhật">
                     <a href="index.php?act=listpd"><input class="mr20" type="button" value="DANH SÁCH"></a>
 
