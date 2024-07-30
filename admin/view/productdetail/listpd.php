@@ -8,9 +8,9 @@
                 <div class="row2 mb10 formds_loai">
                     <table border="1">
                         <tr>
-                            <th>Mã</th>
-                            <th>Giá</th>
+                            <th>STT</th>
                             <th>Mã sản phẩm</th>
+                            <th>Giá</th>
                             <th>Size</th>
                             <th>Color</th>
                             <th>Chức năng</th>
@@ -19,15 +19,13 @@
                         foreach ($listpd as $product) {
                             extract($product);
                             $suaUrl = "?act=updatepd&id=".$id;
-                            // $id_product = $id;
                         ?>
                         <tr>
                             <td><?= $id ?></td>
-                            <td><?= $price?></td>
                             <td><?= $id_product ?></td>
-                            <td><?= $id_size ?></td>
-                            <td><?= $id_color ?></td>
-
+                            <td><?= $price?></td>
+                            <td><?= $size_sizeValue ?></td>
+                            <td><?= $color_name ?></td>
                             <td>
                                 <a href="<?= $suaUrl ?>">
                                 <input type="button" value="Sửa">
