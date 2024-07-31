@@ -1,4 +1,4 @@
-<!-- ?php
+<?php
   
     function insert_galery($image,$id_product){
         $sql = "INSERT INTO `galery` ( `id`,`image`,`id_product` ) 
@@ -13,7 +13,7 @@
     }
     
         function load_one_galery($id){
-            $sql = "SELECT * FROM `galery` where `id` = $id";
+            $sql = "SELECT * FROM `galery` where `id.product` = $id";
             return pdo_query_one($sql);
         }
     
@@ -26,4 +26,4 @@
         WHERE `galery`.`id` = $id";
         return pdo_execute($sql);
     }
-?> -->
+?>

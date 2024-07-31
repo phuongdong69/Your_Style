@@ -36,19 +36,19 @@
                             extract($product);
                             $suaUrl = "?act=updatesp&id=".$id;
                             $id_product = $id;
-                            $hinhpath = "../admin/img/".$img;
-                            if(is_file($hinhpath)){
-                                $img = "<img src='".$hinhpath."' width = '120px' height = '80px'>";
-                            }else{
-                                $img = "No Photo";
-                            }
+                            // $hinhpath = "./img/".$img;
+                            // if(is_file($hinhpath)){
+                            //     $img = "<img src='".$hinhpath."' width = '120px' height = '80px'>";
+                            // }else{
+                            //     $img = "No Photo";
+                            // }
                         ?>
                         <tr>
                             <td><?= $id ?></td>
                             <td><?= $name ?></td>
                             <!-- <td>?= $description ?></td> -->
                             <!-- <td>?= $priceSale ?></td> -->
-                            <td><?= $img ?></td>
+                            <!-- <td>?= $img ?></td> -->
                             <td><?= $quantity ?></td>
                             <td><?= $status ?></td>
                             <!-- <td>?= $create_at ?></td> -->

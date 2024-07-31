@@ -15,6 +15,7 @@ include "../Model/bill_status.php";
 include "../Model/billdetail.php";
 include "../Model/role.php";
 include "../Model/news.php";
+include "../Model/bill.php";
 
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
@@ -105,57 +106,109 @@ if (isset($_GET['act'])) {
                 include "./view/sanpham/updatesp.php";
                 break;
             //galery
-            case 'listglr':
-                $listSanPham = load_all_products();
-                include './view/galery/listglr.php';
-                break;
+            // case 'listglr':
+            //     $listSanPham = load_all_products();
+            //     include './view/galery/listglr.php';
+            //     break;
         
-            case 'updateglr':
-                $id_product = isset($_GET['id']) ? intval($_GET['id']) : 0; // Đảm bảo id_product là số nguyên
-                if ($id_product <= 0) {
-                    echo "ID sản phẩm không hợp lệ.";
-                    exit;
+            // case 'updateglr':
+            //     $id_product = isset($_GET['id']) ? intval($_GET['id']) : 0; // Đảm bảo id_product là số nguyên
+            //     if ($id_product <= 0) {
+            //         echo "ID sản phẩm không hợp lệ.";
+            //         exit;
+            //     }
+        
+            //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            //         if (isset($_POST['id_product']) && intval($_POST['id_product']) === $id_product) {
+            //             // Xử lý thêm ảnh mới
+            //             if (isset($_FILES['new_images']) && !empty($_FILES['new_images']['name'][0])) {
+            //                 $total_files = count($_FILES['new_images']['name']);
+            //                 for ($i = 0; $i < $total_files; $i++) {
+            //                     $file_name = $_FILES['new_images']['name'][$i];
+            //                     $file_tmp = $_FILES['new_images']['tmp_name'][$i];
+            //                     $file_target = "../admin/img/" . basename($file_name);
+        
+            //                     if (move_uploaded_file($file_tmp, $file_target)) {
+            //                         insert_galery($id_product, $file_name);
+            //                     } else {
+            //                         echo "Lỗi khi tải lên tệp ảnh!";
+            //                     }
+            //                 }
+            //             }
+        
+            //             // Xử lý xóa ảnh
+            //             if (isset($_POST['delete_images']) && !empty($_POST['delete_images'])) {
+            //                 foreach ($_POST['delete_images'] as $image_id) {
+            //                     $sql = "SELECT `image` FROM `galery` WHERE `id` = :image_id";
+            //                     $params = [':image_id' => $image_id];
+            //                     $image = pdo_query_one($sql, $params)['image'];
+            //                     unlink("../admin/img/" . $image);
+            //                     $sql = "DELETE FROM `galery` WHERE `id` = :image_id";
+            //                     pdo_execute($sql, $params);
+            //                 }
+            //             }
+            //         } else {
+            //             echo "ID sản phẩm không khớp.";
+            //             exit;
+            //         }
+            //     }
+        
+            //     $product_images = load_images_by_product($id_product);
+            //     include './view/galery/updateglr.php';
+            //     break;
+            case 'showimg':
+                if (isset($_GET['id_product']) && $_GET['id_product'] > 0) {
+                    $listanh = load_galery($_GET['id_product']);
+    
+                    extract($listanh);
                 }
-        
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    if (isset($_POST['id_product']) && intval($_POST['id_product']) === $id_product) {
-                        // Xử lý thêm ảnh mới
-                        if (isset($_FILES['new_images']) && !empty($_FILES['new_images']['name'][0])) {
-                            $total_files = count($_FILES['new_images']['name']);
-                            for ($i = 0; $i < $total_files; $i++) {
-                                $file_name = $_FILES['new_images']['name'][$i];
-                                $file_tmp = $_FILES['new_images']['tmp_name'][$i];
-                                $file_target = "../admin/img/" . basename($file_name);
-        
-                                if (move_uploaded_file($file_tmp, $file_target)) {
-                                    insert_image($id_product, $file_name);
-                                } else {
-                                    echo "Lỗi khi tải lên tệp ảnh!";
-                                }
-                            }
-                        }
-        
-                        // Xử lý xóa ảnh
-                        if (isset($_POST['delete_images']) && !empty($_POST['delete_images'])) {
-                            foreach ($_POST['delete_images'] as $image_id) {
-                                $sql = "SELECT `image` FROM `galery` WHERE `id` = :image_id";
-                                $params = [':image_id' => $image_id];
-                                $image = pdo_query_one($sql, $params)['image'];
-                                unlink("../admin/img/" . $image);
-                                $sql = "DELETE FROM `galery` WHERE `id` = :image_id";
-                                pdo_execute($sql, $params);
-                            }
-                        }
+                include "./view/galery/showimg.php";
+                break;
+    
+            case 'addimg':
+                if (isset($_POST['themanh'])) {
+    
+                    // Xử lý hình ảnh 
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "./img/";
+                    $target_file = $target_dir . basename($image);
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                        echo "upload thành công";
                     } else {
-                        echo "ID sản phẩm không khớp.";
-                        exit;
+                        echo "Có lỗi trong quá trình upload file";
                     }
+                    $id_product = $_POST['id_product'];
+                    insert_galery($image, $id_product);
+                    $thongBao = "Thêm sản phẩm thành công";
                 }
-        
-                $product_images = load_images_by_product($id_product);
-                include './view/galery/updateglr.php';
+                $listproduct = load_product();
+                include "./view/galery/add.php";
                 break;
-        
+            case 'updateimg':
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $one_galery = load_one_galery($_GET['id']);
+                    extract($one_galery);
+                    // var_dump($tintuc);
+                }
+                if (isset($_POST['updateanh'])) {
+    
+                    // Xử lý hình ảnh 
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "./img/";
+                    $target_file = $target_dir . basename($image);
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                        echo "upload thành công";
+                        update_galery($image, $id);
+                        $thongBao = "Thêm sản phẩm thành công";
+                    }
+                    // $id_product = $_POST['id_product'];
+                    // Gọi model để thực hiện câu lệnh insert
+    
+    
+                }
+    
+                include "./view/galery/update.php";
+                break;
             //product_detail
 
         case 'listpd':
@@ -509,17 +562,17 @@ if (isset($_GET['act'])) {
             $listbill = load_bill();
             include "./view/bill/listbill.php";
             break;
-        case 'deletebill':
-            if (isset($_GET["id"]) & $_GET["id"] > 0) {
-                delete_bill($_GET["id"]);
-                echo "<script>
-                        alert('Xoá thành công. Nhấn ok để chuyển trang danh sách');
-                        </script>";
-            }
-            $listbill = load_bill();
-            include "./view/bill/listbill.php";
+        // case 'deletebill':
+        //     if (isset($_GET["id"]) & $_GET["id"] > 0) {
+        //         delete_bill($_GET["id"]);
+        //         echo "<script>
+        //                 alert('Xoá thành công. Nhấn ok để chuyển trang danh sách');
+        //                 </script>";
+        //     }
+        //     $listbill = load_bill();
+        //     include "./view/bill/listbill.php";
 
-            break;
+        //     break;
 
         case 'addbill':
             if (isset($_POST['thembill']) && ($_POST['thembill'])) {
