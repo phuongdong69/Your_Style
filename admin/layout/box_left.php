@@ -55,6 +55,12 @@
                 </ul>
             </li>
             <hr>
+            <li class="dropdown">
+                <a href="#" onclick="toggleDropdown(event)">
+                <li><a href="index.php?act=listnews"><i class="fas fa-tags"></i> Tin tức </a></li><hr>
+                </a>
+            </li>
+            <hr>
             
             
         </ul>
