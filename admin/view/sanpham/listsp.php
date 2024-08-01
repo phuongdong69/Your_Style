@@ -35,12 +35,14 @@
                         foreach ($listSanPham as $product) {
                             extract($product);
                             $suaUrl = "?act=updatesp&id=".$id;
-                            $id_product = $id;
+                            $listimg = "?act=showimg&id_product=".$id;
+                            // $id_product = $id;
+                            $imgPath = "./img/" . $galery_imgage;
                             // $hinhpath = "./img/".$img;
                             // if(is_file($hinhpath)){
-                            //     $img = "<img src='".$hinhpath."' width = '120px' height = '80px'>";
+                            //     $imgPath = "<img src='".$hinhpath.">";
                             // }else{
-                            //     $img = "No Photo";
+                            //     $imgPath = "No Photo";
                             // }
                         ?>
                         <tr>
@@ -48,7 +50,10 @@
                             <td><?= $name ?></td>
                             <!-- <td>?= $description ?></td> -->
                             <!-- <td>?= $priceSale ?></td> -->
-                            <!-- <td>?= $img ?></td> -->
+                            <!-- <td>?=  $hinhpath ?></td> -->
+                            <td>
+                                <img src="<?= $imgPath ?>" alt=""  style='width:100px;height:100px;' >
+                            </td>
                             <td><?= $quantity ?></td>
                             <td><?= $status ?></td>
                             <!-- <td>?= $create_at ?></td> -->
@@ -56,10 +61,8 @@
                             <!-- <td>?= $id_cate ?></td> -->
                             <td><?=$brand_name?></td>
                             <td>
-                                <a href="<?= $suaUrl ?>">
-                                <input type="button" value="Sửa">
-                                </a>
-
+                                <a href="<?= $suaUrl ?>"><input type="button" value="Sửa"></a>
+                                <a href="<?= $listimg ?>"><input type="button" value="xem thêm ảnh"></a>
                                 <!-- <a href="?= $img ?>">
                                 <input type="button" value="img">
                                 </a> -->
@@ -71,7 +74,7 @@
                 <div class="row mb10 ">
                     <a href="index.php?act=addsp"><input class="mr20" type="button" value="Thêm Sản Phẩm"></a>
                     <a href="index.php?act=listpd"><input class="mr20" type="button" value="Chi Tiết Sản Phẩm"></a>
-                    <a href="index.php?act=listglr"><input class="mr20" type="button" value="Quản lý ảnh sản phẩm"></a>
+                    <!-- <a href="index.php?act=listglr"><input class="mr20" type="button" value="Quản lý ảnh sản phẩm"></a> -->
                 </div>
             </form>
         </div>
