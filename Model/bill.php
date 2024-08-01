@@ -2,8 +2,10 @@
     function load_bill()
     {
         $sql = "SELECT * FROM `bill` ";
-        return pdo_query($sql);
+        $listbill = pdo_query($sql);
+        return $listbill;
     }
+    
     function delete_bill($id){
         $sql = "DELETE FROM `bill`
         WHERE `bill`.`id` = ".$id;

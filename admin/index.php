@@ -11,6 +11,7 @@ include "../Model/size.php";
 include "../Model/color.php";
 include "../Model/brand.php";
 include "../Model/product_detail.php";
+include "../Model/bill.php";
 include "../Model/bill_status.php";
 include "../Model/billdetail.php";
 include "../Model/role.php";
