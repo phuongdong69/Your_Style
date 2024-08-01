@@ -13,7 +13,7 @@
     }
     
         function load_one_galery($id){
-            $sql = "SELECT * FROM `galery` where `id.product` = $id";
+            $sql = "SELECT * FROM `galery` where `id` = $id limit 1";
             return pdo_query_one($sql);
         }
     
@@ -21,9 +21,5 @@
         $sql= "UPDATE `galery` SET `image` = '$image' where `id`= $id";
         return pdo_execute($sql);
     }
-    function delete_galery($id){
-        $sql = "DELETE FROM `galery`
-        WHERE `galery`.`id` = $id";
-        return pdo_execute($sql);
-    }
+    
 ?>

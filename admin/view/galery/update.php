@@ -4,11 +4,11 @@
       <h1>THÊM ẢNH</h1>
     </div>
     <div class="row2 form_content ">
-      <form action="#" method="POST" enctype="multipart/form-data">
+      <form action="" method="POST" enctype="multipart/form-data">
       <div class="row2 mb10">
             <label>HÌNH ẢNH </label> <br>
             <?php
-                $img = $image;
+                // $img = $image;
             ?>
             <input type="file" name="image" >
             
