@@ -5,9 +5,9 @@ function load_news(){
     return $listnews;
 }
 
-function insert_news($title, $intro, $detail, $create_at, $update_at){
-    $sql = "INSERT INTO `news` ( `title`,`intro`,`detail`,`create_at`,`update_at`) 
-    VALUES ('$title', '$intro','$detail', '$create_at', '$update_at');";
+function insert_news($title, $intro, $detail, $creat_at, $update_at){
+    $sql = "INSERT INTO `news` ( `title`,`intro`,`detail`,`creat_at`,`update_at`) 
+    VALUES ('$title', '$intro','$detail', '$creat_at', '$update_at');";
     return pdo_execute($sql);
 }
 function update_news($title, $intro, $detail, $update_at,$id){

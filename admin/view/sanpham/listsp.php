@@ -25,9 +25,10 @@
                             <th>Hình ảnh</th>
                             <th>Số lượng</th>
                             <th>Trạng thái</th>
-                            <!-- <th>Tạo lúc</th> -->
-                            <!-- <th>Cập nhật lúc</th> -->
-                            <!-- <th>Danh mục</th> -->
+                            <th>Size</th>
+                            <th>Color</th>
+                            <th>Giá</th>
+                            <th>Giá Sale</th>
                             <th>Brand</th>
                             <th>Chức năng</th>
                         </tr>
@@ -56,10 +57,11 @@
                             </td>
                             <td><?= $quantity ?></td>
                             <td><?= $status ?></td>
-                            <!-- <td>?= $create_at ?></td> -->
-                            <!-- <td>?= $update_at ?></td> -->
-                            <!-- <td>?= $id_cate ?></td> -->
-                            <td><?=$brand_name?></td>
+                            <td><?= $size_sizeValue ?></td>
+                            <td><?= $color_name ?></td>
+                            <td><?= $price?></td>
+                            <td><?= $priceSale ?></td>
+                            <td><?= $brand_name?></td>
                             <td>
                                 <a href="<?= $suaUrl ?>"><input type="button" value="Sửa"></a>
                                 <a href="<?= $listimg ?>"><input type="button" value="xem thêm ảnh"></a>

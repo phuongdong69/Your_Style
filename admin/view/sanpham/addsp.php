@@ -10,14 +10,11 @@
           <input type="text" name="name" placeholder="nhập vào tên sản phẩm" required>
         </div>
 
-        <div class="row2 mb10">
+         <div class="row2 mb10">
           <label>Hình ảnh</label>
-          <input type="file" name="hinh" required>
+          <input type="file" name="image" required>
         </div>
-        <div class="row2 mb10">
-          <label>Nhiều ảnh</label>
-          <input type="file" name="hinhs[]" multiple="multiple" required>
-        </div>
+        
             
         <div class="row2 mb10">
           <label>Mô tả</label>
@@ -25,24 +22,49 @@
         </div>
 
         <div class="row2 mb10">
-          <label>Giá sale </label>
-          <input type="number" name="priceSale" placeholder="nhập giá sale" required>
+            <label> Size </label> <br>
+            <select name="id_size" id="">
+                <?php foreach ($listsize as $listsiz) :
+                    extract($listsiz);
+                ?>
+                    <option value="<?= $id ?>"><?= $sizeValue ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div> 
+        <div class="row2 mb10">
+            <label> Color </label> <br>
+            <select name="id_color" id="">
+                <?php foreach ($listcolor as $listcol) :
+                    extract($listcol);
+                ?>
+                    <option value="<?= $id ?>"><?= $name ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="row2 mb10">
+            <label> Price </label> <br>
+            <input type="text" name="price" placeholder="nhập giá sản phẩm" required>
         </div>
 
         <div class="row2 mb10">
+            <label> Giá Sale </label> <br>
+            <input type="text" name="priceSale" placeholder="nhập giá sale sản phẩm" required>
+        </div> 
+
+        <div class="row2 mb10">
           <label>Số lượng</label>
-          <input type="number" name="quantity" placeholder="nhập số lượng" required>
+          <input type="text" name="quantity" placeholder="nhập số lượng" required>
         </div>
 
         <div class="row2 mb10">
           <label>Trạng thái</label>
           <select name="status" required>
-            <option value="còn hàng">Còn hàng</option>
-            <option value="hết hàng">Hết hàng</option>
+            <option value="Đang bán">Đang bán</option>
+            <option value="Ngừng bán">Ngừng bán</option>
           </select>
         </div>
 
-        <div style="width: 200px;" class="row2 mb10">
+        <!-- <div style="width: 200px;" class="row2 mb10">
           <label>Tạo lúc</label>
           <input type="datetime-local" name="create_at" placeholder="Tạo sản phẩm lúc">
         </div>
@@ -50,7 +72,7 @@
         <div style="width: 200px;" class="row2 mb10">
           <label>Cập nhật lúc</label>
           <input type="datetime-local" name="update_at" placeholder="Tạo sản phẩm lúc">
-        </div>
+        </div> -->
 
         <div style="width: 200px;" class="row2 mb10">
           <label>Danh mục</label>

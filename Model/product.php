@@ -2,8 +2,13 @@
 
 function load_all_products_img($id_cate = 0) {
     if ($id_cate > 0) {
-        $sql = "SELECT product.*,brands.name AS brand_name , galery.image AS galery_imgage
+        $sql = "SELECT product.*,product_detail.*,
+                brands.name AS brand_name ,
+                galery.image AS galery_imgage, 
+                size.sizeValue AS size_sizeValue, 
+                color.name AS color_name
                 FROM product
+                JOIN product_detail ON product_detail.id_product = product.id 
                 JOIN (
                     SELECT id_product, MIN(id) AS first1_id
                     FROM galery
@@ -11,19 +16,26 @@ function load_all_products_img($id_cate = 0) {
                 ) first1 ON product.id = first1.id_product
                 JOIN galery ON first1.first1_id = galery.id
                 JOIN brands ON brands.id = product.id_brands
+                JOIN size ON product_detail.id_size = size.id
+                JOIN color ON product_detail.id_color = color.id
                 WHERE `id_cate` = $id_cate";
-                
     } else {
-        $sql = "SELECT product.*,brands.name AS brand_name , galery.image AS galery_imgage
+        $sql = "SELECT product.*,product_detail.*,
+                brands.name AS brand_name ,
+                galery.image AS galery_imgage, 
+                size.sizeValue AS size_sizeValue, 
+                color.name AS color_name 
                 FROM product
+                JOIN product_detail ON product_detail.id_product = product.id 
                 JOIN (
                     SELECT id_product, MIN(id) AS first1_id
                     FROM galery
                     GROUP BY id_product
                 ) first1 ON product.id = first1.id_product
                 JOIN galery ON first1.first1_id = galery.id
-                JOIN brands ON brands.id = product.id_brands";
-                
+                JOIN brands ON brands.id = product.id_brands
+                JOIN size ON product_detail.id_size = size.id
+                JOIN color ON product_detail.id_color = color.id ";           
     }       
     return pdo_query($sql);
 
@@ -72,10 +84,25 @@ function load_one_product($id) {
             WHERE product.id = $id";
     return pdo_query_one($sql);
 }
+function load_one_product_name($name) {
+    $sql = "SELECT * FROM product 
+            WHERE `name` = '$name'";
+    return pdo_query_one($sql);
+}
 
-function insert_product($name, $description, $priceSale, $quantity, $status, $create_at, $update_at, $id_cate, $id_brands) {
-    $sql = "INSERT INTO `product` (`name`, `description`, `priceSale`, `quantity`, `status`, `create_at`, `update_at`, `id_cate`, `id_brands`) 
-            VALUES ('$name', '$description', '$priceSale', '$quantity', '$status', '$create_at', '$update_at', '$id_cate', '$id_brands')";
+
+
+// function insert_product($name, $description, $priceSale, $quantity, $status, $id_cate, $id_brands) {
+//     $sql = "INSERT INTO `product`, 
+//             (`id`,`name`, `description`, `priceSale`, `quantity`, `status`, `create_at`, `update_at`, `id_cate`, `id_brands`) 
+//             VALUES 
+//             (NULL, '$name', '$description', $priceSale, $quantity, '$status', NOW(), NOW(), $id_cate, $id_brands)";
+//     return pdo_execute($sql);
+// }
+
+function insert_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands) {
+    $sql = "INSERT INTO `product` (`id`,`name`, `description`,  `priceSale`, `quantity`, `status`, `create_at`,`update_at`, `id_cate`, `id_brands`)
+            VALUES (NULL,'$name', '$description', '$priceSale', '$quantity', '$status', NOW(),NOW(), '$id_cate',  '$id_brands')";
     return pdo_execute($sql);
 }
 
