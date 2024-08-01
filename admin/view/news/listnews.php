@@ -25,7 +25,7 @@
                             <td><?= $title ?></td>
                             <td><?= $intro?></td>
                             <td><?= $detail ?></td>
-                            <td><?= $create_at ?></td>
+                            <td><?= $creat_at ?></td>
                             <td>
                                 <a href="<?= $suanews ?>">
                                 <input type="button" value="Sửa">

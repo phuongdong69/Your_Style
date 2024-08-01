@@ -10,8 +10,7 @@
                         <tr>
                             <th>Mã</th>
                             <th>Hình ảnh</th>
-                            <!-- <th>Mã sản phẩm</th> -->
-                            <th></th>
+                            <th>Mã sản phẩm</th>
                         </tr>
                         <?php
                         foreach ($listanh as $gallery) {
