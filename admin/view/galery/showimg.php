@@ -11,36 +11,35 @@
                             <th>Mã</th>
                             <th>Hình ảnh</th>
                             <th>Mã sản phẩm</th>
-                            <th></th>
                         </tr>
                         <?php
                         foreach ($listanh as $gallery) {
                             extract($gallery);
                             $imgPath = "./img/" . $image;
                             $updateimg = "?act=updateimg&id=" . $id;
-                            $addimg_pro = "?act=addimg";
-                            $xoaUrl = "?act=deleteimg&id=" . $id;
+                            $addimg_pro = "?act=addimg&id_product=" . $id_product;
+                            // $xoaUrl = "?act=deleteimg&id=" . $id;
                         ?>
                             <tr>
                                 <td><?= $id ?></td>
                                 <td>
                                     <img src="<?= $imgPath ?>" alt="" width="100px" height="100px"><?= $imgPath ?>
                                 </td>
-                                <td><?= $id_product ?></td>
+                                <!-- <td>?= $id_product ?></td> -->
                                 <td>
                                     <a href="<?= $updateimg ?>">
                                         <input type="button" value="Sửa">
                                     </a>
-                                    <a onclick="return confirm('Bạn có muốn xoá không?')" href="<?= $xoaUrl ?>">
+                                    <!-- <a onclick="return confirm('Bạn có muốn xoá không?')" href="?= $xoaUrl ?>">
                                         <input type="button" value="Xóa">
-                                    </a>
+                                    </a> -->
                                 </td>
                             </tr>
                         <?php } ?>
                     </table>
                 </div>
                 <div class="row mb10">
-                    <a href="index.php?act=addimg"><input class="mr20" type="button" value="Thêm ảnh"></a>
+                    <a href="<?= $addimg_pro ?>"><input class="mr20" type="button" value="Thêm ảnh"></a>
                     <a href="index.php?act=listsp"><input class="mr20" type="button" value="Danh sách sản phẩm"></a>
 
                 </div>

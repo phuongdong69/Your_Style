@@ -22,7 +22,7 @@
 
         <div style="width: 200px;" class="row2 mb10">
           <label>Tạo lúc</label>
-          <input type="datetime-local" name="create_at" placeholder="tạo tin tức lúc">
+          <input type="datetime-local" name="creat_at" placeholder="tạo tin tức lúc">
         </div>
 
         <div style="width: 200px;" class="row2 mb10">

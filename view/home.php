@@ -61,24 +61,7 @@
                   </div>
 
                </div>
-               <?php
-               foreach ($listSanPham as $sp) {
-                  extract($sp);
-                  $linkUrl = "?act=sanphamct&id_sp=" . $id;
-                  $imgPath = "img/" . $img;
-               ?>
-                  <div class="box_items">
-                     <div class="box_items_img">
-                        <a href="<?= $linkUrl ?>"><img src="<?= $imgPath ?>" alt=""></a>
-                        <div class="add" href="">ADD TO CART</div>
-                     </div>
-                     <a class="item_name" href="<?= $linkUrl ?>"><?= $name ?></a>
-                     <p class="price">$<?= $price ?></p>
-
-
-                  </div>
-
-               <?php  }
+              
                ?>
             </li>
          </ul>
