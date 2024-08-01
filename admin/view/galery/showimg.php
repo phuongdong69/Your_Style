@@ -10,7 +10,7 @@
                         <tr>
                             <th>Mã</th>
                             <th>Hình ảnh</th>
-                            <th>Mã sản phẩm</th>
+                            <!-- <th>Mã sản phẩm</th> -->
                             <th></th>
                         </tr>
                         <?php

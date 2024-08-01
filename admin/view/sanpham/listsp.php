@@ -47,10 +47,7 @@
                         ?>
                         <tr>
                             <td><?= $id ?></td>
-                            <td><?= $name ?></td>
-                            <!-- <td>?= $description ?></td> -->
-                            <!-- <td>?= $priceSale ?></td> -->
-                            <!-- <td>?=  $hinhpath ?></td> -->
+                            <td><?= $name ?></td> 
                             <td>
                                 <img src="<?= $imgPath ?>" alt=""  style='width:100px;height:100px;' >
                             </td>

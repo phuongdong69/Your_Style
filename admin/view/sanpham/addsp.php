@@ -42,7 +42,7 @@
           </select>
         </div>
 
-        <div style="width: 200px;" class="row2 mb10">
+        <!-- <div style="width: 200px;" class="row2 mb10">
           <label>Tạo lúc</label>
           <input type="datetime-local" name="create_at" placeholder="Tạo sản phẩm lúc">
         </div>
@@ -50,7 +50,7 @@
         <div style="width: 200px;" class="row2 mb10">
           <label>Cập nhật lúc</label>
           <input type="datetime-local" name="update_at" placeholder="Tạo sản phẩm lúc">
-        </div>
+        </div> -->
 
         <div style="width: 200px;" class="row2 mb10">
           <label>Danh mục</label>
