@@ -27,6 +27,9 @@
         case "news": //tin tức
             include "view/news.php";
             break;
+        case "home": 
+            include "view/home.php";
+            break;
         case "cart": //giỏ hàng
             include "view/cart.php";
             break;
@@ -82,15 +85,16 @@
 
 
 
-        default:
-            include "view/home.php";
-            break;
+        // default:
+        //     include "view/home.php";
+        //     break;
     }
 
    }else{
-    include "view/slide.php";
+    
 
     include "view/home.php";
+
    }
 
 

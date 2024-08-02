@@ -46,8 +46,7 @@
                         <ul class="nav navbar-nav">
 
                            <ul class="nav navbar-nav">
-                              <li><a href="index.php?act=index">Trang Chủ</a></li>
-                              <li><a href="index.php?act=hotnew">HÀNG MỚI</a></li>
+                              <li><a href="index.php?act=home">Trang Chủ</a></li>
                               <li class="dropdown">
                                  <a href="index.php?act=shirt" class="dropdown-toggle">Áo</a>
                                  <div class="dropdown-menu mega-menu">

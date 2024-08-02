@@ -1,8 +1,8 @@
-<!-- ?php
+<?php
   
     function insert_galery($image,$id_product){
         $sql = "INSERT INTO `galery` ( `id`,`image`,`id_product` ) 
-        VALUES (NULL, '$image', '$id_product');";
+        VALUES (NULL, '$image', $id_product);";
         return pdo_execute($sql);
     }
     function load_galery($id_product){
@@ -13,17 +13,13 @@
     }
     
         function load_one_galery($id){
-            $sql = "SELECT * FROM `galery` where `id` = $id";
+            $sql = "SELECT * FROM `galery` where `id` = $id limit 1";
             return pdo_query_one($sql);
         }
     
-    function update_galery($image,$id){
-        $sql= "UPDATE `galery` SET `image` = '$image' where `id`= $id";
+    function update_galery($image,$id_product,$id){
+        $sql= "UPDATE `galery` SET `image` = '$image', `id_product` = '$id_product' where `id`= $id";
         return pdo_execute($sql);
     }
-    function delete_galery($id){
-        $sql = "DELETE FROM `galery`
-        WHERE `galery`.`id` = $id";
-        return pdo_execute($sql);
-    }
-?> -->
+    
+?>
