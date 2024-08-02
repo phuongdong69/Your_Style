@@ -1,6 +1,6 @@
 <?php
 
-function load_all_products_img($id_cate) {
+function load_all_products_img($id_cate = 0) {
     if ($id_cate > 0) {
         $sql = "SELECT product.*,product_detail.price,
                 brands.name AS brand_name ,

@@ -8,6 +8,17 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container_fullwidth {
+    width: 100%;
+    /* background-color: #f9f9f9; */
+    padding: 20px 0;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -188,6 +199,7 @@ form button{
     margin-right: 15px; 
     font-size: 15px;
 }
+
 
 .collapse {
     font-size: 10px;

@@ -77,6 +77,17 @@
         case "register": //đăng ký
             include "view/register.php";
             break;
+        case 'sanphamct':
+            if(isset($_GET['id']) && ($_GET['id']> 0)){
+                $id = $_GET['id'];
+                $onesp = load_one_product($id);
+                extract($onesp);
+                $images = load_galery($_GET['id']); // Lấy hình ảnh của sản phẩm nhưng chưa được
+                include "view/product/productdetail.php";
+            } else {
+                include "view/home.php";
+            }   
+            break;
         
         
 
