@@ -20,7 +20,9 @@
 
 
     include "view/header.php";
+
     include "view/top_bar.php";
+
    if(isset($_GET['act'])){
     switch ($_GET['act']) {
         //service dịch vụ

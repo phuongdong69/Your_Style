@@ -12,7 +12,13 @@
 
          <div class="row2 mb10">
           <label>Hình ảnh</label>
+<<<<<<< HEAD
           <input type="file" name="image" required>
+=======
+
+          <input type="file" name="image" required>
+
+>>>>>>> d2dcd5351874570f4c1f4339327cc47663956ff9
         </div>
         
             

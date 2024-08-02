@@ -57,6 +57,10 @@
             <hr>
             <li class="dropdown">
                 <li><a href="index.php?act=listnews"><i class="fas fa-tags"></i> Tin tức </a></li><hr>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d2dcd5351874570f4c1f4339327cc47663956ff9
             </li>
             
             
