@@ -24,138 +24,138 @@ if (isset($_GET['act'])) {
             include "./layout/home.php";
             break;
 
-            case 'listsp': // Show products list
-                if(isset($_POST['listok']) && ($_POST['listok'])) {
-                    $id_cate = $_POST['id_cate'];
+        case 'listsp': // Show products list
+            if (isset($_POST['listok']) && ($_POST['listok'])) {
+                $id_cate = $_POST['id_cate'];
+            } else {
+                $id_cate = 0;
+            }
+            $listdanhmuc = load_category();
+            $listSanPham = load_product($id_cate);
+            include "./view/sanpham/listsp.php";
+            break;
+
+        case 'addsp': // Add new product
+            if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
+                $name = $_POST['name'];
+                $description = $_POST['description'];
+                $priceSale = $_POST['priceSale'];
+                $quantity = $_POST['quantity'];
+                $status = $_POST['status'];
+                $create_at = $_POST['create_at'];
+                $update_at = $_POST['update_at'];
+                $id_cate = $_POST['id_cate'];
+                $id_brands = $_POST['id_brands'];
+                $img = $_FILES['hinh']['name'];
+
+                $target_dir = "../admin/img/";
+                $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+
+                if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                    // Quá trình di chuyển thành công
                 } else {
-                    $id_cate = 0;
+                    // Xử lý lỗi nếu di chuyển thất bại
+                    echo "Lỗi khi di chuyển tệp ảnh!";
                 }
-                $listdanhmuc = load_category();
-                $listSanPham = load_product($id_cate);
-                include "./view/sanpham/listsp.php";
-                break;
-    
-            case 'addsp': // Add new product
-                if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
-                    $name = $_POST['name'];
-                    $description = $_POST['description'];
-                    $priceSale = $_POST['priceSale'];
-                    $quantity = $_POST['quantity'];
-                    $status = $_POST['status'];
-                    $create_at = $_POST['create_at'];
-                    $update_at = $_POST['update_at'];
-                    $id_cate = $_POST['id_cate'];
-                    $id_brands = $_POST['id_brands'];
-                    $img = $_FILES['hinh']['name']; 
-    
+
+                insert_product($name, $description, $priceSale, $quantity, $status, $create_at, $update_at, $id_cate, $id_brands, $img);
+                $thongbao = "Thêm thành công";
+            }
+            $listdanhmuc = load_category();
+            $listbrands = load_brands();
+            include "./view/sanpham/addsp.php";
+            break;
+
+        case 'updatesp': // Update product
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $product = load_one_product($_GET['id']);
+                extract($product);
+            }
+
+            if (isset($_POST['capnhatsanpham'])) {
+                $id = $_POST['id'];
+                $name = $_POST['name'];
+                $description = $_POST['description'];
+                $priceSale = $_POST['priceSale'];
+                $quantity = $_POST['quantity'];
+                $status = $_POST['status'];
+                $update_at = $_POST['update_at'];
+                $id_cate = $_POST['id_cate'];
+                $id_brands = $_POST['id_brands'];
+
+                $img = $_FILES['hinh']['name'];
+                if ($img == '') {
+                    $img = $_POST['existing_image']; // Retrieve existing image if no new image is uploaded
+                } else {
                     $target_dir = "../admin/img/";
                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                    
                     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
                         // Quá trình di chuyển thành công
                     } else {
                         // Xử lý lỗi nếu di chuyển thất bại
                         echo "Lỗi khi di chuyển tệp ảnh!";
                     }
-    
-                    insert_product($name, $description, $priceSale, $quantity, $status, $create_at, $update_at, $id_cate, $id_brands, $img);
-                    $thongbao = "Thêm thành công";
                 }
-                $listdanhmuc = load_category();
-                $listbrands = load_brands();
-                include "./view/sanpham/addsp.php";
-                break;
-    
-            case 'updatesp': // Update product
-                if (isset($_GET['id']) && $_GET['id'] > 0) {
-                    $product = load_one_product($_GET['id']);
-                    extract($product);
-                }
-                
-                if (isset($_POST['capnhatsanpham'])) {
-                    $id = $_POST['id'];
-                    $name = $_POST['name'];
-                    $description = $_POST['description'];
-                    $priceSale = $_POST['priceSale'];
-                    $quantity = $_POST['quantity'];
-                    $status = $_POST['status'];
-                    $update_at = $_POST['update_at'];
-                    $id_cate = $_POST['id_cate'];
-                    $id_brands = $_POST['id_brands'];
-    
-                    $img = $_FILES['hinh']['name'];
-                    if ($img == '') {
-                        $img = $_POST['existing_image']; // Retrieve existing image if no new image is uploaded
-                    } else {
-                        $target_dir = "../admin/img/";
-                        $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                        if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                            // Quá trình di chuyển thành công
-                        } else {
-                            // Xử lý lỗi nếu di chuyển thất bại
-                            echo "Lỗi khi di chuyển tệp ảnh!";
+
+                update_product($name, $description, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $img, $id);
+                $thongbao = "Cập nhật thành công";
+            }
+            $listdanhmuc = load_category();
+            $listbrands = load_brands();
+            include "./view/sanpham/updatesp.php";
+            break;
+            //galery
+        case 'listglr':
+            $listSanPham = load_all_products();
+            include './view/galery/listglr.php';
+            break;
+
+        case 'updateglr':
+            $id_product = isset($_GET['id']) ? intval($_GET['id']) : 0; // Đảm bảo id_product là số nguyên
+            if ($id_product <= 0) {
+                echo "ID sản phẩm không hợp lệ.";
+                exit;
+            }
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($_POST['id_product']) && intval($_POST['id_product']) === $id_product) {
+                    // Xử lý thêm ảnh mới
+                    if (isset($_FILES['new_images']) && !empty($_FILES['new_images']['name'][0])) {
+                        $total_files = count($_FILES['new_images']['name']);
+                        for ($i = 0; $i < $total_files; $i++) {
+                            $file_name = $_FILES['new_images']['name'][$i];
+                            $file_tmp = $_FILES['new_images']['tmp_name'][$i];
+                            $file_target = "../admin/img/" . basename($file_name);
+
+                            if (move_uploaded_file($file_tmp, $file_target)) {
+                                insert_image($id_product, $file_name);
+                            } else {
+                                echo "Lỗi khi tải lên tệp ảnh!";
+                            }
                         }
                     }
-    
-                    update_product($name, $description, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $img, $id);
-                    $thongbao = "Cập nhật thành công";
-                }
-                $listdanhmuc = load_category();
-                $listbrands = load_brands();
-                include "./view/sanpham/updatesp.php";
-                break;
-            //galery
-            case 'listglr':
-                $listSanPham = load_all_products();
-                include './view/galery/listglr.php';
-                break;
-        
-            case 'updateglr':
-                $id_product = isset($_GET['id']) ? intval($_GET['id']) : 0; // Đảm bảo id_product là số nguyên
-                if ($id_product <= 0) {
-                    echo "ID sản phẩm không hợp lệ.";
+
+                    // Xử lý xóa ảnh
+                    if (isset($_POST['delete_images']) && !empty($_POST['delete_images'])) {
+                        foreach ($_POST['delete_images'] as $image_id) {
+                            $sql = "SELECT `image` FROM `galery` WHERE `id` = :image_id";
+                            $params = [':image_id' => $image_id];
+                            $image = pdo_query_one($sql, $params)['image'];
+                            unlink("../admin/img/" . $image);
+                            $sql = "DELETE FROM `galery` WHERE `id` = :image_id";
+                            pdo_execute($sql, $params);
+                        }
+                    }
+                } else {
+                    echo "ID sản phẩm không khớp.";
                     exit;
                 }
-        
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    if (isset($_POST['id_product']) && intval($_POST['id_product']) === $id_product) {
-                        // Xử lý thêm ảnh mới
-                        if (isset($_FILES['new_images']) && !empty($_FILES['new_images']['name'][0])) {
-                            $total_files = count($_FILES['new_images']['name']);
-                            for ($i = 0; $i < $total_files; $i++) {
-                                $file_name = $_FILES['new_images']['name'][$i];
-                                $file_tmp = $_FILES['new_images']['tmp_name'][$i];
-                                $file_target = "../admin/img/" . basename($file_name);
-        
-                                if (move_uploaded_file($file_tmp, $file_target)) {
-                                    insert_image($id_product, $file_name);
-                                } else {
-                                    echo "Lỗi khi tải lên tệp ảnh!";
-                                }
-                            }
-                        }
-        
-                        // Xử lý xóa ảnh
-                        if (isset($_POST['delete_images']) && !empty($_POST['delete_images'])) {
-                            foreach ($_POST['delete_images'] as $image_id) {
-                                $sql = "SELECT `image` FROM `galery` WHERE `id` = :image_id";
-                                $params = [':image_id' => $image_id];
-                                $image = pdo_query_one($sql, $params)['image'];
-                                unlink("../admin/img/" . $image);
-                                $sql = "DELETE FROM `galery` WHERE `id` = :image_id";
-                                pdo_execute($sql, $params);
-                            }
-                        }
-                    } else {
-                        echo "ID sản phẩm không khớp.";
-                        exit;
-                    }
-                }
-        
-                $product_images = load_images_by_product($id_product);
-                include './view/galery/updateglr.php';
-                break;
-        
+            }
+
+            $product_images = load_images_by_product($id_product);
+            include './view/galery/updateglr.php';
+            break;
+
             //product_detail
 
         case 'listpd':
@@ -565,42 +565,41 @@ if (isset($_GET['act'])) {
 
 
             // tin tức
-            case 'listnews':
-                $listnews = load_news();
-                include "./view/news/listnews.php";
-                break;
-            case 'addnews':
-                if (isset($_POST['themtintuc']) && ($_POST['themtintuc'])) {
-                    $title = $_POST['title'];
-                    $intro = $_POST['intro'];
-                    $detail = $_POST['detail'];
-                    $create_at = $_POST['create_at'];
-                    $update_at = $_POST['update_at'];
-                    insert_news($title, $intro, $detail, $create_at, $update_at);
-                    $thongbao = "Thêm thành công";
-                }
-                include "./view/news/addnews.php";
-                break;
-                case 'updatenews':
-                    if (isset($_GET['id']) && $_GET['id'] > 0) {
-                        $news = load_one_news($_GET['id']);
-                        extract($news);
-                    }
-        
-                    if (isset($_POST['capnhattintuc'])) {
-                        $id = $_POST['id'];
-                        $title = $_POST['title'];
-                        $intro = $_POST['intro'];
-                        $detail = $_POST['detail'];
-                        $update_at = $_POST['update_at'];
-                        update_news($title, $intro, $detail, $update_at,$id);
-                        $thongbao = "Cập nhật thành công";
-                        $news = load_one_news($id);
-                        extract($news);
-                    }
-                    include "./view/news/updatenews.php";
-                    break;
+        case 'listnews':
+            $listnews = load_news();
+            include "./view/news/listnews.php";
+            break;
+        case 'addnews':
+            if (isset($_POST['themtintuc']) && ($_POST['themtintuc'])) {
+                $title = $_POST['title'];
+                $intro = $_POST['intro'];
+                $detail = $_POST['detail'];
+                $create_at = $_POST['create_at'];
+                $update_at = $_POST['update_at'];
+                insert_news($title, $intro, $detail, $create_at, $update_at);
+                $thongbao = "Thêm thành công";
+            }
+            include "./view/news/addnews.php";
+            break;
+        case 'updatenews':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $news = load_one_news($_GET['id']);
+                extract($news);
+            }
 
+            if (isset($_POST['capnhattintuc'])) {
+                $id = $_POST['id'];
+                $title = $_POST['title'];
+                $intro = $_POST['intro'];
+                $detail = $_POST['detail'];
+                $update_at = $_POST['update_at'];
+                update_news($title, $intro, $detail, $update_at, $id);
+                $thongbao = "Cập nhật thành công";
+                $news = load_one_news($id);
+                extract($news);
+            }
+            include "./view/news/updatenews.php";
+            break;
     }
 } else {
     include "layout/home.php";

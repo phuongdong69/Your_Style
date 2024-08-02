@@ -12,7 +12,7 @@
 
         <div class="row2 mb10">
           <label>Hình ảnh</label>
-          <input type="file" name="hinh" required>
+          <input type="file" name="hinh" >
         </div>
         <div class="row2 mb10">
           <label>Nhiều ảnh</label>
