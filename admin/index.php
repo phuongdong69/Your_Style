@@ -80,19 +80,37 @@ if (isset($_GET['act'])) {
             case 'updatesp': // Update product
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $product = load_one_product($_GET['id']);
+                    $productdetail = load_one_product_detail($_GET['idproductdetail']);
+                    extract($productdetail);
+                    
+                    // $galery = load_one_galery($_GET['id']);
                     extract($product);
+                    // extract($galery);
                 }
+                    
                 
                 if (isset($_POST['capnhatsanpham'])) {
                     $id = $_POST['id'];
                     $name = $_POST['name'];
                     $description = $_POST['description'];
+                    $price = $_POST['price'];
                     $priceSale = $_POST['priceSale'];
                     $quantity = $_POST['quantity'];
                     $status = $_POST['status'];
+                    // $create_at = $_POST['create_at'];
                     // $update_at = $_POST['update_at'];
                     $id_cate = $_POST['id_cate'];
                     $id_brands = $_POST['id_brands'];
+                    $id_size = $_POST['id_size'];
+                    $id_color = $_POST['id_color'];
+                    // $image = $_FILES['image']['name'];
+                    // $target_dir = "./img/";
+                    // $target_file = $target_dir . basename($image);
+                    // if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                    //     echo "upload thành công";
+                    // } else {
+                    //     echo "Có lỗi trong quá trình upload file";
+                    // }
     
                     // $img = $_FILES['hinh']['name'];
                     // if ($img == '') {
@@ -109,11 +127,23 @@ if (isset($_GET['act'])) {
                     // }
     
                     // update_product($name, $description, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
-                    update_product($name, $description, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
+                    update_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands, $id);
+                    $id_product = $id;
+                    update_productdetail($price, $id_product, $id_size, $id_color, $id);
+                    // if($name){
+                    //     $imgpd = load_one_product_name($name);
+                    //     extract($imgpd);
+                        // update_galery($image,$id_product,$id);
+                        // update_productdetail($price, $id_product, $id_size, $id_color, $id);
+                    // }
                     $thongbao = "Cập nhật thành công";
+
                 }
                 $listdanhmuc = load_category();
                 $listbrands = load_brands();
+                $listsize = load_size();
+                $listcolor = load_color();
+                $listproduct = load_all_products_img();
                 include "./view/sanpham/updatesp.php";
                 break;
             //galery
@@ -209,7 +239,7 @@ if (isset($_GET['act'])) {
                     $target_file = $target_dir . basename($image);
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
                         echo "upload thành công";
-                        update_galery($image, $id);
+                        update_galery($image,$id_product, $id);
                         $thongBao = "Thêm sản phẩm thành công";
                     }
                     // $id_product = $_POST['id_product'];
@@ -257,7 +287,7 @@ if (isset($_GET['act'])) {
                 $id_size = $_POST['id_size'];
                 $id_color = $_POST['id_color'];
 
-                update_productdetail($price, $id_size, $id_color, $id);
+                update_productdetail($price, $id_product, $id_size, $id_color, $id);
                 $thongbao = "Thêm thành công";
             }
             // var_dump($id);

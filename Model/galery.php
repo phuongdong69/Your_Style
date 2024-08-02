@@ -17,8 +17,8 @@
             return pdo_query_one($sql);
         }
     
-    function update_galery($image,$id){
-        $sql= "UPDATE `galery` SET `image` = '$image' where `id`= $id";
+    function update_galery($image,$id_product,$id){
+        $sql= "UPDATE `galery` SET `image` = '$image', `id_product` = '$id_product' where `id`= $id";
         return pdo_execute($sql);
     }
     
