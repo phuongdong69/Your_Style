@@ -30,13 +30,13 @@
                             <th>Giá</th>
                             <th>Giá Sale</th>
                             <th>Brand</th>
-                            <th>Branddư</th>
+                            <!-- <th>id chi tiet</th> -->
                             <th>Chức năng</th>
                         </tr>
                         <?php
-                        foreach ($listSanPham as $product) {
+                        foreach ($listproduct as $product) {
                             extract($product);
-                            $suaUrl = "?act=updatesp&id=".$id ."&idproductdetail=".$idproductdetail;
+                            $suaUrl = "?act=updatesp&id=".$id ;
                             $listimg = "?act=showimg&id_product=".$id;
                             // $id_product = $id;
                             $imgPath = "./img/" . $galery_imgage;
@@ -60,7 +60,7 @@
                             <td><?= $price?></td>
                             <td><?= $priceSale ?></td>
                             <td><?= $brand_name?></td>
-                            <td><?= $idproductdetail?></td>
+                            <!-- <td>?= $idproductdetail?></td> -->
                             <td>
                                 <a href="<?= $suaUrl ?>"><input type="button" value="Sửa"></a>
                                 <a href="<?= $listimg ?>"><input type="button" value="xem thêm ảnh"></a>
