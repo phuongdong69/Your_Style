@@ -71,12 +71,14 @@
         case "gucci": //brand
             include "view/brand_gucci.php";
             break;
-        case "login": //đăng nhập
+        case "login": //đăng nhậ
             include "view/login.php";
             break;
         case "register": //đăng ký
             include "view/register.php";
             break;
+        
+        
 
 
 
