@@ -10,8 +10,8 @@
     include "./Model/color.php";
     include "./Model/pdo.php";
     
-    
-
+    $listSanPham = load_all_products_img($id_cate = 0);
+    $listcate = load_category();
 
 
 

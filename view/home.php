@@ -18,14 +18,24 @@
                         <div class="button_group"><button class="button add-cart" type="button">Thêm vào giỏ hàng</button><button class="button compare" type="button"><i class="fa fa-exchange"></i></button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
                      </div>
                   </div>
-
+               <img src="./" alt="">
                </div>
                <?php
-               // foreach ($listSanPham as $sp) {
-               //    extract($sp);
-               //    $linkUrl = "?act=sanphamct&id_sp=" . $id;
-               //    $imgPath = "img/" . $img;
+               foreach ($listSanPham as $sp) {
+                  extract($sp);
+                  $linkUrl = "?act=sanphamct&id_sp=" . $id;
+                  $imgPath = "./admin/img/" . $galery_imgage;
                ?>
+               <div class="col-md-3 col-sm-6">
+                     <div class="products">
+                        <div class="offer">New</div>
+                        <div class="offer">- %20</div>
+                        <div class="thumbnail"><a href="<?= $linkUrl ?>"><img src="<?= $imgPath ?>" alt="Product Name"></a></div>
+                        <div class="productname"><?= $name ?></div>
+                        <h4 class="price">$<?= $price ?></h4>
+                        <div class="button_group"><button class="button add-cart" type="button">Thêm vào giỏ hàng</button><button class="button compare" type="button"><i class="fa fa-exchange"></i></button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button></div>
+                     </div>
+                  </div>
                   <!-- <div class="box_items">
                      <div class="box_items_img">
                         <a href="?= $linkUrl ?>"><img src="?= $imgPath ?>" alt=""></a>
@@ -33,12 +43,12 @@
                      </div>
                      <a class="item_name" href="?= $linkUrl ?>">?= $name ?></a>
                      <p class="price">$?= $price ?></p>
+ -->
 
-
-                  </div> -->
+                  </div>
 
                <?php  
-               // }
+               }
                ?>
             </li>
          </ul>
