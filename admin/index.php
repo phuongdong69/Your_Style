@@ -66,7 +66,6 @@ if (isset($_GET['act'])) {
                         insert_galery($image,$id_product);
                         insert_productdetail($price, $id_product, $id_size, $id_color);
                     }
-                    
                     $thongbao = "Thêm thành công";
                 }
                 $listdanhmuc = load_category();
@@ -125,7 +124,6 @@ if (isset($_GET['act'])) {
                     //         echo "Lỗi khi di chuyển tệp ảnh!";
                     //     }
                     // }
-    
                     // update_product($name, $description, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
                     update_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands, $id);
                     $id_product = $id;
@@ -157,8 +155,7 @@ if (isset($_GET['act'])) {
             //     if ($id_product <= 0) {
             //         echo "ID sản phẩm không hợp lệ.";
             //         exit;
-            //     }
-        
+            //     
             //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //         if (isset($_POST['id_product']) && intval($_POST['id_product']) === $id_product) {
             //             // Xử lý thêm ảnh mới
@@ -193,7 +190,6 @@ if (isset($_GET['act'])) {
             //             exit;
             //         }
             //     }
-        
             //     $product_images = load_images_by_product($id_product);
             //     include './view/galery/updateglr.php';
             //     break;

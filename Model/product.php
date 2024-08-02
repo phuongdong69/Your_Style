@@ -37,8 +37,7 @@ function load_all_products_img($id_cate = 0) {
                 JOIN galery ON first1.first1_id = galery.id
                 JOIN brands ON brands.id = product.id_brands
                 JOIN size ON product_detail.id_size = size.id
-                JOIN color ON product_detail.id_color = color.id ";
-                
+                JOIN color ON product_detail.id_color = color.id ";           
     }       
     return pdo_query($sql);
 
@@ -114,6 +113,7 @@ function load_one_product_name($name) {
 }
 
 
+
 // function insert_product($name, $description, $priceSale, $quantity, $status, $id_cate, $id_brands) {
 //     $sql = "INSERT INTO `product`, 
 //             (`id`,`name`, `description`, `priceSale`, `quantity`, `status`, `create_at`, `update_at`, `id_cate`, `id_brands`) 
@@ -127,6 +127,7 @@ function insert_product($name, $description, $priceSale, $quantity, $status,  $i
             VALUES (NULL,'$name', '$description', '$priceSale', '$quantity', '$status', NOW(),NOW(), '$id_cate',  '$id_brands')";
     return pdo_execute($sql);
 }
+
 function update_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands, $id) {
     $sql = "UPDATE `product` SET `name` = '$name', `description` = '$description', `priceSale` = '$priceSale',  `quantity` = '$quantity', 
             `status` = '$status', `update_at` = NOW(), `id_cate` = '$id_cate', `id_brands` = '$id_brands' WHERE `id` = $id";
