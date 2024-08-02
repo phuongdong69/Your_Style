@@ -17,6 +17,7 @@ include "../Model/role.php";
 include "../Model/news.php";
 include "../Model/bill.php";
 
+
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
 
@@ -77,7 +78,7 @@ if (isset($_GET['act'])) {
                 $listbrands = load_brands();
                 $listsize = load_size();
                 $listcolor = load_color();
-                $listproduct = load_all_products_img($id_cate);
+                $listproduct = load_all_products_img(0);
                 include "./view/sanpham/addsp.php";
                 break;
     
@@ -486,7 +487,7 @@ if (isset($_GET['act'])) {
             // brand
         case 'listbr':
             $listbrands = load_brands();
-            $listbrands = load_brands();
+            // $listbrands = load_brands();
             include "./view/brands/listbr.php";
             break;
         case 'addbr':

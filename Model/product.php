@@ -43,6 +43,31 @@ function load_all_products_img($id_cate) {
 
 }
 
+// function search_products($keyword) {
+//     $keyword = '%' . $keyword . '%';
+//     $sql = "SELECT product.*, product_detail.price, 
+//                 brands.name AS brand_name,
+//                 galery.image AS galery_imgage,
+//                 size.sizeValue AS size_sizeValue, 
+//                 color.name AS color_name,
+//                 product_detail.id AS idproductdetail
+//             FROM product
+//             JOIN product_detail ON product_detail.id_product = product.id
+//             JOIN (
+//                 SELECT id_product, MIN(id) AS first1_id
+//                 FROM galery
+//                 GROUP BY id_product
+//             ) first1 ON product.id = first1.id_product
+//             JOIN galery ON first1.first1_id = galery.id
+//             JOIN brands ON brands.id = product.id_brands
+//             JOIN size ON product_detail.id_size = size.id
+//             JOIN color ON product_detail.id_color = color.id
+//             WHERE product.name LIKE :keyword 
+//                OR brands.name LIKE :keyword";
+    
+//     return pdo_query($sql, ['keyword' => $keyword]);
+// }
+
 
 function load_product($id_cate = 0) {
     if ($id_cate > 0) {
