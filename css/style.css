@@ -459,7 +459,7 @@ button:hover {
 .usermenu {
   float: right;
   padding-top: 15px;
-  line-height: ;
+  /* line-height: ; */
 }
 .usermenu li {
   float: left;
@@ -1164,7 +1164,7 @@ ul.dropdown-menu > li > a:hover {
 }
 #braldLogo .brand_item li {
   display: inline-block;
-  *display: inline;
+  display: inline;
   margin-right: 2%;
   width: 18.4%;
 }
