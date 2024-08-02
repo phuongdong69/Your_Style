@@ -19,5 +19,16 @@ function load_one_category($id){
     $sql = "SELECT * FROM `category` WHERE `id`=$id;";
     return pdo_query_one($sql);
 }
+
+function load_category_shirts(){
+    $sql = "SELECT * FROM `category` WHERE `name` LIKE '%áo%'";
+    return pdo_query($sql);
+}
+
+
+function load_category_pants(){
+    $sql = "SELECT * FROM `category` WHERE `name` LIKE '%quần%'";
+    return pdo_query($sql);
+}
 ?>
 

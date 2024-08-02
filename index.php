@@ -10,8 +10,8 @@
     include "./Model/color.php";
     include "./Model/pdo.php";
     
-    
-
+    $listSanPham = load_all_products_img($id_cate = 0);
+    $listcate = load_category();
 
 
 
@@ -74,12 +74,14 @@
         case "gucci": //brand
             include "view/brand_gucci.php";
             break;
-        case "login": //đăng nhập
+        case "login": //đăng nhậ
             include "view/login.php";
             break;
         case "register": //đăng ký
             include "view/register.php";
             break;
+        
+        
 
 
 

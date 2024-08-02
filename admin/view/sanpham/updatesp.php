@@ -5,7 +5,8 @@
     </div>
     <div class="row2 form_content">
       <form action="index.php?act=updatesp" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= $id ?>"> <!-- Hidden input for id -->
+        <input type="hidden" name="id" value="<?= $id ?>"><!--  Hidden input for id -->
+        <input type="hidden" name="idproductdetail" placeholder="nhập vào " value="<?= $idproductdetail ?>" >
         <!-- <input type="hidden" name="existing_image" value="?= $product_image ?>"> Hidden field for existing image -->
 
         <div class="row2 mb10">

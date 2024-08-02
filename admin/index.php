@@ -17,6 +17,7 @@ include "../Model/role.php";
 include "../Model/news.php";
 include "../Model/bill.php";
 
+
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
 
@@ -25,31 +26,20 @@ if (isset($_GET['act'])) {
             include "./layout/home.php";
             break;
 
-<<<<<<< HEAD
-            case 'listsp': // Show products list
-                if(isset($_POST['listok']) && ($_POST['listok'])) {
-                    $id_cate = $_POST['id_cate'];
-                } else {
-                    $id_cate = 0;
-                }
-                $listdanhmuc = load_category();
-                $listSanPham = load_all_products_img($id_cate);
-                include "./view/sanpham/listsp.php";
-                break;
-=======
+
         case 'listsp': // Show products list
             if (isset($_POST['listok']) && ($_POST['listok'])) {
                 $id_cate = $_POST['id_cate'];
             } else {
                 $id_cate = 0;
             }
+            echo $id_cate;
             $listdanhmuc = load_category();
-            $listSanPham = load_product($id_cate);
+            $listproduct = load_all_products_img($id_cate);
             include "./view/sanpham/listsp.php";
             break;
 
 
->>>>>>> d2dcd5351874570f4c1f4339327cc47663956ff9
     
             case 'addsp': // Add new product
                 if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
@@ -70,7 +60,7 @@ if (isset($_GET['act'])) {
                     $target_file = $target_dir . basename($image);
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
                         echo "upload thành công";
-<<<<<<< HEAD
+
                     } else {
                         echo "Có lỗi trong quá trình upload file";
                     }
@@ -82,24 +72,26 @@ if (isset($_GET['act'])) {
                         insert_galery($image,$id_product);
                         insert_productdetail($price, $id_product, $id_size, $id_color);
                     }
+
                     $thongbao = "Thêm thành công";
                 }
                 $listdanhmuc = load_category();
                 $listbrands = load_brands();
                 $listsize = load_size();
                 $listcolor = load_color();
-                $listproduct = load_all_products_img();
+                $listproduct = load_all_products_img(0);
                 include "./view/sanpham/addsp.php";
                 break;
     
             case 'updatesp': // Update product
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $product = load_one_product($_GET['id']);
-                    $productdetail = load_one_product_detail($_GET['idproductdetail']);
-                    extract($productdetail);
-                    
-                    // $galery = load_one_galery($_GET['id']);
                     extract($product);
+                    // $idpro = $_GET['id'];
+                    $productdetail = load_one_product_detail($idproductdetail);
+                    // $productdetail = load_one_product_detail($_GET['idproductdetail']);
+                    // $galery = load_one_galery($_GET['id']);
+                    extract($productdetail);
                     // extract($galery);
                 }
                     
@@ -118,6 +110,7 @@ if (isset($_GET['act'])) {
                     $id_brands = $_POST['id_brands'];
                     $id_size = $_POST['id_size'];
                     $id_color = $_POST['id_color'];
+                    $idproductdetail = $_POST['idproductdetail'];
                     // $image = $_FILES['image']['name'];
                     // $target_dir = "./img/";
                     // $target_file = $target_dir . basename($image);
@@ -143,7 +136,8 @@ if (isset($_GET['act'])) {
                     // update_product($name, $description, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
                     update_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands, $id);
                     $id_product = $id;
-                    update_productdetail($price, $id_product, $id_size, $id_color, $id);
+                    
+                    update_productdetail($price, $id_product, $id_size, $id_color,$idproductdetail);
                     // if($name){
                     //     $imgpd = load_one_product_name($name);
                     //     extract($imgpd);
@@ -152,97 +146,12 @@ if (isset($_GET['act'])) {
                     // }
                     $thongbao = "Cập nhật thành công";
 
-=======
-
-                    } else {
-                        echo "Có lỗi trong quá trình upload file";
-                    }
-                    insert_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands);
-                    if($name){
-                        $imgpd = load_one_product_name($name);
-                        extract($imgpd);
-                        $id_product = $id;
-                        insert_galery($image,$id_product);
-                        insert_productdetail($price, $id_product, $id_size, $id_color);
-                    }
-
-                    $thongbao = "Thêm thành công";
-                }
+               }
                 $listdanhmuc = load_category();
                 $listbrands = load_brands();
                 $listsize = load_size();
                 $listcolor = load_color();
-                $listproduct = load_all_products_img();
-                include "./view/sanpham/addsp.php";
-                break;
-    
-            case 'updatesp': // Update product
-                if (isset($_GET['id']) && $_GET['id'] > 0) {
-                    $product = load_one_product($_GET['id']);
-                    $productdetail = load_one_product_detail($_GET['idproductdetail']);
-                    extract($productdetail);
-                    
-                    // $galery = load_one_galery($_GET['id']);
-                    extract($product);
-                    // extract($galery);
-                }
-                    
-                
-                if (isset($_POST['capnhatsanpham'])) {
-                    $id = $_POST['id'];
-                    $name = $_POST['name'];
-                    $description = $_POST['description'];
-                    $price = $_POST['price'];
-                    $priceSale = $_POST['priceSale'];
-                    $quantity = $_POST['quantity'];
-                    $status = $_POST['status'];
-                    // $create_at = $_POST['create_at'];
-                    // $update_at = $_POST['update_at'];
-                    $id_cate = $_POST['id_cate'];
-                    $id_brands = $_POST['id_brands'];
-                    $id_size = $_POST['id_size'];
-                    $id_color = $_POST['id_color'];
-                    // $image = $_FILES['image']['name'];
-                    // $target_dir = "./img/";
-                    // $target_file = $target_dir . basename($image);
-                    // if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-                    //     echo "upload thành công";
-                    // } else {
-                    //     echo "Có lỗi trong quá trình upload file";
-                    // }
-    
-                    // $img = $_FILES['hinh']['name'];
-                    // if ($img == '') {
-                    //     $img = $_POST['existing_image']; // Retrieve existing image if no new image is uploaded
-                    // } else {
-                    //     $target_dir = "../admin/img/";
-                    //     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                    //     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                    //         // Quá trình di chuyển thành công
-                    //     } else {
-                    //         // Xử lý lỗi nếu di chuyển thất bại
-                    //         echo "Lỗi khi di chuyển tệp ảnh!";
-                    //     }
-                    // }
-                    // update_product($name, $description, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
-                    update_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands, $id);
-                    $id_product = $id;
-                    update_productdetail($price, $id_product, $id_size, $id_color, $id);
-                    // if($name){
-                    //     $imgpd = load_one_product_name($name);
-                    //     extract($imgpd);
-                        // update_galery($image,$id_product,$id);
-                        // update_productdetail($price, $id_product, $id_size, $id_color, $id);
-                    // }
-                    $thongbao = "Cập nhật thành công";
-
->>>>>>> d2dcd5351874570f4c1f4339327cc47663956ff9
-                }
-                $listdanhmuc = load_category();
-                $listbrands = load_brands();
-                $listsize = load_size();
-                $listcolor = load_color();
-                $listproduct = load_all_products_img();
+                $listproduct = load_all_products_img($id_cate);
                 include "./view/sanpham/updatesp.php";
                 break;
             //galery
@@ -319,7 +228,7 @@ if (isset($_GET['act'])) {
                     insert_galery($image, $id_product);
                     $thongBao = "Thêm sản phẩm thành công";
                 }
-                $listproduct = load_all_products_img();
+                $listproduct = load_all_products_img($id_cate);
                 include "./view/galery/add.php";
                 break;
             case 'updateimg':
@@ -347,10 +256,7 @@ if (isset($_GET['act'])) {
     
                 include "./view/galery/update.php";
                 break;
-<<<<<<< HEAD
-=======
 
->>>>>>> d2dcd5351874570f4c1f4339327cc47663956ff9
             //product_detail
 
         case 'listpd':
@@ -367,7 +273,7 @@ if (isset($_GET['act'])) {
                 insert_productdetail($price, $id_product, $id_size, $id_color);
                 $thongbao = "Thêm thành công";
             }
-            $listproduct = load_all_products_img();
+            $listproduct = load_all_products_img($id_cate);
             $listsize = load_size();
             $listcolor = load_color();
 
@@ -393,7 +299,7 @@ if (isset($_GET['act'])) {
             }
             // var_dump($id);
             // $listdanhmuc = load_category();
-            $listproduct = load_all_products_img();
+            $listproduct = load_all_products_img($id_cate);
             $listsize = load_size();
             $listcolor = load_color();
 
@@ -418,7 +324,7 @@ if (isset($_GET['act'])) {
                 insert_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note);
                 $thongbao = "Thêm thành công";
             }
-            $listSanPham = load_all_products_img();
+            $listSanPham = load_all_products_img($id_cate);
             $listbs = load_bs();
             $listbill = load_bill();
             include "./view/bill_detail/addbdt.php";
@@ -441,7 +347,7 @@ if (isset($_GET['act'])) {
                 update_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note, $id);
                 $thongbao = "Cập nhật thành công";
             }
-            $listSanPham = load_all_products_img();
+            $listSanPham = load_all_products_img($id_cate);
             $listbs = load_bs();
             $listbill = load_bill();
             include "./view/bill_detail/updatebdt.php";
@@ -582,7 +488,7 @@ if (isset($_GET['act'])) {
             // brand
         case 'listbr':
             $listbrands = load_brands();
-            $listbrands = load_brands();
+            // $listbrands = load_brands();
             include "./view/brands/listbr.php";
             break;
         case 'addbr':
@@ -705,10 +611,7 @@ if (isset($_GET['act'])) {
 
 
             // tin tức
-<<<<<<< HEAD
-=======
 
->>>>>>> d2dcd5351874570f4c1f4339327cc47663956ff9
             case 'listnews':
                 $listnews = load_news();
                 include "./view/news/listnews.php";
@@ -744,10 +647,7 @@ if (isset($_GET['act'])) {
                     }
                     include "./view/news/updatenews.php";
                     break;
-<<<<<<< HEAD
-=======
 
->>>>>>> d2dcd5351874570f4c1f4339327cc47663956ff9
 
     }
 } else {
