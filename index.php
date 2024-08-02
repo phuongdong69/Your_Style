@@ -20,6 +20,9 @@
 
 
     include "view/header.php";
+
+    include "view/top_bar.php";
+
    if(isset($_GET['act'])){
     switch ($_GET['act']) {
         //service dịch vụ
@@ -87,6 +90,8 @@
     }
 
    }else{
+    include "view/slide.php";
+
     include "view/home.php";
 
    }
