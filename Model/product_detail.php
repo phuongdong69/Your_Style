@@ -13,10 +13,10 @@ function load_productdetail(){
     return pdo_query($sql);
 }
 
-function update_productdetail($price, $id_size, $id_color, $id)
+function update_productdetail($price, $id_product, $id_size, $id_color, $id)
 {
     $sql = "UPDATE `product_detail` 
-        SET `price` = $price,  `id_size` = $id_size, `id_color` = $id_color
+        SET `price` = $price, `id_product` = '$id_product', `id_size` = $id_size, `id_color` = $id_color
         where `id` = $id";
     return pdo_execute($sql);
 }

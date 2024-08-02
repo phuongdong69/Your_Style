@@ -26,7 +26,7 @@
 
         <div style="width: 200px;" class="row2 mb10">
           <label>Tạo lúc</label>
-          <input type="datetime-local" name="create_at" value="<?= $create_at ?>">
+          <input type="datetime-local" name="creat_at" value="<?= $creat_at ?>">
         </div>
 
         <div class="row2 mb10">
