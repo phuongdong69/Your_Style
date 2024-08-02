@@ -25,16 +25,18 @@ if (isset($_GET['act'])) {
             include "./layout/home.php";
             break;
 
-            case 'listsp': // Show products list
-                if(isset($_POST['listok']) && ($_POST['listok'])) {
-                    $id_cate = $_POST['id_cate'];
-                } else {
-                    $id_cate = 0;
-                }
-                $listdanhmuc = load_category();
-                $listSanPham = load_all_products_img($id_cate);
-                include "./view/sanpham/listsp.php";
-                break;
+        case 'listsp': // Show products list
+            if (isset($_POST['listok']) && ($_POST['listok'])) {
+                $id_cate = $_POST['id_cate'];
+            } else {
+                $id_cate = 0;
+            }
+            $listdanhmuc = load_category();
+            $listSanPham = load_product($id_cate);
+            include "./view/sanpham/listsp.php";
+            break;
+
+
     
             case 'addsp': // Add new product
                 if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
@@ -55,6 +57,7 @@ if (isset($_GET['act'])) {
                     $target_file = $target_dir . basename($image);
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
                         echo "upload thành công";
+
                     } else {
                         echo "Có lỗi trong quá trình upload file";
                     }
@@ -66,6 +69,7 @@ if (isset($_GET['act'])) {
                         insert_galery($image,$id_product);
                         insert_productdetail($price, $id_product, $id_size, $id_color);
                     }
+
                     $thongbao = "Thêm thành công";
                 }
                 $listdanhmuc = load_category();
@@ -246,6 +250,7 @@ if (isset($_GET['act'])) {
     
                 include "./view/galery/update.php";
                 break;
+
             //product_detail
 
         case 'listpd':
@@ -600,6 +605,7 @@ if (isset($_GET['act'])) {
 
 
             // tin tức
+
             case 'listnews':
                 $listnews = load_news();
                 include "./view/news/listnews.php";
@@ -636,6 +642,20 @@ if (isset($_GET['act'])) {
                     include "./view/news/updatenews.php";
                     break;
 
+
+            if (isset($_POST['capnhattintuc'])) {
+                $id = $_POST['id'];
+                $title = $_POST['title'];
+                $intro = $_POST['intro'];
+                $detail = $_POST['detail'];
+                $update_at = $_POST['update_at'];
+                update_news($title, $intro, $detail, $update_at, $id);
+                $thongbao = "Cập nhật thành công";
+                $news = load_one_news($id);
+                extract($news);
+            }
+            include "./view/news/updatenews.php";
+            break;
     }
 } else {
     include "layout/home.php";
