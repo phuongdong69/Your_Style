@@ -30,6 +30,7 @@ function load_name_product_detail($id_product)
 
 function load_one_product_detail($id)
 {
-    $sql = "SELECT * FROM `product_detail` where id =" . $id;
+    $sql = "SELECT id AS id_prodt, price, id_product ,id_size,id_color
+    FROM `product_detail` where id =" . $id;
     return pdo_query_one($sql);
 }
