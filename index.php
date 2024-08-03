@@ -41,6 +41,7 @@
                 break;
         case "home": 
             include "view/layout/home.php";
+
             break;
         case "cart": //giỏ hàng
             include "view/cart.php";
