@@ -15,13 +15,13 @@
                            <ul class="option_nav">
                            </ul>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                            <ul class="topmenu">
                               <li><a href="index.php?act=news">Tin tức</a></li>
                               <li><a href="index.php?act=introduce">Giới thiệu</a></li>
                               <li><a href="index.php?act=contact">Liên Hệ</a></li>
                            </ul>
-                        </div>
+                        </div> -->
                         <div class="col-md-3">
                            <ul class="usermenu">
                               <li><a href="index.php?act=login" class="log">Đăng nhập</a></li>
