@@ -1,4 +1,5 @@
 <?php
+session_start();
     include "./Model/category.php";
     include "./Model/galery.php";
     include "./Model/product.php";
@@ -85,17 +86,18 @@
         case "gucci": //brand
             include "view/brand_gucci.php";
             break;
-        case "login": //đăng nhập
+        case "login": //đăng nhậ
             include "view/user/login.php";
             break;
         case "register": //đăng ký
+            if(isset($_POST['dangky']) && $_POST['dangky']){
+                $email=$_POST['email'];
+                $user=$_POST['user'];
+                $pass=$_POST['pass'];
+                insert_user($name,$phoneNumber,$email,$sex,$bỉthday,$address,$username,$password);
+                $thongBao="Đã đăng ký thành công.";
+            }
             include "view/user/register.php";
-            break;
-        case "forgotpass": //quên mk
-            include "view/user/forgotpass.php";
-            break;
-        case "edit": //sửa TCN
-            include "view/user/edit.php";
             break;
         case 'sanphamct':
             if(isset($_GET['id']) && ($_GET['id']> 0)){

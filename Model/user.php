@@ -1,11 +1,11 @@
 <?php
  
-function insert_user($name,$phoneNumber,$email,$sex,$bỉthday,$address,$username,$password){
+function insert_user($name,$phoneNumber,$email,$sex,$username,$password){
     $sql="INSERT INTO `user` (`id`, `name`, `phoneNumber`, `email`, `sex`, `birthday`, `address`, `username`, `password`, `status`, `id_role`)
-    s VALUES (NULL, '$name', '$phoneNumber', '$email', '$sex', '$bỉthday', '$address', '$username', MD5('$password'), 'Đang hoạt động', 1); ";
+    s VALUES (NULL, '$name', '$phoneNumber', '$email', '$sex', NULL, NULL, '$username', MD5('$password'), 'Đang hoạt động', 1); ";
     return pdo_execute($sql);
 }
-function load_user(){
+function load_all_user(){
     $sql = "SELECT * FROM `user`";
     return pdo_query($sql);
 }
