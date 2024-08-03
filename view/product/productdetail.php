@@ -11,16 +11,16 @@
                         </div>
                         <div class="thum-image">
                             <ul id="gallery_01" class="prev-thum">
-                                <!-- ?php 
+                                <?php 
                                     $images = load_images_by_product($id); 
                                     foreach ($images as $image): 
-                                ?>
+                                    ?>
                                     <li>
-                                        <a href="#" data-image="images/products/medium/?= ?$image['image'] ?>" data-zoom-image="images/products/Large/<?= $image['image'] ?>">
-                                            <img src="images/products/thum/?= ?$image['image'] ?>" alt="">
+                                        <a href="#" data-image="./admin/img/<?= $image['image'] ?>" data-zoom-image="./admin/img/<?= $image['image'] ?>">
+                                            <img src="./admin/img/<?= $image['image'] ?>" alt="">
                                         </a>
                                     </li>
-                                ?php endforeach; ?> -->
+                                <?php endforeach; ?>
                             </ul>
                             <a class="control-left" id="thum-prev" href="javascript:void(0);">
                                 <i class="fa fa-chevron-left"> </i>
@@ -33,27 +33,26 @@
                     <div class="products-description">
                         <!-- Tên sản phẩm -->
                         <h3 class="name"><?= $name ?></h3>
-                        <!-- Trạng thái -->
+                        <!-- Trạng thái 
                         <br>
                         <br>
                         <h4>
-                            <p>Trạng thái: <span class="light-red"><?= $status ?></span></p>
-                        </h4>
-                        <!-- Mô tả -->
+                            <p>Trạng thái: <span class="light-red">< ?= $status ?></span></p>
+                        </h4>-->
+                        <!-- Mô tả 
                         <br>
-                        <br>
+                        <br>-->
                         <p><?= $description ?></p>
+                        <!--<br>
                         <br>
-                        <br>
-                        <!-- Giá -->
-                        <div class="qty">
-                            Số lượng: 
-                            <select id="quantity" name="quantity">
-                                <?php for ($i = 1; $i <= 10; $i++): ?>
-                                    <option value="<?= $i ?>" <?= $i == $quantity ? 'selected' : '' ?>><?= $i ?></option>
-                                <?php endfor; ?>
-                            </select>
+                         Giá -->
+                         <div class="quantity-control">
+                            <label for="quantity">Số lượng:</label>
+                            <button type="button" id="decreaseQty" class="btn-qty">-</button>
+                            <input type="number" id="quantity" name="quantity" value="1" min="1" max="<?= $quantity ?>" readonly>
+                            <button type="button" id="increaseQty" class="btn-qty">+</button>
                         </div>
+                        <br>
                         <div class="qty">
                             Size: 
                             <select id="size" name="id_size">
@@ -62,6 +61,7 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
+
                         <div class="qty">
                             Color: 
                             <select id="color" name="id_color">
@@ -94,3 +94,40 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Điều chỉnh ảnh lớn khi click vào ảnh thu nhỏ
+        var thumbnails = document.querySelectorAll('#gallery_01 a');
+        var mainImage = document.querySelector('.preview-small img');
+        
+        thumbnails.forEach(function(thumbnail) {
+            thumbnail.addEventListener('click', function(e) {
+                e.preventDefault();
+                var largeImageSrc = this.getAttribute('data-image');
+                var zoomImageSrc = this.getAttribute('data-zoom-image');
+                mainImage.setAttribute('src', largeImageSrc);
+                mainImage.setAttribute('data-zoom-image', zoomImageSrc);
+            });
+        });
+
+        var quantityInput = document.getElementById('quantity'); // Hiển thị số lượng sản phẩm
+        var increaseBtn = document.getElementById('increaseQty'); // Tăng số lượng sản phẩm
+        var decreaseBtn = document.getElementById('decreaseQty'); // Giảm số lượng sản phẩm
+        var maxQuantity = 10; // Giới hạn số lượng tối đa thành 10
+
+        increaseBtn.addEventListener('click', function() {
+            var currentQuantity = parseInt(quantityInput.value);
+            var maxQuantityFromInput = parseInt(quantityInput.getAttribute('max')); // Lấy giá trị max từ thuộc tính input
+            if (currentQuantity < Math.min(maxQuantity, maxQuantityFromInput)) {
+                quantityInput.value = currentQuantity + 1;
+            }
+        });
+
+        decreaseBtn.addEventListener('click', function() {
+            var currentQuantity = parseInt(quantityInput.value);
+            if (currentQuantity > 1) {
+                quantityInput.value = currentQuantity - 1;
+            }
+        });
+    });
+</script>

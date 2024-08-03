@@ -98,7 +98,7 @@
                 extract($onesp);
                 $listsize = load_all_sizes();
                 $listcolor = load_all_colors();
-                $images = load_images_by_product($id); // Lấy hình ảnh của sản phẩm nhưng chưa được
+                $images = load_images_by_product($id); // Lấy hình ảnh của sản phẩm
                 include "view/product/productdetail.php";
             } else {
                 include "view/home.php";
