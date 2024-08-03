@@ -22,7 +22,7 @@
 
                             </strong>
                           </label>
-                          <input type="text" class="input namefild" name="user" placeholder="Nhập id" required>
+                          <input type="text" class="input namefild" name="user" placeholder="Nhập id">
                         </div>
                         <div class="form-row">
                           <label class="lebel-abs">
@@ -31,7 +31,7 @@
                               *
                             </strong> -->
                           </label>
-                          <input type="password" class="input namefild" name="password" placeholder="Nhập mật khẩu" required>
+                          <input type="password" class="input namefild" name="password" placeholder="Nhập mật khẩu">
                         </div>
                         <p class="forgoten">
                           <a href="#">

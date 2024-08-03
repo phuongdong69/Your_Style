@@ -13,7 +13,9 @@
          <div class="row2 mb10">
           <label>Hình ảnh</label>
 
+
           <input type="file" name="image" required>
+
 
         </div>
         

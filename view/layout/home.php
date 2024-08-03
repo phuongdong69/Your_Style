@@ -1,4 +1,6 @@
-
+<?php
+   include "view/layout/slide.php";
+?>
 <div class="clearfix"></div>
 <div class="container_fullwidth">
    <div class="container">

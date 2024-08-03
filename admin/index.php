@@ -26,6 +26,7 @@ if (isset($_GET['act'])) {
             include "./layout/home.php";
             break;
 
+
         case 'listsp': // Show products list
             if (isset($_POST['listok']) && ($_POST['listok'])) {
                 $id_cate = $_POST['id_cate'];
@@ -145,7 +146,7 @@ if (isset($_GET['act'])) {
                     // }
                     $thongbao = "Cập nhật thành công";
 
-                }
+               }
                 $listdanhmuc = load_category();
                 $listbrands = load_brands();
                 $listsize = load_size();
@@ -648,19 +649,6 @@ if (isset($_GET['act'])) {
                     break;
 
 
-            if (isset($_POST['capnhattintuc'])) {
-                $id = $_POST['id'];
-                $title = $_POST['title'];
-                $intro = $_POST['intro'];
-                $detail = $_POST['detail'];
-                $update_at = $_POST['update_at'];
-                update_news($title, $intro, $detail, $update_at, $id);
-                $thongbao = "Cập nhật thành công";
-                $news = load_one_news($id);
-                extract($news);
-            }
-            include "./view/news/updatenews.php";
-            break;
     }
 } else {
     include "layout/home.php";

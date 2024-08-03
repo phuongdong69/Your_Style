@@ -42,24 +42,6 @@
                                 </label>
                                 <input type="text" class="input namefild" name="phoneNumber" placeholder="nhập số điện thoại">
                               </div>
-                              <!-- <div class="form-row">
-                                <label class="lebel-abs">
-                                  Fax 
-                                  <strong class="red">
-                                    *
-                                  </strong>
-                                </label>
-                                <input type="text" class="input namefild" name="">
-                              </div> -->
-                              <!-- <div class="form-row">
-                                <label class="lebel-abs">
-                                  Company 
-                                  <strong class="red">
-                                    *
-                                  </strong>
-                                </label>
-                                <input type="text" class="input namefild" name="">
-                              </div> -->
                               <div class="pass-wrap">
                                 <div class="form-row">
                                   <label class="lebel-abs">
