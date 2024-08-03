@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-md-3">
                            <ul class="usermenu">
-                              <li><a href="index.php?act=login" class="log">Đăng nhập / Đăng Ký</a></li>
+                              <li><a href="index.php?act=login" class="log">Đăng nhập</a></li>
                            </ul>
                         </div>
                      </div>
@@ -53,9 +53,8 @@
                      </div>
                      <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                           <li><a href="index.php">Trang Chủ</a></li>
+                           <li><a href="index.php?act=home">Trang Chủ</a></li>
                            <li class="dropdown">
-                              <a href="index.php?act=hotnew" class="dropdown-toggle" data-toggle="dropdown">HÀNG MỚI</a>
                            </li>
                            <li class="dropdown">
                               <a href="index.php?act=shirt" class="dropdown-toggle" data-toggle="dropdown">Áo</a>
