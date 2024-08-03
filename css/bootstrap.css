@@ -1141,7 +1141,7 @@ pre code {
     width: 58.333333333333336%;
   }
   .col-md-6 {
-    width: 50%;
+    width: 62%;
   }
   .col-md-5 {
     width: 41.66666666666667%;
@@ -3748,8 +3748,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
   .navbar-collapse.collapse {
     display: block !important;
-    margin-left: 170px;
-    margin-top: 20px;
+    /* margin-left: 170px;
+    margin-top: 20px; */
     height: auto !important;
     overflow: visible !important;
   }

@@ -85,11 +85,17 @@
         case "gucci": //brand
             include "view/brand_gucci.php";
             break;
-        case "login": //đăng nhậ
+        case "login": //đăng nhập
             include "view/user/login.php";
             break;
         case "register": //đăng ký
             include "view/user/register.php";
+            break;
+        case "forgotpass": //quên mk
+            include "view/user/forgotpass.php";
+            break;
+        case "edit": //sửa TCN
+            include "view/user/edit.php";
             break;
         case 'sanphamct':
             if(isset($_GET['id']) && ($_GET['id']> 0)){
