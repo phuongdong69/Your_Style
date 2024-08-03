@@ -1,4 +1,131 @@
+<<<<<<< HEAD
 <div class="col-md-9">
+=======
+
+<div class="clearfix">
+      </div>
+      <div class="container_fullwidth">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="special-deal leftbar" style="margin-top:0;">
+                <h4 class="title">
+                  Ưu Đãi 
+                  <strong>
+                    Đặc Biệt
+                  </strong>
+                </h4>
+                <div class="special-item">
+                  <div class="product-image">
+                    <a href="#">
+                      <img src="images/products/thum/products-01.png" alt="">
+                    </a>
+                  </div>
+                  <div class="product-info">
+                    <p>
+                      <a href="#">
+                        Licoln 
+                      </a>
+                    </p>
+                    <h5 class="price">
+                      $300.00
+                    </h5>
+                  </div>
+                </div>
+                <div class="special-item">
+                  <div class="product-image">
+                    <a href="#">
+                      <img src="images/products/thum/products-02.png" alt="">
+                    </a>
+                  </div>
+                  <div class="product-info">
+                    <p>
+                      <a href="#">
+                        Licoln 
+                      </a>
+                    </p>
+                    <h5 class="price">
+                      $300.00
+                    </h5>
+                  </div>
+                </div>
+                <div class="special-item">
+                  <div class="product-image">
+                    <a href="#">
+                      <img src="images/products/thum/products-03.png" alt="">
+                    </a>
+                  </div>
+                  <div class="product-info">
+                    <p>
+                      <a href="#">
+                        Licoln 
+                      </a>
+                    </p>
+                    <h5 class="price">
+                      $300.00
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="fbl-box leftbar">
+                <h3 class="title">
+                  Facebook
+                </h3>
+                <span class="likebutton">
+                  <a href="#">
+                    <img src="images/fblike.png" alt="">
+                  </a>
+                </span>
+                <p>
+                  12k people like Flat Shop.
+                </p>
+                <ul>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    </a>
+                  </li>
+                </ul>
+                <div class="fbplug">
+                  <a href="#">
+                    <span>
+                      <img src="images/fbicon.png" alt="">
+                    </span>
+                    Facebook social plugin
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+>>>>>>> de3188b885e717d3ea7744415b47da465cf7153c
               <div class="checkout-page">
                 <ol class="checkout-steps">
                  
@@ -12,6 +139,7 @@
                           <div class="col-md-6 col-sm-6">
                             <div class="your-details">
                               <h5>
+<<<<<<< HEAD
                                 Đăng ký
                               </h5>
                               
@@ -23,6 +151,27 @@
                                   </strong>
                                 </label>
                                 <input type="text" class="input namefild" name="name" placeholder="nhập họ tên">
+=======
+                                Chi Tiết Thông Tin Cá Nhân
+                              </h5>
+                              <div class="form-row">
+                                <label class="lebel-abs">
+                                  Họ 
+                                  <strong class="red">
+                                    *
+                                  </strong>
+                                </label>
+                                <input type="text" class="input namefild" name="">
+                              </div>
+                              <div class="form-row">
+                                <label class="lebel-abs">
+                                  Tên
+                                  <strong class="red">
+                                    *
+                                  </strong>
+                                </label>
+                                <input type="text" class="input namefild" name="">
+>>>>>>> de3188b885e717d3ea7744415b47da465cf7153c
                               </div>
                               <div class="form-row">
                                 <label class="lebel-abs">
@@ -31,7 +180,11 @@
                                     *
                                   </strong>
                                 </label>
+<<<<<<< HEAD
                                 <input type="text" class="input namefild" name="email" placeholder="nhập email">
+=======
+                                <input type="text" class="input namefild" name="">
+>>>>>>> de3188b885e717d3ea7744415b47da465cf7153c
                               </div>
                               <div class="form-row">
                                 <label class="lebel-abs">
@@ -40,8 +193,31 @@
                                     *
                                   </strong>
                                 </label>
+<<<<<<< HEAD
                                 <input type="text" class="input namefild" name="phoneNumber" placeholder="nhập số điện thoại">
                               </div>
+=======
+                                <input type="text" class="input namefild" name="">
+                              </div>
+                              <!-- <div class="form-row">
+                                <label class="lebel-abs">
+                                  Fax 
+                                  <strong class="red">
+                                    *
+                                  </strong>
+                                </label>
+                                <input type="text" class="input namefild" name="">
+                              </div> -->
+                              <!-- <div class="form-row">
+                                <label class="lebel-abs">
+                                  Company 
+                                  <strong class="red">
+                                    *
+                                  </strong>
+                                </label>
+                                <input type="text" class="input namefild" name="">
+                              </div> -->
+>>>>>>> de3188b885e717d3ea7744415b47da465cf7153c
                               <div class="pass-wrap">
                                 <div class="form-row">
                                   <label class="lebel-abs">
@@ -50,7 +226,11 @@
                                       *
                                     </strong>
                                   </label>
+<<<<<<< HEAD
                                   <input type="password" class="input namefild" name="password" placeholder="nhập mật khẩu">
+=======
+                                  <input type="password" class="input namefild" name="">
+>>>>>>> de3188b885e717d3ea7744415b47da465cf7153c
                                 </div>
                                 <div class="form-row">
                                   <label class="lebel-abs">
@@ -59,7 +239,11 @@
                                       *
                                     </strong>
                                   </label>
+<<<<<<< HEAD
                                   <input type="password" class="input cpass" name="repassword" placeholder="nhập lại mật khẩu">
+=======
+                                  <input type="password" class="input cpass" name="">
+>>>>>>> de3188b885e717d3ea7744415b47da465cf7153c
                                 </div>
                               </div>
                               <p>
@@ -68,7 +252,13 @@
                           </div>
                           <div class="col-md-6 col-sm-6">
                             <div class="your-details">
+<<<<<<< HEAD
                               
+=======
+                              <h5>
+                                Địa Chỉ Của Bạn
+                              </h5>
+>>>>>>> de3188b885e717d3ea7744415b47da465cf7153c
                               <div class="form-row">
                                 <label class="lebel-abs">
                                   Địa Chỉ
@@ -76,10 +266,53 @@
                                     *
                                   </strong>
                                 </label>
+<<<<<<< HEAD
                                 <input type="text" class="input namefild" name="address" placeholder="nhập địa chỉ">
                               </div>
                               <a href="?act=dangki"><input type="submit">Đăng ký</a>
                               
+=======
+                                <input type="text" class="input namefild" name="">
+                              </div>
+                             
+                              <div class="form-row">
+                                <label class="lebel-abs">
+                                  Thành Phố
+                                  <strong class="red">
+                                    *
+                                  </strong>
+                                </label>
+                                <input type="text" class="input namefild" name="">
+                              </div>
+                              
+                              <div class="form-row">
+                                <label class="lebel-abs">
+                                  Quốc Gia
+                                  <strong class="red">
+                                    *
+                                  </strong>
+                                </label>
+                                <input type="text" class="input namefild" name="">
+                              </div>
+                              
+                              <p class="privacy">
+                                <span class="input-radio">
+                                  <input type="radio" name="user">
+                                </span>
+                                <span class="text">
+                                  Tôi đã đọc và đồng ý với
+                                <a href="#" class="red">
+                                    Chính sách & bảo mật
+                                  </a>
+                                </span>
+                              </p>
+                              <button>
+                                Đăng Ký
+                              </button>
+                              <button>
+                                <a href="index.php?act=login">Đăng Nhập</a>
+                              </button>
+>>>>>>> de3188b885e717d3ea7744415b47da465cf7153c
                             </div>
                           </div>
                         </div>
@@ -88,4 +321,18 @@
                   </li>
                   
                 </ol>
+<<<<<<< HEAD
               </d
+=======
+              </div>
+            </div>
+          </div>
+          <div class="clearfix">
+          </div>
+        
+        </div>
+      </div>
+      <div class="clearfix">
+      </div>
+     
+>>>>>>> de3188b885e717d3ea7744415b47da465cf7153c
