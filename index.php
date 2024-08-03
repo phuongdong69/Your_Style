@@ -72,10 +72,10 @@
             include "view/brand_gucci.php";
             break;
         case "login": //đăng nhậ
-            include "view/login.php";
+            include "view/user/login.php";
             break;
         case "register": //đăng ký
-            include "view/register.php";
+            include "view/user/register.php";
             break;
         case 'sanphamct':
             if(isset($_GET['id']) && ($_GET['id']> 0)){
