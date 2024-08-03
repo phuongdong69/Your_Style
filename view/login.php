@@ -1,20 +1,19 @@
+<div class="clearfix">
+</div>
+<div class="container_fullwidth">
+  <div class="container">
+    <div class="row">
 
-      <div class="clearfix">
-      </div>
-      <div class="container_fullwidth">
-        <div class="container">
-          <div class="row">
-           
-            <div class="col-md-9">
-              <div class="checkout-page">
-                <ol class="checkout-steps">
-                  <li class="steps active">
-                    <a href="#" class="step-title">
-                     Thông Tin
-                    </a>
-                    <div class="step-description">
-                      <div class="row">
-                        <!-- <div class="col-md-6 col-sm-6">
+      <div class="col-md-9">
+        <div class="checkout-page">
+          <ol class="checkout-steps">
+            <li class="steps active">
+              <a href="#" class="step-title">
+                Thông Tin
+              </a>
+              <div class="step-description">
+                <div class="row">
+                  <!-- <div class="col-md-6 col-sm-6">
                           <div class="new-customer">
                             <h5>
                               New Customer
@@ -43,71 +42,72 @@
                             </button>
                           </div>
                         </div> -->
-                        <div class="col-md-6 col-sm-6">
-                          <div class="run-customer">
-                            <h5>
-                              Nhập Thông Tin Đăng Nhập
-                            </h5>
-                            <form>
-                              <div class="form-row">
-                                <label class="lebel-abs">
-                                  Tên đăng nhập 
-                                  <strong class="red">
-                                  
-                                  </strong>
-                                </label>
-                                <input type="text" class="input namefild" name="">
-                              </div>
-                              <div class="form-row">
-                                <label class="lebel-abs">
-                                  Mật Khẩu
-                                  <strong class="red">
-                                    *
-                                  </strong>
-                                </label>
-                                <input type="text" class="input namefild" name="">
-                              </div>
-                              <p class="forgoten">
-                                <a href="#">
-                                 Quên Mật Khẩu?
-                                </a>
-                              </p>
-                              <button>
-                                Đăng Nhập
-                              </button>
-                              <button>
-                               <a href="index.php?act=register"> Đăng Ký</a>
-                              </button>
-                            </form>
-                          </div>
+                  <div class="col-md-6 col-sm-6">
+                    <div class="run-customer">
+                      <h5>
+                        Nhập Thông Tin Đăng Nhập
+                      </h5>
+                      <form>
+                        <div class="form-row">
+                          <label class="lebel-abs">
+                            Tên đăng nhập
+                            <strong class="red">
+
+                            </strong>
+                          </label>
+                          <input type="text" class="input namefild" name="">
                         </div>
-                      </div>
+                        <div class="form-row">
+                          <label class="lebel-abs">
+                            Mật Khẩu
+                            <strong class="red">
+                              *
+                            </strong>
+                          </label>
+                          <input type="text" class="input namefild" name="">
+                        </div>
+                        <p class="forgoten">
+                          <a href="#">
+                            Quên Mật Khẩu?
+                          </a>
+                        </p>
+                        <button>
+                          Đăng Nhập
+                        </button>
+                        <button>
+                          <a href="index.php?act=register"> Đăng Ký</a>
+                        </button>
+                      </form>
                     </div>
-                  </li>
-                 
-                </ol>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="clearfix">
-          </div>
-          
+            </li>
+
+          </ol>
         </div>
       </div>
-      <div class="clearfix">
-      </div>
-    
     </div>
-    <!-- Bootstrap core JavaScript==================================================-->
-    <!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js">
-    </script>
-    <script type="text/javascript" src="js/bootstrap.min.js">
-    </script>
-    <script defer src="js/jquery.flexslider.js">
-    </script>
-    <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js">
-    </script>
-    <script type="text/javascript" src="js/script.min.js" >
-    </script> -->
-  </body>
+    <div class="clearfix">
+    </div>
+
+  </div>
+</div>
+<div class="clearfix">
+</div>
+
+</div>
+<!-- Bootstrap core JavaScript==================================================-->
+<script type="text/javascript" src="js/jquery-1.10.2.min.js">
+</script>
+<script type="text/javascript" src="js/bootstrap.min.js">
+</script>
+<script defer src="js/jquery.flexslider.js">
+</script>
+<script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js">
+</script>
+<script type="text/javascript" src="js/script.min.js">
+</script>
+</body>
+
 </html>
