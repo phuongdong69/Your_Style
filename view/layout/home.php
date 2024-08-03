@@ -1,5 +1,5 @@
 <?php
-   include "view/slide.php";
+   include "view/layout/slide.php";
 ?>
 <div class="clearfix"></div>
 <div class="container_fullwidth">
