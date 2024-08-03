@@ -1,5 +1,38 @@
 
+<div style="background-color: #fff;" class="row2">
+	<form action="index.php?act=listsp" method="POST">
+		<h2 style="text-align: center; color: #000;margin-bottom: 30px;">Tin Tức Mới Nhất</h2>
 
+	</form>
+	<div class="row2 form_content ">
+		<form action="index.php?act=news" method="POST">
+			<div class="row2 mb10 formds_loai">
+				<table border="1">
+
+					<?php
+					foreach ($listnews as $news) {
+						extract($news);
+						$link = "index.php?act=newsdetail&id=" . $id;
+					?>
+
+						<div  class="newsss">
+							<div class="news" style="margin-bottom: 20px;">
+							<a class="tit"  href="<?= $link ?>"><?= $title ?> </a><br>
+							</div>
+							<div style="font-size: 18px;">
+								<?= $intro ?>
+							</div>
+							
+						</div>
+						<hr>
+					<?php } ?>
+				</table>
+			</div>
+			<div class="row mb10 ">
+			</div>
+		</form>
+	</div>
+</div>
 <!-- <div style="color: #fff;" class="flex flex-col md:flex-row p-4">
 
 	<div class="flex-1">

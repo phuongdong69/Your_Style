@@ -113,6 +113,9 @@
                                  </div>
                               </div>
                            </li>
+                           <li><a href="index.php?act=news">Tin tức</a></li>
+                              <li><a href="index.php?act=introduce">Giới thiệu</a></li>
+                              <li><a href="index.php?act=contact">Liên Hệ</a></li>
                         </ul>
                      </div>
                   </div>
