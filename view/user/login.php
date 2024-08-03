@@ -1,4 +1,50 @@
 
+<div class="fullwidth-container">
+        <div class="content-container">
+            <div class="content-row">
+                <div class="main-column">
+                <div class="login-page">
+                  <ol class="login-steps">
+                  <li class="active-step">
+                  <div class="step-content">
+            <div class="inner-row">
+                <div class="form-column">
+                    <div class="login-form-container">
+                            
+                            <h2>Đăng nhập</h2>
+                            <form action="?act=dangnhap" method="POST">
+                                <div class="form-group">
+                                    <label for="username">Tài khoản</label>
+                                    <input type="text" id="username" name="user" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Mật khẩu</label>
+                                    <input type="password" id="password" name="pass" required>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="remember">
+                                    <label for="">Nhớ mật khẩu</label>
+                                </div>
+                                <button type="submit">Đăng Nhập</button>
+                            </form>
+                            <hr>
+                            <div class="additional-options">
+                                <p>Chưa có tài khoản? <a href="index.php?act=register">Đăng ký ngay!</a></p>
+                                <p><a href="?act=forgotpass">Quên mật khẩu?</a></p>
+                                <p><a href="?act=edit">Cập Nhật Thông Tin</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 
 <div class="clearfix">
       </div>
       <div class="container_fullwidth">
@@ -17,14 +63,14 @@
                     <form action="?act=dangnhap" method="POST" style="margin-left: 10px;">
                     <h5>Tên đăng nhập</h5>
                     <input type="text" name="user" id="" value=""><br><br>
-                    <!-- <h4>Mật khẩu</h4><br> -->
-                     <!-- <label for="">Mật khẩu</label> -->
+                    <h4>Mật khẩu</h4><br>
+                     <label for="">Mật khẩu</label>
                       <h5>Mật Khẩu</h5>
                     <input type="password" name="pass" id="" value=""><br><br>
                     <input type="checkbox" name="" id="">
                     Ghi nhớ tài khoản?
                     <br><br>
-                    <!-- <input type="submit" value="Đăng nhập" name="dangnhap"> -->
+                    <input type="submit" value="Đăng nhập" name="dangnhap">
                     <button style="width: 181px;margin-left: 22px;">
                       Đăng Nhập
                     </button>
@@ -34,6 +80,9 @@
                 <li class="form_li"><a href="?act=edit">Đăng kí thành viên</a></li>
                 <li class="form_li"><a href="?act=edit">Cập Nhật THông Tin</a></li>
                 </form>
+ -->
+
+                
                 <!-- <li class="form_li"><a href="?act=quenmk">Quên mật khẩu</a></li>
                 <li class="form_li"><a href="?act=dangky">Đăng kí thành viên</a></li> -->
                       <!-- <form action="" method="POST">
@@ -67,6 +116,9 @@
                           <a href="index.php?act=register"> Đăng Ký</a>
                         </button>
                       </form> -->
+
+
+<!-- 
                     </div>
                   </div>
                 </div>
@@ -81,4 +133,4 @@
     </div>
 
   </div>
-</div>
+</div> -->
