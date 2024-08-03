@@ -3,14 +3,11 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="products-details">
-                    <?php 
-                        extract($onesp);
-                    ?>
+                    
                     <div class="preview_image">
                         <div class="preview-small">
                             <!-- <img id="zoom_03" src="?= $imgage ?>" data-zoom-image="?= $galery_imgage ?>" alt=""> -->
-                             
-                            <img id="zoom_03" src="<?= $imgage ?>" data-zoom-image="<?= $galery_imgage ?>" alt="">
+                            <div class="thumbnail"><img src="./admin/img/<?= $galery_imgage ?>" alt="img_product" data-zoom-image="./admin/img/<?= $galery_imgage ?>"></a></div>
                         </div>
                         <div class="thum-image">
                             <ul id="gallery_01" class="prev-thum">
@@ -19,8 +16,8 @@
                                     foreach ($images as $image): 
                                 ?>
                                     <li>
-                                        <a href="#" data-image="images/products/medium/?= $image['image'] ?>" data-zoom-image="images/products/Large/<?= $image['image'] ?>">
-                                            <img src="images/products/thum/?= $image['image'] ?>" alt="">
+                                        <a href="#" data-image="images/products/medium/?= ?$image['image'] ?>" data-zoom-image="images/products/Large/<?= $image['image'] ?>">
+                                            <img src="images/products/thum/?= ?$image['image'] ?>" alt="">
                                         </a>
                                     </li>
                                 ?php endforeach; ?> -->

@@ -82,7 +82,9 @@
                 $id = $_GET['id'];
                 $onesp = load_one_product($id);
                 extract($onesp);
-                $images = load_galery($_GET['id']); // Lấy hình ảnh của sản phẩm nhưng chưa được
+                $listsize = load_all_sizes();
+                $listcolor = load_all_colors();
+                $images = load_images_by_product($id); // Lấy hình ảnh của sản phẩm nhưng chưa được
                 include "view/product/productdetail.php";
             } else {
                 include "view/home.php";

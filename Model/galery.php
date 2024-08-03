@@ -12,10 +12,10 @@
         return $listanh;
     }
     
-        function load_one_galery($id){
-            $sql = "SELECT * FROM `galery` where `id` = $id limit 1";
-            return pdo_query_one($sql);
-        }
+    function load_one_galery($id){
+        $sql = "SELECT * FROM `galery` where `id` = $id limit 1";
+        return pdo_query_one($sql);
+    }
     
     function update_galery($image,$id_product,$id){
         $sql= "UPDATE `galery` SET `image` = '$image', `id_product` = '$id_product' where `id`= $id";
