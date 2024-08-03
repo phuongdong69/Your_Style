@@ -19,4 +19,9 @@
         $sql = "SELECT * FROM `size` WHERE `id`=$id;";
         return pdo_query_one($sql);
     }
+
+    function load_all_sizes() {
+        $sql = "SELECT * FROM size";
+        return pdo_query($sql);
+    }
 ?>

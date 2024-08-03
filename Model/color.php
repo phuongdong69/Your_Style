@@ -19,5 +19,11 @@ function load_one_color($id){
     $sql = "SELECT * FROM `color` WHERE `id`=$id;";
     return pdo_query_one($sql);
 }
+
+function load_all_colors() {
+    $sql = "SELECT * FROM color";
+    return pdo_query($sql);
+}
+
 ?>
 

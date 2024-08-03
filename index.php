@@ -10,7 +10,6 @@
     include "./Model/color.php";
     include "./Model/pdo.php";
     include "./Model/news.php";
-    // include "./Model/news.php";
     
     $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
@@ -41,7 +40,8 @@
 
                 break;
         case "home": 
-            include "view/home.php";
+            include "view/layout/home.php";
+
             break;
         case "cart": //giỏ hàng
             include "view/cart.php";
@@ -96,7 +96,9 @@
                 $id = $_GET['id'];
                 $onesp = load_one_product($id);
                 extract($onesp);
-                $images = load_galery($_GET['id']); // Lấy hình ảnh của sản phẩm nhưng chưa được
+                $listsize = load_all_sizes();
+                $listcolor = load_all_colors();
+                $images = load_images_by_product($id); // Lấy hình ảnh của sản phẩm nhưng chưa được
                 include "view/product/productdetail.php";
             } else {
                 include "view/home.php";
