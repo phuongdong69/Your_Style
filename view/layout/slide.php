@@ -39,9 +39,9 @@
    </div>
    <!--  -->
 </div>
-   <script>
+   <!-- <script>
       document.querySelector('.dropdown-toggle').addEventListener('click', function(event) {
          event.preventDefault();
          window.location.href = this.href;
       });
-   </script>
+   </script> -->

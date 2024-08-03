@@ -13,6 +13,15 @@
    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
    <link href="css/sequence-looptheme.css" rel="stylesheet" media="all" />
    <link href="css/style.css" rel="stylesheet">
+   <!-- Thêm link js -->
+   <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="js/jquery.sequence-min.js"></script>
+	  <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+	  <script defer src="js/jquery.flexslider.js"></script>
+	  <script type="text/javascript" src="js/script.min.js" ></script>
+	  <script type="text/javascript" src="js/js.js" ></script>
    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
 </head>
 

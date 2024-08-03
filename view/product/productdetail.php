@@ -47,7 +47,7 @@
                         <br>
                          Giá -->
                          <div class="quantity-control">
-                            <label for="quantity">Số lượng:</label>
+                            <label for="quantity" style="margin-right: 60px;font-weight: 400;">Số lượng:</label>
                             <button type="button" id="decreaseQty" class="btn-qty">-</button>
                             <input type="number" id="quantity" name="quantity" value="1" min="1" max="<?= $quantity ?>" readonly>
                             <button type="button" id="increaseQty" class="btn-qty">+</button>
@@ -94,7 +94,7 @@
         </div>
     </div>
 </div>
-<script>
+<!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Điều chỉnh ảnh lớn khi click vào ảnh thu nhỏ
         var thumbnails = document.querySelectorAll('#gallery_01 a');
@@ -130,4 +130,4 @@
             }
         });
     });
-</script>
+</script> -->
