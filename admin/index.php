@@ -223,7 +223,7 @@ if (isset($_GET['act'])) {
                     } else {
                         echo "Có lỗi trong quá trình upload file";
                     }
-                    $id_product = $_POST['id_product'];
+                    $id_product = $_GET['id_product'];
                     insert_galery($image, $id_product);
                     $thongBao = "Thêm sản phẩm thành công";
                 }

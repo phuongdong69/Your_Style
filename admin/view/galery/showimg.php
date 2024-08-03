@@ -23,7 +23,7 @@
                             <tr>
                                 <td><?= $id ?></td>
                                 <td>
-                                    <img src="<?= $imgPath ?>" alt="" width="100px" height="100px"><?= $imgPath ?>
+                                    <img src="<?= $imgPath ?>" alt="" width="100px" height="100px">
                                 </td>
                                 <!-- <td>?= $id_product ?></td> -->
                                 <td>

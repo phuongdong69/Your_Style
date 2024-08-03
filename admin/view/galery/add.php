@@ -4,7 +4,7 @@
       <h1>THÊM ẢNH</h1>
     </div>
     <div class="row2 form_content ">
-      <form action="index.php?act=addimg&id_product=<?= $id_product?>" method="POST" enctype="multipart/form-data">
+      <form action="" method="POST" enctype="multipart/form-data">
       <div class="row2 mb10">
             <label>HÌNH ẢNH </label> <br>
             <input type="file" name="image" >
@@ -12,15 +12,15 @@
 
            <div class="row2 mb10">
           <label> TÊN SẢN PHẨM </label> <br>
-          <select name="id_product" id="">
-              <?php foreach ($listproduct as $listpro) :
+          <!-- <select name="id_product" id="">
+               ?php foreach ($listproduct as $listpro) :
                 extract ($listpro);
                 
-                ?>
+                ?> 
               
-              <option value="<?= $id?>"><?= $name?></option>
-              <?php endforeach;?>
-            </select>
+               <option value="?= $id?>">?= $name?></option> 
+              ?php endforeach;?>
+            </select> -->
         </div>
 
         <input class="mr20" type="submit" name="themanh" value="THÊM MỚI">
