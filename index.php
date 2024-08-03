@@ -10,6 +10,7 @@
     include "./Model/color.php";
     include "./Model/pdo.php";
     include "./Model/news.php";
+    // include "./Model/news.php";
     
     $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
@@ -37,6 +38,7 @@
                     // extract($listnews);
                 }
                 include "view/news/newsdetail.php";
+
                 break;
         case "home": 
             include "view/home.php";
