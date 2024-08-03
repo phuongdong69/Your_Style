@@ -1,4 +1,5 @@
 <?php
+session_start();
     include "./Model/category.php";
     include "./Model/galery.php";
     include "./Model/product.php";
@@ -89,6 +90,13 @@
             include "view/user/login.php";
             break;
         case "register": //đăng ký
+            if(isset($_POST['dangky']) && $_POST['dangky']){
+                $email=$_POST['email'];
+                $user=$_POST['user'];
+                $pass=$_POST['pass'];
+                insert_user($name,$phoneNumber,$email,$sex,$bỉthday,$address,$username,$password);
+                $thongBao="Đã đăng ký thành công.";
+            }
             include "view/user/register.php";
             break;
         case 'sanphamct':
