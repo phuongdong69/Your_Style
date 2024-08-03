@@ -230,14 +230,14 @@
                               </h5>
                               <div class="form-row">
                                 <label class="lebel-abs">
-                                  Họ 
+                                  Họ & Tên
                                   <strong class="red">
                                     *
                                   </strong>
                                 </label>
                                 <input type="text" class="input namefild" name="">
                               </div>
-                              <div class="form-row">
+                              <!-- <div class="form-row">
                                 <label class="lebel-abs">
                                   Tên
                                   <strong class="red">
@@ -245,7 +245,7 @@
                                   </strong>
                                 </label>
                                 <input type="text" class="input namefild" name="">
-                              </div>
+                              </div> -->
                               <div class="form-row">
                                 <label class="lebel-abs">
                                   Email 
@@ -321,7 +321,7 @@
                                 <input type="text" class="input namefild" name="">
                               </div>
                              
-                              <div class="form-row">
+                              <!-- <div class="form-row">
                                 <label class="lebel-abs">
                                   Thành Phố
                                   <strong class="red">
@@ -339,7 +339,7 @@
                                   </strong>
                                 </label>
                                 <input type="text" class="input namefild" name="">
-                              </div>
+                              </div> -->
                               
                               <p class="privacy">
                                 <span class="input-radio">
