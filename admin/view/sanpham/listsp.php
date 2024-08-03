@@ -74,7 +74,7 @@
                 </div>
                 <div class="row mb10 ">
                     <a href="index.php?act=addsp"><input class="mr20" type="button" value="Thêm Sản Phẩm"></a>
-                    <a href="index.php?act=listpd"><input class="mr20" type="button" value="Chi Tiết Sản Phẩm"></a>
+                    <!-- <a href="index.php?act=listpd"><input class="mr20" type="button" value="Chi Tiết Sản Phẩm"></a> -->
                     <!-- <a href="index.php?act=listglr"><input class="mr20" type="button" value="Quản lý ảnh sản phẩm"></a> -->
                 </div>
             </form>

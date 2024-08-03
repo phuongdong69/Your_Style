@@ -9,6 +9,7 @@
     include "./Model/billdetail.php";
     include "./Model/color.php";
     include "./Model/pdo.php";
+    include "./Model/news.php";
     
     $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
@@ -19,16 +20,24 @@
 
 
 
-    include "view/header.php";
+    include "view/layout/header.php";
 
-    include "view/top_bar.php";
+    include "view/layout/top_bar.php";
 
    if(isset($_GET['act'])){
     switch ($_GET['act']) {
         //service dịch vụ
         case "news": //tin tức
-            include "view/news.php";
+            $listnews = load_news();
+            include "view/news/news.php";
             break;
+        case "newsdetail": 
+                if (isset($_GET['id']) && $_GET['id']) {
+                    $listnews = load_one_news($_GET['id']);
+                    // extract($listnews);
+                }
+                include "view/news/newsdetail.php";
+                break;
         case "home": 
             include "view/home.php";
             break;
@@ -40,10 +49,10 @@
             break;
 
         case "ptttatm": //Mua Ngay
-            include "view/ptttatm.php";
+            include "view/thanhtoan/ptttatm.php";
             break;
         case "ptttmm": //Mua Ngay
-            include "view/ptttmm.php";
+            include "view/thanhtoan/ptttmm.php";
 
             break;
         case "details": //Chi Tiết SP
@@ -80,6 +89,17 @@
         case "register": //đăng ký
             include "view/register.php";
             break;
+        case 'sanphamct':
+            if(isset($_GET['id']) && ($_GET['id']> 0)){
+                $id = $_GET['id'];
+                $onesp = load_one_product($id);
+                extract($onesp);
+                $images = load_galery($_GET['id']); // Lấy hình ảnh của sản phẩm nhưng chưa được
+                include "view/product/productdetail.php";
+            } else {
+                include "view/home.php";
+            }   
+            break;
         
         
 
@@ -97,13 +117,13 @@
    }else{
     
 
-    include "view/home.php";
+    include "view/layout/home.php";
 
    }
 
 
 
    
-    include "view/footer.php";
+    include "view/layout/footer.php";
 
 ?>

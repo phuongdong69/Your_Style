@@ -79,7 +79,7 @@ if (isset($_GET['act'])) {
                 $listbrands = load_brands();
                 $listsize = load_size();
                 $listcolor = load_color();
-                $listproduct = load_all_products_img(0);
+                $listproduct = load_all_products_img($id_cate = 0) ;
                 include "./view/sanpham/addsp.php";
                 break;
     
@@ -151,7 +151,7 @@ if (isset($_GET['act'])) {
                 $listbrands = load_brands();
                 $listsize = load_size();
                 $listcolor = load_color();
-                $listproduct = load_all_products_img($id_cate);
+                $listproduct = load_all_products_img($id_cate = 0) ;
                 include "./view/sanpham/updatesp.php";
                 break;
             //galery
@@ -228,7 +228,7 @@ if (isset($_GET['act'])) {
                     insert_galery($image, $id_product);
                     $thongBao = "Thêm sản phẩm thành công";
                 }
-                $listproduct = load_all_products_img($id_cate);
+                $listproduct = load_all_products_img($id_cate = 0);
                 include "./view/galery/add.php";
                 break;
             case 'updateimg':
@@ -273,7 +273,7 @@ if (isset($_GET['act'])) {
                 insert_productdetail($price, $id_product, $id_size, $id_color);
                 $thongbao = "Thêm thành công";
             }
-            $listproduct = load_all_products_img($id_cate);
+            $listproduct = load_all_products_img($id_cate = 0) ;
             $listsize = load_size();
             $listcolor = load_color();
 
@@ -299,7 +299,7 @@ if (isset($_GET['act'])) {
             }
             // var_dump($id);
             // $listdanhmuc = load_category();
-            $listproduct = load_all_products_img($id_cate);
+            $listproduct = load_all_products_img($id_cate = 0);
             $listsize = load_size();
             $listcolor = load_color();
 
@@ -324,7 +324,7 @@ if (isset($_GET['act'])) {
                 insert_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note);
                 $thongbao = "Thêm thành công";
             }
-            $listSanPham = load_all_products_img($id_cate);
+            $listproduct = load_all_products_img($id_cate = 0) ;
             $listbs = load_bs();
             $listbill = load_bill();
             include "./view/bill_detail/addbdt.php";
@@ -347,7 +347,7 @@ if (isset($_GET['act'])) {
                 update_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note, $id);
                 $thongbao = "Cập nhật thành công";
             }
-            $listSanPham = load_all_products_img($id_cate);
+            $listproduct = load_all_products_img($id_cate = 0) ;
             $listbs = load_bs();
             $listbill = load_bill();
             include "./view/bill_detail/updatebdt.php";

@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-md-3">
                            <ul class="usermenu">
-                              <li><a href="index.php?act=login" class="log">Đăng nhập / Đăng Ký</a></li>
+                              <li><a href="index.php?act=login" class="log">Đăng nhập</a></li>
                            </ul>
                         </div>
                      </div>
