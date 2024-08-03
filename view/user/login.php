@@ -13,8 +13,20 @@
                       <div class="row">
                       <div class="col-md-6 col-sm-6">
                     <div class="run-customer">
-                      
-                      <form action="" method="POST">
+                    <form action="?act=dangnhap" method="POST">
+                    <h4>Tên đăng nhập</h4><br>
+                    <input type="text" name="user" id="">
+                    <!-- <h4>Mật khẩu</h4><br> -->
+                     <label for="">Mật khẩu</label>
+                    <input type="password" name="pass" id=""><br>
+                    <input type="checkbox" name="" id="">Ghi nhớ tài khoản?
+                    <br>
+                    <!-- <input type="submit" value="Đăng nhập" name="dangnhap"> -->
+                    <input type="submit" value="Đăng nhập" name="dangnhap">
+                </form>
+                <li class="form_li"><a href="?act=quenmk">Quên mật khẩu</a></li>
+                <li class="form_li"><a href="?act=dangky">Đăng kí thành viên</a></li>
+                      <!-- <form action="" method="POST">
                         <div class="form-row">
                           <label class="lebel-abs">
                             Tên đăng nhập
@@ -22,16 +34,16 @@
 
                             </strong>
                           </label>
-                          <input type="text" class="input namefild" name="user" placeholder="Nhập id">
+                          <input type="text" class="input namefild" name="user" >
                         </div>
                         <div class="form-row">
                           <label class="lebel-abs">
                             Mật Khẩu
-                            <!-- <strong class="red">
+                            <strong class="red">
                               *
-                            </strong> -->
+                            </strong>
                           </label>
-                          <input type="password" class="input namefild" name="password" placeholder="Nhập mật khẩu">
+                          <input type="password" class="input namefild" name="password" >
                         </div>
                         <p class="forgoten">
                           <a href="#">
@@ -39,12 +51,12 @@
                           </a>
                         </p>
                         <button>
-                         <a href="" type="submit"> Đăng Nhập</a>
+                         <a href="?act=login" type="submit" name="login"> Đăng Nhập</a>
                         </button>
                         <button>
                           <a href="index.php?act=register"> Đăng Ký</a>
                         </button>
-                      </form>
+                      </form> -->
                     </div>
                   </div>
                 </div>
