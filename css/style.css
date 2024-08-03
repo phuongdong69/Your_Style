@@ -362,7 +362,8 @@ button:hover {
   background-attachment: fixed;
 }
 #home .header {
-  background: url(../images/black_transparent50.png) left top repeat;
+  /* background: url(../images/black_transparent50.png) left top repeat; */
+  background-color: #242424;
   position: relative;
   z-index: 100;
   top: 0;
