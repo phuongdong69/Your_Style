@@ -16,7 +16,7 @@ include "../Model/billdetail.php";
 include "../Model/role.php";
 include "../Model/news.php";
 include "../Model/bill.php";
-
+include "../Model/user.php";
 
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
@@ -257,9 +257,36 @@ if (isset($_GET['act'])) {
     
                 include "./view/galery/update.php";
                 break;
-
+            // user
+            case 'listuser':
+                // if (isset($_GET['id_product']) && $_GET['id_product'] > 0) {
+                //     $listanh = load_galery($_GET['id_product']);
+    
+                //     extract($listanh);
+                // }
+                $listuser = load_all_user();
+                include "./user/listuser.php";
+                break;
+            case 'updateRoleUser':
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $user = load_one_users($_GET['id']);
+                    extract($user);
+                }
+        
+                if (isset($_POST['updateRoleUser'])) {
+                    $status = $_POST['status'];
+                    var_dump($status);
+                    $id_role = $_POST['id_role'];
+                    update_status_role_admin( $_GET['id'],$status,$id_role);
+                    $thongbao = "Cập nhật thành công";
+                    // $bs = load_one_bs($id);
+                    // extract($bs);
+                }
+                $listrole = load_role();
+                include "./user/update.php";
+                break;
             //product_detail
-
+           
         case 'listpd':
             $listpd = load_productdetail();
             include "./view/productdetail/listpd.php";

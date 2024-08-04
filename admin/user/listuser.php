@@ -1,0 +1,79 @@
+<article>
+    <div class="row2">
+        <div class="row2 font_title">
+            <h1>Danh Sách Người Dùng</h1>
+        </div>
+        <!-- <form action="index.php?act=listsp" method="POST">
+                <h4>Danh mục sản phẩm</h4>
+                <select class="tk-form-sl" name="id_cate" id=""> 
+                    <option value="0" selected>Tất cả</option>
+                    ?php foreach ($listdanhmuc as $category): ?>
+                        <option value="?= $category['id'] ?>">?= $category['name'] ?></option>
+                    ?php endforeach; ?>
+                </select>
+                 <input class="tk-form-bt" type="submit" name="listok" value="Check"> 
+        </form> -->
+        <div class="row2 form_content ">
+            <form action="index.php?act=listuser" method="POST">
+                <div class="row2 mb10 formds_loai">
+                    <table border="1">
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Username</th>
+                            <th>Trạng thái</th>
+                            <th>Vai trò</th>
+                            <!-- <th>Size</th>
+                            <th>Color</th>
+                            <th>Giá</th>
+                            <th>Giá Sale</th>
+                            <th>Brand</th>
+                             <th>id chi tiet</th>-->
+                            <th>Chức năng</th> 
+                        </tr>
+                        <?php
+                        foreach ($listuser as $user) {
+                            extract($user);
+                            $suaUrl = "?act=updateRoleUser&id=".$id ;
+                            // $listimg = "?act=showimg&id_product=".$id;
+                            // // $id_product = $id;
+                            // $imgPath = "./img/" . $galery_imgage;
+                            // $hinhpath = "./img/".$img;
+                            // if(is_file($hinhpath)){
+                            //     $imgPath = "<img src='".$hinhpath.">";
+                            // }else{
+                            //     $imgPath = "No Photo";
+                            // }
+                        ?>
+                        <tr>
+                            <td><?= $id ?></td>
+                            <td><?= $name ?></td> 
+                            <td><?= $email ?></td>
+                            <td><?= $phoneNumber ?></td>
+                            <td><?= $username ?></td>
+                            <td><?= $status?></td>
+                            <td><?= $roleName ?></td>
+                            <!-- <td>?= $brand_name?></td> -->
+                            <!-- <td>?= $idproductdetail?></td> -->
+                            <td>
+                                <a href="<?= $suaUrl ?>"><input type="button" value="Sửa trạng thái, vai trò"></a>
+                                <!-- <a href="?= $listimg ?>"><input type="button" value="xem thêm ảnh"></a> -->
+                                <!-- <a href="?= $img ?>">
+                                <input type="button" value="img">
+                                </a> -->
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </table>
+                </div>
+                <div class="row mb10 ">
+                    <!-- <a href="index.php?act=addsp"><input class="mr20" type="button" value="Thêm Sản Phẩm"></a> -->
+                    <!-- <a href="index.php?act=listpd"><input class="mr20" type="button" value="Chi Tiết Sản Phẩm"></a> -->
+                    <!-- <a href="index.php?act=listglr"><input class="mr20" type="button" value="Quản lý ảnh sản phẩm"></a> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</article>
