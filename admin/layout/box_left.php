@@ -36,6 +36,7 @@
                     <i class="fas fa-users"></i> Khách Hàng <i class="fas fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu">
+                <li><a href="index.php?act=listuser"><i class="fas fa-users"></i> Danh sách khách hàng</a></li><hr>
                 <li><a href="index.php?act=listrole"><i class="fas fa-users"></i> ROLE</a></li><hr>
                 <li><a href="index.php?act=comments"><i class="fas fa-comments"></i> Bình Luận</a></li><hr>
 
