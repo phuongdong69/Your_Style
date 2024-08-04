@@ -22,11 +22,7 @@
                               <li><a href="index.php?act=contact">Liên Hệ</a></li>
                            </ul>
                         </div> -->
-                        <div class="col-md-3">
-                           <ul class="usermenu">
-                              <li><a href="index.php?act=login" class="log">Đăng nhập</a></li>
-                           </ul>
-                        </div>
+                      
                      </div>
                   </div>
                   <div class="clearfix"></div>
@@ -34,7 +30,7 @@
                      <ul class="option">
                         <li id="search" class="search">
                            <form action="index.php" method="get">
-                              <input class="search-input" placeholder="Tìm kiếm sản phẩm..." type="text" name="search">
+                              <input style="width: 500%;" class="search-input" placeholder="Tìm kiếm sản phẩm..." type="text" name="search">
                               <input class="search-submit" type="submit" value="">
                            </form>
                         </li>
@@ -42,6 +38,11 @@
                         <li class="option-cart">
                            <a href="index.php?act=cart" class="cart-icon">cart <span class="cart_no"></span></a>
                         </li>
+                        <div class="col-md-3">
+                           <ul class="usermenu">
+                              <li><a href="index.php?act=login" class="log" > Login</a></li>
+                           </ul>
+                        </div>
                      </ul>
                      <div style="margin-left: 110px;" class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

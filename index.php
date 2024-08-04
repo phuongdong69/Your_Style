@@ -86,7 +86,13 @@ session_start();
         case "gucci": //brand
             include "view/brand_gucci.php";
             break;
-        case "login": //đăng nhậ
+        case "forgotpass": //quên mk
+            include "view/user/forgotpass.php";
+            break;
+        case "edit": //sửa ttcn
+            include "view/user/edit.php";
+            break;
+        case "login": //đăng nhập
             include "view/user/login.php";
             break;
         case "register": //đăng ký

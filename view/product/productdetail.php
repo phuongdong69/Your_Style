@@ -1,3 +1,6 @@
+<style>
+    
+</style>
 <div class="container_fullwidth">
     <div class="container">
         <div class="row">
@@ -47,9 +50,9 @@
                         <br>
                          Giá -->
                          <div class="quantity-control">
-                            <label for="quantity" style="margin-right: 60px;font-weight: 400;">Số lượng:</label>
+                            <label for="quantity" style="font-weight: 400;">Số lượng:</label>
                             <button type="button" id="decreaseQty" class="btn-qty">-</button>
-                            <input type="number" id="quantity" name="quantity" value="1" min="1" max="<?= $quantity ?>" readonly>
+                            <input class="quant" type="number"  id="quantity" name="quantity" value="1" min="1" max="<?= $quantity ?>" readonly>
                             <button type="button" id="increaseQty" class="btn-qty">+</button>
                         </div>
                         <br>
@@ -85,7 +88,7 @@
                             <div class="button_group">
                                 <button class="button" > Mua ngay </button>
                                 <button class="button" >Thêm vào giỏ hàng</button>
-                                <button class="button favorite"><i class="fa fa-heart-o"></i></button> <!--yêu thích sản phẩm -->
+                                <!-- <button class="button favorite"><i class="fa fa-heart-o"></i></button>  -->
                             </div>
                         </div>
                     </div>
