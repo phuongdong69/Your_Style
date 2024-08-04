@@ -34,7 +34,8 @@
                         <div class="thumbnail"><a href="<?= $linkUrl ?>"><img src="<?= $imgPath ?>" alt="Product Name"></a></div>
                         <div class="productname"><?= $name ?></div>
                         <h4 class="price"><?= $price ?> VNĐ</h4>
-                        <div class="button_group"><button class="button add-cart" type="button">Thêm vào giỏ hàng</button>
+                        <div class="button_group">
+                           <!-- <button class="button add-cart" type="button">Thêm vào giỏ hàng</button> -->
                         <!-- <button class="button compare" type="button"><i class="fa fa-exchange"></i></button><button class="button wishlist" type="button"><i class="fa fa-heart-o"></i></button> -->
                      </div>
                      </div>
