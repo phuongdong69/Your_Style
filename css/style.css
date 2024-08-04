@@ -296,6 +296,7 @@ input[type="number"],
 input[type="password"],
 input[type="tel"],
 textarea {
+  
   background: #fff;
   padding: 8px 15px;
   border: 1px solid #cccccc;
@@ -317,13 +318,16 @@ textarea:focus {
 } /* button */
 .button,
 button {
-  background: #fff;
+  /* background: #fff; */
   padding: 10px 20px;
   border: 1px solid #cccccc;
   font-size: 14px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
   outline: none;
+}
+.quant{
+  text-align: center;
 }
 .button:hover,
 button:hover {
@@ -367,11 +371,13 @@ button:hover {
   position: relative;
   z-index: 100;
   top: 0;
-  height: 140px;
+  height: 100px;
 }
 .header {
   position: relative;
   background: #333333;
+  display: flex;
+    flex-wrap: wrap;
 }
 .logo {
   float: left;
@@ -385,7 +391,7 @@ button:hover {
 }
 .header_bottom {
   float: left;
-  width: 100%;
+  width: 110%;
   position: relative;
 }
 .option_nav {
@@ -466,8 +472,8 @@ button:hover {
   color: #f7544a;
 }
 .usermenu {
-  float: right;
-  padding-top: 15px;
+  /* float: right; */
+  padding-top: 8px;
   /* line-height: ; */
 }
 .usermenu li {
@@ -481,6 +487,8 @@ button:hover {
   float: left;
   padding-left: 22px;
   color: #fff;
+  font-weight: bold;
+  font-size: 15px;
 }
 .usermenu li a.log {
   background: url(../images/loginbg.png) left top no-repeat;
@@ -1056,6 +1064,7 @@ ul.dropdown-menu > li > a:hover {
   text-align: center;
 }
 .products .button {
+  background-color: #4cae4c;
   margin: 0 3px 5px 3px;
 }
 .products .button .fa {
@@ -1107,6 +1116,11 @@ ul.dropdown-menu > li > a:hover {
   width: 18%;
   height: auto;
 }
+.thumbnail img, .prev-thum img {
+  max-width: 100%;
+  height: auto;
+}
+
 .product-list-description {
   float: right;
   width: 75%;
@@ -1662,7 +1676,7 @@ option {
 } /*Products Details page style */
 .products-details {
   position: relative;
-  width: 100%;
+  width: 135%;
 }
 .preview_image {
   float: left;
@@ -1766,7 +1780,7 @@ option {
   font-size: 30px;
   color: #ff3636;
   font-weight: 500;
-  margin-left: 85px;
+  margin-left: 23px;
 }
 .products-description .new_price sup {
   font-size: 18px;
@@ -1795,12 +1809,12 @@ option {
   margin-bottom: 20px;
 }
 .products-description .qty select {
-  margin-left: 80px;
+  margin-left: 30px;
 }
-.products-description .button_group {
+/* .products-description .button_group {
   float: right;
   margin-right: 165px;
-} /** tab style **/
+}  */
 .tab-box {
   position: relative;
   min-height: 250px;
@@ -2291,6 +2305,7 @@ option {
   }
   .container {
     width: 750px;
+
   }
 }
 @media (min-width: 992px) {
@@ -2299,6 +2314,7 @@ option {
   }
   .container {
     width: 970px;
+
   }
 }
 @media (min-width: 1200px) {
@@ -2307,6 +2323,8 @@ option {
   }
   .container {
     width: 1170px;
+    /* display: flex; */
+    justify-content: space-between;
   }
 } /* box resize close */
 @media (min-width: 1200px) {
@@ -3069,7 +3087,7 @@ color: #666;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-left: 500px;
+  margin-left: 31%;
 }
 
 .logo img {
@@ -3092,8 +3110,9 @@ form {
 }
 
 .form-group label {
+  font-weight: bold;
 padding-top: 10px;
-  width: 1084px;
+  width: 500px;
   display: block;
   margin-bottom: 5px;
   color: #333;
@@ -3114,7 +3133,7 @@ padding-top: 10px;
 }
 
 .checkbox-group input {
-  margin-right: 10px;
+  margin-right: -17px;
 }
 
 button {
@@ -3126,7 +3145,12 @@ button {
   cursor: pointer;
   margin-top: 10px;
 }
-
+.login-form-container{
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
 button:hover {
   background-color: #4cae4c;
 }
@@ -3172,6 +3196,7 @@ text-decoration: none;
 }
 
 h2 {
+  font-weight: bold;
   margin-top: 0;
   color: #333;
   font-size: 24px;
@@ -3180,7 +3205,7 @@ h2 {
 }
 
 form {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 h5 {
@@ -3226,5 +3251,104 @@ p {
 @media (max-width: 768px) {
   .col-md-9 {
       width: 100%;
+  }
+}
+ /* QMK */
+ input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin-left: 10%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #5cb85c;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* CNTT */
+.checkout-page {
+  text-align: center;
+  margin-left: 153px;
+}
+
+.checkout-page h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.checkout-page h5 {
+    font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 80%;
+  padding: 10px;
+  margin-left: 10%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #5cb85c;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+@font-face {
+  font-family: div1;
+  src: url(font/UTM\ Duepuntozero.ttf);
+}
+
+@media screen and (max-width: 1024px) {
+  .divdai {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .divdai {
+    width: 100%;
   }
 }
