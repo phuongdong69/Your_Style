@@ -1,4 +1,64 @@
-<div class="hom-slider">
+
+<div class="slider-container">
+
+ <div class="c">
+    <img class="mySlides" src="images/banner1.jpg">
+    <img class="mySlides" src="images/banner2.jpg">
+    <img class="mySlides" src="images/banner3.jpg">
+ </div>
+
+ 
+</div>
+<div class="dots">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+<div class="clearfix"></div>
+<script>
+var myIndex = 0;
+var slideInterval;
+carousel();
+
+function carousel() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > slides.length) {myIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[myIndex-1].style.display = "block";  
+  dots[myIndex-1].className += " active";
+  slideInterval = setTimeout(carousel, 2000); 
+}
+
+function currentSlide(n) {
+  clearTimeout(slideInterval); 
+  showSlide(n);
+  slideInterval = setTimeout(carousel, 2000); 
+}
+
+function showSlide(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  myIndex = n;
+  slides[n-1].style.display = "block";  
+  dots[n-1].className += " active";
+}
+</script>
+<!-- <div class="hom-slider">
    <div class="container">
       <div id="sequence">
          <div class="sequence-prev"><i class="fa fa-angle-left"></i></div>
@@ -18,7 +78,7 @@
                <div class="flat-caption caption2 formLeft delay400">
                   <h1>YourStyle</h1>
                </div>
-               <div class="flat-caption caption3 formLeft delay500">
+               <div class="flat-caption caption3 formLeft delay500"> 
                   <h2><br>Nơi phong cách bắt đầu</h2>
                </div>
                <div class="flat-button caption5 formLeft delay600"><a class="more" href="#">Chi Tiết Hơn</a></div>
@@ -36,9 +96,9 @@
             </li>
          </ul>
       </div>
-   </div>
+   </div> -->
    <!--  -->
-</div>
+<!-- </div> -->
    <!-- <script>
       document.querySelector('.dropdown-toggle').addEventListener('click', function(event) {
          event.preventDefault();
