@@ -72,11 +72,11 @@
                                     <div class="col-md-6 col-sm-6">
                                     <ul class="mega-menu-links">
                                           <?php
-                                          $listcategory = load_category_shirts();
+                                          $listcategory = load_category_by_filter('áo');
                                           foreach ($listcategory as $category) {
                                               $id = $category['id'];
                                               $name = $category['name'];
-                                              echo '<li><a href="index.php?act=category&id=' . $id . '">' . $name . '</a></li>';
+                                              echo '<li><a href="index.php?act=categorysp&id=' . $id . '">' . $name . '</a></li>';
                                           }
                                           ?>
                                        </ul>
@@ -91,11 +91,11 @@
                                     <div class="col-md-6 col-sm-6">
                                     <ul class="mega-menu-links">
                                           <?php
-                                          $listcategory = load_category_pants();
+                                          $listcategory = load_category_by_filter('Quần');
                                           foreach ($listcategory as $category) {
                                               $id = $category['id'];
                                               $name = $category['name'];
-                                              echo '<li><a href="index.php?act=category&id=' . $id . '">' . $name . '</a></li>';
+                                              echo '<li><a href="index.php?act=categorysp&id=' . $id . '">' . $name . '</a></li>';
                                           }
                                           ?>
                                        </ul>

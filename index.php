@@ -75,8 +75,18 @@ ob_start();
             include "view/contact.php";
             break;
         //task bar thanh tác vụ
-        case 'shirt': //áo
-            include "view/shirt.php";
+        case 'categorysp': //áo
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id_cate = $_GET['id'];
+                $l_cate = load_one_category($id);
+                if ($l_cate) {
+                    $name = $l_cate['name'];
+                    extract($l_cate);
+                    // Load danh sách sản phẩm theo danh mục
+                    $listSanPham = load_all_products_img($id_cate);
+                }
+            }
+            include "view/product/categorysp.php";
             break;
         case 'pants': //quần
             include "view/pants.php";

@@ -7,6 +7,9 @@
         <ul>
             <li><a href="index.php?act=home"><i class="fas fa-tachometer"></i> Dashboard</a></li><hr>
             <li class="dropdown">
+                <li><a href="index.php?act=listtk"><i class="fas fa-tags"></i> Thống kê </a></li><hr>
+            </li>
+            <li class="dropdown">
                 <a href="#" onclick="toggleDropdown(event)">
                     <i class="fas fa-users"></i> Sản Phẩm <i class="fas fa-caret-down"></i>
                 </a>

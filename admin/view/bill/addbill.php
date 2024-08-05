@@ -7,16 +7,16 @@
       <form action="index.php?act=addbill" method="POST">
        
 
-        <div style="width: 200px;" class="row2 mb10">
+        <!-- <div style="width: 200px;" class="row2 mb10">
           <label>Tạo Lúc</label> <br>
           <input type="datetime-local" name="creat_at" placeholder="Tạo sản phẩm lúc">
-        </div>
+        </div> -->
 
 
       
 
         <div class="row2 mb10">
-          <label>Name</label> <br>
+          <label>Tên khách hàng</label> <br>
           <input type="text" name="name" placeholder="Tên" required>
         </div>
 
@@ -34,6 +34,52 @@
         <div class="row2 mb10">
           <label>Địa Chỉ</label> <br>
           <input type="text" name="address" placeholder="Địa Chỉ" required>
+        </div>
+
+        <!-- chi tiết đơn hàng -->
+        <div style="width: 200px;" class="row2 mb10">
+          <label>Mã Sản Phẩm</label> <br>
+          <select name="id_product" required>
+            <?php foreach ($listproduct as $product): ?>
+            <option value="<?= $product['id'] ?>"><?= $product['name'] ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+
+        <!-- <div style="width: 200px;" class="row2 mb10">
+          <label>Mã Voucher</label> <br>
+          <select name="id_voucher">
+            <option value=""></option>
+            <option value="1">50</option>
+            <option value="2">100</option>
+          </select>
+        </div> -->
+
+        <div style="width: 200px;" class="row2 mb10">
+          <label>Mã Trạng Thái Đơn Hàng</label> <br>
+          <select name="id_bill_status" required>
+            <?php foreach ($listbs as $bill_status): ?>
+            <option value="<?= $bill_status['id'] ?>"><?= $bill_status['status'] ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+
+        <div class="row2 mb10">
+          <label>Số Lượng</label> <br>
+          <input type="number" name="quantity" placeholder="Nhập Số Lượng" required>
+        </div>
+
+        <div class="row2 mb10">
+          <label>Hình Thức Thanh Toán</label> <br>
+          <select name="payment" required>
+            <option value="nhận hàng mới thanh toán">Nhận Hàng Mới Thanh Toán</option>
+            <option value="chuyển khoản">Chuyển Khoản</option>
+          </select>
+        </div>
+
+        <div class="row2 mb10">
+          <label>Ghi Chú</label> <br>
+          <input type="text" name="note" placeholder="Nhập Ghi Chú">
         </div>
 
         <input class="mr20" type="submit" name="thembill" value="THÊM MỚI">
