@@ -21,7 +21,7 @@
                         foreach ($listbill as $bill) {
                             extract($bill);
                             $suabill = "?act=updatebill&id=".$id;
-                          $listbd = "?act=listbd&id_bill=".$id;
+                          $listbd = "?act=listbdt&id_bill=".$id;
                         ?>
                         <tr>
                             <td><?= $id ?></td>

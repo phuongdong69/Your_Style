@@ -24,14 +24,14 @@
             </select>
           </div>
             
-        <div style="width: 200px;" class="row2 mb10">
+        <!-- <div style="width: 200px;" class="row2 mb10">
           <label>mã voucher</label> <br>
           <select name="id_voucher" >
             <option value=""></option>
             <option value="1">50</option>
             <option value="2">100</option>
           </select>
-        </div>
+        </div> -->
 
         <div style="width: 200px;" class="row2 mb10">
           <label>mã trạng thái đơn hàng</label> <br>
@@ -61,7 +61,7 @@
         </div>
 
         <input class="mr20" type="submit" name="thembdt" value="THÊM MỚI">
-        <a href="index.php?act=listbdt"><input class="mr20" type="button" value="DANH SÁCH"></a>
+        <a href="index.php?act=listbill"><input class="mr20" type="button" value="DANH SÁCH"></a>
 
         <?php
           if(isset($thongbao) &&($thongbao != "")){

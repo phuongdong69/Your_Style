@@ -4,7 +4,7 @@
             <h1>Danh sách chi tiết sản phẩm</h1>
         </div>
         <div class="row2 form_content ">
-            <form action="index.php?act=listpd" method="POST">
+            <form action="index.php?act=listpd&id=<?= $id_product ?>" method="POST">
                 <div class="row2 mb10 formds_loai">
                     <table border="1">
                         <tr>
@@ -18,16 +18,17 @@
                         <?php
                         foreach ($listpd as $product) {
                             extract($product);
-                            $suaUrl = "?act=updatepd&id=".$id;
+                            $addpd_pro = "?act=addpd&id_product=" . $id_product;
+                            $suapd = "?act=updatepd&id=".$id;
                         ?>
                         <tr>
                             <td><?= $id ?></td>
-                            <td><?= $id_product ?></td>
+                            <td><?= $p_name ?></td>
                             <td><?= $price?></td>
                             <td><?= $size_sizeValue ?></td>
                             <td><?= $color_name ?></td>
                             <td>
-                                <a href="<?= $suaUrl ?>">
+                                <a href="<?= $suapd ?>">
                                 <input type="button" value="Sửa">
                                 </a>
                             </td>
@@ -36,7 +37,7 @@
                     </table>
                 </div>
                 <div class="row mb10 ">
-                    <a href="?act=addpd"><input class="mr20" type="button" value="Thêm chi tiết sản phẩm"></a>
+                    <a href="<?= $addpd_pro ?>"><input class="mr20" type="button" value="Thêm chi tiết sản phẩm"></a>
                     <a href="?act=listsp"><input class="mr20" type="button" value="Danh sách sản phẩm"></a>
                 </div>
             </form>

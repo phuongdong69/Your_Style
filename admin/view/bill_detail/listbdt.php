@@ -4,7 +4,7 @@
             <h1>Chi tiết đơn hàng</h1>
         </div>
         <div class="row2 form_content ">
-            <form action="index.php?act=listbdt" method="POST">
+            <form action="index.php?act=listbdt&id=<?= $id_bill ?>" method="POST">
                 <div class="row2 mb10 formds_loai">
                     <table border="1">
                         <tr>
@@ -42,7 +42,7 @@
                     </table>
                 </div>
                 <div class="row mb10 ">
-                    <a href="index.php?act=addbdt"><input class="mr20" type="button" value="Thêm Sản Phẩm"></a>
+                    <a href="index.php?act=listbill"><input class="mr20" type="button" value="Về danh sách bill"></a>
                 </div>
             </form>
         </div>
