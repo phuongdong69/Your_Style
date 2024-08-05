@@ -1,8 +1,14 @@
 <?php
  
-function insert_user($name,$phoneNumber,$email,$username,$password){
+function insert_user($name,$phoneNumber,$email,$birthday,$address,$username,$password){
+    if($birthday==""){
+        $sql="INSERT INTO `user` (`id`, `name`, `phoneNumber`, `email`, `birthday`, `address`, `username`, `password`, `status`, `id_role`)
+        VALUES (NULL, '$name', '$phoneNumber', '$email',NUll, '$address', '$username', MD5('$password'), 'Đang hoạt động', 1); ";
+       
+    }else{
     $sql="INSERT INTO `user` (`id`, `name`, `phoneNumber`, `email`, `birthday`, `address`, `username`, `password`, `status`, `id_role`)
-    s VALUES (NULL, '$name', '$phoneNumber', '$email', NULL, NULL, '$username', MD5('$password'), 'Đang hoạt động', 1); ";
+     VALUES (NULL, '$name', '$phoneNumber', '$email','$birthday', '$address', '$username', MD5('$password'), 'Đang hoạt động', 1); ";
+    }
     return pdo_execute($sql);
 }
 function load_all_user(){
@@ -10,7 +16,14 @@ function load_all_user(){
     $sql = "Select `user`.*,`role`.`roleName` from `user` join `role` on `role`.`id` = `user`.`id_role`;";
     return pdo_query($sql);
 }
-
+function load_login_users($username, $password){
+    $sql = "SELECT * FROM `user` where `username` = '$username' and `password` = '$password'";
+    return pdo_query_one($sql);
+}
+function load_one_username($username){
+    $sql = "SELECT * FROM `user` where `username` = $username";
+    return pdo_query_one($sql);
+}
 function load_one_users($id){
     $sql = "SELECT * FROM `user` where `id` = $id";
     return pdo_query_one($sql);
