@@ -12,20 +12,23 @@
                     <div class="login-form-container">
                             
                             <h2>Đăng nhập</h2>
-                            <form action="?act=dangnhap" method="POST">
+                            <form action="" method="POST">
                                 <div class="form-group">
                                     <label for="username">Tài khoản</label>
-                                    <input type="text" id="username" name="user" required>
+                                    <input type="text" id="username" name="username" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Mật khẩu</label>
-                                    <input type="password" id="password" name="pass" required>
+                                    <input type="password" id="password" name="password" required>
                                 </div>
-                                <div class="form-group checkbox-group">
+                                <?= $errorMsg ?>
+                                <!-- <div class="form-group checkbox-group">
                                     <input type="checkbox" id="remember">
                                     <label for="">Nhớ mật khẩu</label>
-                                </div>
-                                <button type="submit">Đăng Nhập</button>
+                                </div> -->
+                                
+                                <button  type="submit" name="login">Đăng Nhập</button>
+                                
                             </form>
                             <hr>
                             <div class="additional-options">

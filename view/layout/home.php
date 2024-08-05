@@ -48,6 +48,7 @@
                         <a class="item_name" href="?= $linkUrl ?>">?= $name ?></a>
                         <p class="price">$?= $price ?></p></div>-->
                   <?php } ?>
+                 
                </div>
             </li>
          </ul>

@@ -40,7 +40,15 @@
                         </li>
                         <div class="col-md-3">
                            <ul class="usermenu">
+                              <?php
+                              if(isset($_SESSION['username']) && $_SESSION['username']!=""){
+                                 echo '<li><a href="index.php?act=userinfo" class="log" > '.($_SESSION['username']).'</a></li>';
+                                 echo '<li><a href="index.php?act=logout"> Thoát</a></li>';
+                                 echo '<li><a href="index.php?act=userinfo"> Thông tin tài khoản</a></li>';
+                              }else{
+                              ?>
                               <li><a href="index.php?act=login" class="log" > Login</a></li>
+                              <?php } ?>
                            </ul>
                         </div>
                      </ul>
