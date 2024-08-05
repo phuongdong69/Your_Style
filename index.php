@@ -13,7 +13,6 @@ ob_start();
     include "./Model/pdo.php";
     include "./Model/news.php";
     include "./Model/user.php";
-    include "./Model/cart.php";
     $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
 
@@ -46,14 +45,8 @@ ob_start();
             include "view/layout/home.php";
 
             break;
-        case "xoadh": 
-            include "view/cart/xoadh.php";
-            break;
         case "cart": //giỏ hàng
-            include "view/cart/cart.php";
-            break;
-        case "addtocart": //giỏ hàng
-            include "view/cart/addtocart.php";
+            include "view/cart.php";
             break;
         case "mua": //Mua Ngay
             include "view/mua.php";
@@ -82,18 +75,8 @@ ob_start();
             include "view/contact.php";
             break;
         //task bar thanh tác vụ
-        case 'categorysp': //áo
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $id_cate = $_GET['id'];
-                $l_cate = load_one_category($id);
-                if ($l_cate) {
-                    $name = $l_cate['name'];
-                    extract($l_cate);
-                    // Load danh sách sản phẩm theo danh mục
-                    $listSanPham = load_all_products_img($id_cate);
-                }
-            }
-            include "view/product/categorysp.php";
+        case 'shirt': //áo
+            include "view/shirt.php";
             break;
         case 'pants': //quần
             include "view/pants.php";
@@ -104,7 +87,17 @@ ob_start();
 
 
         case "forgotpass": 
-            
+            $repass="";
+            if(isset($_POST['login'])){
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $phoneNumber = $_POST['phone_number'];
+                $test = load_getpassword_user($username,$email,$phoneNumber);
+                if($test !=""){
+                    extract($test);
+                    $repass = "Mật khẩu của bạn là: ".$password;
+                }
+            }
             include "view/user/forgotpass.php";
             break;
 
@@ -119,6 +112,7 @@ ob_start();
                 $test = load_login_users($username, $password);
                 // $result=$conn->query($test);
                 if($test!=""){
+                    extract($test);
                     $_SESSION['username']=$username;
                     $_SESSION['id_role']=$id_role;
                     var_dump( $_SESSION['username']);
