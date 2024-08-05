@@ -1033,7 +1033,7 @@ ul.dropdown-menu > li > a:hover {
   width: 100%;
   /* margin: 45px 0 5px 0; */
   padding: 0;
-  height: 380px;
+  height: 500px;
   border: none;
   text-align: center;
   overflow: hidden;
@@ -1737,7 +1737,7 @@ option {
 .thum-image .control-left,
 .thum-image .control-right {
   position: absolute;
-  top: 414px;
+  top: 535px;
   left: -20px;
   font-size: 20px;
   color: #b0b0b0;

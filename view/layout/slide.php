@@ -2,9 +2,9 @@
 <div class="slider-container">
 
  <div class="c">
-    <img class="mySlides" src="images/banner1.jpg">
-    <img class="mySlides" src="images/banner2.jpg">
-    <img class="mySlides" src="images/banner3.jpg">
+    <img class="mySlides" src="images/1.jpg">
+    <img class="mySlides" src="images/2.jpg">
+    <img class="mySlides" src="images/3.jpg">
  </div>
 
  
