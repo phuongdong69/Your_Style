@@ -1,7 +1,7 @@
 <style>
     
 </style>
-<div class="container_fullwidth">
+<div style="padding-top: 0px;" class="container_fullwidth">
     <div class="container">
         <div class="row">
             <div class="col-md-9">
