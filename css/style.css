@@ -2021,7 +2021,7 @@ option {
 }
 .shop-table th:nth-child(2),
 .shop-table td:nth-child(2) {
-  width: 45%;
+  width: 35%;
 }
 .shop-table th:nth-child(3),
 .shop-table td:nth-child(3),
@@ -2042,7 +2042,7 @@ option {
   padding: 0 10px;
 }
 .shop-details .productname {
-  text-align: left;
+  text-align: center;
   font-weight: 400;
 }
 .shop-details .color-choser {
@@ -3690,4 +3690,17 @@ a input.submit-button:hover {
   font-size: 16px;
   line-height: 1.6;
   margin-top: 10px;
+}
+.dhang{
+  padding: 10px 20px;
+    background-color: #5cb85c;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.dhang:hover{
+  background-color: #4cae4c;
 }

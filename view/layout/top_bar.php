@@ -1,3 +1,35 @@
+<style>
+/* CSS cho dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000; 
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%; 
+    margin-top: 0px; 
+}
+
+.dropdown-content li {
+    color: white; 
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+</style>
 <body id="home">
    <div class="wrapper">
       <div class="header">
@@ -42,9 +74,21 @@
                            <ul class="usermenu">
                               <?php
                               if(isset($_SESSION['username']) && $_SESSION['username']!=""){
-                                 echo '<li><a href="index.php?act=userinfo" class="log" > '.($_SESSION['username']).'</a></li>';
-                                 echo '<li><a href="index.php?act=logout"> Thoát</a></li>';
-                                 echo '<li><a href="index.php?act=userinfo"> Thông tin tài khoản</a></li>';
+                                 echo '<li class="dropdown">';
+                                 echo '<a href="#" class="log">'.htmlspecialchars($_SESSION['username']).'</a>';
+                                 echo '<ul class="dropdown-content">';
+                                 echo '<li><a href="index.php?act=userinfo">Tài khoản</a></li>';
+                                 echo '<li><a href="index.php?act=logout">Thoát</a></li>';
+                                 if(isset($_SESSION['id_role']) && $_SESSION['id_role'] == 2){
+                                    echo '<li><a href="index.php?act=admin">Admin</a></li>';
+                                }
+                                 echo '</ul>';
+                                 echo '</li>';
+                               
+                              // if(isset($_SESSION['username']) && $_SESSION['username']!=""){
+                              //    echo '<li><a href="index.php?act=userinfo" class="log" > '.($_SESSION['username']).'</a></li>';
+                              //    echo '<li><a href="index.php?act=logout"> Thoát</a></li>';
+                              //    echo '<li><a href="index.php?act=userinfo"> Thông tin tài khoản</a></li>';
                               }else{
                               ?>
                               <li><a href="index.php?act=login" class="log" > Login</a></li>
@@ -134,3 +178,15 @@
       </div>
    </div>
    <div class="clearfix"></div>
+<script>
+   document.addEventListener('DOMContentLoaded', (event) => {
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.addEventListener('mouseover', () => {
+        document.querySelector('.dropdown-content').style.display = 'block';
+    });
+    dropdown.addEventListener('mouseout', () => {
+        document.querySelector('.dropdown-content').style.display = 'none';
+    });
+});
+
+</script>

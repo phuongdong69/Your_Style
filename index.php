@@ -13,6 +13,7 @@ ob_start();
     include "./Model/pdo.php";
     include "./Model/news.php";
     include "./Model/user.php";
+    include "./Model/cart.php";
     $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
 
@@ -45,8 +46,14 @@ ob_start();
             include "view/layout/home.php";
 
             break;
+        case "xoadh": 
+            include "view/cart/xoadh.php";
+            break;
         case "cart": //giỏ hàng
-            include "view/cart.php";
+            include "view/cart/cart.php";
+            break;
+        case "addtocart": //giỏ hàng
+            include "view/cart/addtocart.php";
             break;
         case "mua": //Mua Ngay
             include "view/mua.php";

@@ -10,7 +10,10 @@
                     <div class="preview_image">
                         <div class="preview-small">
                             <!-- <img id="zoom_03" src="?= $imgage ?>" data-zoom-image="?= $galery_imgage ?>" alt=""> -->
-                            <div class="thumbnail"><img src="./admin/img/<?= $galery_imgage ?>" alt="img_product" data-zoom-image="./admin/img/<?= $galery_imgage ?>"></a></div>
+                             <form action="?act=addtocart" method="post">
+                            <div class="thumbnail">
+                                <img src="./admin/img/<?= $galery_imgage ?>" alt="img_product" data-zoom-image="./admin/img/<?= $galery_imgage ?>"></a>
+                            </div>
                         </div>
                         <div class="thum-image">
                             <ul id="gallery_01" class="prev-thum">
@@ -34,6 +37,7 @@
                         </div>
                     </div>
                     <div class="products-description">
+                    Sản Phẩm
                         <!-- Tên sản phẩm -->
                         <h3 class="name"><?= $name ?></h3>
                         <!-- Trạng thái 
@@ -50,14 +54,14 @@
                         <br>
                          Giá -->
                          <div class="quantity-control">
-                            <label for="quantity" style="font-weight: 400;">Số lượng:</label>
+                            <label for="quantity" style="font-weight: 400;">Số lượng</label>
                             <button type="button" id="decreaseQty" class="btn-qty">-</button>
                             <input class="quant" type="number"  id="quantity" name="quantity" value="1" min="1" max="<?= $quantity ?>" readonly>
                             <button type="button" id="increaseQty" class="btn-qty">+</button>
                         </div>
                         <br>
                         <div class="qty">
-                            Size: 
+                            Size
                             <select id="size" name="id_size">
                                 <?php foreach ($listsize as $size): ?>
                                     <option value="<?= $size['id'] ?>" <?= $id_size == $size['id'] ? 'selected' : '' ?>><?= $size['sizeValue'] ?></option>
@@ -79,17 +83,31 @@
                         <br>
                         <div class="wided">
                             <div class="price">
-                                Giá: 
+                                Giá
                                 <span class="new_price"><?= number_format($priceSale, 0, ',', '.') ?>  VNĐ</span>
                                 <span class="old_price"><?= number_format($price, 0, ',', '.')?> VNĐ</span>
                             </div>
                             <br>
                             <br>
+                            <!-- </form>
+                            <form action="addtocart" method="post"> -->
                             <div class="button_group">
-                                <button class="button" > Mua ngay </button>
-                                <button class="button" >Thêm vào giỏ hàng</button>
+                                <!-- <button class="button" > Mua ngay </button> -->
+                                <!-- <form action="index.php?act=addtocart" method="post"> -->
+                                    <input type="hidden" name="image" value="./admin/img/<?= $galery_imgage ?>">
+                                    <input type="hidden" name="name" value="<?= $name ?>">
+                                    <input type="hidden" name="color" value="<?= $color['name'] ?>">
+                                     <input type="hidden" name="size" value="<?= $size['sizeValue'] ?>">
+                                    <input type="hidden" name="price" value="<?= $priceSale ?>">
+                                    <input type="hidden" name="soluong" value="Số lượng">
+                                    <input type="hidden" name="id" value="1">
+                                    <input class="dhang" type="submit" name="dathang" value="Thêm Vào Giỏ Hàng">
+                                <!-- </form> -->
+
+                                <!-- <button class="button" >Thêm vào giỏ hàng</button> -->
                                 <!-- <button class="button favorite"><i class="fa fa-heart-o"></i></button>  -->
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
