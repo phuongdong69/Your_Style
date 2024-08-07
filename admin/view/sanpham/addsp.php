@@ -6,45 +6,80 @@
     <div class="row2 form_content">
       <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
         <div class="row2 mb10">
-          <label> TÊN SẢN PHẨM </label> <br>
+          <label> TÊN SẢN PHẨM </label>
           <input type="text" name="name" placeholder="nhập vào tên sản phẩm" required>
         </div>
+
+         <div class="row2 mb10">
+          <label>Hình ảnh</label>
+
+
+          <input type="file" name="image" required>
+
+
+        </div>
+        
             
         <div class="row2 mb10">
-          <label>Mô tả</label> <br>
+          <label>Mô tả</label>
           <input type="text" name="description" placeholder="nhập vào mô tả sản phẩm" required>
         </div>
 
         <div class="row2 mb10">
-          <label>Giá sale </label> <br>
-          <input type="number" name="priceSale" placeholder="nhập giá sale" required>
+            <label> Size </label> <br>
+            <select name="id_size" id="">
+                <?php foreach ($listsize as $listsiz) :
+                    extract($listsiz);
+                ?>
+                    <option value="<?= $id ?>"><?= $sizeValue ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div> 
+        <div class="row2 mb10">
+            <label> Color </label> <br>
+            <select name="id_color" id="">
+                <?php foreach ($listcolor as $listcol) :
+                    extract($listcol);
+                ?>
+                    <option value="<?= $id ?>"><?= $name ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="row2 mb10">
+            <label> Price </label> <br>
+            <input type="text" name="price" placeholder="nhập giá sản phẩm" required>
         </div>
 
         <div class="row2 mb10">
-          <label>Số lượng</label> <br>
-          <input type="number" name="quantity" placeholder="nhập số lượng" required>
+            <label> Giá Sale </label> <br>
+            <input type="text" name="priceSale" placeholder="nhập giá sale sản phẩm" required>
+        </div> 
+
+        <div class="row2 mb10">
+          <label>Số lượng</label>
+          <input type="text" name="quantity" placeholder="nhập số lượng" required>
         </div>
 
         <div class="row2 mb10">
-          <label>Trạng thái</label> <br>
+          <label>Trạng thái</label>
           <select name="status" required>
-            <option value="còn hàng">Còn hàng</option>
-            <option value="hết hàng">Hết hàng</option>
+            <option value="Đang bán">Đang bán</option>
+            <option value="Ngừng bán">Ngừng bán</option>
           </select>
         </div>
 
-        <div style="width: 200px;" class="row2 mb10">
-          <label>Tạo lúc</label> <br>
+        <!-- <div style="width: 200px;" class="row2 mb10">
+          <label>Tạo lúc</label>
           <input type="datetime-local" name="create_at" placeholder="Tạo sản phẩm lúc">
         </div>
 
         <div style="width: 200px;" class="row2 mb10">
-          <label>Cập nhật lúc</label> <br>
+          <label>Cập nhật lúc</label>
           <input type="datetime-local" name="update_at" placeholder="Tạo sản phẩm lúc">
-        </div>
+        </div> -->
 
         <div style="width: 200px;" class="row2 mb10">
-          <label>Danh mục</label> <br>
+          <label>Danh mục</label>
           <select name="id_cate" required>
             <?php foreach ($listdanhmuc as $category): ?>
             <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
@@ -53,7 +88,7 @@
         </div>
 
         <div style="width: 200px;" class="row2 mb10">
-          <label>Nhãn hàng</label> <br>
+          <label>Nhãn hàng</label>
           <select name="id_brands" required>
             <?php foreach ($listbrands as $brand): ?>
             <option value="<?= $brand['id'] ?>"><?= $brand['name'] ?></option>

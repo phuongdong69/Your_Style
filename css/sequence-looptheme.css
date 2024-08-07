@@ -648,3 +648,18 @@
   -webkit-transition-delay: 300ms !important;
   transition-delay: 300ms !important;
 }
+@font-face {
+  font-family: div1;
+  src: url(font/UTM\ Duepuntozero.ttf);
+}
+
+@media screen and (max-width: 1024px) {
+  .divdai {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .divdai {
+    width: 100%;
+  }
+}

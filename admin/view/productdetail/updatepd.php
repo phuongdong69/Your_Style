@@ -9,31 +9,46 @@
 
                 <div class="row2 mb10">
                         <label> Product's name  </label> <?= $name ?><br>
-                        
-                        <!-- <input type="text" name="price" placeholder="nhập giá sản phẩm" value="">  -->
                     </div>
                     
-                    <div class="row2 mb10">
+                    <!-- <div class="row2 mb10">
                         <label> Size </label> <br>
                         <select name="id_size" id="">
-                            <?php foreach ($listsize as $listsiz) :
+                            ?php foreach ($listsize as $listsiz) :
                                 extract($listsiz);
 
                             ?>
 
-                                <option value="<?= $id ?>"><?= $sizeValue ?></option>
-                            <?php endforeach; ?>
+                                <option value="?= $id ?>">?= $sizeValue ?></option>
+                            ?php endforeach; ?>
                         </select>
                     </div>
                     <div class="row2 mb10">
                         <label> Color </label> <br>
                         <select name="id_color" id="">
-                            <?php foreach ($listcolor as $listcol) :
+                            ?php foreach ($listcolor as $listcol) :
                                 extract($listcol);
 
-                            ?>
+                            ?> 
 
-                                <option value="<?= $id ?>"><?= $name ?></option>
+                                <option value="?= $id ?>">?= $name ?></option>
+                            ?php endforeach; ?>
+                        </select>
+                    </div>-->
+                    <div class="row2 mb10">
+                        <label> Size </label> <br>
+                        <select name="id_size" id="">
+                            <?php foreach ($listsize as $listsiz) :?>
+                                <option value="<?= $listsiz['id'] ?>" <?= $id_size == $listsiz['id'] ? 'selected': '' ?>><?= $listsiz['sizeValue'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div> 
+
+                    <div class="row2 mb10">
+                        <label> Color </label> <br>
+                        <select name="id_color" id="">
+                            <?php foreach ($listcolor as $listcol) :?>
+                                <option value="<?= $listcol['id'] ?>" <?= $id_color == $listcol['id'] ? 'selected': '' ?>><?= $listcol['name'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -41,10 +56,9 @@
                         <label> Price </label> <br>
                         <input type="text" name="price" placeholder="nhập giá sản phẩm" value="<?= $price ?>">
                     </div>
-
-
+                    
                     <input class="mr20" type="submit" name="updatepd" value="Cập nhật">
-                    <a href="index.php?act=listpd"><input class="mr20" type="button" value="DANH SÁCH"></a>
+                    <a href="index.php?act=listsp"><input class="mr20" type="button" value="DANH SÁCH"></a>
 
                     <?php
                     if (isset($thongbao) && ($thongbao != "")) {

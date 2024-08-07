@@ -8,6 +8,17 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container_fullwidth {
+    width: 100%;
+    /* background-color: #f9f9f9; */
+    padding: 20px 0;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -189,6 +200,7 @@ form button{
     font-size: 15px;
 }
 
+
 .collapse {
     font-size: 10px;
     display: none;
@@ -231,7 +243,7 @@ form button{
 
 nav.box-left {
     width: 200px;
-    background-color: #4e73df;
+    background-color: #587deb;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: fixed;
@@ -245,14 +257,14 @@ nav.box-left ul {
     list-style: none;
 }
 
-nav.box-left ul li {
+/* nav.box-left ul li {
     margin-bottom: 15px;
-}
+} */
 
 nav.box-left ul li a {
     color: #fff;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 20px 15px;
     display: block;
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;

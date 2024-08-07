@@ -4,11 +4,11 @@
       <h1>THÊM ẢNH</h1>
     </div>
     <div class="row2 form_content ">
-      <form action="#" method="POST" enctype="multipart/form-data">
+      <form action="" method="POST" enctype="multipart/form-data">
       <div class="row2 mb10">
             <label>HÌNH ẢNH </label> <br>
             <?php
-                $img = $image;
+                // $img = $image;
             ?>
             <input type="file" name="image" >
             
@@ -25,7 +25,7 @@
 
          
 
-        <input class="mr20" type="submit" name="updateanh" value="Cập nhật">
+        <input class="mr20" type="submit" name="updateimg" value="Cập nhật">
         <a href="index.php?act=listsp"><input  class="mr20" type="button" value="Danh sách sản phẩm"></a>
         
         <?php

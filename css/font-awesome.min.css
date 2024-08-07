@@ -1336,3 +1336,18 @@
 .fa-plus-square-o:before {
   content: "\f196";
 }
+@font-face {
+  font-family: div1;
+  src: url(font/UTM\ Duepuntozero.ttf);
+}
+
+@media screen and (max-width: 1024px) {
+  .divdai {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .divdai {
+    width: 100%;
+  }
+}

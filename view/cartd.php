@@ -1,5 +1,5 @@
 
-      <div class="clearfix">
+<div class="clearfix">
       </div>
       <div class="container_fullwidth">
         <div class="container shopping-cart">
@@ -97,30 +97,17 @@
                   </tr>
                   <tr>
                    
-                <!-- <tfoot>
-                  <tr>
-                    <td colspan="6">
-                      <button class="pull-left">
-                        Continue Shopping
-                      </button>
-                      <button class=" pull-right">
-                        Update Shopping Cart
-                      </button>
-                    </td>
-                  </tr>
-                </tfoot> -->
+              
               </table>
               <div class="clearfix">
               </div>
-              <form action="">
-              <!-- <a href="index.php?act=mua"> <input style="float: right;font-size: 20px; margin-right: 200px;    background: #fff;
-    padding: 10px 20px;
-    border: 1px solid #cccccc;
-    font-size: 14px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    outline: none;"  class="mr20" type="button" value="Mua Ngay"></a> -->
-    <button style="float: right;font-size: 20px; margin-right: 200px;"  ><a href="index.php?act=mua">Mua Ngay</a></button>
+              <form action="cartd.php">
+              <input type="number" name="soluong" min="1" max="10" value="1">
+              <input type="submit" value="Đặt Hàng" name="addcart">
+              <input type="hidden" name="tensp" value="vay">
+              <input type="hidden" name="gia" value="100">
+              <input type="hidden" name="anh" value="images/products/small/products-06.png">
+               <!-- <button style="float: right;font-size: 20px; margin-right: 200px;"  ><a href="index.php?act=mua">Mua Ngay</a></button> -->
               </form>
         </div>
       </div>

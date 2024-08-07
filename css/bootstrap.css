@@ -1128,10 +1128,11 @@ pre code {
     width: 91.66666666666666%;
   }
   .col-md-10 {
-    width: 83.33333333333334%;
+    width: 87.333333%;
   }
   .col-md-9 {
-    width: 75%;
+    width: 100%;
+    /* margin-left: 120px; */
   }
   .col-md-8 {
     width: 66.66666666666666%;
@@ -1140,7 +1141,7 @@ pre code {
     width: 58.333333333333336%;
   }
   .col-md-6 {
-    width: 50%;
+    width: 62%;
   }
   .col-md-5 {
     width: 41.66666666666667%;
@@ -1152,7 +1153,7 @@ pre code {
     width: 25%;
   }
   .col-md-2 {
-    width: 16.666666666666664%;
+    width: 12.666667%;
   }
   .col-md-1 {
     width: 8.333333333333332%;
@@ -3747,8 +3748,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
   .navbar-collapse.collapse {
     display: block !important;
-    margin-left: 170px;
-    margin-top: 20px;
+    /* margin-left: 170px;
+    margin-top: 20px; */
     height: auto !important;
     overflow: visible !important;
   }
@@ -4485,10 +4486,17 @@ a.list-group-item.active > .badge,
 .thumbnail > img,
 .thumbnail a > img {
   display: block;
-  height: auto;
+  /* height: auto; */
   max-width: 100%;
-  margin-right: auto;
-  margin-left: auto;
+  /* margin-right: auto; */
+  /* margin-left: auto; */
+  border-radius: 10px;
+  margin-top: -10px;
+  
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+    object-fit: contain;
 }
 a.thumbnail:hover,
 a.thumbnail:focus,
@@ -6159,5 +6167,20 @@ td.visible-print {
   th.hidden-print,
   td.hidden-print {
     display: none !important;
+  }
+}
+@font-face {
+  font-family: div1;
+  src: url(font/UTM\ Duepuntozero.ttf);
+}
+
+@media screen and (max-width: 1024px) {
+  .divdai {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .divdai {
+    width: 100%;
   }
 }

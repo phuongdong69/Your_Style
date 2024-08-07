@@ -70,7 +70,7 @@ html[xmlns] .slides {
   margin-right: 5px;
 } /* Direction Nav */
 .flex-direction-nav {
-  *height: 0;
+  height: 0;
 }
 .flex-direction-nav a {
   text-decoration: none;
@@ -158,7 +158,7 @@ html[xmlns] .slides {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
 }
 .flex-control-paging li a {
   width: 11px;
@@ -219,5 +219,20 @@ html[xmlns] .slides {
   .flex-direction-nav .flex-next {
     opacity: 1;
     right: 10px;
+  }
+}
+@font-face {
+  font-family: div1;
+  src: url(font/UTM\ Duepuntozero.ttf);
+}
+
+@media screen and (max-width: 1024px) {
+  .divdai {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .divdai {
+    width: 100%;
   }
 }

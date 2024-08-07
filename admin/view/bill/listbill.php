@@ -10,7 +10,7 @@
                         <tr>
                             <th>Mã</th>
                             <th>Ngày Tạo</th>
-                            <th>Khách Hàng</th>
+                            <th>id_user</th>
                             <th>Tên</th>
                             <th>Số Điện Thoại</th>
                             <th>Email</th>
@@ -21,7 +21,7 @@
                         foreach ($listbill as $bill) {
                             extract($bill);
                             $suabill = "?act=updatebill&id=".$id;
-                          
+                          $listbd = "?act=listbdt&id_bill=".$id;
                         ?>
                         <tr>
                             <td><?= $id ?></td>
@@ -34,6 +34,9 @@
                             <td>
                             <a href="<?= $suabill ?>">
                                 <input type="button" value="Sửa">
+                                </a>
+                                <a href="<?= $listbd ?>">
+                                <input type="button" value="xem chi tiết">
                                 </a>
                             </td>
                         </tr>
