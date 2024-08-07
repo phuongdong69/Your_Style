@@ -11,8 +11,11 @@ function insert_user($name,$phoneNumber,$email,$birthday,$address,$username,$pas
     }
     return pdo_execute($sql);
 }
+function load_getpassword_user($username,$email,$phoneNumber){
+    $sql = "SELECT * FROM `user` where `username` = '$username' and `email` = '$email'and `phoneNumber` = '$phoneNumber'";
+    return pdo_query($sql);
+}
 function load_all_user(){
-    // $sql = "SELECT * FROM `user`";
     $sql = "Select `user`.*,`role`.`roleName` from `user` join `role` on `role`.`id` = `user`.`id_role`;";
     return pdo_query($sql);
 }

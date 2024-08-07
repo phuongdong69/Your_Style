@@ -13,7 +13,6 @@ ob_start();
     include "./Model/pdo.php";
     include "./Model/news.php";
     include "./Model/user.php";
-    include "./Model/cart.php";
     $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
 
@@ -46,14 +45,9 @@ ob_start();
             include "view/layout/home.php";
 
             break;
-        case "xoadh": 
-            include "view/cart/xoadh.php";
-            break;
         case "cart": //giỏ hàng
+            
             include "view/cart/cart.php";
-            break;
-        case "addtocart": //giỏ hàng
-            include "view/cart/addtocart.php";
             break;
         case "mua": //Mua Ngay
             include "view/mua.php";
@@ -82,18 +76,8 @@ ob_start();
             include "view/contact.php";
             break;
         //task bar thanh tác vụ
-        case 'categorysp': //áo
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $id_cate = $_GET['id'];
-                $l_cate = load_one_category($id);
-                if ($l_cate) {
-                    $name = $l_cate['name'];
-                    extract($l_cate);
-                    // Load danh sách sản phẩm theo danh mục
-                    $listSanPham = load_all_products_img($id_cate);
-                }
-            }
-            include "view/product/categorysp.php";
+        case 'shirt': //áo
+            include "view/shirt.php";
             break;
         case 'pants': //quần
             include "view/pants.php";
@@ -104,21 +88,29 @@ ob_start();
 
 
         case "forgotpass": 
-            
+            $repass="";
+            if(isset($_POST['login'])){
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $phoneNumber = $_POST['phone_number'];
+                $test = load_getpassword_user($username,$email,$phoneNumber);
+                if($test !=""){
+                    extract($test);
+                    $repass = "Mật khẩu của bạn là: ".$password;
+                }
+            }
             include "view/user/forgotpass.php";
             break;
 
 
-        case "login": //đăng nhậ
+        case "login": //đăng nhập
             $errorMsg=NULL;
             if(isset($_POST['login'])){
                 $username=$_POST['username'];
-                // $pass=sha1($_POST['pass']);
                 $password=md5($_POST['password']);
-                // $sql="select * from `user` where `username`='$username' and `password`= md5('$password')";
                 $test = load_login_users($username, $password);
-                // $result=$conn->query($test);
                 if($test!=""){
+                    extract($test);
                     $_SESSION['username']=$username;
                     $_SESSION['id_role']=$id_role;
                     var_dump( $_SESSION['username']);
@@ -147,22 +139,9 @@ ob_start();
                 $username=$_POST['username'];
                 $password=$_POST['password'];
                 $phoneNumber = $_POST['phoneNumber'];
-                
                 $repassword = $_POST['repassword'];
-                
-                // if($_POST['birthday'] == ""){
-                //     $birthday = NULL;
-                // }else{
-                    $birthday = $_POST['birthday'];
-                // }
-                // if($_POST['address'] == ""){
-                //     $address = NULL;
-                // }else{
-                    $address = $_POST['address'];
-                // }
+                $birthday = $_POST['birthday'];$address = $_POST['address'];
                 $name = $_POST['name'];
-                // echo "Cứu";
-                //   include "view/user/login.php";
                 if($password == $repassword){
                     insert_user($name,$phoneNumber,$email,$birthday,$address,$username,$password);
                     $erorrMsg = "Đăng ký tài khoản thành công";
@@ -171,17 +150,12 @@ ob_start();
                 }
                 else{
                     $erorrMsg = "Thông tin đăng ký chưa hợp lý, vui lòng nhập lại";
-                    // include "view/user/register.php";
                     header("Location:index.php?act=register");
                     break;
                 }}else{
                     include "view/user/register.php";
                     break;
                 }
-        // case 'register':
-        //     $erorrMsg = "";
-        //     include "view/user/register.php";
-        //     break;
         case 'sanphamct':
             if(isset($_GET['id']) && ($_GET['id']> 0)){
                 $id = $_GET['id'];
@@ -191,10 +165,7 @@ ob_start();
                 $listcolor = load_all_colors();
                 $images = load_images_by_product($id); // Lấy hình ảnh của sản phẩm nhưng chưa được
                 include "view/product/productdetail.php";
-            }
-            //  else {
-            //     include "view/layout/home.php";
-            // }   
+            }  
             break;
         
         
