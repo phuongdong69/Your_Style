@@ -9,16 +9,16 @@
 
 
                     <div class="row2 mb10">
-                        <label> TÊN SẢN PHẨM </label> <br>
+                        <!-- <label> TÊN SẢN PHẨM </label> <br>
                         <select name="id_product" id="">
-                            <?php foreach ($listproduct as $listpro) :
+                            ?php foreach ($listproduct as $listpro) :
                                 extract($listpro);
 
                             ?>
 
-                                <option value="<?= $id ?>"><?= $name ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                                <option value="?= $id ?>">?= $name ?></option>
+                            ?php endforeach; ?>
+                        </select> -->
                     </div>
                     <div class="row2 mb10">
                         <label> Size </label> <br>
@@ -50,7 +50,7 @@
                     </div>
 
                     <input class="mr20" type="submit" name="addpd" value="THÊM MỚI">
-                    <a href="index.php?act=listpd"><input class="mr20" type="button" value="DANH SÁCH"></a>
+                    <a href="index.php?act=listsp"><input class="mr20" type="button" value="DANH SÁCH"></a>
 
                     <?php
                     if (isset($thongbao) && ($thongbao != "")) {

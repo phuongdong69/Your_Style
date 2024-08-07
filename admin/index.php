@@ -1,6 +1,7 @@
 <?php
-include "layout/header.php";
-include "layout/box_left.php";
+session_start();
+ob_start();
+
 
 // Sửa đường dẫn nếu cần thiết
 include "../Model/pdo.php";
@@ -18,6 +19,9 @@ include "../Model/news.php";
 include "../Model/bill.php";
 include "../Model/user.php";
 
+if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
+    include "layout/header.php";
+include "layout/box_left.php";
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
 
@@ -26,6 +30,16 @@ if (isset($_GET['act'])) {
             include "./layout/home.php";
             break;
 
+        // Thống kê
+        case 'listtk':
+            $listthongke = loadall_thongke();
+            include "./view/thongke/listtk.php";
+            break;
+        // Biểu đồ 
+        case 'bieudo':
+            $listthongke = loadall_thongke();
+            include "./view/thongke/bieudo.php";
+            break;
 
         case 'listsp': // Show products list
             if (isset($_POST['listok']) && ($_POST['listok'])) {
@@ -288,13 +302,17 @@ if (isset($_GET['act'])) {
             //product_detail
            
         case 'listpd':
-            $listpd = load_productdetail();
+            if (isset($_GET['id_product']) && $_GET['id_product'] > 0) {
+                $listpd = load_productdetail($_GET['id_product']);
+                extract($listpd);
+            }
+            // $listpd = load_productdetail();
             include "./view/productdetail/listpd.php";
             break;
 
         case 'addpd':
             if (isset($_POST['addpd']) && ($_POST['addpd'])) {
-                $id_product = $_POST['id_product'];
+                $id_product = $_GET['id_product'];
                 $id_size = $_POST['id_size'];
                 $id_color = $_POST['id_color'];
                 $price = $_POST['price'];
@@ -322,7 +340,7 @@ if (isset($_GET['act'])) {
                 $id_size = $_POST['id_size'];
                 $id_color = $_POST['id_color'];
 
-                update_productdetail($price, $id_product, $id_size, $id_color, $id);
+                update_productdetail($price, $id_product, $id_size, $id_color, $_GET['id']);
                 $thongbao = "Thêm thành công";
             }
             // var_dump($id);
@@ -336,7 +354,11 @@ if (isset($_GET['act'])) {
 
             //billdetail
         case 'listbdt':
-            $listbdt = load_bill_detail();
+            if (isset($_GET['id_bill']) && $_GET['id_bill'] > 0) {
+                $listbdt =  load_bill_detail($_GET['id_bill']);
+                extract($listbdt);
+            }
+            // $listbdt = load_bill_detail();
             include "./view/bill_detail/listbdt.php";
             break;
 
@@ -344,12 +366,13 @@ if (isset($_GET['act'])) {
             if (isset($_POST['thembdt']) && ($_POST['thembdt'])) {
                 $id_product = $_POST['id_product'];
                 $id_bill = $_POST['id_bill'];
-                $id_voucher = $_POST['id_voucher'];
+                // $id_voucher = $_POST['id_voucher'];
                 $id_bill_status = $_POST['id_bill_status'];
                 $quantity = $_POST['quantity'];
                 $payment = $_POST['payment'];
                 $note = $_POST['note'];
-                insert_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note);
+                // insert_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note);
+                insert_bill_detail($id_product, $id_bill, $id_bill_status, $quantity, $payment, $note);
                 $thongbao = "Thêm thành công";
             }
             $listproduct = load_all_products_img($id_cate = 0) ;
@@ -367,12 +390,13 @@ if (isset($_GET['act'])) {
                 $id = $_POST['id'];
                 $id_product = $_POST['id_product'];
                 $id_bill = $_POST['id_bill'];
-                $id_voucher = $_POST['id_voucher'];
+                // $id_voucher = $_POST['id_voucher'];
                 $id_bill_status = $_POST['id_bill_status'];
                 $quantity = $_POST['quantity'];
                 $payment = $_POST['payment'];
                 $note = $_POST['note'];
-                update_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note, $id);
+                // update_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note, $id);
+                update_bill_detail($id_product, $id_bill,$id_bill_status, $quantity, $payment, $note, $id);
                 $thongbao = "Cập nhật thành công";
             }
             $listproduct = load_all_products_img($id_cate = 0) ;
@@ -597,14 +621,27 @@ if (isset($_GET['act'])) {
 
         case 'addbill':
             if (isset($_POST['thembill']) && ($_POST['thembill'])) {
-                $creat_at = $_POST['creat_at'];
+                // $creat_at = $_POST['creat_at'];
                 $name = $_POST['name'];
                 $phoneNumber = $_POST['phoneNumber'];
                 $email = $_POST['email'];
                 $address = $_POST['address'];
-                insert_bill($creat_at, $name, $phoneNumber, $email, $address);
-                $thongbao = "Thêm thành công";
+                // insert_bill($creat_at, $name, $phoneNumber, $email, $address);
+                $id_bill = insert_bill( $name, $phoneNumber, $email, $address);
+                if ($id_bill) {
+                    $id_product = $_POST['id_product'];
+                    // $id_voucher = $_POST['id_voucher'];
+                    $id_bill_status = $_POST['id_bill_status'];
+                    $quantity = $_POST['quantity'];
+                    $payment = $_POST['payment'];
+                    $note = $_POST['note'];
+                    // Thêm dữ liệu vào bảng bill_detail
+                    insert_bill_detail($id_product, $id_bill, $id_bill_status, $quantity, $payment, $note);
+                }$thongbao = "Thêm thành công";
             }
+            $listproduct = load_all_products_img($id_cate = 0) ;
+            $listbs = load_bs();
+            $listbill = load_bill();
             include "./view/bill/addbill.php";
             break;
 
@@ -682,3 +719,6 @@ if (isset($_GET['act'])) {
     include "layout/home.php";
 }
 include "layout/footer.php";
+}else{
+    header("Location:../index.php");
+}

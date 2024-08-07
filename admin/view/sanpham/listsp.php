@@ -38,6 +38,7 @@
                             extract($product);
                             $suaUrl = "?act=updatesp&id=".$id ;
                             $listimg = "?act=showimg&id_product=".$id;
+                            $listpd = "?act=listpd&id_product=".$id;
                             // $id_product = $id;
                             $imgPath = "./img/" . $galery_imgage;
                             // $hinhpath = "./img/".$img;
@@ -64,6 +65,7 @@
                             <td>
                                 <a href="<?= $suaUrl ?>"><input type="button" value="Sửa"></a>
                                 <a href="<?= $listimg ?>"><input type="button" value="xem thêm ảnh"></a>
+                                <a href="<?= $listpd ?>"><input type="button" value="Chi tiết"></a>
                                 <!-- <a href="?= $img ?>">
                                 <input type="button" value="img">
                                 </a> -->

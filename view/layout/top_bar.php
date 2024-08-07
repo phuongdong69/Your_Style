@@ -1,35 +1,4 @@
-<style>
-/* CSS cho dropdown */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #000; 
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    top: 100%; 
-    margin-top: 0px; 
-}
-
-.dropdown-content li {
-    color: white; 
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-</style>
 <body id="home">
    <div class="wrapper">
       <div class="header">
@@ -77,10 +46,10 @@
                                  echo '<li class="dropdown">';
                                  echo '<a href="#" class="log">'.htmlspecialchars($_SESSION['username']).'</a>';
                                  echo '<ul class="dropdown-content">';
-                                 echo '<li><a href="index.php?act=userinfo">Tài khoản</a></li>';
+                                 echo '<li><a href="index.php?act=userinfo">Cập Nhật Tài khoản</a></li>';
                                  echo '<li><a href="index.php?act=logout">Thoát</a></li>';
                                  if(isset($_SESSION['id_role']) && $_SESSION['id_role'] == 2){
-                                    echo '<li><a href="index.php?act=admin">Admin</a></li>';
+                                    echo '<li><a href="http://localhost:81/Your_Style/admin/index.php?act=bieudo">Admin</a></li>';
                                 }
                                  echo '</ul>';
                                  echo '</li>';
@@ -116,11 +85,11 @@
                                     <div class="col-md-6 col-sm-6">
                                     <ul class="mega-menu-links">
                                           <?php
-                                          $listcategory = load_category_shirts();
+                                          $listcategory = load_category_by_filter('áo');
                                           foreach ($listcategory as $category) {
                                               $id = $category['id'];
                                               $name = $category['name'];
-                                              echo '<li><a href="index.php?act=category&id=' . $id . '">' . $name . '</a></li>';
+                                              echo '<li><a href="index.php?act=categorysp&id=' . $id . '">' . $name . '</a></li>';
                                           }
                                           ?>
                                        </ul>
@@ -135,11 +104,11 @@
                                     <div class="col-md-6 col-sm-6">
                                     <ul class="mega-menu-links">
                                           <?php
-                                          $listcategory = load_category_pants();
+                                          $listcategory = load_category_by_filter('Quần');
                                           foreach ($listcategory as $category) {
                                               $id = $category['id'];
                                               $name = $category['name'];
-                                              echo '<li><a href="index.php?act=category&id=' . $id . '">' . $name . '</a></li>';
+                                              echo '<li><a href="index.php?act=categorysp&id=' . $id . '">' . $name . '</a></li>';
                                           }
                                           ?>
                                        </ul>
@@ -147,7 +116,7 @@
                                  </div>
                               </div>
                            </li>
-                           <li class="dropdown">
+                           <!-- <li class="dropdown">
                               <a href="index.php?act=brand_dior" class="dropdown-toggle" data-toggle="dropdown">Brand</a>
                               <div class="dropdown-menu mega-menu">
                                  <div class="row">
@@ -165,7 +134,7 @@
                                     </div>
                                  </div>
                               </div>
-                           </li>
+                           </li> -->
                            <li><a href="index.php?act=news">Tin tức</a></li>
                               <li><a href="index.php?act=introduce">Giới thiệu</a></li>
                               <li><a href="index.php?act=contact">Liên Hệ</a></li>
