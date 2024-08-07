@@ -178,7 +178,7 @@
       </div>
    </div>
    <div class="clearfix"></div>
-<script>
+<!-- <script>
    document.addEventListener('DOMContentLoaded', (event) => {
     const dropdown = document.querySelector('.dropdown');
     dropdown.addEventListener('mouseover', () => {
@@ -187,6 +187,6 @@
     dropdown.addEventListener('mouseout', () => {
         document.querySelector('.dropdown-content').style.display = 'none';
     });
-});
+}); -->
 
 </script>
