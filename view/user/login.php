@@ -15,11 +15,11 @@
                             <form action="" method="POST">
                                 <div class="form-group">
                                     <label for="username">Tài khoản</label>
-                                    <input type="text" id="username" name="username" required>
+                                    <input style="width: 85%;" type="text" id="username" name="username" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Mật khẩu</label>
-                                    <input type="password" id="password" name="password" required>
+                                    <input style="width: 85%;" type="password" id="password" name="password" required>
                                 </div>
                                 <?= $errorMsg ?>
                                 <!-- <div class="form-group checkbox-group">
