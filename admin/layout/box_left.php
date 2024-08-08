@@ -1,7 +1,7 @@
 
 <nav class="box-left">
         <div class="logo">              
-            <a href="index.php?act=bieudo"><img src="./img/z5613796303251_0df7407cc28d8200079c638466473baf-removebg-preview.png " alt=""></a>
+            <a href="../index.php"><img src="./img/z5613796303251_0df7407cc28d8200079c638466473baf-removebg-preview.png " alt=""></a>
         </div>
         <hr>
         <ul>
@@ -9,6 +9,9 @@
             <li class="dropdown">
                 <li><a href="index.php?act=listtk"><i ></i> Thống kê </a></li><hr>
             </li>
+            <!-- <li class="dropdown">
+                <li><a href="index.php?act=listtk"><i class="fas fa-tags"></i> Thống kê </a></li><hr>
+            </li> -->
             <li class="dropdown">
                 <li><a href="index.php?act=listtk"><i class="fas fa-tags"></i> Thống kê </a></li><hr>
             </li>
@@ -52,7 +55,7 @@
             <hr>
             <li class="dropdown">
                 <a href="#" onclick="toggleDropdown(event)">
-                    <i ></i> Quản Lý Đơn Hàng <i class="fas fa-caret-down"></i>
+                    <i ></i> Quản Lý ĐH <i class="fas fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu">
                 <li><a href="index.php?act=listbill"><i ></i> Bill</a></li><hr>
@@ -67,7 +70,7 @@
 
             </li>
             <li class="dropdown">
-                <li><a href="http://localhost:81/your_Style/"><i ></i> Về Trang Chủ </a></li><hr>
+                <li><a href="../index.php"><i ></i> Về Trang Chủ </a></li><hr>
 
             </li>
             

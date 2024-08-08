@@ -18,14 +18,14 @@
           </div>
           <div class="row">
             <div class="col-lg-6">
-              <div class="form-group"> <label>Thành Phố</label>
-                <div> <input type="text" value=""></div>
+              <div class="form-group" > <label>Số Điện Thoại</label>
+                <div> <input style="margin-left: 45px;"  type="text" value=""></div>
               </div>
             </div>
             <div class="col-lg-6">
-              <div class="form-group"> <label>Số Điện Thoại</label>
+              <!-- <div class="form-group"> <label>Số Điện Thoại</label>
                 <div> <input type="text" value=""> </span> </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="form-group"> <label class="text-muted">Địa Chỉ Nhận Hàng</label>
