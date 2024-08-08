@@ -14,6 +14,7 @@ ob_start();
     include "./Model/news.php";
     include "./Model/user.php";
     include "./Model/cart.php";
+
     $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
 
@@ -115,10 +116,22 @@ ob_start();
                     $repass = "Mật khẩu của bạn là: ".$password;
                 }
             }
+            $repass="";
+            if(isset($_POST['login'])){
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $phoneNumber = $_POST['phone_number'];
+                $test = load_getpassword_user($username,$email,$phoneNumber);
+                if($test !=""){
+                    extract($test);
+                    $repass = "Mật khẩu của bạn là: ".$password;
+                }
+            }
             include "view/user/forgotpass.php";
             break;
 
 
+        case "login": //đăng nhập
         case "login": //đăng nhập
             $errorMsg=NULL;
             if(isset($_POST['login'])){
@@ -157,6 +170,7 @@ ob_start();
                 $phoneNumber = $_POST['phoneNumber'];
                 $repassword = $_POST['repassword'];
                 $birthday = $_POST['birthday'];$address = $_POST['address'];
+                $birthday = $_POST['birthday'];$address = $_POST['address'];
                 $name = $_POST['name'];
                 if($password == $repassword){
                     insert_user($name,$phoneNumber,$email,$birthday,$address,$username,$password);
@@ -181,6 +195,7 @@ ob_start();
                 $listcolor = load_all_colors();
                 $images = load_images_by_product($id); // Lấy hình ảnh của sản phẩm nhưng chưa được
                 include "view/product/productdetail.php";
+            }  
             }  
             break;
         

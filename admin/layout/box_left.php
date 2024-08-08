@@ -13,6 +13,9 @@
                 <li><a href="index.php?act=listtk"><i class="fas fa-tags"></i> Thống kê </a></li><hr>
             </li> -->
             <li class="dropdown">
+                <li><a href="index.php?act=listtk"><i class="fas fa-tags"></i> Thống kê </a></li><hr>
+            </li>
+            <li class="dropdown">
                 <a href="#" onclick="toggleDropdown(event)">
                     <i ></i> Sản Phẩm <i class="fas fa-caret-down"></i>
                 </a>

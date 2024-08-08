@@ -50,7 +50,11 @@
                                  echo '<li><a href="index.php?act=logout">Thoát</a></li>';
 
                          //        if(isset($_SESSION['id_role']) && $_SESSION['id_role'] == 2){
+
                                     // echo '<li><a href="http://localhost:81/Your_Style/admin/index.php?act=bieudo">Admin</a></li>';
+
+                                    // echo '<li><a href="http://localhost:81/Your_Style/admin/index.php?act=bieudo">Admin</a></li>';
+
 
                                  if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                                     echo '<li><a href="admin/index.php">Admin</a></li>';
