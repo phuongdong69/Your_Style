@@ -2,8 +2,6 @@
 session_start();
 ob_start();
 
-
-// Sửa đường dẫn nếu cần thiết
 include "../Model/pdo.php";
 include "../Model/product.php";
 include "../Model/category.php";
@@ -19,10 +17,12 @@ include "../Model/news.php";
 include "../Model/bill.php";
 include "../Model/user.php";
 
+
 if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
     include "layout/header.php";
-include "layout/box_left.php";
-if (isset($_GET['act'])) {
+    include "layout/box_left.php";
+    if (isset($_GET['act'])) {
+
     switch ($_GET['act']) {
 
             //Danh sách sản phẩm
@@ -719,6 +719,7 @@ if (isset($_GET['act'])) {
     include "layout/home.php";
 }
 include "layout/footer.php";
+
 }else{
     header("Location:../index.php");
 }
