@@ -46,13 +46,14 @@ if (isset($_SESSION['cart'])) {
 <?php
 } else {
     echo '
+   <div style="text-align: center;" class="guy">
     <div class="conc">
         <h1 class="titlec">Giỏ hàng</h1>
         <p class="messagec">Không có sản phẩm trong giỏ hàng.</p>
         <img src="images/nocart.jpg" alt="Empty Cart" class="cart-imagec">
         <a href="index.php?act=home"><button class="shop-buttonc">Mua sắm ngay</button></a>
-    </div>
-    <h3 class="title" style="margin-left: 630px;"><strong>Các Sản Phẩm</strong> Khác</h3>
+    </div></div>
+    <h3 class="title" style="text-align: center;"><strong>Các Sản Phẩm</strong> Khác</h3>
     <div class="control"><a id="prev_hot" class="prev" href="#">&lt;</a><a id="next_hot" class="next" href="#">&gt;</a></div>
     <ul id="hot">
         <li>

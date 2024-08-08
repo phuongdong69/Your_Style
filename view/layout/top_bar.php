@@ -48,8 +48,13 @@
                                  echo '<ul class="dropdown-content">';
                                  echo '<li><a href="index.php?act=userinfo">Cập Nhật Tài khoản</a></li>';
                                  echo '<li><a href="index.php?act=logout">Thoát</a></li>';
-                                 if(isset($_SESSION['id_role']) && $_SESSION['id_role'] == 2){
-                                    echo '<li><a href="http://localhost:81/Your_Style/admin/index.php?act=bieudo">Admin</a></li>';
+
+                         //        if(isset($_SESSION['id_role']) && $_SESSION['id_role'] == 2){
+                                    // echo '<li><a href="http://localhost:81/Your_Style/admin/index.php?act=bieudo">Admin</a></li>';
+
+                                 if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
+                                    echo '<li><a href="admin/index.php">Admin</a></li>';
+
                                 }
                                  echo '</ul>';
                                  echo '</li>';
@@ -147,7 +152,7 @@
       </div>
    </div>
    <div class="clearfix"></div>
-<script>
+<!-- <script>
    document.addEventListener('DOMContentLoaded', (event) => {
     const dropdown = document.querySelector('.dropdown');
     dropdown.addEventListener('mouseover', () => {
@@ -156,6 +161,6 @@
     dropdown.addEventListener('mouseout', () => {
         document.querySelector('.dropdown-content').style.display = 'none';
     });
-});
+}); -->
 
 </script>

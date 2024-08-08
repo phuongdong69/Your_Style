@@ -14,9 +14,10 @@
                             <input style="width: 80%;" type="text" name="email" id="" ><br><br>
                             <h5 style="padding-left: 15px;">Phone Number</h5>
                             <input style="width: 80%;" type="text" name="phoneNumber" id="" ><br><br>
+                            <?= $repass?>
                             <div class="">
                             <button style="margin-left: 22px;"><a style="color: #fff;" href="?act=login">Hủy</a></button>
-                            <button style="width: 181px; margin-left: 22px;" name="forgotpass">Tìm Kiếm</button>
+                            <button style="width: 181px; margin-left: 22px;" name="forgotpass">Khôi phục mật khẩu</button>
                             </div>
                         </form>
                         <hr style="margin-top: 20px; margin-bottom: 20px;">

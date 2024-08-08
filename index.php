@@ -46,19 +46,19 @@ ob_start();
             include "view/layout/home.php";
 
             break;
-        case "xoadh": 
-            include "view/cart/xoadh.php";
-            break;
-        case "cart": //giỏ hàng
+        case "cart": //giỏ hàng          
             include "view/cart/cart.php";
             break;
-        case "addtocart": //giỏ hàng
+        case "addtocart": //giỏ hàng           
             include "view/cart/addtocart.php";
+            break;
+        case "xoadh": //giỏ hàng           
+            include "view/cart/xoadh.php";
             break;
         case "mua": //Mua Ngay
             include "view/mua.php";
             break;
-
+        
         case "ptttatm": //Mua Ngay
             include "view/thanhtoan/ptttatm.php";
             break;
@@ -104,20 +104,27 @@ ob_start();
 
 
         case "forgotpass": 
-            
+            $repass="";
+            if(isset($_POST['login'])){
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $phoneNumber = $_POST['phone_number'];
+                $test = load_getpassword_user($username,$email,$phoneNumber);
+                if($test !=""){
+                    extract($test);
+                    $repass = "Mật khẩu của bạn là: ".$password;
+                }
+            }
             include "view/user/forgotpass.php";
             break;
 
 
-        case "login": //đăng nhậ
+        case "login": //đăng nhập
             $errorMsg=NULL;
             if(isset($_POST['login'])){
                 $username=$_POST['username'];
-                // $pass=sha1($_POST['pass']);
                 $password=md5($_POST['password']);
-                // $sql="select * from `user` where `username`='$username' and `password`= md5('$password')";
                 $test = load_login_users($username, $password);
-                // $result=$conn->query($test);
                 if($test!=""){
                     extract($test);
                     $_SESSION['username']=$username;
@@ -148,22 +155,9 @@ ob_start();
                 $username=$_POST['username'];
                 $password=$_POST['password'];
                 $phoneNumber = $_POST['phoneNumber'];
-                
                 $repassword = $_POST['repassword'];
-                
-                // if($_POST['birthday'] == ""){
-                //     $birthday = NULL;
-                // }else{
-                    $birthday = $_POST['birthday'];
-                // }
-                // if($_POST['address'] == ""){
-                //     $address = NULL;
-                // }else{
-                    $address = $_POST['address'];
-                // }
+                $birthday = $_POST['birthday'];$address = $_POST['address'];
                 $name = $_POST['name'];
-                // echo "Cứu";
-                //   include "view/user/login.php";
                 if($password == $repassword){
                     insert_user($name,$phoneNumber,$email,$birthday,$address,$username,$password);
                     $erorrMsg = "Đăng ký tài khoản thành công";
@@ -172,17 +166,12 @@ ob_start();
                 }
                 else{
                     $erorrMsg = "Thông tin đăng ký chưa hợp lý, vui lòng nhập lại";
-                    // include "view/user/register.php";
                     header("Location:index.php?act=register");
                     break;
                 }}else{
                     include "view/user/register.php";
                     break;
                 }
-        // case 'register':
-        //     $erorrMsg = "";
-        //     include "view/user/register.php";
-        //     break;
         case 'sanphamct':
             if(isset($_GET['id']) && ($_GET['id']> 0)){
                 $id = $_GET['id'];
@@ -192,10 +181,7 @@ ob_start();
                 $listcolor = load_all_colors();
                 $images = load_images_by_product($id); // Lấy hình ảnh của sản phẩm nhưng chưa được
                 include "view/product/productdetail.php";
-            }
-            //  else {
-            //     include "view/layout/home.php";
-            // }   
+            }  
             break;
         
         

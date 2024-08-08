@@ -3736,7 +3736,7 @@ a input.submit-button:hover {
 }
 .conc{
   margin-top: 35px;
-  margin-left: 570px;
+  /* margin-left: 570px; */
   display: inline-grid;
   text-align: center;  
   background: white;
@@ -4262,7 +4262,7 @@ p {
 
 .cart-item img {
     width: 100px;
-    height: 100px;
+    /* height: 100px; */
     margin-right: 20px;
 }
 
