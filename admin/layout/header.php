@@ -56,7 +56,7 @@
 
 <body>
     <header>
-        <li id="search" class="search">
+        <!-- <li id="search" class="search">
             <div class="form">
                 <form>
                     <input class="search-input" placeholder="Tìm Kiếm" type="text" value="" name="search">
@@ -64,18 +64,20 @@
                 </form>
             </div>
 
-        </li>
+        </li> -->
         <div class="hea-right">
             <ul>
                 <li class="login-logout">
-                    <a class="nav" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <h3 style="text-align: center;margin-left: 700px;" class="title"><strong>ADMIN</strong></h3>
+                    <!-- <a class="nav" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> -->
+                    <!-- <a class="nav" href="#">
                         <i class="fa-solid fa-user"></i>
-                    </a>
-                    <div class="collapse">
+                    </a> -->
+                    <!-- <div class="collapse">
                         <div class="">
                             <a class="item" href="index.php?act=login">Đăng Nhập</a>
                             <a class="item" href="index.php?act=register">Đăng Ký</a>
-                        </div>
+                        </div> -->
                     </div>
                 </li>
             </ul>
