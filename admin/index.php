@@ -1,7 +1,6 @@
 <?php
 session_start();
 ob_start();
-
 include "../Model/pdo.php";
 include "../Model/product.php";
 include "../Model/category.php";
@@ -19,10 +18,10 @@ include "../Model/user.php";
 
 
 if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
+    var_dump($_SESSION['id_role']);
     include "layout/header.php";
     include "layout/box_left.php";
     if (isset($_GET['act'])) {
-
     switch ($_GET['act']) {
 
             //Danh sách sản phẩm
@@ -311,15 +310,18 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
             break;
 
         case 'addpd':
-            if (isset($_POST['addpd']) && ($_POST['addpd'])) {
+            if(isset($_GET['id_product'])){
                 $id_product = $_GET['id_product'];
+            }
+            if (isset($_POST['addpd']) && ($_POST['addpd'])) {
+                
                 $id_size = $_POST['id_size'];
                 $id_color = $_POST['id_color'];
                 $price = $_POST['price'];
                 insert_productdetail($price, $id_product, $id_size, $id_color);
                 $thongbao = "Thêm thành công";
             }
-            $listproduct = load_all_products_img($id_cate = 0) ;
+            // $listproduct = load_all_products_img($id_cate = 0) ;
             $listsize = load_size();
             $listcolor = load_color();
 
@@ -355,7 +357,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
             //billdetail
         case 'listbdt':
             if (isset($_GET['id_bill']) && $_GET['id_bill'] > 0) {
-                $listbdt =  load_bill_detail($_GET['id_bill']);
+                // $listbdt =  load_bill_detail($_GET['id_bill']);
                 extract($listbdt);
             }
             // $listbdt = load_bill_detail();
@@ -372,7 +374,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                 $payment = $_POST['payment'];
                 $note = $_POST['note'];
                 // insert_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note);
-                insert_bill_detail($id_product, $id_bill, $id_bill_status, $quantity, $payment, $note);
+                // insert_bill_detail($id_product, $id_bill, $id_bill_status, $quantity, $payment, $note);
                 $thongbao = "Thêm thành công";
             }
             $listproduct = load_all_products_img($id_cate = 0) ;
@@ -383,7 +385,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
 
         case 'updatebdt':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $bill_detail = load_one_bill_detail($_GET['id']);
+                // $bill_detail = load_one_bill_detail($_GET['id']);
                 extract($bill_detail);
             }
             if (isset($_POST['capnhatbdt'])) {
@@ -396,7 +398,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                 $payment = $_POST['payment'];
                 $note = $_POST['note'];
                 // update_bill_detail($id_product, $id_bill, $id_voucher, $id_bill_status, $quantity, $payment, $note, $id);
-                update_bill_detail($id_product, $id_bill,$id_bill_status, $quantity, $payment, $note, $id);
+                // update_bill_detail($id_product, $id_bill,$id_bill_status, $quantity, $payment, $note, $id);
                 $thongbao = "Cập nhật thành công";
             }
             $listproduct = load_all_products_img($id_cate = 0) ;
@@ -636,7 +638,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                     $payment = $_POST['payment'];
                     $note = $_POST['note'];
                     // Thêm dữ liệu vào bảng bill_detail
-                    insert_bill_detail($id_product, $id_bill, $id_bill_status, $quantity, $payment, $note);
+                    // insert_bill_detail($id_product, $id_bill, $id_bill_status, $quantity, $payment, $note);
                 }$thongbao = "Thêm thành công";
             }
             $listproduct = load_all_products_img($id_cate = 0) ;
@@ -647,7 +649,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
 
         case 'updatebill':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $bill = load_one_bill($_GET['id']);
+                $bill = load_one_bill_id($_GET['id']);
                 extract($bill);
             }
 
@@ -664,9 +666,9 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                     $id_user = null; // Handle empty id_user as NULL
                 }
 
-                update_bill($id, $creat_at, $id_user, $name, $phoneNumber, $email, $address);
+                // update_bill($id, $creat_at, $id_user, $name, $phoneNumber, $email, $address);
                 $thongbao = "Cập nhật thành công";
-                $bill = load_one_bill($id);
+                $bill = load_one_bill_id($id);
                 extract($bill);
             }
 
@@ -723,3 +725,8 @@ include "layout/footer.php";
 }else{
     header("Location:../index.php");
 }
+
+
+// Sửa đường dẫn nếu cần thiết
+
+
