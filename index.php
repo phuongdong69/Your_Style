@@ -13,15 +13,8 @@ ob_start();
     include "./Model/pdo.php";
     include "./Model/news.php";
     include "./Model/user.php";
-    include "./Model/cart.php";
-
     $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
-
-
-
-
-
 
 
     include "view/layout/header.php";
@@ -41,24 +34,18 @@ ob_start();
                     // extract($listnews);
                 }
                 include "view/news/newsdetail.php";
-
                 break;
         case "home": 
             include "view/layout/home.php";
-
             break;
-        case "cart": //giỏ hàng          
+        case "cart": //giỏ hàng
+            
             include "view/cart/cart.php";
-            break;
-        case "addtocart": //giỏ hàng           
-            include "view/cart/addtocart.php";
-            break;
-        case "xoadh": //giỏ hàng           
-            include "view/cart/xoadh.php";
             break;
         case "mua": //Mua Ngay
             include "view/mua.php";
             break;
+
         case "trangthaitt": 
             include "view/trangthaitt.php";
             break;
@@ -71,6 +58,7 @@ ob_start();
 
             break;
         case "details": //Chi Tiết SP
+
             include "view/details.php";
             break;
         case 'introduce': //giới thiệu
@@ -86,18 +74,8 @@ ob_start();
             include "view/contact.php";
             break;
         //task bar thanh tác vụ
-        case 'categorysp': //áo
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $id_cate = $_GET['id'];
-                $l_cate = load_one_category($id);
-                if ($l_cate) {
-                    $name = $l_cate['name'];
-                    extract($l_cate);
-                    // Load danh sách sản phẩm theo danh mục
-                    $listSanPham = load_all_products_img($id_cate);
-                }
-            }
-            include "view/product/categorysp.php";
+        case 'shirt': //áo
+            include "view/shirt.php";
             break;
         case 'pants': //quần
             include "view/pants.php";
@@ -119,22 +97,10 @@ ob_start();
                     $repass = "Mật khẩu của bạn là: ".$password;
                 }
             }
-            $repass="";
-            if(isset($_POST['login'])){
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $phoneNumber = $_POST['phone_number'];
-                $test = load_getpassword_user($username,$email,$phoneNumber);
-                if($test !=""){
-                    extract($test);
-                    $repass = "Mật khẩu của bạn là: ".$password;
-                }
-            }
             include "view/user/forgotpass.php";
             break;
 
 
-        case "login": //đăng nhập
         case "login": //đăng nhập
             $errorMsg=NULL;
             if(isset($_POST['login'])){
@@ -173,7 +139,6 @@ ob_start();
                 $phoneNumber = $_POST['phoneNumber'];
                 $repassword = $_POST['repassword'];
                 $birthday = $_POST['birthday'];$address = $_POST['address'];
-                $birthday = $_POST['birthday'];$address = $_POST['address'];
                 $name = $_POST['name'];
                 if($password == $repassword){
                     insert_user($name,$phoneNumber,$email,$birthday,$address,$username,$password);
@@ -202,17 +167,6 @@ ob_start();
              
             break;
         
-        
-
-
-
-
-
-
-
-        // default:
-        //     include "view/home.php";
-        //     break;
     }
 
    }else{

@@ -93,9 +93,9 @@
                                 }
                                  echo '</ul>';
                                  echo '</li>';
-                              ?>
-                              <li><a href="index.php?act=login" class="log" > Login</a></li>
-                              <?php } ?>
+                              }else{
+                              echo '<li><a href="index.php?act=login" class="log" >Login</a></li>';
+                               } ?>
                            </ul>
                         </div>
                      </ul>
