@@ -31,18 +31,31 @@
           <div class="form-group"> <label class="text-muted">Địa Chỉ Nhận Hàng</label>
             <div> <input type="text" value=""> </div>
           </div>
-          <div style="margin-bottom: 15px;color: #6c757d;" class="payment-method">
-                                  <span ><p style="color: #6c757d;font-weight: bold;">Phương thức thanh toán</p></span>
-                                  <div class="payment-links">
+          <div class="payment-method" style="margin-bottom: 15px;color: #6c757d;">
+  <span>
+    <p style="color: #6c757d;font-weight: bold;">Phương thức thanh toán</p>
+  </span>
+  <div class="payment-links">
+    <label>
+      <input type="radio" name="pttt" checked value="COD"> Thanh toán (COD)
+    </label>
+    <label class="online-payment">
+      <input type="hidden" name="pttt" value="Online">
+    </label>
+  </div>
+  <!-- <div class="online-payment-method d-none">
+    <div class="tttt">
+     <a href="#"> Vui lòng quét mã để thanh toán</a>
+     <p>Tên TK : <Span style="color: #000;font-weight: bold;">YOURSTYLE SHOP</Span></p>
+    </div>
+    <img src="images/qr.jpg" alt="QR Code" width="150">
+  </div> -->
+</div>
 
-                                      <a href="index.php?act=ptttmm">Thanh toán qua MoMo</a>
-                                      <a href="index.php?act=ptttatm">Thanh toán qua ATM</a>
-
-                                  </div>
-                              </div>
+                              
         </form>
-        <input type="checkbox" checked> 
-      <label>Địa Chỉ & Số Điện Thoại Chính Xác</label>
+        <!-- <input type="checkbox" checked> 
+      <label>Địa Chỉ & Số Điện Thoại Chính Xác</label> -->
       </div> 
       
  
@@ -70,10 +83,10 @@
           <div class="summary-value ml-auto font-weight-bold">$12.9</div>
         </div>
         <hr>
-        <div  class="d-flex align-items-center py-2">
+        <div style="display: flex;"  class="d-flex align-items-center py-2">
           <div class="summary-label display-5">Tổng tiền</div>
           <div class="summary-value ml-auto d-flex">
-            <div class="currency text-primary text-uppercase px-3">usd</div>
+            <div class="currency text-primary text-uppercase px-3">VND</div>
             <div class="total-amount font-weight-bold">$92.98</div>
           </div>
         </div>
@@ -83,13 +96,58 @@
       <div style="margin-top: 20px;" class="row pt-lg-3 pt-2 action-buttons mb-sm-0 mb-2">
         <div style="display: flex;" class="col-md-6">
           <div class="btn back-btn text-uppercase"><a href="?act=cart">Quay Lại Giỏ Hàng</a></div>
-          <div class="btn continue-btn text-white ml-auto"> <a href="?act=home">Mua Hàng</a> </div>
+          <div class="btn continue-btn text-white ml-auto"> <a href="?act=trangthaitt">Mua Hàng</a> </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const onlinePaymentRadio = document.querySelector('.online-payment input');
+  const onlinePaymentDiv = document.querySelector('.online-payment-method');
 
+  onlinePaymentRadio.addEventListener('change', function () {
+    if (this.checked) {
+      onlinePaymentDiv.classList.remove('d-none');
+    }
+  });
+
+  const codPaymentRadio = document.querySelector('input[value="COD"]');
+  codPaymentRadio.addEventListener('change', function () {
+    if (this.checked) {
+      onlinePaymentDiv.classList.add('d-none');
+    }
+  });
+
+  const continueButton = document.querySelector('.continue-btn a');
+  continueButton.addEventListener('click', function (event) {
+    const paymentMethod = document.querySelector('input[name="pttt"]:checked').value;
+
+    // Lưu phương thức thanh toán vào localStorage
+    localStorage.setItem('paymentMethod', paymentMethod);
+  });
+});
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   const onlinePaymentRadio = document.querySelector('.online-payment input');
+//   const onlinePaymentDiv = document.querySelector('.online-payment-method');
+
+//   onlinePaymentRadio.addEventListener('change', function () {
+//     if (this.checked) {
+//       onlinePaymentDiv.classList.remove('d-none');
+//     }
+//   });
+
+//   const codPaymentRadio = document.querySelector('input[value="COD"]');
+//   codPaymentRadio.addEventListener('change', function () {
+//     if (this.checked) {
+//       onlinePaymentDiv.classList.add('d-none');
+//     }
+//   });
+// });
+
+</script>
 
 <!-- 
       <div class="clearfix">

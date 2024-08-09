@@ -46,6 +46,10 @@ ob_start();
             include "view/mua.php";
             break;
 
+        case "trangthaitt": 
+            include "view/trangthaitt.php";
+            break;
+        
         case "ptttatm": //Mua Ngay
             include "view/thanhtoan/ptttatm.php";
             break;
@@ -54,6 +58,7 @@ ob_start();
 
             break;
         case "details": //Chi Tiết SP
+
             include "view/details.php";
             break;
         case 'introduce': //giới thiệu
@@ -159,6 +164,7 @@ ob_start();
                 $images = load_images_by_product($id); // Lấy hình ảnh của sản phẩm nhưng chưa được
                 include "view/product/productdetail.php";
             }  
+             
             break;
         
     }
