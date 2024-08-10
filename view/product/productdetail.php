@@ -41,34 +41,37 @@
                             <input class="quant" type="number" id="quantity" name="quantity" value="1" min="1" max="<?= $quantity ?>" readonly>
                             <button type="button" id="increaseQty" class="btn-qty">+</button>
                         </div>
+                        <!-- ?php foreach ($pro_detail as $pro_d): ?> -->
                         <div class="qty">
                             Size
                             <select id="size" name="id_size">
-                                <?php foreach ($listsize as $size): ?>
-                                    <option value="<?= $size['id'] ?>" <?= $id_size == $size['id'] ? 'selected' : '' ?>><?= $size['sizeValue'] ?></option>
-                                <?php endforeach; ?>
+                            <?php foreach ($pro_detail as $pro_d): ?>
+                                    <option value="<?= $pro_d['id_size'] ?>"  >
+                                        <?= $pro_d['size_sizeValue'] ?></option>
+                                        <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="qty">
                             Color: 
                             <select id="color" name="id_color">
-                                <?php foreach ($listcolor as $color): ?>
-                                    <option value="<?= $color['id'] ?>" <?= $id_color == $color['id'] ? 'selected' : '' ?>><?= $color['name'] ?></option>
-                                <?php endforeach; ?>
+                            <?php foreach ($pro_detail as $pro_d): ?>
+                                    <option value="<?= $pro_d['id_color'] ?>"><?= $pro_d['color_name'] ?></option>
+                                    <?php endforeach; ?>
                             </select>
                         </div>
+                        <!-- ?php endforeach; ?> -->
                         <div class="wided">
                             <div class="price">
                                 Giá
-                                <span class="new_price"><?= number_format($priceSale, 0, ',', '.') ?>  VNĐ</span>
-                                <span class="old_price"><?= number_format($price, 0, ',', '.')?> VNĐ</span>
+                                <span class="old_price"><?= number_format($priceSale, 0, ',', '.') ?>  VNĐ</span>
+                                <span class="new_price"><?= number_format($price, 0, ',', '.')?> VNĐ</span>
                             </div>
                             <div class="button_group">
                                 <input type="hidden" name="image" value="./admin/img/<?= $galery_imgage ?>">
                                 <input type="hidden" name="name" value="<?= $name ?>">
-                                <input type="hidden" name="color" value="<?= $color['name'] ?>">
-                                <input type="hidden" name="size" value="<?= $size['sizeValue'] ?>">
-                                <input type="hidden" name="price" value="<?= $priceSale ?>">
+                                <input type="hidden" name="color" value="<?= $color_name ?>">
+                                <input type="hidden" name="size" value="<?= $size_sizeValue ?>">
+                                <input type="hidden" name="price" value="<?= $price ?>">
                                 <input type="hidden" name="soluong" value="Số lượng">
                                 <input type="hidden" name="id" value="1">
                                 <input class="dhang" type="submit" name="dathang" value="Thêm Vào Giỏ Hàng">
@@ -121,21 +124,21 @@
                             <!-- <img id="zoom_03" src="?= $imgage ?>" data-zoom-image="?= $galery_imgage ?>" alt=""> -->
                              <!-- <form action="?act=addtocart" method="post">
                             <div class="thumbnail">
-                                <img src="./admin/img/<?= $galery_imgage ?>" alt="img_product" data-zoom-image="./admin/img/<?= $galery_imgage ?>"></a>
+                                <img src="./admin/img/?= $galery_imgage ?>" alt="img_product" data-zoom-image="./admin/img/?= $galery_imgage ?>"></a>
                             </div>
                         </div>
                         <div class="thum-image">
                             <ul id="gallery_01" class="prev-thum">
-                                <?php 
+                                ?php 
                                     // $images = load_images_by_product($id); 
                                     // foreach ($images as $image): 
                                     ?>
                                     <li>
-                                        <a href="#" data-image="./admin/img/<?= $image['image'] ?>" data-zoom-image="./admin/img/<?= $image['image'] ?>">
-                                            <img src="./admin/img/<?= $image['image'] ?>" alt="">
+                                        <a href="#" data-image="./admin/img/?= $image['image'] ?>" data-zoom-image="./admin/img/?= $image['image'] ?>">
+                                            <img src="./admin/img/?= $image['image'] ?>" alt="">
                                         </a>
                                     </li>
-                                <?php 
+                                ?php 
                             // endforeach; 
                             ?>
                             </ul>
@@ -150,7 +153,7 @@
                     <div class="products-description">
                     Sản Phẩm -->
                         <!-- Tên sản phẩm -->
-                        <!-- <h3 class="name"><?= $name ?></h3> -->
+                        <!-- <h3 class="name">?= $name ?></h3> -->
                         <!-- Trạng thái 
                         <br>
                         <br>
@@ -160,32 +163,32 @@
                         <!-- Mô tả 
                         <br>
                         <br>-->
-                        <p><?= $description ?></p>
+                        <!-- <p>?= $description ?></p> -->
                         <!--<br>
                         <br>
                          Giá -->
                          <!-- <div class="quantity-control">
                             <label for="quantity" style="font-weight: 400;">Số lượng</label>
                             <button type="button" id="decreaseQty" class="btn-qty">-</button>
-                            <input class="quant" type="number"  id="quantity" name="quantity" value="1" min="1" max="<?= $quantity ?>" readonly>
+                            <input class="quant" type="number"  id="quantity" name="quantity" value="1" min="1" max="?= $quantity ?>" readonly>
                             <button type="button" id="increaseQty" class="btn-qty">+</button>
                         </div>
                         <br>
                         <div class="qty">
                             Size
                             <select id="size" name="id_size">
-                                <?php foreach ($listsize as $size): ?>
-                                    <option value="<?= $size['id'] ?>" <?= $id_size == $size['id'] ? 'selected' : '' ?>><?= $size['sizeValue'] ?></option>
-                                <?php endforeach; ?>
+                                ?php foreach ($listsize as $size): ?>
+                                    <option value="?= $size['id'] ?>" ?= $id_size == $size['id'] ? 'selected' : '' ?>>?= $size['sizeValue'] ?></option>
+                                ?php endforeach; ?>
                             </select>
                         </div>
 
                         <div class="qty">
                             Color: 
                             <select id="color" name="id_color">
-                                <?php foreach ($listcolor as $color): ?>
-                                    <option value="<?= $color['id'] ?>" <?= $id_color == $color['id'] ? 'selected' : '' ?>><?= $color['name'] ?></option>
-                                <?php endforeach; ?>
+                                ?php foreach ($listcolor as $color): ?>
+                                    <option value="?= $color['id'] ?>" ?= $id_color == $color['id'] ? 'selected' : '' ?>>?= $color['name'] ?></option>
+                                ?php endforeach; ?>
                             </select>
                         </div>
                         <br>
@@ -195,8 +198,8 @@
                         <div class="wided">
                             <div class="price">
                                 Giá
-                                <span class="new_price"><?= number_format($priceSale, 0, ',', '.') ?>  VNĐ</span>
-                                <span class="old_price"><?= number_format($price, 0, ',', '.')?> VNĐ</span>
+                                <span class="new_price">?= number_format($priceSale, 0, ',', '.') ?>  VNĐ</span>
+                                <span class="old_price">?= number_format($price, 0, ',', '.')?> VNĐ</span>
                             </div>
                             <br>
                             <br> -->
@@ -205,11 +208,11 @@
                             <!-- <div class="button_group"> -->
                                 <!-- <button class="button" > Mua ngay </button> -->
                                 <!-- <form action="index.php?act=addtocart" method="post"> -->
-                                    <!-- <input type="hidden" name="image" value="./admin/img/<?= $galery_imgage ?>">
-                                    <input type="hidden" name="name" value="<?= $name ?>">
-                                    <input type="hidden" name="color" value="<?= $color['name'] ?>">
-                                     <input type="hidden" name="size" value="<?= $size['sizeValue'] ?>">
-                                    <input type="hidden" name="price" value="<?= $priceSale ?>">
+                                    <!-- <input type="hidden" name="image" value="./admin/img/?= $galery_imgage ?>">
+                                    <input type="hidden" name="name" value="?= $name ?>">
+                                    <input type="hidden" name="color" value="?= $color['name'] ?>">
+                                     <input type="hidden" name="size" value="?= $size['sizeValue'] ?>">
+                                    <input type="hidden" name="price" value="?= $priceSale ?>">
                                     <input type="hidden" name="soluong" value="Số lượng">
                                     <input type="hidden" name="id" value="1">
                                     <input class="dhang" type="submit" name="dathang" value="Thêm Vào Giỏ Hàng"> -->

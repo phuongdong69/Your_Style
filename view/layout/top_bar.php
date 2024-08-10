@@ -1,4 +1,35 @@
+<style>
+/* CSS cho dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000; 
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%; 
+    margin-top: 0px; 
+}
+
+.dropdown-content li {
+    color: white; 
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+</style>
 <body id="home">
    <div class="wrapper">
       <div class="header">
@@ -46,7 +77,9 @@
                                  echo '<li class="dropdown">';
                                  echo '<a href="#" class="log">'.htmlspecialchars($_SESSION['username']).'</a>';
                                  echo '<ul class="dropdown-content">';
+
                                  echo '<li><a href="index.php?act=userinfo">Tài Khoản Của Tôi</a></li>';
+
                                  echo '<li><a href="index.php?act=logout">Thoát</a></li>';
 
                          //        if(isset($_SESSION['id_role']) && $_SESSION['id_role'] == 2){
@@ -62,15 +95,12 @@
                                 }
                                  echo '</ul>';
                                  echo '</li>';
-                               
-                              // if(isset($_SESSION['username']) && $_SESSION['username']!=""){
-                              //    echo '<li><a href="index.php?act=userinfo" class="log" > '.($_SESSION['username']).'</a></li>';
-                              //    echo '<li><a href="index.php?act=logout"> Thoát</a></li>';
-                              //    echo '<li><a href="index.php?act=userinfo"> Thông tin tài khoản</a></li>';
                               }else{
+
                               ?>
                               <li><a href="index.php?act=login" class="log" > Đăng Nhập</a></li>
                               <?php } ?>
+
                            </ul>
                         </div>
                      </ul>
@@ -125,7 +155,7 @@
                                  </div>
                               </div>
                            </li>
-                           <!-- <li class="dropdown">
+                           <li class="dropdown">
                               <a href="index.php?act=brand_dior" class="dropdown-toggle" data-toggle="dropdown">Brand</a>
                               <div class="dropdown-menu mega-menu">
                                  <div class="row">
@@ -143,7 +173,7 @@
                                     </div>
                                  </div>
                               </div>
-                           </li> -->
+                           </li>
                            <li><a href="index.php?act=news">Tin tức</a></li>
                               <li><a href="index.php?act=introduce">Giới thiệu</a></li>
                               <li><a href="index.php?act=contact">Liên Hệ</a></li>
@@ -156,15 +186,3 @@
       </div>
    </div>
    <div class="clearfix"></div>
-<!-- <script>
-   document.addEventListener('DOMContentLoaded', (event) => {
-    const dropdown = document.querySelector('.dropdown');
-    dropdown.addEventListener('mouseover', () => {
-        document.querySelector('.dropdown-content').style.display = 'block';
-    });
-    dropdown.addEventListener('mouseout', () => {
-        document.querySelector('.dropdown-content').style.display = 'none';
-    });
-}); -->
-
-</script>
