@@ -42,7 +42,9 @@ ob_start();
             
             include "view/cart/cart.php";
             break;
-        case "addtocart":
+
+            case "addtocart":
+
                 include "view/cart/addtocart.php";
                 break;
         case "mua": //Mua Ngay
