@@ -42,16 +42,7 @@
                             <button type="button" id="increaseQty" class="btn-qty">+</button>
                         </div>
                         <!-- ?php foreach ($pro_detail as $pro_d): ?> -->
-                        <div class="qty">
-                            Size
-                            <select id="size" name="id_size">
-                            <?php foreach ($pro_detail as $pro_d): ?>
-                                    <option value="<?= $pro_d['id_size'] ?>"  >
-                                        <?= $pro_d['size_sizeValue'] ?></option>
-                                        <?php endforeach; ?>
-                            </select>
-                        </div>
-                        <div class="qty">
+                            <div class="qty">
                             Color: 
                             <select id="color" name="id_color">
                             <?php foreach ($pro_detail as $pro_d): ?>
@@ -59,6 +50,16 @@
                                     <?php endforeach; ?>
                             </select>
                         </div>
+                        <div class="qty">
+                            Size
+                            <select id="size" name="id_size">
+                            <?php foreach ($pro_detail as $pro_d): ?>
+                                    <option value="<?= $pro_d['id_size'] ?>"  onchange="">
+                                        <?= $pro_d['size_sizeValue'] ?></option>
+                                        <?php endforeach; ?>
+                            </select>
+                        </div>
+                        
                         <!-- ?php endforeach; ?> -->
                         <div class="wided">
                             <div class="price">

@@ -9,7 +9,7 @@
         
         <div class="row2 mb10">
           <label>Ngày Tạo</label> <br>
-          <input type="datetime-local" name="creat_at" value="<?= $creat_at ?>" required>
+          <input type="datetime-local" name="create_at" value="<?= $create_at ?>" required>
         </div>
         
         <div class="row2 mb10">

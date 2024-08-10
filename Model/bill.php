@@ -14,10 +14,10 @@ function load_bill()
 function insert_bill( $name, $phoneNumber, $email, $address)
 {
     if($id_user= ""){
-        $sql = "INSERT INTO `bill` ( `id`,`creat_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
+        $sql = "INSERT INTO `bill` ( `id`,`create_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
         VALUES (NULL, NOW(), NULL, '$name', '$phoneNumber', '$email', '$address');";
     }else{
-        $sql = "INSERT INTO `bill` ( `id`,`creat_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
+        $sql = "INSERT INTO `bill` ( `id`,`create_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
         VALUES (NULL, NOW(), $id_user, '$name', '$phoneNumber', '$email', '$address');";
     }
     
