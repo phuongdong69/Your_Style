@@ -13,7 +13,7 @@ ob_start();
     include "./Model/pdo.php";
     include "./Model/news.php";
     include "./Model/user.php";
-    $listSanPham = load_all_products_img($id_cate = 0);
+    $listSanPham = load_all_products_img1($id_cate = 0);
     $listcate = load_category();
 
 
@@ -42,6 +42,9 @@ ob_start();
             
             include "view/cart/cart.php";
             break;
+            case "addtocart":
+                include "view/cart/addtocart.php";
+                break;
         case "mua": //Mua Ngay
             include "view/mua.php";
             break;
@@ -77,6 +80,19 @@ ob_start();
         case 'shirt': //áo
             include "view/shirt.php";
             break;
+            case 'categorysp': //áo
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $id_cate = $_GET['id'];
+                    $l_cate = load_one_category($id);
+                    if ($l_cate) {
+                        $name = $l_cate['name'];
+                        extract($l_cate);
+                        // Load danh sách sản phẩm theo danh mục
+                        $listSanPham = load_all_products_img($id_cate);
+                    }
+                }
+                include "view/product/categorysp.php";
+                break;
         case 'pants': //quần
             include "view/pants.php";
             break;
@@ -159,9 +175,11 @@ ob_start();
                 $id = $_GET['id'];
                 $onesp = load_one_product($id);
                 extract($onesp);
-                $listsize = load_all_sizes();
-                $listcolor = load_all_colors();
+                // $listsize = load_all_sizes();
+                // $listcolor = load_all_colors();
                 $images = load_images_by_product($id); // Lấy hình ảnh của sản phẩm nhưng chưa được
+                $pro_detail = load_productdetail($_GET['id']);
+                // extract($pro_detail);
                 include "view/product/productdetail.php";
             }  
              

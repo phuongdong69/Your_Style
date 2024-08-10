@@ -51,7 +51,7 @@ function showcart($cart) {
 function calculateTotal($cart) {
   $total = 0;
   foreach ($cart as $sp) {
-      $unitPrice = (float)$sp[5]; // Đảm bảo giá đơn vị là số thực
+      $unitPrice = (Double)$sp[5]; // Đảm bảo giá đơn vị là số thực
       $quantity = 1; // Đặt giá trị mặc định là 1
       $total += $unitPrice * $quantity; 
   }
