@@ -1,3 +1,30 @@
+<?php
+$combinations = [];
+foreach ($pro_detail as $pro_d) {
+    $combinations[$pro_d['color_name']][] = $pro_d['size_sizeValue'];
+}
+
+
+$combinations = [];
+$colors = [];
+$sizes = [];
+
+foreach ($pro_detail as $pro_d) {
+    // Lưu trữ các tổ hợp màu sắc và kích thước
+    $combinations[$pro_d['color_name']][] = $pro_d['size_sizeValue'];
+    
+    // Loại bỏ trùng lặp cho màu sắc
+    if (!in_array($pro_d['color_name'], $colors)) {
+        $colors[] = $pro_d['color_name'];
+    }
+
+    // Loại bỏ trùng lặp cho kích thước
+    if (!in_array($pro_d['size_sizeValue'], $sizes)) {
+        $sizes[] = $pro_d['size_sizeValue'];
+    }
+}
+?>
+
 
 <div style="padding-top: 0px;" class="container_fullwidth">
     <div class="container">
@@ -36,13 +63,13 @@
                         <h3 class="name"><?= $name ?></h3>
                         <p><?= $description ?></p>
                         <div class="quantity-control">
-                            <label for="quantity" style="font-weight: 400;">Số lượng</label>
-                            <button type="button" id="decreaseQty" class="btn-qty">-</button>
-                            <input class="quant" type="number" id="quantity" name="quantity" value="1" min="1" max="<?= $quantity ?>" readonly>
-                            <button type="button" id="increaseQty" class="btn-qty">+</button>
+                            <label for="quantity" style="font-weight: 400;">Số lượng Còn Thừa</label>
+                            <!-- <button type="button" id="decreaseQty" class="btn-qty">-</button> -->
+                            <input class="quant" type="number" id="quantity" name="quantity" value="<?= $quantity ?>"  readonly>
+                            <!-- <button type="button" id="increaseQty" class="btn-qty">+</button> -->
                         </div>
                         <!-- ?php foreach ($pro_detail as $pro_d): ?> -->
-                        <div class="qty">
+                        <!-- <div class="qty">
                             Size
                             <select id="size" name="id_size">
                             <?php foreach ($pro_detail as $pro_d): ?>
@@ -58,19 +85,43 @@
                                     <option value="<?= $pro_d['id_color'] ?>"><?= $pro_d['color_name'] ?></option>
                                     <?php endforeach; ?>
                             </select>
-                        </div>
+                        </div> -->
                         <!-- ?php endforeach; ?> -->
+
+                        <div class="qty">
+                                Màu sắc: 
+                                <select id="color" name="color">
+                                    <?php foreach ($colors as $color): ?>
+                                        <option value="<?= $color ?>"><?= $color ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="qty">
+                                Kích thước
+                                <select id="size" name="size">
+                                    <?php foreach ($sizes as $size): ?>
+                                        <option value="<?= $size ?>"><?= $size ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+
+                        
                         <div class="wided">
                             <div class="price">
                                 Giá
                                 <span class="old_price"><?= number_format($priceSale, 0, ',', '.') ?>  VNĐ</span>
                                 <span class="new_price"><?= number_format($price, 0, ',', '.')?> VNĐ</span>
                             </div>
+                            
+
                             <div class="button_group">
                                 <input type="hidden" name="image" value="./admin/img/<?= $galery_imgage ?>">
                                 <input type="hidden" name="name" value="<?= $name ?>">
-                                <input type="hidden" name="color" value="<?= $color_name ?>">
-                                <input type="hidden" name="size" value="<?= $size_sizeValue ?>">
+                                <input type="hidden" name="selected_size" id="selected_size" value="">
+                            <input type="hidden" name="selected_color" id="selected_color" value="">
+                                <!-- <input type="hidden" name="color" value="<?= $selected_color ?>">
+                                <input type="hidden" name="size" value="<?= $selected_size ?>"> -->
                                 <input type="hidden" name="price" value="<?= $price ?>">
                                 <input type="hidden" name="soluong" value="Số lượng">
                                 <input type="hidden" name="id" value="1">
@@ -84,6 +135,43 @@
         </div>
     </div>
 </div>
+
+    <script>
+  document.getElementById('addToCartForm').addEventListener('submit', function() {
+    var selectedSize = document.getElementById('size').value;
+    var selectedColor = document.getElementById('color').value;
+    document.getElementById('selected_size').value = selectedSize;
+    document.getElementById('selected_color').value = selectedColor;
+});
+
+var combinations = <?php echo json_encode($combinations); ?>;
+
+document.getElementById('color').addEventListener('change', function() {
+    var selectedColor = this.value;
+    var availableSizes = combinations[selectedColor] || [];
+    
+    var sizeSelect = document.getElementById('size');
+    var sizeOptions = sizeSelect.options;
+    
+    for (var i = 0; i < sizeOptions.length; i++) {
+        var size = sizeOptions[i].value;
+        
+        if (availableSizes.includes(size)) {
+            sizeOptions[i].style.display = 'block'; // Hiển thị kích thước có sẵn
+        } else {
+            sizeOptions[i].style.display = 'none';  // Ẩn kích thước không có sẵn
+        }
+    }
+    
+    // Chọn kích thước đầu tiên nếu có sẵn
+    sizeSelect.value = availableSizes.length > 0 ? availableSizes[0] : '';
+});
+
+
+
+
+
+</script>
 
 <!-- <div id="successmodall" class="modall">
     <div class="modall-content">

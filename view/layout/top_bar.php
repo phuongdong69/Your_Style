@@ -156,7 +156,7 @@
                               </div>
                            </li>
                            <li class="dropdown">
-                              <a href="index.php?act=brand_dior" class="dropdown-toggle" data-toggle="dropdown">Brand</a>
+                              <a href="index.php?act=brand_dior" class="dropdown-toggle" data-toggle="dropdown">Nhãn Hàng</a>
                               <div class="dropdown-menu mega-menu">
                                  <div class="row">
                                     <div class="col-md-6 col-sm-6">
