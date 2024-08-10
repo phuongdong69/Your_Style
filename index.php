@@ -13,7 +13,7 @@ ob_start();
     include "./Model/pdo.php";
     include "./Model/news.php";
     include "./Model/user.php";
-    $listSanPham = load_all_products_img1($id_cate = 0);
+    $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
 
 

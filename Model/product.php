@@ -9,7 +9,13 @@ function load_all_products_img($id_cate = 0) {
                 color.name AS color_name,
                 product_detail.id AS idproductdetail
                 FROM product
-                JOIN product_detail ON product_detail.id_product = product.id 
+                join (
+                     Select id_product, MIN(id) AS first_id
+                     FROM product_detail
+                     GROUP BY id_product
+                )first on product.id = first.first_id
+                JOIN product_detail ON product_detail.id_product = first.first_id
+
                 JOIN (
                     SELECT id_product, MIN(id) AS first1_id
                     FROM galery
@@ -28,7 +34,13 @@ function load_all_products_img($id_cate = 0) {
                 color.name AS color_name,
                 product_detail.id AS idproductdetail
                 FROM product
-                JOIN product_detail ON product_detail.id_product = product.id 
+                join (
+                     Select id_product, MIN(id) AS first_id
+                     FROM product_detail
+                     GROUP BY id_product
+                )first on product.id = first.id_product
+                JOIN product_detail ON product_detail.id = first.first_id
+
                 JOIN (
                     SELECT id_product, MIN(id) AS first1_id
                     FROM galery
@@ -42,32 +54,6 @@ function load_all_products_img($id_cate = 0) {
     return pdo_query($sql);
 
 }
-
-// function search_products($keyword) {
-//     $keyword = '%' . $keyword . '%';
-//     $sql = "SELECT product.*, product_detail.price, 
-//                 brands.name AS brand_name,
-//                 galery.image AS galery_imgage,
-//                 size.sizeValue AS size_sizeValue, 
-//                 color.name AS color_name,
-//                 product_detail.id AS idproductdetail
-//             FROM product
-//             JOIN product_detail ON product_detail.id_product = product.id
-//             JOIN (
-//                 SELECT id_product, MIN(id) AS first1_id
-//                 FROM galery
-//                 GROUP BY id_product
-//             ) first1 ON product.id = first1.id_product
-//             JOIN galery ON first1.first1_id = galery.id
-//             JOIN brands ON brands.id = product.id_brands
-//             JOIN size ON product_detail.id_size = size.id
-//             JOIN color ON product_detail.id_color = color.id
-//             WHERE product.name LIKE :keyword 
-//                OR brands.name LIKE :keyword";
-    
-//     return pdo_query($sql, ['keyword' => $keyword]);
-// }
-
 
 function load_product($id_cate = 0) {
     if ($id_cate > 0) {
@@ -173,14 +159,14 @@ function load_one_product_name($name) {
 //     return pdo_execute($sql);
 // }
 
-function insert_product($name, $description,$original_price, $priceSale, $quantity, $status,  $id_cate, $id_brands) {
-    $sql = "INSERT INTO `product` (`id`,`name`, `description`, `original_price`,  `priceSale`, `quantity`, `status`, `create_at`,`update_at`, `id_cate`, `id_brands`)
-            VALUES (NULL,'$name', '$description', $original_price, '$priceSale', '$quantity', '$status', NOW(),NOW(), '$id_cate',  '$id_brands')";
+function insert_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands) {
+    $sql = "INSERT INTO `product` (`id`,`name`, `description`,  `priceSale`, `quantity`, `status`, `create_at`,`update_at`, `id_cate`, `id_brands`)
+            VALUES (NULL,'$name', '$description', '$priceSale', '$quantity', '$status', NOW(),NOW(), '$id_cate',  '$id_brands')";
     return pdo_execute($sql);
 }
 
-function update_product($name, $description, $original_price, $priceSale, $quantity, $status,  $id_cate, $id_brands, $id) {
-    $sql = "UPDATE `product` SET `name` = '$name', `description` = '$description', `original_price` = $original_price, `priceSale` = '$priceSale',  `quantity` = '$quantity', 
+function update_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands, $id) {
+    $sql = "UPDATE `product` SET `name` = '$name', `description` = '$description', `priceSale` = '$priceSale',  `quantity` = '$quantity', 
             `status` = '$status', `update_at` = NOW(), `id_cate` = '$id_cate', `id_brands` = '$id_brands' WHERE `id` = $id";
     return pdo_execute($sql);
 }
