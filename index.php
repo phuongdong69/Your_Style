@@ -14,6 +14,7 @@ ob_start();
     include "./Model/news.php";
     include "./Model/user.php";
     include "./Model/cart.php";
+
     $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
 
