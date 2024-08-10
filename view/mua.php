@@ -1,9 +1,9 @@
 
 <nav class="nav-bar">
-  <div class="container d-flex align-items-center">
+  <!-- <div class="container d-flex align-items-center">
     <div class="logo"> <a href="?act=home" class="text-uppercase">YourStyle</a> </div>
     <div class="ml-auto"> <a href="?act=home" class="text-uppercase">Quay lại mua hàng </a> </div>
-  </div>
+  </div> -->
 </nav>
 
 <div class="content-wrapper">
