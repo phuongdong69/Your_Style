@@ -6,7 +6,9 @@ function insert_productdetail($price, $id_product, $id_size, $id_color)
     return pdo_execute($sql);
 }
 function load_productdetail($id_product){
-    $sql = "SELECT product.id,product.name AS p_name,product_detail.*, size.sizeValue AS size_sizeValue, color.name AS color_name
+    $sql = "SELECT product.id,product.name AS p_name,product_detail.*,
+            size.sizeValue AS size_sizeValue,
+            color.name AS color_name
             FROM product_detail
             JOIN product ON product_detail.id_product = product.id
             JOIN size ON product_detail.id_size = size.id

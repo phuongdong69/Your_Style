@@ -4,7 +4,7 @@
             <h1>Thêm chi tiết sản phẩm</h1>
         </div>
         <div class="row2 form_content ">
-            <form action="index.php?act=addpd" method="POST" enctype="multipart/form-data">
+            <form action="index.php?act=addpd&id_product=<?=$id_product?>" method="POST" enctype="multipart/form-data">
                 <div class="row2 mb10">
 
 
