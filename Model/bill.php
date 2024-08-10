@@ -51,7 +51,4 @@ function load_one_bill_id($id)
     WHERE `id`=$id;";
     return pdo_query_one($sql);
 }
- function delete_bill($id){
-    $sql = "DELETE FROM bill where id= $id";
-    return pdo_execute($sql);
- }
+ 
