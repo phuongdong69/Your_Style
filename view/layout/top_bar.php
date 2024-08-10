@@ -46,7 +46,7 @@
                                  echo '<li class="dropdown">';
                                  echo '<a href="#" class="log">'.htmlspecialchars($_SESSION['username']).'</a>';
                                  echo '<ul class="dropdown-content">';
-                                 echo '<li><a href="index.php?act=userinfo">Cập Nhật Tài khoản</a></li>';
+                                 echo '<li><a href="index.php?act=userinfo">Tài Khoản Của Tôi</a></li>';
                                  echo '<li><a href="index.php?act=logout">Thoát</a></li>';
 
                          //        if(isset($_SESSION['id_role']) && $_SESSION['id_role'] == 2){
@@ -69,7 +69,7 @@
                               //    echo '<li><a href="index.php?act=userinfo"> Thông tin tài khoản</a></li>';
                               }else{
                               ?>
-                              <li><a href="index.php?act=login" class="log" > Login</a></li>
+                              <li><a href="index.php?act=login" class="log" > Đăng Nhập</a></li>
                               <?php } ?>
                            </ul>
                         </div>
