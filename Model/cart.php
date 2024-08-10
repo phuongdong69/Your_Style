@@ -3,7 +3,7 @@ function showcart($cart) {
   $kq = "";
   foreach ($cart as $index => $sp) {
       $unitPrice = (float)$sp[5]; // Đảm bảo giá đơn vị là số thực
-      $quantity = 1; // Đặt giá trị mặc định là 1
+      $quantity = 1; // Giá trị mặc định là 1
 
       $kq .= '
       <div class="main-content">
@@ -12,7 +12,7 @@ function showcart($cart) {
                   <img src="'.$sp[1].'" alt="Product Image">
                   <div class="item-details">
                       <p class="item-name">'.$sp[2].'</p>
-                      <div class="gia">Giá Tiền :
+                      <div class="gia">Giá Tiền:
                           '.number_format($unitPrice, 0, ',', '.').' VNĐ
                       </div>
                       <div class="an">
@@ -21,24 +21,25 @@ function showcart($cart) {
                   </div>
                   <div>
                       <select name="color['.$index.']">
-                        <option value="Đen" '.($sp[3] == 'Đen' ? 'selected' : '').'>Đen</option>
-                        <option value="Trắng" '.($sp[3] == 'Trắng' ? 'selected' : '').'>Trắng</option>
-                        <option value="Kem" '.($sp[3] == 'Kem' ? 'selected' : '').'>Kem</option>
-                        <option value="Ghi" '.($sp[3] == 'Ghi' ? 'selected' : '').'>Ghi</option>
+                          <option value="Đen" '.($sp[3] == 'Đen' ? 'selected' : '').'>Đen</option>
+                          <option value="Kem" '.($sp[3] == 'Kem' ? 'selected' : '').'>Kem</option>
+                          <option value="Nâu Sữa" '.($sp[3] == 'Nâu Sữa' ? 'selected' : '').'>Nâu Sữa</option>
+                          <option value="Trắng" '.($sp[3] == 'Trắng' ? 'selected' : '').'>Trắng</option>
+                          <option value="Ghi" '.($sp[3] == 'Ghi' ? 'selected' : '').'>Ghi</option>
                       </select>
                   </div>
                   <div>
-                      <select name="size['.$index.']">
-                        <option value="S" '.($sp[4] == 'S' ? 'selected' : '').'>S</option>
-                        <option value="M" '.($sp[4] == 'M' ? 'selected' : '').'>M</option>
-                        <option value="L" '.($sp[4] == 'L' ? 'selected' : '').'>L</option>
-                        <option value="XL" '.($sp[4] == 'XL' ? 'selected' : '').'>XL</option>
-                        <option value="XXL" '.($sp[4] == 'XXL' ? 'selected' : '').'>XXL</option>
-                      </select>
+                      <select name="size['.$index.']">';
+                          $sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+                          foreach ($sizes as $size) {
+                              $selected = ($sp[4] == $size) ? 'selected' : '';
+                              $kq .= '<option value="'.$size.'" '.$selected.'>'.$size.'</option>';
+                          }
+                      $kq .= '</select>
                   </div>
                   <div class="item-quantity">
                       <button style="margin:0px 10px 0px 10px" class="decrease-btn" data-index="'.$index.'">-</button>
-                      <input type="text" class="quantity-input" id="quantity-input-'.$index.'" value="1">
+                      <input type="text" class="quantity-input" id="quantity-input-'.$index.'" value="1" max="<?= $quantity ?>">
                       <button style="margin:0px 10px 0px 10px" class="increase-btn" data-index="'.$index.'">+</button>
                   </div>
               </div>
@@ -47,6 +48,8 @@ function showcart($cart) {
   }
   return $kq;
 }
+
+
 
 function calculateTotal($cart) {
   $total = 0;

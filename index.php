@@ -13,7 +13,8 @@ ob_start();
     include "./Model/pdo.php";
     include "./Model/news.php";
     include "./Model/user.php";
-    $listSanPham = load_all_products_img1($id_cate = 0);
+    include "./Model/cart.php";
+    $listSanPham = load_all_products_img($id_cate = 0);
     $listcate = load_category();
 
 
@@ -43,9 +44,13 @@ ob_start();
             include "view/cart/cart.php";
             break;
 
-            case "addtocart":
+        case "addtocart":
 
                 include "view/cart/addtocart.php";
+                break;
+        case "xoadh":
+
+                include "view/cart/xoadh.php";
                 break;
         case "mua": //Mua Ngay
             include "view/mua.php";
@@ -82,7 +87,7 @@ ob_start();
         case 'shirt': //áo
             include "view/shirt.php";
             break;
-            case 'categorysp': //áo
+        case 'categorysp': //áo
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $id_cate = $_GET['id'];
                     $l_cate = load_one_category($id);
