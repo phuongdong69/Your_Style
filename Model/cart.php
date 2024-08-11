@@ -3,7 +3,7 @@ function showcart($cart) {
   $kq = "";
   foreach ($cart as $index => $sp) {
       $unitPrice = (float)$sp[5]; // Đảm bảo giá đơn vị là số thực
-      $quantity = 1; // Giá trị mặc định là 1
+      // $quantity = $soluong; // Giá trị mặc định là 1
 
       $kq .= '
       <div class="main-content">
@@ -20,27 +20,18 @@ function showcart($cart) {
                       </div>
                   </div>
                   <div>
-                      <select name="color['.$index.']">
-                          <option value="Đen" '.($sp[3] == 'Đen' ? 'selected' : '').'>Đen</option>
-                          <option value="Kem" '.($sp[3] == 'Kem' ? 'selected' : '').'>Kem</option>
-                          <option value="Nâu Sữa" '.($sp[3] == 'Nâu Sữa' ? 'selected' : '').'>Nâu Sữa</option>
-                          <option value="Trắng" '.($sp[3] == 'Trắng' ? 'selected' : '').'>Trắng</option>
-                          <option value="Ghi" '.($sp[3] == 'Ghi' ? 'selected' : '').'>Ghi</option>
-                      </select>
+                     <p> '.$sp[3].' </p>
                   </div>
                   <div>
-                      <select name="size['.$index.']">';
-                          $sizes = ['S', 'M', 'L', 'XL', 'XXL'];
-                          foreach ($sizes as $size) {
-                              $selected = ($sp[4] == $size) ? 'selected' : '';
-                              $kq .= '<option value="'.$size.'" '.$selected.'>'.$size.'</option>';
-                          }
-                      $kq .= '</select>
+                       <p> '.$sp[4].'</p>
                   </div>
                   <div class="item-quantity">
-                      <button style="margin:0px 10px 0px 10px" class="decrease-btn" data-index="'.$index.'">-</button>
-                      <input type="text" class="quantity-input" id="quantity-input-'.$index.'" value="1" max="<?= $quantity ?>">
-                      <button style="margin:0px 10px 0px 10px" class="increase-btn" data-index="'.$index.'">+</button>
+                      <button style="margin:0px 10px 0px 10px" class="decrease-btn" data-index="'.$sp[6].'">-</button>
+                      <input type="text" class="quantity-input" id="quantity-input-'.$sp[6].'" value="'.$sp[6].'" max="<?= $quantity ?>">
+                      <button style="margin:0px 10px 0px 10px" class="increase-btn" data-index="'.$sp[6].'">+</button>
+                  </div>
+                  <div>
+                       <p> '.number_format($sp[5], 0, ',', '.').' VNĐ</p>
                   </div>
               </div>
           </div>
@@ -49,8 +40,20 @@ function showcart($cart) {
   return $kq;
 }
 
-
-
+ // <select name="color['.$index.']">
+                      //     <option value="Đen" '.($sp[3] == 'Đen' ? 'selected' : '').'>Đen</option>
+                      //     <option value="Kem" '.($sp[3] == 'Kem' ? 'selected' : '').'>Kem</option>
+                      //     <option value="Nâu Sữa" '.($sp[3] == 'Nâu Sữa' ? 'selected' : '').'>Nâu Sữa</option>
+                      //     <option value="Trắng" '.($sp[3] == 'Trắng' ? 'selected' : '').'>Trắng</option>
+                      //     <option value="Ghi" '.($sp[3] == 'Ghi' ? 'selected' : '').'>Ghi</option>
+                      // </select>
+                  //     <select name="size['.$index.']">';
+                  //     $sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+                  //     foreach ($sizes as $size) {
+                  //         $selected = ($sp[4] == $size) ? 'selected' : '';
+                  //         $kq .= '<option value="'.$size.'" '.$selected.'>'.$size.'</option>';
+                  //     }
+                  // $kq .= '</select>
 function calculateTotal($cart) {
   $total = 0;
   foreach ($cart as $sp) {

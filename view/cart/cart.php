@@ -2,6 +2,7 @@
 <?php
 if (isset($_SESSION['cart'])) {
     echo '<a href="index.php?act=home"><button>Tiếp Tục Mua Sắm</button></a>';
+    var_dump($_SESSION['cart']);
 ?>
 
     <div class="clearfix"></div>
@@ -35,7 +36,7 @@ if (isset($_SESSION['cart'])) {
 
                         <div class="discount-code"></div>
                         <hr>
-                        <!-- <button class="checkout-btn">Thanh Toán</button> -->
+                        <button class="checkout-btn">Thanh Toán</button>
                     </div>
 
                     <form action="addtocart.php" method="post">
@@ -49,7 +50,45 @@ if (isset($_SESSION['cart'])) {
             </div>
         </div>
     </div>
-
+    <!-- <div class="main-content">
+          <div class="cart-items">
+              <div class="cart-item">
+                  <img src="'.$sp[1].'" alt="Product Image">
+                  <div class="item-details">
+                      <p class="item-name">'.$sp[2].'</p>
+                      <div class="gia">Giá Tiền:
+                         <?php echo '.number_format($unitPrice, 0, ',', '.').' ?>
+                      </div>
+                      <div class="an">
+                          <input type="hidden" class="item-price" id="item-price-'.$index.'" data-price-per-unit="'.$unitPrice.'">
+                      </div>
+                  </div> -->
+                  <!-- <div>
+                      <select name="color['.$index.']">
+                          <option value="Đen" '.($sp[3] == 'Đen' ? 'selected' : '').'>Đen</option>
+                          <option value="Kem" '.($sp[3] == 'Kem' ? 'selected' : '').'>Kem</option>
+                          <option value="Nâu Sữa" '.($sp[3] == 'Nâu Sữa' ? 'selected' : '').'>Nâu Sữa</option>
+                          <option value="Trắng" '.($sp[3] == 'Trắng' ? 'selected' : '').'>Trắng</option>
+                          <option value="Ghi" '.($sp[3] == 'Ghi' ? 'selected' : '').'>Ghi</option>
+                      </select>
+                  </div> -->
+                  <!-- <div>
+                      <select name="size['.$index.']">';
+                          $sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+                          foreach ($sizes as $size) {
+                              $selected = ($sp[4] == $size) ? 'selected' : '';
+                              $kq .= '<option value="'.$size.'" '.$selected.'>'.$size.'</option>';
+                          }
+                      $kq .= '</select>
+                  </div> -->
+                  <!-- <div class="item-quantity">
+                      <button style="margin:0px 10px 0px 10px" class="decrease-btn" data-index="'.$index.'">-</button>
+                      <input type="text" class="quantity-input" id="quantity-input-'.$index.'" value="1" max="<?= $quantity ?>">
+                      <button style="margin:0px 10px 0px 10px" class="increase-btn" data-index="'.$index.'">+</button>
+                  </div>
+              </div>
+          </div>
+      </div> -->
 <?php
 } else {
     echo '

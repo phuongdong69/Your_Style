@@ -41,18 +41,57 @@ ob_start();
             include "view/layout/home.php";
             break;
         case "cart": //giỏ hàng
-            
+            if(isset($_POST['dathang']) && $_POST['dathang']) {
+                // Lấy giá trị từ form
+                $img = $_POST['image'];
+                $name = $_POST['name']; 
+                $color = $_POST['color'];
+                $size = $_POST['size'];
+                $price = $_POST['price'];
+                $soluong = $_POST['quantity'];
+                $id = $_POST['id'];
+                
+                // Tạo mảng sản phẩm
+                $sp = array($id, $img, $name, $color, $size, $price, $soluong);
+                
+                // Thêm vào giỏ hàng
+                if(!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
+                array_push($_SESSION['cart'], $sp);
+                // var_dump($_SESSION['cart']);
+                // header('Location: index.php?act=cart');
+                
+            }
+            // var_dump($_SESSION['cart']);
             include "view/cart/cart.php";
             break;
 
-        case "addtocart":
-
-                include "view/cart/addtocart.php";
-                break;
+        // case "addtocart":
+        //     if(isset($_POST['dathang']) && $_POST['dathang']) {
+        //         // Lấy giá trị từ form
+        //         $img = $_POST['image'];
+        //         $name = $_POST['name']; 
+        //         $color = $_POST['color'];
+        //         $size = $_POST['size'];
+        //         $price = $_POST['price'];
+        //         $soluong = $_POST['quantity'];
+        //         $id = $_POST['id'];
+                
+        //         // Tạo mảng sản phẩm
+        //         $sp = array($id, $img, $name, $color, $size, $price, $soluong);
+                
+        //         // Thêm vào giỏ hàng
+        //         if(!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
+        //         array_push($_SESSION['cart'], $sp);
+        //         // var_dump($_SESSION['cart']);
+        //         // header('Location: index.php?act=cart');
+                
+        //     }
+        //         include "view/cart/addtocart.php";
+        //         break;
         case "xoadh":
-
-                include "view/cart/xoadh.php";
-                break;
+                if(isset($_SESSION['cart'])) unset ($_SESSION['cart']); 
+            include "view/layout/home.php";
+            break;
         case "mua": //Mua Ngay
             include "view/mua.php";
             break;
@@ -96,7 +135,8 @@ ob_start();
                         $name = $l_cate['name'];
                         extract($l_cate);
                         // Load danh sách sản phẩm theo danh mục
-                        $listSanPham = load_all_products_img($id_cate);
+                        // $listSanPham = load_all_products_img($id_cate);
+                        $listSanPham = load_all_products_img1($_GET['id']);
                     }
                 }
                 include "view/product/categorysp.php";
@@ -187,6 +227,7 @@ ob_start();
                 // $listcolor = load_all_colors();
                 $images = load_images_by_product($id); // Lấy hình ảnh của sản phẩm nhưng chưa được
                 $pro_detail = load_productdetail($_GET['id']);
+                $id_product = $_GET['id'];
                 // extract($pro_detail);
                 include "view/product/productdetail.php";
             }  
