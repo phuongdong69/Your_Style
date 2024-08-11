@@ -2,7 +2,7 @@
 <?php
 if (isset($_SESSION['cart'])) {
     echo '<a href="index.php?act=home"><button>Tiếp Tục Mua Sắm</button></a>';
-    var_dump($_SESSION['cart']);
+    // var_dump($_SESSION['cart']);
 ?>
 
     <div class="clearfix"></div>
@@ -12,31 +12,31 @@ if (isset($_SESSION['cart'])) {
                 <div class="col-md-12">
                     <div class="order-details">
                     <div class="total-price" id="thanh-tien">
-    <h2>Thành Tiền:</h2>
-    <span>Giỏ Hàng</span>
-    <p style="float: right; margin-left: 30px; font-weight: bold;" id="thanh-tien-value">
-        <?php echo number_format(calculateTotal($_SESSION['cart']), 0, ',', '.'); ?> VNĐ
-    </p>
-    
+                    <h2>Thành Tiền:</h2>
+                    <span>Giỏ Hàng</span>
+                    <p style="float: right; margin-left: 30px; font-weight: bold;" id="thanh-tien-value">
+                        <?php echo number_format(calculateTotal($_SESSION['cart']), 0, ',', '.'); ?> VNĐ
+                    </p>
+                    
 
-</div>
-<div class="discount-code hide-shipping">
-    <h6 style="font-size: 12px;">Vận chuyển <span style="float: right;color: red;">25.000 VNĐ</span></h6>
-</div>
-<div class="total-price" id="tong-tien">
-    <h2>Tổng Tiền:</h2>
-    <p style="margin-left: 30px; font-weight: bold;" id="tong-tien-value">
-        <?php 
-            $total = calculateTotal($_SESSION['cart']) + 25000; 
-            echo number_format($total, 0, ',', '.'); 
-        ?> VNĐ
-    </p>
-</div>
+                </div>
+                <div class="discount-code hide-shipping">
+                    <h6 style="font-size: 12px;">Vận chuyển <span style="float: right;color: red;">25.000 VNĐ</span></h6>
+                </div>
+                <div class="total-price" id="tong-tien">
+                    <h2>Tổng Tiền:</h2>
+                    <p style="margin-left: 30px; font-weight: bold;" id="tong-tien-value">
+                        <?php 
+                            $total = calculateTotal($_SESSION['cart']) + 25000; 
+                            echo number_format($total, 0, ',', '.'); 
+                        ?> VNĐ
+                    </p>
+                </div>
 
 
                         <div class="discount-code"></div>
                         <hr>
-                        <button class="checkout-btn">Thanh Toán</button>
+                        <!-- <button class="checkout-btn">Thanh Toán</button> -->
                     </div>
 
                     <form action="addtocart.php" method="post">

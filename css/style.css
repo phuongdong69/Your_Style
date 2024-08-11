@@ -3300,7 +3300,7 @@ hr {
 
 p {
   margin: 0;
-  color: #666;
+  color: #d14166;
 }
 
 @media (max-width: 768px) {
@@ -4400,4 +4400,87 @@ p {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+.ttttt{
+  width: 100%;
+  text-align:center;
+}
+
+.thanhtoan {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+  margin-left: 35%;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+.iconnn {
+  font-size: 50px;
+  color: green;
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.trangthai {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.trangthai h2 {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+}
+
+.trangthai p {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.shoppo {
+  background-color: #fcb800;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.shoppo:hover {
+  background-color: #ffa500;
+}
+
+.infoo {
+  text-align: left;
+}
+
+.infoo h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.infoo-row {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.infoo-row strong {
+  color: #333;
+}
+
+.infoo-row span {
+  color: #666;
 }

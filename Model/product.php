@@ -184,3 +184,5 @@ function update_product($name, $description, $priceSale, $quantity, $status,  $i
     return pdo_execute($sql);
 }
 ?>
+
+

@@ -154,7 +154,6 @@ foreach ($pro_detail as $pro_d) {
                                 Giá
                                 <span class="old_price"><?= number_format($priceSale, 0, ',', '.') ?> ₫</span>
                                 <span class="new_price" <?= number_format($price, 0, ',', '.') ?>> ₫</span>
-                                <?= var_dump($prices[$color][$size]) ?>
                             </div>
 
 
