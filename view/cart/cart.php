@@ -28,6 +28,7 @@ if (isset($_SESSION['cart'])) {
                     <h2>Tổng Tiền:</h2>
                     <p style="margin-left: 30px; font-weight: bold;" id="tong-tien-value">
                         <?php 
+
                             $total = calculateTotal($_SESSION['cart']) + 0; 
                             echo number_format($total, 0, ',', '.'); 
                         ?> VNĐ

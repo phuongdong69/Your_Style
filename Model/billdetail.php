@@ -27,26 +27,35 @@
 //     $sql = "SELECT * FROM `bill_detail` where id =". $id;
 //     return pdo_query_one($sql);
 // }
-function update_bill_detail($id_product_detail, $id_bill, $id_bill_status, $quantity, $payment, $note, $id) {
+function update_bill_detail($id_product_detail, $id_bill, $id_bill_status, $quantity, $payment, $note, $id)
+{
     $sql = "UPDATE `bill_detail`
     SET `id_product_detail` = '$id_product_detail', `id_bill` = '$id_bill',  `id_voucher` = NULL, `id_bill_status` = '$id_bill_status',
     `quantity` = '$quantity', `payment` = '$payment', `note` = '$note'
     WHERE `id` = $id;";
     return pdo_execute($sql);
 }
-function insert_bill_detail($id_product_detail, $id_bill, $quantity, $payment) {
-    $sql = "INSERT INTO `bill_detail` (`id_product_detail`, `id_bill`, `id_voucher`, `id_bill_status`, `quantity`, `payment`)
-            VALUES ('$id_product_detail', '$id_bill', NULL, 'Đang chờ xác nhận đơn hàng', '$quantity', '$payment')";
+function insert_bill_detail($id_product_detail, $id_bill,$voucher, $quantity)
+{
+    if($voucher = ""){
+    $sql = "INSERT INTO `bill_detail` (`id`,`id_product_detail`, `id_bill`, `id_voucher`, `id_bill_status`, `quantity`, `payment`,`payment_staus`)
+            VALUES (NULL,'$id_product_detail', '$id_bill', NULL, 'Đang chờ xác nhận đơn hàng', '$quantity', 'Thanh toán bằng tiền mặt', 'Đang chờ xác nhận')";
+    }else{
+        $sql = "INSERT INTO `bill_detail` (`id`,`id_product_detail`, `id_bill`, `id_voucher`, `id_bill_status`, `quantity`, `payment`,`payment_staus`)
+            VALUES (NULL,'$id_product_detail', '$id_bill', '$voucher', 'Đang chờ xác nhận đơn hàng', '$quantity', 'Thanh toán bằng tiền mặt', 'Đang chờ xác nhận')";
+    
+    }
     return pdo_execute($sql);
 }
 
-function load_bill_detail($id_bill){
+function load_bill_detail($id_bill)
+{
     $sql = "SELECT * 
     FROM bill_detail
     where bill_detail.id_bill  = $id_bill ";
     return pdo_execute($sql);
 }
-function delete_bill_detail($id_bill){
-    $sql = "UPDATE `bill_detail` SET `bill_detail`.`id_bill_status` = $id_bill";
-}
-?>
+// function delete_bill_detail($id_bill)
+// {
+//     $sql = "UPDATE `bill_detail` SET `bill_detail`.`id_bill_status` = $id_bill";
+// }

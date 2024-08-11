@@ -74,10 +74,31 @@ ob_start();
                 include "view/layout/home.php";
                 break;
         case "mua": //Mua Ngay
-            include "view/mua.php";
+
+
+            include "view/thanhtoan/mua.php";
             break;
 
         case "trangthaitt": 
+            if(isset($_SESSION['username'])&& $_SESSION['username']){
+                $test = load_login_users($_SESSION['username'], $_SESSION['password']);
+                extract($test);
+                $id_user = $id;
+                if (isset($_POST['muahang']) && ($_POST['muahang'])) {
+                    $name = $_POST['name'];
+                    $phoneNumber = $_POST['phoneNumber'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    insert_bill($id_user, $name, $phoneNumber, $email, $address);
+                    $bill = get_id_bill_by_id_user($id_user);
+                    extract($bill);
+                    $id_bill = $bill['id'];
+                    foreach($_SESSION['cart']){
+                       $id_pd = load_id_product_detail($_SESSION['cart']['id'], $_SESSION['cart']['size'], $_SESSION['cart']['color'])
+                    }
+                }
+            } 
+            
             include "view/trangthaitt.php";
             break;
         
@@ -178,6 +199,7 @@ ob_start();
                     extract($test);
                     $_SESSION['username']=$username;
                     $_SESSION['id_role']=$id_role;
+                    $_SESSION['password']=$password;
                     var_dump( $_SESSION['username']);
                     header("Location:index.php");
                     break;

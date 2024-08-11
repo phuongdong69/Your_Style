@@ -11,7 +11,7 @@ function load_bill()
 //         VALUES (NULL, '$creat_at', NULL, '$name', '$phoneNumber', '$email', '$address');";
 //     return pdo_execute($sql);
 // }
-function insert_bill( $name, $phoneNumber, $email, $address)
+function insert_bill($id_user, $name, $phoneNumber, $email, $address)
 {
     if($id_user= ""){
         $sql = "INSERT INTO `bill` ( `id`,`create_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
@@ -48,7 +48,11 @@ function load_one_bill_id($id)
     join  brands on brands.id = product.id_brands 
     join  color on color.id = product_detail.id_color
     join  `size` on  `size`.id = product_detail.id_size 
-    WHERE `id`=$id;";
+    WHERE `id` = $id;";
+    return pdo_query_one($sql);
+}
+function get_id_bill_by_id_user($id_user){
+    $sql="Select * from bill where id_user = $id_user";
     return pdo_query_one($sql);
 }
  
