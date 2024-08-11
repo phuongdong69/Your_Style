@@ -93,8 +93,11 @@ ob_start();
                     $bill = get_id_bill_by_id_user($id_user);
                     extract($bill);
                     $id_bill = $bill['id'];
-                    foreach($_SESSION['cart']){
-                       $id_pd = load_id_product_detail($_SESSION['cart']['id'], $_SESSION['cart']['size'], $_SESSION['cart']['color'])
+                    foreach($_SESSION['cart'] as $_cart){
+                       $id_pd = load_id_product_detail($id, $size, $color);
+                       insert_bill_detail($id_product_detail, $id_bill,$voucher, $quantity);
+                       if(isset($_SESSION['cart'])) unset ($_SESSION['cart']);
+                    // ối gời ơi
                     }
                 }
             } 
