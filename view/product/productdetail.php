@@ -5,13 +5,13 @@ $colors = [];
 $sizes = [];
 
 foreach ($pro_detail as $pro_d) {
-    
+
     // Lưu trữ các tổ hợp màu sắc và kích thước
     $combinations[$pro_d['color_name']][] = $pro_d['size_sizeValue'];
     $color = $pro_d['color_name'];
     $size = $pro_d['size_sizeValue'];
     $price = $pro_d['price'];
-    
+
     if (!isset($prices[$color])) {
         $prices[$color] = [];
     }
@@ -25,36 +25,62 @@ foreach ($pro_detail as $pro_d) {
     // Loại bỏ trùng lặp cho kích thước
     if (!in_array($pro_d['size_sizeValue'], $sizes)) {
         $sizes[] = $pro_d['size_sizeValue'];
-     
     }
-    
 }
 
 ?>
-  <script>
+<script>
     document.addEventListener("DOMContentLoaded", function() {
-        var colorSelect = document.getElementById('color');
-        var sizeSelect = document.getElementById('size');
-        var newPriceSpan = document.querySelector('.new_price');
-        var oldPriceSpan = document.querySelector('.old_price');
+                var colorSelect = document.getElementById('color');
+                var sizeSelect = document.getElementById('size');
+                var newPriceSpan = document.querySelector('.new_price');
+                var oldPriceSpan = document.querySelector('.old_price');
 
-        function updatePrice() {
-            var color = colorSelect.value;
-            var size = sizeSelect.value;
+                function updatePrice() {
+                    var color = colorSelect.value;
+                    var size = sizeSelect.value;
 
-            if (color && size && prices[color] && prices[color][size]) {
-                var price = prices[color][size];
-                newPriceSpan.textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
-            } else {
-                newPriceSpan.textContent = 'Giá không có sẵn';
-            }
-        }
+                    if (color && size && prices[color] && prices[color][size]) {
+                        var price = prices[color][size];
+                        newPriceSpan.textContent = new Intl.NumberFormat('vi-VN', {
+                            style: 'currency',
+                            currency: 'VND'
+                        }).format(price);
+                        document.getElementById('hiddenPrice').value = price;
+                    } else {
+                        newPriceSpan.textContent = 'Giá không có sẵn';
+                    }}
 
-        colorSelect.addEventListener('change', updatePrice);
-        sizeSelect.addEventListener('change', updatePrice);
-    });
-    var prices = <?php echo json_encode($prices); ?>;
-    </script>
+                    function updateAvailableSizes() {
+                        var selectedColor = colorSelect.value;
+                        var availableSizes = combinations[selectedColor] || [];
+
+                        var sizeSelect = document.getElementById('size');
+                        var sizeOptions = sizeSelect.options;
+
+                        for (var i = 0; i < sizeOptions.length; i++) {
+                            var size = sizeOptions[i].value;
+
+                            if (availableSizes.includes(size)) {
+                                sizeOptions[i].style.display = 'block'; // Hiển thị kích thước có sẵn
+                            } else {
+                                sizeOptions[i].style.display = 'none'; // Ẩn kích thước không có sẵn
+                            }
+                        }
+
+                        // Chọn kích thước đầu tiên nếu có sẵn
+                        sizeSelect.value = availableSizes.length > 0 ? availableSizes[0] : '';
+
+                        // Cập nhật giá ngay sau khi thay đổi màu sắc
+                        updatePrice();
+                    }
+
+                    colorSelect.addEventListener('change', updatePrice);
+                    sizeSelect.addEventListener('change', updatePrice);
+                    updateAvailableSizes();
+                });
+            var prices = <?php echo json_encode($prices); ?>;
+</script>
 
 <div style="padding-top: 0px;" class="container_fullwidth">
     <div class="container">
@@ -70,9 +96,9 @@ foreach ($pro_detail as $pro_d) {
                         </div>
                         <div class="thum-image">
                             <ul id="gallery_01" class="prev-thum">
-                                <?php 
-                                    $images = load_images_by_product($id); 
-                                    foreach ($images as $image): 
+                                <?php
+                                $images = load_images_by_product($id);
+                                foreach ($images as $image):
                                 ?>
                                     <li>
                                         <a href="#" data-image="./admin/img/<?= $image['image'] ?>" data-zoom-image="./admin/img/<?= $image['image'] ?>">
@@ -92,55 +118,56 @@ foreach ($pro_detail as $pro_d) {
                     <div class="products-description">
                         <h3 class="name"><?= $name ?></h3>
                         <p><?= $description ?></p>
-                        
+
                         <div class="quantity-control">
                             <label for="quantity" style="font-weight: 400;">Số lượng</label>
                             <button type="button" id="decreaseQty" class="btn-qty">-</button>
                             <input class="quant" type="number" id="quantity" name="quantity" value="1" min="1" max="10" readonly>
                             <button type="button" id="increaseQty" class="btn-qty">+</button>
                         </div>
-                        
-                        
+
+
 
                         <div class="qty">
-                                Màu sắc: 
-                                <select id="color" name="color" >
-                                    <?php foreach ($colors as $color): ?>
-                                        <option value="<?= htmlspecialchars($color) ?>"><?= htmlspecialchars($color) ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            
-                            <div class="qty">
-                                Kích thước
-                                <select id="size" name="size" >
-                                    <?php foreach ($sizes as $size): ?>
-                                        <option value="<?= htmlspecialchars($size) ?>"><?= htmlspecialchars($size) ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            
+                            Màu sắc:
+                            <select id="color" name="color">
+                                <?php foreach ($colors as $color): ?>
+                                    <option value="<?= htmlspecialchars($color) ?>"><?= htmlspecialchars($color) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="qty">
+                            Kích thước
+                            <select id="size" name="size">
+                                <?php foreach ($sizes as $size): ?>
+                                    <option value="<?= htmlspecialchars($size) ?>"><?= htmlspecialchars($size) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
 
 
-                       
+
+
                         <div class="wided">
-                            <div class="price">
+                            <div class="price" name="price">
                                 Giá
-                                <span class="old_price"><?= number_format($priceSale, 0, ',', '.') ?>  ₫</span>
-                                <span class="new_price"><?= number_format($price, 0, ',', '.')?> ₫</span>
+                                <span class="old_price"><?= number_format($priceSale, 0, ',', '.') ?> ₫</span>
+                                <span class="new_price" <?= number_format($price, 0, ',', '.') ?>> ₫</span>
+                                <?= var_dump($prices[$color][$size]) ?>
                             </div>
-                            
+
 
                             <div class="button_group">
                                 <input type="hidden" name="image" value="./admin/img/<?= $galery_imgage ?>">
                                 <input type="hidden" name="name" value="<?= $name ?>">
-                                <input type="hidden" name="selected_size" id="selected_size" value="">
-                                <input type="hidden" name="selected_color" id="selected_color" value="">
-                                <!-- <input type="hidden" name="color" value="<?= $selected_color ?>">
-                                <input type="hidden" name="size" value="<?= $selected_size ?>"> -->
-                                <input type="hidden" name="price" value="<?= $price ?>">
-                                <!-- <input type="hidden" name="soluong" value="Số lượng"> -->
-                                <input type="hidden" name="id" value="1">
+                                 <!-- <input type="hidden" name="selected_size" id="selected_size" value="">
+                                 <input type="hidden" name="selected_color" id="selected_color" value=""> -->
+                                <!-- <input type="hidden" name="color" value="?= $selected_color ?>">
+                                <input type="hidden" name="size" value="?= $selected_size ?>"> -->
+                                <input type="hidden" id="hiddenPrice" name="price" value="">
+                                <input type="hidden" name="soluong" value="Số lượng">
+                                <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
                                 <input class="dhang" type="submit" name="dathang" value="Thêm Vào Giỏ Hàng">
                             </div>
                             </form>
@@ -152,41 +179,36 @@ foreach ($pro_detail as $pro_d) {
     </div>
 </div>
 
-    <script>
-  document.getElementById('addToCartForm').addEventListener('submit', function() {
-    var selectedSize = document.getElementById('size').value;
-    var selectedColor = document.getElementById('color').value;
-    document.getElementById('selected_size').value = selectedSize;
-    document.getElementById('selected_color').value = selectedColor;
-});
+<script>
+    document.getElementById('addToCartForm').addEventListener('submit', function() {
+        var selectedSize = document.getElementById('size').value;
+        var selectedColor = document.getElementById('color').value;
+        document.getElementById('selected_size').value = selectedSize;
+        document.getElementById('selected_color').value = selectedColor;
+    });
 
-var combinations = <?php echo json_encode($combinations); ?>;
+    var combinations = <?php echo json_encode($combinations); ?>;
 
-document.getElementById('color').addEventListener('change', function() {
-    var selectedColor = this.value;
-    var availableSizes = combinations[selectedColor] || [];
-    
-    var sizeSelect = document.getElementById('size');
-    var sizeOptions = sizeSelect.options;
-    
-    for (var i = 0; i < sizeOptions.length; i++) {
-        var size = sizeOptions[i].value;
-        
-        if (availableSizes.includes(size)) {
-            sizeOptions[i].style.display = 'block'; // Hiển thị kích thước có sẵn
-        } else {
-            sizeOptions[i].style.display = 'none';  // Ẩn kích thước không có sẵn
+    document.getElementById('color').addEventListener('change', function() {
+        var selectedColor = this.value;
+        var availableSizes = combinations[selectedColor] || [];
+
+        var sizeSelect = document.getElementById('size');
+        var sizeOptions = sizeSelect.options;
+
+        for (var i = 0; i < sizeOptions.length; i++) {
+            var size = sizeOptions[i].value;
+
+            if (availableSizes.includes(size)) {
+                sizeOptions[i].style.display = 'block'; // Hiển thị kích thước có sẵn
+            } else {
+                sizeOptions[i].style.display = 'none'; // Ẩn kích thước không có sẵn
+            }
         }
-    }
-    
-    // Chọn kích thước đầu tiên nếu có sẵn
-    sizeSelect.value = availableSizes.length > 0 ? availableSizes[0] : '';
-});
 
-
-
-
-
+        // Chọn kích thước đầu tiên nếu có sẵn
+        sizeSelect.value = availableSizes.length > 0 ? availableSizes[0] : '';
+    });
 </script>
 
 
@@ -197,4 +219,3 @@ document.getElementById('color').addEventListener('change', function() {
         <a href="cart.php"><button class="shop-buttonn">Đi đến giỏ hàng</button></a>
     </div>
 </div>
-
