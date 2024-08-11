@@ -4302,9 +4302,13 @@ p {
 }
 
 .order-details {
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
   float: right;
     width: 35%;
-    padding-left: 20px;
+    padding: 25px;
 }
 
 .delivery-time, .total-price, .discount-code {

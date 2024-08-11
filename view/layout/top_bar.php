@@ -1,35 +1,4 @@
-<style>
-/* CSS cho dropdown */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #000; 
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    top: 100%; 
-    margin-top: 0px; 
-}
-
-.dropdown-content li {
-    color: white; 
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-</style>
 <body id="home">
    <div class="wrapper">
       <div class="header">

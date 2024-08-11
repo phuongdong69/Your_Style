@@ -57,7 +57,7 @@ function load_all_products_img($id_cate = 0) {
 //hàm phụ để lọc danh mục ở web
 function load_all_product($id_cate = 0) {
     if ($id_cate > 0) {
-        $sql = "SELECT product.*,product_detail.price,
+        $sql = "SELECT DISTINCT  product.*,product_detail.price,
                 brands.name AS brand_name ,
                 galery.image AS galery_imgage, 
                 size.sizeValue AS size_sizeValue, 
@@ -93,7 +93,18 @@ function load_all_product($id_cate = 0) {
                 JOIN brands ON brands.id = product.id_brands
                 JOIN size ON product_detail.id_size = size.id
                 JOIN color ON product_detail.id_color = color.id ";           
-    }       
+    }  
+    //lọc tránh sản phẩm bị lặp
+    $products = pdo_query($sql);
+    $unique_products = [];
+
+    foreach ($products as $product) {
+        if (!isset($unique_products[$product['id']])) {
+            $unique_products[$product['id']] = $product;
+        }
+    }
+
+    return array_values($unique_products);     
     return pdo_query($sql);
 
 }
@@ -121,7 +132,7 @@ function load_all_products_by_brand($id_brands) {
 
 //search
 function load_all_products_by_keyword($keyword) {
-    $sql = "SELECT 
+    $sql = "SELECT DISTINCT 
             product.*,
             product_detail.price,
             brands.name AS brand_name,
@@ -143,7 +154,17 @@ function load_all_products_by_keyword($keyword) {
             WHERE 
                 product.name LIKE '%$keyword%'
                 OR brands.name LIKE '%$keyword%'";
+    //lọc tránh sản phẩm bị lặp
+    $products = pdo_query($sql);
+    $unique_products = [];
 
+    foreach ($products as $product) {
+        if (!isset($unique_products[$product['id']])) {
+            $unique_products[$product['id']] = $product;
+        }
+    }
+
+    return array_values($unique_products);
     return pdo_query($sql);
 }
 //thay đổi trạng thái sản phẩm
