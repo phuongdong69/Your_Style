@@ -61,9 +61,9 @@
                   <div class="header_bottom">
                      <ul class="option">
                         <li id="search" class="search">
-                           <form action="index.php" method="get">
-                              <input style="width: 500%;" class="search-input" placeholder="Tìm kiếm sản phẩm..." type="text" name="search">
-                              <input class="search-submit" type="submit" value="">
+                           <form action="index.php?act=search" method="POST">
+                              <input style="width: 500%;" class="search-input" placeholder="Tìm kiếm sản phẩm..." type="text" name="tukhoa">
+                              <input class="search-submit" type="submit" name="timkiem" value="">
                            </form>
                         </li>
 
@@ -118,7 +118,7 @@
                            <li class="dropdown">
                            </li>
                            <li class="dropdown">
-                              <a href="index.php?act=shirt" class="dropdown-toggle" data-toggle="dropdown">Áo</a>
+                              <a href="index.php?act=categorysp&tukhoa=áo" class="dropdown-toggle" data-toggle="dropdown">Áo</a>
                               <div class="dropdown-menu mega-menu">
                                  <div class="row">
                                     <div class="col-md-6 col-sm-6">
@@ -137,7 +137,7 @@
                               </div>
                            </li>
                            <li class="dropdown">
-                              <a href="index.php?act=pants" class="dropdown-toggle" data-toggle="dropdown">Quần</a>
+                              <a href="index.php?act=categorysp&tukhoa=quần" class="dropdown-toggle" data-toggle="dropdown">Quần</a>
                               <div class="dropdown-menu mega-menu">
                                  <div class="row">
                                     <div class="col-md-6 col-sm-6">
@@ -156,7 +156,7 @@
                               </div>
                            </li>
                            <li class="dropdown">
-                              <a href="index.php?act=brand_dior" class="dropdown-toggle" data-toggle="dropdown">Nhãn Hàng</a>
+                              <a href="index.php?act=brand" class="dropdown-toggle" data-toggle="dropdown">Nhãn Hàng</a>
                               <div class="dropdown-menu mega-menu">
                                  <div class="row">
                                     <div class="col-md-6 col-sm-6">
@@ -166,7 +166,7 @@
                                           foreach ($listbrands  as $brands) {
                                               $id = $brands['id'];
                                               $name = $brands['name'];
-                                              echo '<li><a href="index.php?act=brands&id=' . $id . '">' . $name . '</a></li>';
+                                              echo '<li><a href="index.php?act=brandsp&id=' . $id . '">' . $name . '</a></li>';
                                           }
                                           ?>
                                        </ul>

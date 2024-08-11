@@ -102,19 +102,52 @@ ob_start();
             break;
         //task bar thanh tác vụ
         
+        case "search": // Tìm kiếm
+            if (isset($_POST['timkiem'])) {
+                $tukhoa = $_POST['tukhoa'];
+                // Gọi hàm tìm kiếm sản phẩm theo từ khóa
+                $listSanPham = load_all_products_by_keyword($tukhoa);
+            } else {
+                // Nếu không có từ khóa, lấy tất cả sản phẩm
+                $listSanPham = load_all_products_img();
+            }
+            // Lấy danh mục
+            $listcate = load_category();
+            // Bao gồm file giao diện hiển thị kết quả tìm kiếm
+            include "view/product/search.php";
+            break;
+            $listcate = load_category();
+            include "view/product/search.php";
             break;
         case 'categorysp': //áo
-                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (isset($_GET['tukhoa'])) {
+                    $tukhoa = $_GET['tukhoa'];
+                    // Load sản phẩm theo từ khóa
+                    $listSanPham = load_all_products_by_keyword($tukhoa);
+                } elseif (isset($_GET['id']) && $_GET['id'] > 0) {
                     $id_cate = $_GET['id'];
                     $l_cate = load_one_category($id);
                     if ($l_cate) {
                         $name = $l_cate['name'];
                         extract($l_cate);
                         // Load danh sách sản phẩm theo danh mục
-                        $listSanPham = load_all_products_img($id_cate);
+                        $listSanPham = load_all_product($id_cate);
                     }
                 }
                 include "view/product/categorysp.php";
+                break;
+        case 'brandsp':
+                if(isset($_GET['id']) && $_GET['id'] > 0) {
+                    $id_brands = $_GET['id'];
+                    $l_brands = load_one_brands($id);
+                    if ($l_brands) {
+                        $name = $l_brands['name'];
+                        extract($l_brands);
+                        // Load danh sách sản phẩm theo danh mục
+                        $listSanPham = load_all_products_by_brand($id_brands);
+                    }
+                }
+                include "view/product/brandsp.php";
                 break;
         
 

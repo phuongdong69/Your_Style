@@ -51,8 +51,15 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
             $listproduct = load_all_products_img($id_cate);
             include "./view/sanpham/listsp.php";
             break;
-
-
+        //đổi trạng thái sản phẩm
+        case 'changestatus':
+            if (isset($_GET['id']) && isset($_GET['status'])) {
+                $id = intval($_GET['id']);
+                $status = $_GET['status'];
+                update_product_status($id, $status);
+            }
+            header('Location: index.php?act=listsp');
+            break;
     
             case 'addsp': // Add new product
                 if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
@@ -61,7 +68,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                     $price = $_POST['price'];
                     $priceSale = $_POST['priceSale'];
                     $quantity = $_POST['quantity'];
-                    $status = $_POST['status'];
+                    // $status = $_POST['status'];
                     // $create_at = $_POST['create_at'];
                     // $update_at = $_POST['update_at'];
                     $id_cate = $_POST['id_cate'];
@@ -77,7 +84,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                     } else {
                         echo "Có lỗi trong quá trình upload file";
                     }
-                    insert_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands);
+                    insert_product($name, $description, $priceSale, $quantity, $id_cate, $id_brands);
                     if($name){
                         $imgpd = load_one_product_name($name);
                         extract($imgpd);
@@ -116,7 +123,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                     $price = $_POST['price'];
                     $priceSale = $_POST['priceSale'];
                     $quantity = $_POST['quantity'];
-                    $status = $_POST['status'];
+                    // $status = $_POST['status'];
                     // $create_at = $_POST['create_at'];
                     // $update_at = $_POST['update_at'];
                     $id_cate = $_POST['id_cate'];
@@ -147,7 +154,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                     //     }
                     // }
                     // update_product($name, $description, $priceSale, $quantity, $status, $update_at, $id_cate, $id_brands, $id);
-                    update_product($name, $description, $priceSale, $quantity, $status,  $id_cate, $id_brands, $id);
+                    update_product($name, $description, $priceSale, $quantity, $id_cate, $id_brands, $id);
                     $id_product = $id;
                     
                     update_productdetail($price, $id_product, $id_size, $id_color,$idproductdetail);

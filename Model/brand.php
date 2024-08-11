@@ -19,5 +19,9 @@ function load_one_brands($id){
     $sql = "SELECT * FROM `brands` WHERE `id`=$id;";
     return pdo_query_one($sql);
 }
+function load_brand_by_filter($filter) {
+    $sql = "SELECT `id`, `name` FROM `brands` WHERE `name` LIKE '%$filter%'";
+    return pdo_query($sql);
+}
 ?>
 

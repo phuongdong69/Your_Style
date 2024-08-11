@@ -1,7 +1,6 @@
 <div class="container_fullwidth">
     <div class="container">
-        <!-- <h3 class="title"><strong>Danh mục ?= $name ?></strong></h3> -->
-        <h3 class="title"><strong>Danh Mục</strong> sản phẩm</h3>
+        <h3 class="title"><strong>Nhãn hàng</strong></h3>
         <ul id="hot">
             <li>
                 <div class="row">

@@ -104,7 +104,14 @@
             </a>
         </li>
         <hr>
-
+        <!-- về web -->
+        <li class="nav-item">
+            <a class="nav-link" href="../index.php">
+                <i class=""></i>
+                <span>Trở về trang Web</span>
+            </a>
+        </li>
+        <hr>
        
     </ul>
 </nav>
