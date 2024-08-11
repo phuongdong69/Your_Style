@@ -39,7 +39,7 @@ function showcart($cart) {
                   </div>
                   <div class="item-quantity">
                       <button style="margin:0px 10px 0px 10px" class="decrease-btn" data-index="'.$index.'">-</button>
-                      <input type="text" class="quantity-input" id="quantity-input-'.$index.'" value="1" max="<?= $quantity ?>">
+                      <input type="text" class="quantity-input" id="quantity-input-'.$index.'" value="1" max="10">
                       <button style="margin:0px 10px 0px 10px" class="increase-btn" data-index="'.$index.'">+</button>
                   </div>
               </div>
