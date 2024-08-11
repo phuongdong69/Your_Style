@@ -4105,33 +4105,33 @@ a input.submit-button:hover {
     margin-bottom: 20px;
   }
 
-  .btn {
+  /* .btn {
     padding: 10px 20px;
     border: 1px solid #333;
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-  }
+  } */
 
   .btn.back-btn {
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
     color: #333;
   }
 
   .btn.back-btn:hover {
-    background-color: #e0e0e0;
+    /* background-color: #e0e0e0; */
   }
 
-  .btn.continue-btn {
+  /* .btn.continue-btn {
     background-color: #66cdaa;
     color: #fff;
     border: none;
-  }
+  } */
 
-  .btn.continue-btn:hover {
+  /* .btn.continue-btn:hover {
     background-color: #3cb371;
-  }
+  } */
 
   .security {
     font-size: 1.2rem;
