@@ -47,12 +47,17 @@
                             // }else{
                             //     $imgPath = "No Photo";
                             // }
+                            // Xác định nhãn của nút thay đổi trạng thái với chữ "Chuyển"
+                            $buttonLabel = ($status === 'Đang bán') ? 'Chuyển ngừng bán' : 'Chuyển đang bán';
+
+                            // Xác định trạng thái mới khi người dùng nhấn vào nút
+                            $newStatus = ($status === 'Đang bán') ? 'Ngừng bán' : 'Đang bán';
                         ?>
                         <tr>
                             <td><?= $id ?></td>
-                            <td><?= $name ?></td> 
+                            <td><a href="<?= $listpd ?>"><?= $name ?></a></td> 
                             <td>
-                                <img src="<?= $imgPath ?>" alt=""  style='width:100px;height:100px;' >
+                                <a href="<?= $listimg ?>"></a><img src="<?= $imgPath ?>" alt=""  style='width:100px;height:100px;' >
                             </td>
                             <td><?= $quantity ?></td>
                             <td><?= $status ?></td>
@@ -64,8 +69,11 @@
                             <!-- <td>?= $idproductdetail?></td> -->
                             <td>
                                 <a href="<?= $suaUrl ?>"><input type="button" value="Sửa"></a>
-                                <a href="<?= $listimg ?>"><input type="button" value="xem thêm ảnh"></a>
-                                <a href="<?= $listpd ?>"><input type="button" value="Chi tiết"></a>
+                                <a href="index.php?act=changestatus&id=<?= $id ?>&status=<?= $newStatus ?>">
+                                    <input type="button" value="<?= $buttonLabel ?>">
+                                </a>
+                                <!-- <a href=""><input type="button" value="xem thêm ảnh"></a>
+                                <a href=""><input type="button" value="Chi tiết"></a> -->
                                 <!-- <a href="?= $img ?>">
                                 <input type="button" value="img">
                                 </a> -->

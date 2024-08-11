@@ -68,13 +68,13 @@
           <input type="number" name="quantity" placeholder="nhập số lượng" value="<?= $quantity ?>" required>
         </div>
 
-        <div class="row2 mb10">
+        <!-- <div class="row2 mb10">
           <label>Trạng thái</label> <br>
           <select name="status" required>
-            <option value="còn hàng" <?= $status == "còn hàng" ? 'selected' : '' ?>>Còn hàng</option>
-            <option value="hết hàng" <?= $status == "hết hàng" ? 'selected' : '' ?>>Hết hàng</option>
+            <option value="còn hàng" < ?= $status == "còn hàng" ? 'selected' : '' ?>>Còn hàng</option>
+            <option value="hết hàng" < ?= $status == "hết hàng" ? 'selected' : '' ?>>Hết hàng</option>
           </select>
-        </div>
+        </div> -->
 
         <!-- <div class="row2 mb10">
           <label>cập nhật lúc</label> <br>
