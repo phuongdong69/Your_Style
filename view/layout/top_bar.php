@@ -87,7 +87,7 @@
                            <li class="dropdown">
                            </li>
                            <li class="dropdown">
-                              <a href="index.php?act=categorysp&tukhoa=áo" class="dropdown-toggle" data-toggle="dropdown">Áo</a>
+                              <a href="index.php?act=categorysp&tukhoa=ao" class="dropdown-toggle" data-toggle="dropdown">Áo</a>
                               <div class="dropdown-menu mega-menu">
                                  <div class="row">
                                     <div class="col-md-6 col-sm-6">
@@ -106,7 +106,7 @@
                               </div>
                            </li>
                            <li class="dropdown">
-                              <a href="index.php?act=categorysp&tukhoa=quần" class="dropdown-toggle" data-toggle="dropdown">Quần</a>
+                              <a href="index.php?act=categorysp&tukhoa=quan" class="dropdown-toggle" data-toggle="dropdown">Quần</a>
                               <div class="dropdown-menu mega-menu">
                                  <div class="row">
                                     <div class="col-md-6 col-sm-6">
@@ -125,7 +125,7 @@
                               </div>
                            </li>
                            <li class="dropdown">
-                              <a href="index.php?act=brand" class="dropdown-toggle" data-toggle="dropdown">Nhãn Hàng</a>
+                              <a href="index.php?act=categorysp&tukhoa=brand" class="dropdown-toggle" data-toggle="dropdown">Nhãn Hàng</a>
                               <div class="dropdown-menu mega-menu">
                                  <div class="row">
                                     <div class="col-md-6 col-sm-6">
@@ -155,3 +155,11 @@
       </div>
    </div>
    <div class="clearfix"></div>
+   <script>
+      document.querySelectorAll('.dropdown-toggle').forEach(function(element) {
+    element.addEventListener('click', function() {
+        window.location.href = this.getAttribute('href');
+    });
+});
+
+   </script>
