@@ -32,10 +32,10 @@ function showcart($cart) {
 
                   <div class="item-quantity">
                       <button style="margin:0px 10px 0px 10px" class="decrease-btn" data-index="'.$sp[6].'">-</button>
-                      <input type="text" class="quantity-input" id="quantity-input-'.$sp[6].'" value="'.$sp[6].'" max="<?= $quantity ?>">
+                      <input type="text" class="quantity-input" id="quantity-input-'.$sp[6].'" value="'.$sp[6].'" max="<?= $quantity ?>" readonly>
                       <button style="margin:0px 10px 0px 10px" class="increase-btn" data-index="'.$sp[6].'">+</button>
                   </div>
-                 <button class="delete-btn" data-index="'.$index.'">Xóa</button> <!-- Nút xóa -->
+                 <button style="margin-top: 0px;" class="delete-btn" data-index="'.$index.'">Xóa</button> <!-- Nút xóa -->
               </div>
           </div>
       </div>';
