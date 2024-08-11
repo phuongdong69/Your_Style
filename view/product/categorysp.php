@@ -14,7 +14,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="products">
                             <div class="offer">New</div>
-                            <div class="offer">- 85%</div>
+                            <div class="offer">- 25%</div>
                             <div style="height: 330px;" class="thumbnail">
                                 <a href="<?= $linkUrl ?>"><img src="<?= $imgPath ?>" alt="Product Name"></a>
                             </div>

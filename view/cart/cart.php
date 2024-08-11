@@ -28,7 +28,8 @@ if (isset($_SESSION['cart'])) {
                     <h2>Tổng Tiền:</h2>
                     <p style="margin-left: 30px; font-weight: bold;" id="tong-tien-value">
                         <?php 
-                            $total = calculateTotal($_SESSION['cart'])+0 ; 
+
+                            $total = calculateTotal($_SESSION['cart']) + 0; 
                             echo number_format($total, 0, ',', '.'); 
                         ?> VNĐ
                     </p>
@@ -185,7 +186,7 @@ if (isset($_SESSION['cart'])) {
             const pricePerUnit = parseInt(item.querySelector('.item-price').getAttribute('data-price-per-unit'));
             total += quantity * pricePerUnit;
         });
-        const shippingCost = 0; 
+        const shippingCost = 0;
         const totalWithShipping = total + shippingCost;
         thanhTienElement.textContent = total.toLocaleString('vi-VN') + ' VNĐ';
         tongTienElement.textContent = totalWithShipping.toLocaleString('vi-VN') + ' VNĐ';

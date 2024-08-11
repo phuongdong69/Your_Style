@@ -109,7 +109,7 @@ function load_all_product($id_cate = 0) {
 
 }
 function load_all_products_by_brand($id_brands) {
-    $sql = "SELECT DISTINCT product.*, product_detail.price,
+    $sql = "SELECT DISTINCT  product.*, product_detail.price,
             brands.name AS brand_name,
             galery.image AS galery_imgage, 
             size.sizeValue AS size_sizeValue, 
