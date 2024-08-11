@@ -36,7 +36,7 @@ if (isset($_SESSION['cart'])) {
 
                         <div class="discount-code"></div>
                         <hr>
-                        <button class="checkout-btn">Thanh Toán</button>
+                        <!-- <button class="checkout-btn">Thanh Toán</button> -->
                     </div>
 
                     <form action="addtocart.php" method="post">

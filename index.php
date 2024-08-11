@@ -61,7 +61,7 @@ ob_start();
                 // header('Location: index.php?act=cart');
                 
             }
-            var_dump($_SESSION['cart']);
+            // var_dump($_SESSION['cart']);
             include "view/cart/cart.php";
             break;
 

@@ -31,9 +31,9 @@ function showcart($cart) {
                 </div>
 
                   <div class="item-quantity">
-                      <button style="margin:0px 10px 0px 10px" class="decrease-btn" data-index="'.$index.'">-</button>
-                      <input type="text" class="quantity-input" id="quantity-input-'.$index.'" value="'.$sp[6].'" max="<?= $quantity ?>">
-                      <button style="margin:0px 10px 0px 10px" class="increase-btn" data-index="'.$index.'">+</button>
+                      <button style="margin:0px 10px 0px 10px" class="decrease-btn" data-index="'.$sp[6].'">-</button>
+                      <input type="text" class="quantity-input" id="quantity-input-'.$sp[6].'" value="'.$sp[6].'" max="<?= $quantity ?>">
+                      <button style="margin:0px 10px 0px 10px" class="increase-btn" data-index="'.$sp[6].'">+</button>
                   </div>
                  
               </div>
@@ -69,7 +69,7 @@ function calculateTotal($cart) {
 
 ?>
 
-  <script>
+  <!-- <script>
 document.addEventListener("DOMContentLoaded", function() {
     // Xử lý sự kiện thay đổi số lượng
     var quantityInputs = document.querySelectorAll('.quantity-input');
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-</script>
+</script> -->
 
 
 
