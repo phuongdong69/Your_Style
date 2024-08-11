@@ -235,6 +235,15 @@ ob_start();
             }  
              
             break;
+
+        // Xử lý xóa sản phẩm khỏi giỏ hàng
+        case 'deletecart':
+            if (isset($_GET['index'])) {
+                $index = $_GET['index'];
+                delete_cart_item($index);
+            }
+            header('Location: index.php?act=cart');
+            break;
         
     }
 

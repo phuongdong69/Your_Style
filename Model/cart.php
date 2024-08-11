@@ -35,14 +35,20 @@ function showcart($cart) {
                       <input type="text" class="quantity-input" id="quantity-input-'.$sp[6].'" value="'.$sp[6].'" max="<?= $quantity ?>">
                       <button style="margin:0px 10px 0px 10px" class="increase-btn" data-index="'.$sp[6].'">+</button>
                   </div>
-                 
+                 <button class="delete-btn" data-index="'.$index.'">Xóa</button> <!-- Nút xóa -->
               </div>
           </div>
       </div>';
   }
   return $kq;
 }
-
+function delete_cart_item($index) {
+    if (isset($_SESSION['cart'][$index])) {
+        unset($_SESSION['cart'][$index]);
+        // Sắp xếp lại chỉ số sau khi xóa
+        $_SESSION['cart'] = array_values($_SESSION['cart']);
+    }
+  }
  // <select name="color['.$index.']">
                       //     <option value="Đen" '.($sp[3] == 'Đen' ? 'selected' : '').'>Đen</option>
                       //     <option value="Kem" '.($sp[3] == 'Kem' ? 'selected' : '').'>Kem</option>

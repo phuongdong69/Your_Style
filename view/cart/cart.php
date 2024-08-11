@@ -135,6 +135,16 @@ if (isset($_SESSION['cart'])) {
     const thanhTienElement = document.getElementById('thanh-tien-value');
     const tongTienElement = document.getElementById('tong-tien-value');
 
+    // Phần xử lý cho nút xóa
+    document.querySelectorAll('.delete-btn').forEach(function(button) {
+           button.addEventListener('click', function(event) {
+               event.preventDefault();
+               var index = this.dataset.index;
+               if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+                   window.location.href = 'index.php?act=deletecart&index=' + index;
+               }
+           });
+       });
     cartItems.forEach(item => {
         const index = item.getAttribute('data-index');
         const decreaseBtn = item.querySelector('.decrease-btn');
