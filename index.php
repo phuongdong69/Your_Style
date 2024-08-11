@@ -61,13 +61,9 @@ ob_start();
             include "view/trangthaitt.php";
             break;
         
-        case "ptttatm": //Mua Ngay
-            include "view/thanhtoan/ptttatm.php";
-            break;
-        case "ptttmm": //Mua Ngay
-            include "view/thanhtoan/ptttmm.php";
+        
 
-            break;
+            
         case "details": //Chi Tiết SP
 
             include "view/details.php";
@@ -85,8 +81,7 @@ ob_start();
             include "view/contact.php";
             break;
         //task bar thanh tác vụ
-        case 'shirt': //áo
-            include "view/shirt.php";
+        
             break;
         case 'categorysp': //áo
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -101,12 +96,7 @@ ob_start();
                 }
                 include "view/product/categorysp.php";
                 break;
-        case 'pants': //quần
-            include "view/pants.php";
-            break;
-        case "dior": //brand
-            include "view/brand_dior.php";
-            break;
+        
 
 
         case "forgotpass": 

@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1">
       <div class="mobile section-title h2" style="margin: 20px 20px;">Địa Chỉ Thanh Toán </div>
-      <div id="billing-details" class="card bg-white rounded pb-5">
+      <div style="width: 800px;margin-left: 50%;" id="billing-details" class="card bg-white rounded pb-5">
         <form>
           <div class="form-group"> <label class="text-muted">Họ và Tên</label> <input type="text" value="" class="form-control"> </div>
           <div class="form-group"> <label class="text-muted">Email</label>
@@ -19,7 +19,7 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group" > <label>Số Điện Thoại</label>
-                <div> <input style="margin-left: 45px;"  type="text" value=""></div>
+                <div> <input style="margin-left: 72px;"  type="text" value=""></div>
               </div>
             </div>
             <div class="col-lg-6">
@@ -35,14 +35,14 @@
   <span>
     <p style="color: #6c757d;font-weight: bold;">Phương thức thanh toán</p>
   </span>
-  <div class="payment-links">
+  <!-- <div class="payment-links"> -->
     <label>
       <input type="radio" name="pttt" checked value="COD"> Thanh toán (COD)
     </label>
-    <label class="online-payment">
+    <!-- <label class="online-payment">
       <input type="hidden" name="pttt" value="Online">
-    </label>
-  </div>
+    </label> -->
+  <!-- </div> -->
   <!-- <div class="online-payment-method d-none">
     <div class="tttt">
      <a href="#"> Vui lòng quét mã để thanh toán</a>
@@ -50,17 +50,25 @@
     </div>
     <img src="images/qr.jpg" alt="QR Code" width="150">
   </div> -->
+  
 </div>
 
                               
         </form>
         <!-- <input type="checkbox" checked> 
       <label>Địa Chỉ & Số Điện Thoại Chính Xác</label> -->
+         
+      <div style="margin-top: 72px;" class="row pt-lg-3 pt-2 action-buttons mb-sm-0 mb-2">
+        <div style="display: flex;" class="col-md">
+          <div style="margin-right: 15px;" class="btn back-btn text-uppercase"><a href="?act=cart">Quay Lại Giỏ Hàng</a></div>
+          <div class="btn continue-btn text-white ml-auto"> <a href="?act=trangthaitt">Mua Hàng</a> </div>
+        </div>
+      </div>
       </div> 
       
  
     </div>
-    <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1 pt-lg-0 pt-3">
+    <!-- <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1 pt-lg-0 pt-3">
       <div id="cart-summary"  class="card bg-white rounded">
         <div class="d-flex justify-content-between align-items-center">
           <div class="section-title h6">Giỏ Hàng</div>
@@ -90,44 +98,38 @@
             <div class="total-amount font-weight-bold">$92.98</div>
           </div>
         </div>
-      </div>
+      </div> -->
      
-      
-      <div style="margin-top: 20px;" class="row pt-lg-3 pt-2 action-buttons mb-sm-0 mb-2">
-        <div style="display: flex;" class="col-md-6">
-          <div class="btn back-btn text-uppercase"><a href="?act=cart">Quay Lại Giỏ Hàng</a></div>
-          <div class="btn continue-btn text-white ml-auto"> <a href="?act=trangthaitt">Mua Hàng</a> </div>
-        </div>
-      </div>
-    </div>
+   
+    <!-- </div> -->
   </div>
 </div>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-  const onlinePaymentRadio = document.querySelector('.online-payment input');
-  const onlinePaymentDiv = document.querySelector('.online-payment-method');
+//   document.addEventListener('DOMContentLoaded', function () {
+//   const onlinePaymentRadio = document.querySelector('.online-payment input');
+//   const onlinePaymentDiv = document.querySelector('.online-payment-method');
 
-  onlinePaymentRadio.addEventListener('change', function () {
-    if (this.checked) {
-      onlinePaymentDiv.classList.remove('d-none');
-    }
-  });
+//   onlinePaymentRadio.addEventListener('change', function () {
+//     if (this.checked) {
+//       onlinePaymentDiv.classList.remove('d-none');
+//     }
+//   });
 
-  const codPaymentRadio = document.querySelector('input[value="COD"]');
-  codPaymentRadio.addEventListener('change', function () {
-    if (this.checked) {
-      onlinePaymentDiv.classList.add('d-none');
-    }
-  });
+//   const codPaymentRadio = document.querySelector('input[value="COD"]');
+//   codPaymentRadio.addEventListener('change', function () {
+//     if (this.checked) {
+//       onlinePaymentDiv.classList.add('d-none');
+//     }
+//   });
 
-  const continueButton = document.querySelector('.continue-btn a');
-  continueButton.addEventListener('click', function (event) {
-    const paymentMethod = document.querySelector('input[name="pttt"]:checked').value;
+//   const continueButton = document.querySelector('.continue-btn a');
+//   continueButton.addEventListener('click', function (event) {
+//     const paymentMethod = document.querySelector('input[name="pttt"]:checked').value;
 
-    // Lưu phương thức thanh toán vào localStorage
-    localStorage.setItem('paymentMethod', paymentMethod);
-  });
-});
+//     // Lưu phương thức thanh toán vào localStorage
+//     localStorage.setItem('paymentMethod', paymentMethod);
+//   });
+// });
 
 // document.addEventListener('DOMContentLoaded', function () {
 //   const onlinePaymentRadio = document.querySelector('.online-payment input');

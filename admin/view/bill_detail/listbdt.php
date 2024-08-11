@@ -9,13 +9,13 @@
                     <table border="1">
                         <tr>
                             <th>Mã</th>
-                            <th>mã sản phẩm</th>
+                            <th>mã sản phẩm chi tiết</th>
                             <th>mã đơn hàng</th>
                             <th>mã voucher</th>
                             <th>mã trạng thái đơn hàng</th>
                             <th>Số lượng</th>
                             <th>Phương thức thanh toán</th>
-                            <th>Ghi chú</th>
+                            <!-- <th>Ghi chú</th> -->
                             <th>Chức năng</th>
                         </tr>
                         <?php
@@ -25,13 +25,13 @@
                         ?>
                         <tr>
                             <td><?= $id ?></td>
-                            <td><?= $id_product ?></td>
+                            <td><?= $id_product_detail ?></td>
                             <td><?= $id_bill ?></td>
                             <td><?= $id_voucher ?></td>
                             <td><?= $id_bill_status ?></td>
                             <td><?= $quantity ?></td>
                             <td><?= $payment ?></td>
-                            <td><?= $note ?></td>
+                            
                             <td>
                                 <a href="<?= $suabdt ?>">
                                 <input type="button" value="Sửa">

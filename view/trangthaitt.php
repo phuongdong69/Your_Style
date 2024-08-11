@@ -1,4 +1,30 @@
+<div class="ttttt">
+<div class="thanhtoan">
+        <div class="iconnn">
+            <span>&#10004;</span>
+        </div>
+        <h1>Cảm ơn bạn đã mua sắm tại YourStyle</h1>
+        <div class="trangthai">
+            <h2>Đơn hàng của bạn đã được xác nhận</h2>
+            <p>Bạn có thể xem lại thông tin chi tiết đơn hàng qua website YourStyle hoặc liên hệ đến hotline 0969 6969</p>
+            <button class="shoppo"><a href="?act=home">Tiếp tục mua sắm</a></button>
+        </div>
+        <div class="infoo">
+            <h3>Thông tin chi tiết</h3>
+            <div class="infoo-row">
+                <strong>Người nhận:</strong> 
+            </div>
+            <div class="infoo-row">
+                <strong>Phương thức thanh toán:</strong> <span>Tiền mặt (COD)</span> 
+            </div>
+            <div class="infoo-row">
+                <strong>Địa chỉ nhận hàng:</strong> 
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- 
     <style>
         .alltt{
             display: ruby-text;
@@ -103,4 +129,4 @@
             localStorage.removeItem('paymentMethod');
         });
     </script>
-
+ -->

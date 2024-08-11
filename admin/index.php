@@ -357,8 +357,8 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
             //billdetail
         case 'listbdt':
             if (isset($_GET['id_bill']) && $_GET['id_bill'] > 0) {
-                // $listbdt =  load_bill_detail($_GET['id_bill']);
-                extract($listbdt);
+                $listbdt =  load_bill_detail($_GET['id_bill']);
+                // extract($listbdt);
             }
             // $listbdt = load_bill_detail();
             include "./view/bill_detail/listbdt.php";
