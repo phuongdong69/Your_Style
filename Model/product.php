@@ -67,9 +67,9 @@ function load_product($id_cate = 0) {
     return pdo_query($sql);
 }
 
-function load_all_products_img1($id_cate = 0) {
+function load_all_products_img1($id_cate ) {
     if($id_cate > 0){
-    $sql = "SELECT product.*, brands.name AS brand_name,galery.image AS galery_imgage
+    $sql = "SELECT product.*, brands.name AS brand_name,galery.image AS galery_imgage, product_detail.*
     FROM product 
     JOIN (
                     SELECT id_product, MIN(id) AS first1_id
@@ -78,9 +78,16 @@ function load_all_products_img1($id_cate = 0) {
                 ) first1 ON product.id = first1.id_product
     JOIN galery ON first1.first1_id = galery.id    
     JOIN brands ON brands.id = product.id_brands
+    join (
+                    SELECT id_product, MIN(id) AS first_id
+                    FROM product_detail
+                    GROUP BY id_product
+                ) `first` ON product.id = first.id_product
+    JOIN product_detail ON first.first_id = product_detail.id             
     WHERE `id_cate` = $id_cate";
     }else{
-        $sql = "SELECT product.*, brands.name AS brand_name,galery.image AS galery_imgage
+        $sql = "SELECT product.*, brands.name AS brand_name,galery.image AS galery_imgage,product_detail.*
+    FROM product 
     FROM product 
     JOIN (
                     SELECT id_product, MIN(id) AS first1_id
@@ -88,7 +95,13 @@ function load_all_products_img1($id_cate = 0) {
                     GROUP BY id_product
                 ) first1 ON product.id = first1.id_product
     JOIN galery ON first1.first1_id = galery.id    
-    JOIN brands ON brands.id = product.id_brands";
+    JOIN brands ON brands.id = product.id_brands
+    join (
+                    SELECT id_product, MIN(id) AS first_id
+                    FROM product_detail
+                    GROUP BY id_product
+                ) `first` ON product.id = first.id_product
+    JOIN product_detail ON first.first_id = product_detail.id  ";
     }
     return pdo_query($sql);
 }

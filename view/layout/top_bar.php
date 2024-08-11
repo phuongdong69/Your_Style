@@ -77,7 +77,9 @@
                                  echo '<li class="dropdown">';
                                  echo '<a href="#" class="log">'.htmlspecialchars($_SESSION['username']).'</a>';
                                  echo '<ul class="dropdown-content">';
-                                 echo '<li><a href="index.php?act=userinfo">Tài khoản</a></li>';
+
+                                 echo '<li><a href="index.php?act=userinfo">Tài Khoản Của Tôi</a></li>';
+
                                  echo '<li><a href="index.php?act=logout">Thoát</a></li>';
 
                          //        if(isset($_SESSION['id_role']) && $_SESSION['id_role'] == 2){
@@ -94,8 +96,11 @@
                                  echo '</ul>';
                                  echo '</li>';
                               }else{
-                              echo '<li><a href="index.php?act=login" class="log" >Login</a></li>';
-                               } ?>
+
+                              ?>
+                              <li><a href="index.php?act=login" class="log" > Đăng Nhập</a></li>
+                              <?php } ?>
+
                            </ul>
                         </div>
                      </ul>
@@ -151,7 +156,7 @@
                               </div>
                            </li>
                            <li class="dropdown">
-                              <a href="index.php?act=brand_dior" class="dropdown-toggle" data-toggle="dropdown">Brand</a>
+                              <a href="index.php?act=brand_dior" class="dropdown-toggle" data-toggle="dropdown">Nhãn Hàng</a>
                               <div class="dropdown-menu mega-menu">
                                  <div class="row">
                                     <div class="col-md-6 col-sm-6">

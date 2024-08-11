@@ -25,14 +25,14 @@ function getsize_by_color($id_product, $id_color){
     where id_product = $id_product and id_color = $id_color";
     return pdo_query($sql);
 }
-function getprice($id_product, $id_color,$id_size){
-    $sql = "Select size.sizeValue, color.name AS color_name,
+function getprice($id_product, $color_name, $sizeValue){
+    $sql = "Select 
        product_detail.price
     from product_detail 
     join size on size.id = product_detail.id_size
     join color on color.id = product_detail.id_color
-    where id_product = $id_product and id_color = $id_color and id_size = $id_size";
-    return pdo_query($sql)
+    where id_product = $id_product and color.name = '$color_name' and size.sizeValue = '$sizeValue'";
+    return pdo_query($sql);
 }
 function update_productdetail($price, $id_product, $id_size, $id_color, $id)
 {

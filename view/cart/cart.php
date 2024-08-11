@@ -1,6 +1,8 @@
+
 <?php
 if (isset($_SESSION['cart'])) {
     echo '<a href="index.php?act=home"><button>Tiếp Tục Mua Sắm</button></a>';
+    var_dump($_SESSION['cart']);
 ?>
 
     <div class="clearfix"></div>
@@ -9,26 +11,32 @@ if (isset($_SESSION['cart'])) {
             <div class="row">
                 <div class="col-md-12">
                     <div class="order-details">
-                        <div class="total-price" id="thanh-tien">
-                            <h2>Thành Tiền:</h2>
-                            <p style="margin-left: 30px; font-weight: bold;" id="thanh-tien-value">
-                                <?php echo number_format(calculateTotal($_SESSION['cart']), 0, ',', '.'); ?> VNĐ
-                            </p>
-                        </div>
-                        <div class="total-price" id="tong-tien">
-                            <h2>Tổng Tiền:</h2>
-                            <p style="margin-left: 30px; font-weight: bold;" id="tong-tien-value">
-                                <?php echo number_format(calculateTotal($_SESSION['cart']), 0, ',', '.'); ?> VNĐ
-                            </p>
-                            <div class="discount-code">
-                                <input type="text" placeholder="Mã giảm giá">
-                                <button>Nhập mã giảm giá</button>
-                            </div>
-                        </div>
+                    <div class="total-price" id="thanh-tien">
+    <h2>Thành Tiền:</h2>
+    <span>Giỏ Hàng</span>
+    <p style="float: right; margin-left: 30px; font-weight: bold;" id="thanh-tien-value">
+        <?php echo number_format(calculateTotal($_SESSION['cart']), 0, ',', '.'); ?> VNĐ
+    </p>
+    
+
+</div>
+<div class="discount-code hide-shipping">
+    <h6 style="font-size: 12px;">Vận chuyển <span style="float: right;color: red;">25.000 VNĐ</span></h6>
+</div>
+<div class="total-price" id="tong-tien">
+    <h2>Tổng Tiền:</h2>
+    <p style="margin-left: 30px; font-weight: bold;" id="tong-tien-value">
+        <?php 
+            $total = calculateTotal($_SESSION['cart']) + 25000; 
+            echo number_format($total, 0, ',', '.'); 
+        ?> VNĐ
+    </p>
+</div>
+
 
                         <div class="discount-code"></div>
                         <hr>
-                        <!-- <button class="checkout-btn">Thanh Toán</button> -->
+                        <button class="checkout-btn">Thanh Toán</button>
                     </div>
 
                     <form action="addtocart.php" method="post">
@@ -42,7 +50,45 @@ if (isset($_SESSION['cart'])) {
             </div>
         </div>
     </div>
-
+    <!-- <div class="main-content">
+          <div class="cart-items">
+              <div class="cart-item">
+                  <img src="'.$sp[1].'" alt="Product Image">
+                  <div class="item-details">
+                      <p class="item-name">'.$sp[2].'</p>
+                      <div class="gia">Giá Tiền:
+                         <?php echo '.number_format($unitPrice, 0, ',', '.').' ?>
+                      </div>
+                      <div class="an">
+                          <input type="hidden" class="item-price" id="item-price-'.$index.'" data-price-per-unit="'.$unitPrice.'">
+                      </div>
+                  </div> -->
+                  <!-- <div>
+                      <select name="color['.$index.']">
+                          <option value="Đen" '.($sp[3] == 'Đen' ? 'selected' : '').'>Đen</option>
+                          <option value="Kem" '.($sp[3] == 'Kem' ? 'selected' : '').'>Kem</option>
+                          <option value="Nâu Sữa" '.($sp[3] == 'Nâu Sữa' ? 'selected' : '').'>Nâu Sữa</option>
+                          <option value="Trắng" '.($sp[3] == 'Trắng' ? 'selected' : '').'>Trắng</option>
+                          <option value="Ghi" '.($sp[3] == 'Ghi' ? 'selected' : '').'>Ghi</option>
+                      </select>
+                  </div> -->
+                  <!-- <div>
+                      <select name="size['.$index.']">';
+                          $sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+                          foreach ($sizes as $size) {
+                              $selected = ($sp[4] == $size) ? 'selected' : '';
+                              $kq .= '<option value="'.$size.'" '.$selected.'>'.$size.'</option>';
+                          }
+                      $kq .= '</select>
+                  </div> -->
+                  <!-- <div class="item-quantity">
+                      <button style="margin:0px 10px 0px 10px" class="decrease-btn" data-index="'.$index.'">-</button>
+                      <input type="text" class="quantity-input" id="quantity-input-'.$index.'" value="1" max="<?= $quantity ?>">
+                      <button style="margin:0px 10px 0px 10px" class="increase-btn" data-index="'.$index.'">+</button>
+                  </div>
+              </div>
+          </div>
+      </div> -->
 <?php
 } else {
     echo '
@@ -84,55 +130,58 @@ if (isset($_SESSION['cart'])) {
 ?>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cartItems = document.querySelectorAll('.cart-item');
-        const thanhTienElement = document.getElementById('thanh-tien-value');
-        const tongTienElement = document.getElementById('tong-tien-value');
+   document.addEventListener('DOMContentLoaded', function() {
+    const cartItems = document.querySelectorAll('.cart-item');
+    const thanhTienElement = document.getElementById('thanh-tien-value');
+    const tongTienElement = document.getElementById('tong-tien-value');
 
-        cartItems.forEach(item => {
-            const index = item.getAttribute('data-index');
-            const decreaseBtn = item.querySelector('.decrease-btn');
-            const increaseBtn = item.querySelector('.increase-btn');
-            const quantityInput = item.querySelector('.quantity-input');
-            const itemPriceElement = item.querySelector('.item-price');
+    cartItems.forEach(item => {
+        const index = item.getAttribute('data-index');
+        const decreaseBtn = item.querySelector('.decrease-btn');
+        const increaseBtn = item.querySelector('.increase-btn');
+        const quantityInput = item.querySelector('.quantity-input');
+        const itemPriceElement = item.querySelector('.item-price');
 
-            decreaseBtn.addEventListener('click', (event) => {
-                event.preventDefault();
-                let quantity = parseInt(quantityInput.value);
-                if (quantity > 1) {
-                    quantity--;
-                    quantityInput.value = quantity;
-                    updatePrice(index, quantity, itemPriceElement);
-                }
-            });
-
-            increaseBtn.addEventListener('click', (event) => {
-                event.preventDefault();
-                let quantity = parseInt(quantityInput.value);
-                quantity++;
+        decreaseBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantity--;
                 quantityInput.value = quantity;
                 updatePrice(index, quantity, itemPriceElement);
-            });
+            }
         });
 
-        function updatePrice(index, quantity, itemPriceElement) {
-            const pricePerUnit = parseInt(itemPriceElement.getAttribute('data-price-per-unit'));
-            const newPrice = pricePerUnit * quantity;
-            itemPriceElement.textContent = newPrice.toLocaleString('vi-VN') + ' VNĐ';
-            updateTotalPrice();
-        }
-
-        function updateTotalPrice() {
-            let total = 0;
-            cartItems.forEach(item => {
-                const quantity = parseInt(item.querySelector('.quantity-input').value);
-                const pricePerUnit = parseInt(item.querySelector('.item-price').getAttribute('data-price-per-unit'));
-                total += quantity * pricePerUnit;
-            });
-            thanhTienElement.textContent = total.toLocaleString('vi-VN') + ' VNĐ';
-            tongTienElement.textContent = total.toLocaleString('vi-VN') + ' VNĐ';
-        }
+        increaseBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            let quantity = parseInt(quantityInput.value);
+            quantity++;
+            quantityInput.value = quantity;
+            updatePrice(index, quantity, itemPriceElement);
+        });
     });
+
+    function updatePrice(index, quantity, itemPriceElement) {
+        const pricePerUnit = parseInt(itemPriceElement.getAttribute('data-price-per-unit'));
+        const newPrice = pricePerUnit * quantity;
+        itemPriceElement.textContent = newPrice.toLocaleString('vi-VN') + ' VNĐ';
+        updateTotalPrice();
+    }
+
+    function updateTotalPrice() {
+        let total = 0;
+        cartItems.forEach(item => {
+            const quantity = parseInt(item.querySelector('.quantity-input').value);
+            const pricePerUnit = parseInt(item.querySelector('.item-price').getAttribute('data-price-per-unit'));
+            total += quantity * pricePerUnit;
+        });
+        const shippingCost = 25000; // Phí vận chuyển
+        const totalWithShipping = total + shippingCost;
+        thanhTienElement.textContent = total.toLocaleString('vi-VN') + ' VNĐ';
+        tongTienElement.textContent = totalWithShipping.toLocaleString('vi-VN') + ' VNĐ';
+    }
+});
+
 </script>
 
 
