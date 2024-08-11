@@ -109,7 +109,7 @@ function load_all_product($id_cate = 0) {
 
 }
 function load_all_products_by_brand($id_brands) {
-    $sql = "SELECT product.*, product_detail.price,
+    $sql = "SELECT DISTINCT  product.*, product_detail.price,
             brands.name AS brand_name,
             galery.image AS galery_imgage, 
             size.sizeValue AS size_sizeValue, 
@@ -127,6 +127,17 @@ function load_all_products_by_brand($id_brands) {
             JOIN size ON product_detail.id_size = size.id
             JOIN color ON product_detail.id_color = color.id
             WHERE product.id_brands = $id_brands";
+            //lọc tránh sản phẩm bị lặp
+    $products = pdo_query($sql);
+    $unique_products = [];
+
+    foreach ($products as $product) {
+        if (!isset($unique_products[$product['id']])) {
+            $unique_products[$product['id']] = $product;
+        }
+    }
+
+    return array_values($unique_products);
     return pdo_query($sql);
 }
 
