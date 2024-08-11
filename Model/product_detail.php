@@ -48,6 +48,13 @@ function load_price($id_product, $sizeValue, $color_name){
      where `product_detail1.`id_product` = $id_product,`size`.`sizeValue` = '$sizeValue', `color`.`name` = '$color_name'";
      return pdo_query($sql);
 }
+function load_id_product_detail($id_product, $sizeValue, $color_name){
+    $sql = "SELECT `product_detail`.`id` from `product_detail`
+    join `size` on `size`.`id` = `product_detail`.`id_size`
+    join `color` on `color`.`id` = `product_detail`.`id_color`
+     where `product_detail1.`id_product` = $id_product,`size`.`sizeValue` = '$sizeValue', `color`.`name` = '$color_name'";
+     return pdo_query($sql);
+}
 function load_name_product_detail($id_product)
 {
     $sql = "SELECT `product`.`name` FROM `product` JOIN `product_detail`

@@ -28,7 +28,7 @@ if (isset($_SESSION['cart'])) {
                     <h2>Tổng Tiền:</h2>
                     <p style="margin-left: 30px; font-weight: bold;" id="tong-tien-value">
                         <?php 
-                            $total = calculateTotal($_SESSION['cart']) ; 
+                            $total = calculateTotal($_SESSION['cart'])+0 ; 
                             echo number_format($total, 0, ',', '.'); 
                         ?> VNĐ
                     </p>
@@ -178,18 +178,18 @@ if (isset($_SESSION['cart'])) {
         updateTotalPrice();
     }
 
-    // function updateTotalPrice() {
-    //     let total = 0;
-    //     cartItems.forEach(item => {
-    //         const quantity = parseInt(item.querySelector('.quantity-input').value);
-    //         const pricePerUnit = parseInt(item.querySelector('.item-price').getAttribute('data-price-per-unit'));
-    //         total += quantity * pricePerUnit;
-    //     });
-    //     const shippingCost = 25000; // Phí vận chuyển
-    //     const totalWithShipping = total + shippingCost;
-    //     thanhTienElement.textContent = total.toLocaleString('vi-VN') + ' VNĐ';
-    //     tongTienElement.textContent = totalWithShipping.toLocaleString('vi-VN') + ' VNĐ';
-    // }
+    function updateTotalPrice() {
+        let total = 0;
+        cartItems.forEach(item => {
+            const quantity = parseInt(item.querySelector('.quantity-input').value);
+            const pricePerUnit = parseInt(item.querySelector('.item-price').getAttribute('data-price-per-unit'));
+            total += quantity * pricePerUnit;
+        });
+        const shippingCost = 0; 
+        const totalWithShipping = total + shippingCost;
+        thanhTienElement.textContent = total.toLocaleString('vi-VN') + ' VNĐ';
+        tongTienElement.textContent = totalWithShipping.toLocaleString('vi-VN') + ' VNĐ';
+    }
 });
 
 </script>
