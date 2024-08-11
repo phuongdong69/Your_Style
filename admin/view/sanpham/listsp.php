@@ -48,16 +48,16 @@
                             //     $imgPath = "No Photo";
                             // }
                             // Xác định nhãn của nút thay đổi trạng thái với chữ "Chuyển"
-                            $buttonLabel = ($status === 'Đang bán') ? 'Chuyển ngừng bán' : 'Chuyển đang bán';
+                            $buttonLabel = ($status === 'Đang bán') ? 'Dừng bán' : 'Đang bán';
 
                             // Xác định trạng thái mới khi người dùng nhấn vào nút
-                            $newStatus = ($status === 'Đang bán') ? 'Ngừng bán' : 'Đang bán';
+                            $newStatus = ($status === 'Đang bán') ? 'Dừng bán' : 'Đang bán';
                         ?>
                         <tr>
                             <td><?= $id ?></td>
                             <td><a href="<?= $listpd ?>"><?= $name ?></a></td> 
                             <td>
-                                <a href="<?= $listimg ?>"></a><img src="<?= $imgPath ?>" alt=""  style='width:100px;height:100px;' >
+                                <a href="<?= $listimg ?>"><img src="<?= $imgPath ?>" alt=""  style='width:100px;height:100px;' ></a>
                             </td>
                             <td><?= $quantity ?></td>
                             <td><?= $status ?></td>
