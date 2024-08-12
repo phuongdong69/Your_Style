@@ -69,7 +69,7 @@
             <div id="collapseDonHang" class="collapse-menu">
                 <div class="collapse-menu-inner">
                     <a class="collapse-menu-item" href="index.php?act=listbill">Bill</a>
-                    <a class="collapse-menu-item" href="index.php?act=voucher">Voucher</a>
+                    <a class="collapse-menu-item" href="index.php?act=listvou">Voucher</a>
                 </div>
             </div>
         </li>

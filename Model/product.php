@@ -307,9 +307,9 @@ function load_one_product_name($name) {
 //     return pdo_execute($sql);
 // }
 
-function insert_product($name, $description, $priceSale, $quantity, $id_cate, $id_brands) {
-    $sql = "INSERT INTO `product` (`id`,`name`, `description`,  `priceSale`, `quantity`, `create_at`,`update_at`, `id_cate`, `id_brands`)
-            VALUES (NULL,'$name', '$description', '$priceSale', '$quantity', NOW(),NOW(), '$id_cate',  '$id_brands')";
+function insert_product($name, $description, $priceSale, $quantity, $status, $id_cate, $id_brands) {
+    $sql = "INSERT INTO `product` (`id`,`name`, `description`,  `priceSale`, `quantity`, `status`, `create_at`,`update_at`, `id_cate`, `id_brands`)
+            VALUES (NULL,'$name', '$description', '$priceSale', '$quantity','$status', NOW(),NOW(), '$id_cate',  '$id_brands')";
     return pdo_execute($sql);
 }
 

@@ -92,7 +92,8 @@ if (isset($_GET['act'])) {
             } else {
                 $id_user = "";
             }
-
+            var_dump($_POST['thanhtoan']);
+            
             if (isset($_POST['thanhtoan'])) {
                 var_dump($_POST['thanhtoan']);
             }

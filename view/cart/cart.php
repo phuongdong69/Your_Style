@@ -14,7 +14,7 @@ if (isset($_SESSION['cart'])) {
                     <div class="order-details">
                     <div class="total-price" id="thanh-tien">
                     <h2>Thành Tiền:</h2>
-                    <span>Giỏ Hàng</span>
+                    <span style="font-size: 15px;">Đơn Hàng</span>
                     <p style="float: right; margin-left: 30px; font-weight: bold;" id="thanh-tien-value">
                         <?php echo number_format(calculateTotal($_SESSION['cart']), 0, ',', '.'); ?> VNĐ
                     </p>
@@ -22,8 +22,14 @@ if (isset($_SESSION['cart'])) {
 
                 </div>
                 <div class="discount-code hide-shipping">
-                    <h6 style="font-size: 12px;">Vận chuyển <span style="float: right;color: red;">Miễn Phí Vận Chuyển</span></h6>
+                    <h6 style="font-size: 15px;">Vận chuyển <span style="float: right;color: red;">Miễn Phí Vận Chuyển</span></h6>
                 </div>
+                <div class="vouc">
+                <input style="width: 54%;margin-left: 0%;" type="text" value="" name="vou" placeholder="Nhập voucher">
+                <label for="vou"><button id="apply-voucher-btn">Áp Dụng</button></label>
+                <p id="voucher-message" style="color: red; font-size: 12px; margin-top: 5px;"></p> 
+</div>
+
                 <div class="total-price" id="tong-tien">
                     <h2>Tổng Tiền:</h2>
                     <p style="margin-left: 30px; font-weight: bold;" id="tong-tien-value">
@@ -34,7 +40,9 @@ if (isset($_SESSION['cart'])) {
                         ?> VNĐ
                     </p>
                 </div>
-                <a href="index.php?act=thanhtoan"><button style="float: right; font-size: 20px; margin-left: 10px;">Thanh Toán</button></a>
+                <a href="index.php?act=thanhtoan">
+                    <button type="submit" name="thanhtoan" style="float: right; font-size: 20px; margin-left: 10px;">Thanh Toán</button>
+                </a>
 
                         <div class="discount-code"></div>
                    
@@ -130,22 +138,28 @@ if (isset($_SESSION['cart'])) {
 }
 ?>
 
+
+
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const cartItems = document.querySelectorAll('.cart-item');
     const thanhTienElement = document.getElementById('thanh-tien-value');
     const tongTienElement = document.getElementById('tong-tien-value');
+    const applyVoucherBtn = document.getElementById('apply-voucher-btn');
+    const voucherInput = document.querySelector('input[name="vou"]');
+    const voucherMessage = document.getElementById('voucher-message');
+    let discountApplied = false;
 
-    // Phần xử lý cho nút xóa
     document.querySelectorAll('.delete-btn').forEach(function(button) {
-           button.addEventListener('click', function(event) {
-               event.preventDefault();
-               var index = this.dataset.index;
-               if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
-                   window.location.href = 'index.php?act=deletecart&index=' + index;
-               }
-           });
-       });
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            var index = this.dataset.index;
+            if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+                window.location.href = 'index.php?act=deletecart&index=' + index;
+            }
+        });
+    });
+
     cartItems.forEach(item => {
         const index = item.getAttribute('data-index');
         const decreaseBtn = item.querySelector('.decrease-btn');
@@ -172,6 +186,23 @@ if (isset($_SESSION['cart'])) {
         });
     });
 
+    applyVoucherBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        const voucherCode = voucherInput.value.trim();
+        if (voucherCode === 'YOURSTYLE' && !discountApplied) {
+            discountApplied = true;
+            applyDiscount();
+            voucherMessage.textContent = 'Voucher được áp dụng thành công, bạn được giảm 20%!';
+            voucherMessage.style.color = 'green';
+        } else if (voucherCode !== 'YOURSTYLE') {
+            voucherMessage.textContent = 'Mã voucher không hợp lệ!';
+            voucherMessage.style.color = 'red';
+        } else if (discountApplied) {
+            voucherMessage.textContent = 'Voucher đã được áp dụng trước đó!';
+            voucherMessage.style.color = 'red';
+        }
+    });
+
     function updatePrice(index, quantity, itemPriceElement) {
         const pricePerUnit = parseInt(itemPriceElement.getAttribute('data-price-per-unit'));
         const newPrice = pricePerUnit * quantity;
@@ -188,12 +219,27 @@ if (isset($_SESSION['cart'])) {
         });
         const shippingCost = 0;
         const totalWithShipping = total + shippingCost;
-        thanhTienElement.textContent = total.toLocaleString('vi-VN') + ' VNĐ';
-        tongTienElement.textContent = totalWithShipping.toLocaleString('vi-VN') + ' VNĐ';
+
+        if (discountApplied) {
+            const discount = totalWithShipping * 0.2; // Giảm giá 20%
+            const totalAfterDiscount = totalWithShipping - discount;
+            thanhTienElement.textContent = totalAfterDiscount.toLocaleString('vi-VN') + ' VNĐ';
+            tongTienElement.textContent = totalAfterDiscount.toLocaleString('vi-VN') + ' VNĐ';
+        } else {
+            thanhTienElement.textContent = totalWithShipping.toLocaleString('vi-VN') + ' VNĐ';
+            tongTienElement.textContent = totalWithShipping.toLocaleString('vi-VN') + ' VNĐ';
+        }
+    }
+
+    function applyDiscount() {
+        updateTotalPrice(); // Cập nhật lại tổng tiền với giảm giá
     }
 });
 
+
 </script>
+
+
 
 
 <?php

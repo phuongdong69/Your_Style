@@ -15,6 +15,7 @@ include "../Model/role.php";
 include "../Model/news.php";
 include "../Model/bill.php";
 include "../Model/user.php";
+include "../Model/voucher.php";
 
 
 if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
@@ -68,7 +69,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                     $price = $_POST['price'];
                     $priceSale = $_POST['priceSale'];
                     $quantity = $_POST['quantity'];
-                    // $status = $_POST['status'];
+                    $status = $_POST['status'];
                     // $create_at = $_POST['create_at'];
                     // $update_at = $_POST['update_at'];
                     $id_cate = $_POST['id_cate'];
@@ -84,7 +85,7 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
                     } else {
                         echo "Có lỗi trong quá trình upload file";
                     }
-                    insert_product($name, $description, $priceSale, $quantity, $id_cate, $id_brands);
+                    insert_product($name, $description, $priceSale, $quantity, $status, $id_cate, $id_brands);
                     if($name){
                         $imgpd = load_one_product_name($name);
                         extract($imgpd);
@@ -683,7 +684,38 @@ if(isset($_SESSION['id_role']) && ($_SESSION['id_role'] == 2)){
             include "./view/bill/updatebill.php";
             break;
 
-
+            //voucher
+            case 'listvou':
+                $listvou = load_vou();
+                include "./view/vou/listvou.php";
+                break;
+            case 'addvou':
+                if (isset($_POST['themvou']) && ($_POST['themvou'])) {
+                    $name = $_POST['name'];
+                    $id_vou = insert_vou( $name);
+                    $thongbao = "Thêm thành công";
+                }
+                
+                $listbill = load_bill();
+                include "./view/vou/addvou.php";
+                break;
+            case 'updatevou':
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $vou = load_one_vou($_GET['id']);
+                    extract($vou);
+                }
+    
+    
+                if (isset($_POST['capnhatvou'])) {
+                    $name = trim($_POST['name']);
+                    update_vou($_GET['id'], $name);
+                    $thongbao = "Cập nhật thành công";
+                    $vou = load_one_vou($_GET['id']);
+                    extract($vou);
+                }
+                $listvou = load_vou();
+                include "./view/vou/updatevou.php";
+                break;
             // tin tức
 
             case 'listnews':
