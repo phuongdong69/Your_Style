@@ -4271,7 +4271,7 @@ p {
 }
 
 .item-name {
-    font-size: 16px;
+    font-size: 20px;
     margin: 0 0 10px 0;
 }
 
@@ -4487,4 +4487,10 @@ h1 {
 
 .infoo-row span {
   color: #666;
+}
+.vouc{
+  margin-bottom: 20px;
+}
+.product-details{
+  margin-right: 35px;
 }

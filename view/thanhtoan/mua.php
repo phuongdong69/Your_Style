@@ -5,19 +5,19 @@
       <div class="mobile section-title h2" style="margin: 20px 20px;">Địa Chỉ Thanh Toán </div>
       <div style="width: 800px;margin-left: 50%;" id="billing-details" class="card bg-white rounded pb-5">
         <form id="billing-form">
-          <div class="form-group"> <label class="text-muted">Họ và Tên</label> <input type="text" value="" class="form-control" required> </div>
+          <div class="form-group"> <label class="text-muted">Họ và Tên</label> <input type="text" value="" class="form-control" required placeholder="YourStyle"> </div>
           <div class="form-group"> <label class="text-muted">Email</label>
-            <div> <input type="email" value="" required> </div>
+            <div> <input type="email" value="" required placeholder="Yourstyle@gmail.com"> </div>
           </div>
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group" > <label>Số Điện Thoại</label>
-                <div> <input style="margin-left: 72px;"  type="text" value="" required></div>
+                <div> <input style="margin-left: 72px;"  type="text" value="" required placeholder="Số Điện Thoại"></div>
               </div>
             </div>
           </div>
           <div class="form-group"> <label class="text-muted">Địa Chỉ Nhận Hàng</label>
-            <div> <input type="text" value="" required> </div>
+            <div> <input type="text" value="" required placeholder="Địa chỉ nhận hàng"> </div>
           </div>
           <div class="payment-method" style="margin-bottom: 15px;color: #6c757d;">
   <span>
