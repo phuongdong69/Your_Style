@@ -7,6 +7,7 @@ ob_start();
     include "./Model/product_detail.php";
     include "./Model/size.php";
     include "./Model/brand.php";
+    include "./Model/bill.php";
     include "./Model/bill_status.php";
     include "./Model/billdetail.php";
     include "./Model/color.php";
@@ -74,44 +75,122 @@ ob_start();
                 include "view/layout/home.php";
                 break;
         case "mua": //Mua Ngay
-
-
-            include "view/thanhtoan/mua.php";
-            break;
-
-        case "trangthaitt": 
-            if(isset($_SESSION['username'])&& $_SESSION['username']){
+            // var_dump($_SESSION['cart']);
+            if(isset($_SESSION['username'])){
                 $test = load_login_users($_SESSION['username'], $_SESSION['password']);
                 extract($test);
-                $id_user = $id;
-                if (isset($_POST['muahang']) && ($_POST['muahang'])) {
-                    $name = $_POST['name'];
-                    $phoneNumber = $_POST['phoneNumber'];
-                    $email = $_POST['email'];
-                    $address = $_POST['address'];
-                    insert_bill($id_user, $name, $phoneNumber, $email, $address);
-                    $bill = get_id_bill_by_id_user($id_user);
-                    extract($bill);
-                    $id_bill = $bill['id'];
-                    foreach($_SESSION['cart'] as $_cart){
-                       $id_pd = load_id_product_detail($id, $size, $color);
-                       insert_bill_detail($id_product_detail, $id_bill,$voucher, $quantity);
-                       if(isset($_SESSION['cart'])) unset ($_SESSION['cart']);
-                    // ối gời ơi
-                    }
+                $id_user = $test['id'];
+                
+            }else{
+                $id_user = "";}
+                
+                var_dump($id_user);
+                    // if (isset($_POST['mua']) && ($_POST['mua'])) {
+                    //     $name = $_POST['name'];
+                    //     $phoneNumber = $_POST['phoneNumber'];
+                    //     $email = $_POST['email'];
+                    //     $address = $_POST['address'];
+                    //     if($id_user!=""){
+                    //     insert_bill($id_user, $name, $phoneNumber, $email, $address);
+            //             $bill = get_id_bill_by_id_user($id_user);
+            //             extract($bill);
+            //             $id_bill = $bill['id'];
+            //             foreach($_SESSION['cart'] as $_cart){
+            //                 $id_product =  $_cart[0];
+            //                 $sizeValue = $_cart[4];
+            //                 $color_name = $_cart[3];
+            //                 $id_pd = load_id_product_detail($id_product, $sizeValue, $color_name);
+            //                 insert_bill_detail($id_pd, $id_bill,$voucher, $quantity);
+            //                 unset ($_SESSION['cart']);
+            //             }
+                        
+            //             header("Location:view/trangthaitt.php");
+            //             break;
+                    // }else{
+                    // insert_bill($id_user, $name, $phoneNumber, $email, $address);
+            //         $bill = get_id_bill();
+            //         extract($bill);
+            //         $id_bill = $bill['id'];
+            //         foreach($_SESSION['cart'] as $_cart){
+            //             $id_product =  $_cart[0];
+            //                 $sizeValue = $_cart[4];
+            //                 $color_name = $_cart[3];
+            //                 $quantity = $_cart[6];
+            //                 $id_pd = load_id_product_detail($id_product, $sizeValue, $color_name);
+            //             insert_bill_detail($id_pd, $id_bill,$voucher, $quantity);
+            //             unset ($_SESSION['cart']);
+            //         }
+            //         header("Location:view/trangthaitt.php");
+            //         break;
+            // }}else{
+                if (isset($_POST['mua'])) {
+                  echo "ádsdas";
+                    var_dump($_POST['mua']);
+                
+                }else{
+                    echo "không ổn rồi";
                 }
-            } 
+                include "view/thanhtoan/mua.php";
+                break;
             
+            // }
+          
+          
+
+        case "trangthaitt": 
+          
+        //     if(isset($_SESSION['username'])&& $_SESSION['username'] !=""){
+        //         $test = load_login_users($_SESSION['username'], $_SESSION['password']);
+        //         extract($test);
+        //         $id_user = $id;
+        //         if (isset($_POST['mua']) && ($_POST['mua'])) {
+        //             $name = $_POST['name'];
+        //             $phoneNumber = $_POST['phoneNumber'];
+        //             $email = $_POST['email'];
+        //             $address = $_POST['address'];
+        //             insert_bill($id_user, $name, $phoneNumber, $email, $address);
+        //             $bill = get_id_bill_by_id_user($id_user);
+        //             extract($bill);
+        //             $id_bill = $bill['id'];
+        //             foreach($_SESSION['cart'] as $_cart =>$sp1){
+        //                $id_product =  get_id($sp1[2]);
+        //                $id_pd = load_id_product_detail($id_product, $sp1[4], $sp1[3]);
+        //                insert_bill_detail($id_pd, $id_bill,$voucher, $sp1[6]);
+        //                if(isset($_SESSION['cart'])) unset ($_SESSION['cart']);
+        //                var_dump($name);
+        //             // ối gời ơi
+                 
+        //             }
+        //         }
+        //     }else{
+        //         if (isset($_POST['mua']) && ($_POST['mua'])) {
+        //             $name = $_POST['name'];
+        //             $phoneNumber = $_POST['phoneNumber'];
+        //             $email = $_POST['email'];
+        //             $address = $_POST['address'];
+        //             $id_user = "";
+        //             insert_bill($id_user, $name, $phoneNumber, $email, $address);
+        //             $bill = get_id_bill();
+        //             extract($bill);
+        //             $id_bill = $bill['id'];
+        //             foreach($_SESSION['cart'] as $_cart){
+        //                 $id_product =  get_id($sp1[2]);
+        //                 $id_pd = load_id_product_detail($id_product, $sp1[4], $sp1[3]);
+        //                 insert_bill_detail($id_pd, $id_bill,$voucher, $sp1[6]);
+        //                if(isset($_SESSION['cart'])) unset ($_SESSION['cart']);
+        //             // ối gời ơi
+        //             var_dump($name);
+                    
+        //             }
+        //     }
+        // }
             include "view/trangthaitt.php";
             break;
-        
-        
 
-            
-        case "details": //Chi Tiết SP
+        // case "details": //Chi Tiết SP
 
-            include "view/details.php";
-            break;
+        //     include "view/details.php";
+        //     break;
         case 'introduce': //giới thiệu
             include "view/introduce.php";
             break;
