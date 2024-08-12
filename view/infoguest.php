@@ -17,8 +17,9 @@
                             <input style="width: 80%;" type="text" name="address" id="" value="<?= $address?>"><br><br>
                             <div class="">
                             <button style="margin-left: 22px;"><a style="color: #fff;" href="?act=login">Hủy</a></button>
-                            <button style="width: 181px; margin-left: 22px;" type="submit" name="thanhtoan">Thanh toán</button>
-                            </div>
+                            <!-- <button style="width: 181px; margin-left: 22px;" type="submit" name="thanhtoan">Thanh toán</button> -->
+                            <input type="submit" name="thanhtoan" value="Thanh Toán">    
+                        </div>
                             
                         </form>
                         <hr style="margin-top: 20px; margin-bottom: 20px;">

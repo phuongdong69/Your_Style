@@ -34,7 +34,7 @@
                             <div class="additional-options">
                                 <p>Chưa có tài khoản? <a href="index.php?act=register">Đăng ký ngay!</a></p>
                                 <p><a href="?act=forgotpass">Quên mật khẩu?</a></p>
-                                <p><a href="?act=edit">Cập Nhật Thông Tin</a></p>
+                                <!-- <p><a href="?act=edit">Cập Nhật Thông Tin</a></p> -->
                             </div>
                         </div>
                     </div>

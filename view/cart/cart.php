@@ -41,7 +41,8 @@ if (isset($_SESSION['cart'])) {
                     </p>
                 </div>
                 <a href="index.php?act=thanhtoan">
-                    <button type="submit" name="thanhtoan" style="float: right; font-size: 20px; margin-left: 10px;">Thanh Toán</button>
+                    <button type="submit" name="thanhtoan" value="111" style="float: right; font-size: 20px; margin-left: 10px;">Thanh Toán</button>
+               
                 </a>
 
                         <div class="discount-code"></div>

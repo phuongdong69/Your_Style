@@ -1,3 +1,85 @@
+<style>
+    /* CSS cho phần thanh toán */
+.ttttt {
+    background-color: #f4f4f4; /* Màu nền sáng cho toàn bộ khối */
+    padding: 20px; /* Khoảng cách xung quanh nội dung */
+    text-align: center; /* Căn giữa toàn bộ nội dung trong khối */
+}
+
+.thanhtoan {
+    background-color: #ffffff; /* Màu nền trắng cho khối thanh toán */
+    border-radius: 8px; /* Bo tròn góc khối */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho khối */
+    padding: 20px; /* Khoảng cách xung quanh nội dung khối */
+    max-width: 600px; /* Đặt chiều rộng tối đa cho khối */
+    margin: 0 auto; /* Căn giữa khối theo chiều ngang */
+}
+
+.iconnn {
+    font-size: 40px; /* Kích thước biểu tượng */
+    color: #4caf50; /* Màu xanh lá cho biểu tượng */
+    margin-bottom: 15px; /* Khoảng cách phía dưới biểu tượng */
+}
+
+h1 {
+    font-size: 24px; /* Kích thước tiêu đề chính */
+    color: #333; /* Màu chữ tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách phía dưới tiêu đề */
+}
+
+.trangthai {
+    margin-bottom: 20px; /* Khoảng cách phía dưới phần trạng thái */
+}
+
+.trangthai h2 {
+    font-size: 20px; /* Kích thước tiêu đề phụ */
+    color: #555; /* Màu chữ tiêu đề phụ */
+    margin-bottom: 10px; /* Khoảng cách phía dưới tiêu đề phụ */
+}
+
+.trangthai p {
+    font-size: 16px; /* Kích thước chữ nội dung */
+    color: #666; /* Màu chữ nội dung */
+}
+
+.shoppo {
+    background-color: #4caf50; /* Màu nền của nút */
+    color: white; /* Màu chữ trên nút */
+    border: none; /* Bỏ đường viền */
+    border-radius: 5px; /* Bo tròn góc nút */
+    padding: 10px 20px; /* Khoảng cách bên trong nút */
+    font-size: 16px; /* Kích thước chữ trên nút */
+    cursor: pointer; /* Hiển thị con trỏ tay khi hover qua nút */
+    text-align: center; /* Căn giữa chữ trên nút */
+    text-decoration: none; /* Bỏ gạch chân của liên kết */
+}
+
+.shoppo a {
+    color: white; /* Màu chữ liên kết */
+    text-decoration: none; /* Bỏ gạch chân của liên kết */
+}
+
+.infoo {
+    margin-top: 20px; /* Khoảng cách phía trên phần thông tin chi tiết */
+}
+
+.infoo h3 {
+    font-size: 18px; /* Kích thước tiêu đề thông tin chi tiết */
+    color: #333; /* Màu chữ tiêu đề thông tin chi tiết */
+    margin-bottom: 15px; /* Khoảng cách phía dưới tiêu đề thông tin chi tiết */
+}
+
+.infoo-row {
+    font-size: 16px; /* Kích thước chữ thông tin */
+    color: #555; /* Màu chữ thông tin */
+    margin-bottom: 10px; /* Khoảng cách phía dưới mỗi dòng thông tin */
+}
+
+.infoo-row strong {
+    color: #000; /* Màu chữ in đậm */
+}
+
+</style>
 <div class="ttttt">
 <div class="thanhtoan">
         <div class="iconnn">

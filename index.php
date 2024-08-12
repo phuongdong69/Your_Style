@@ -76,10 +76,10 @@ if (isset($_GET['act'])) {
             break;
         case 'info':
             if (isset($_SESSION['username'])) {
-                var_dump($_SESSION['username']);
-                var_dump($_SESSION['password']);
+                // var_dump($_SESSION['username']);
+                // var_dump($_SESSION['password']);
                 $user = load_login_users($_SESSION['username'], $_SESSION['password']);
-                var_dump($user);
+                // var_dump($user);
                 extract($user);
             }
             include "view/user/info.php";
@@ -88,14 +88,32 @@ if (isset($_GET['act'])) {
             if (isset($_SESSION['username'])) {
                 $test = load_login_users($_SESSION['username'], $_SESSION['password']);
                 extract($test);
-                $id_user = $test['id'];
+                $id_user = "";
             } else {
                 $id_user = "";
             }
-            var_dump($_POST['thanhtoan']);
+            
             
             if (isset($_POST['thanhtoan'])) {
-                var_dump($_POST['thanhtoan']);
+                $name = $_POST['name'];
+                $phoneNumber = $_POST['phoneNumber'];
+                $email = $_POST['email'];
+                $addres = $_POST['address'];
+                insert_bill( $id_user, $name, $phoneNumber, $email, $addres);
+                        // $bill = get_id_bill_by_id_user($id_user);
+                        // extract($bill);
+                        // $id_bill = $bill['id'];
+                        // foreach($_SESSION['cart'] as $_cart){
+                        //     $id_product =  $_cart[0];
+                        //     $sizeValue = $_cart[4];
+                        //     $color_name = $_cart[3];
+                        //     $id_pd = load_id_product_detail($id_product, $sizeValue, $color_name);
+                        //     insert_bill_detail($id_pd, $id_bill,$voucher, $quantity);
+                        //     unset ($_SESSION['cart']);
+                        // }
+                        // var_dump($_POST['address']);
+                        header("Location:?act=trangthaitt");
+                        break;
             }
             include "view/infoguest.php";
             break;
@@ -105,6 +123,21 @@ if (isset($_GET['act'])) {
                 $test = load_login_users($_SESSION['username'], $_SESSION['password']);
                 extract($test);
                 $id_user = $test['id'];
+                insert_bill($id_user, $name, $phoneNumber, $email, $address);
+                        $bill = get_id_bill_by_id_user($id_user);
+                        extract($bill);
+                        $id_bill = $bill['id'];
+                        foreach($_SESSION['cart'] as $_cart){
+                            $id_product =  $_cart[0];
+                            $sizeValue = $_cart[4];
+                            $color_name = $_cart[3];
+                            $id_pd = load_id_product_detail($id_product, $sizeValue, $color_name);
+                            insert_bill_detail($id_pd, $id_bill,$voucher, $quantity);
+                            unset ($_SESSION['cart']);
+                        }
+
+                        header("Location:view/trangthaitt.php");
+                        break;
             } else {
                 $id_user = "";
             }
@@ -116,21 +149,21 @@ if (isset($_GET['act'])) {
             //     $email = $_POST['email'];
             //     $address = $_POST['address'];
             //     if($id_user!=""){
-            //     insert_bill($id_user, $name, $phoneNumber, $email, $address);
-            //             $bill = get_id_bill_by_id_user($id_user);
-            //             extract($bill);
-            //             $id_bill = $bill['id'];
-            //             foreach($_SESSION['cart'] as $_cart){
-            //                 $id_product =  $_cart[0];
-            //                 $sizeValue = $_cart[4];
-            //                 $color_name = $_cart[3];
-            //                 $id_pd = load_id_product_detail($id_product, $sizeValue, $color_name);
-            //                 insert_bill_detail($id_pd, $id_bill,$voucher, $quantity);
-            //                 unset ($_SESSION['cart']);
-            //             }
+                insert_bill($id_user, $name, $phoneNumber, $email, $address);
+                        $bill = get_id_bill_by_id_user($id_user);
+                        extract($bill);
+                        $id_bill = $bill['id'];
+                        foreach($_SESSION['cart'] as $_cart){
+                            $id_product =  $_cart[0];
+                            $sizeValue = $_cart[4];
+                            $color_name = $_cart[3];
+                            $id_pd = load_id_product_detail($id_product, $sizeValue, $color_name);
+                            insert_bill_detail($id_pd, $id_bill,$voucher, $quantity);
+                            unset ($_SESSION['cart']);
+                        }
 
-            //             header("Location:view/trangthaitt.php");
-            //             break;
+                        header("Location:view/trangthaitt.php");
+                        break;
             // }else{
             // insert_bill($id_user, $name, $phoneNumber, $email, $address);
             //         $bill = get_id_bill();

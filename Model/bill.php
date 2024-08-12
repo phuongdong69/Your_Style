@@ -11,26 +11,11 @@ function load_bill()
 //         VALUES (NULL, '$creat_at', NULL, '$name', '$phoneNumber', '$email', '$address');";
 //     return pdo_execute($sql);
 // }
-function insert_bill($id_user, $name, $phoneNumber, $email, $address)
+function insert_bill( $name, $phoneNumber, $email, $address)
 {
-    if($id_user= ""){
-        if($address = ""){
+   
             $sql = "INSERT INTO `bill` ( `id`,`create_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
         VALUES (NULL, NOW(), NULL, '$name', '$phoneNumber', '$email', '$address');";
-        }else{
-            $sql = "INSERT INTO `bill` ( `id`,`create_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
-        VALUES (NULL, NOW(), NULL, '$name', '$phoneNumber', '$email', NULL);";
-        }
-        
-    }else{
-        if($address = ""){
-            $sql = "INSERT INTO `bill` ( `id`,`create_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
-        VALUES (NULL, NOW(), $id_user, '$name', '$phoneNumber', '$email', NULL);";
-        }else{
-        $sql = "INSERT INTO `bill` ( `id`,`create_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
-        VALUES (NULL, NOW(), $id_user, '$name', '$phoneNumber', '$email', '$address');";
-    }}
-    
     return pdo_execute($sql);
 }
 // function update_bill($id, $creat_at, $id_user, $name, $phoneNumber, $email, $address)
