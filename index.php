@@ -96,7 +96,7 @@ if (isset($_GET['act'])) {
             if (isset($_POST['thanhtoan'])) {
                 var_dump($_POST['thanhtoan']);
             }
-            include "view/thanhtoan/infoguest.php";
+            include "view/infoguest.php";
             break;
         case "mua": //Mua Ngay
             var_dump($_SESSION['cart']);
