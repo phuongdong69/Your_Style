@@ -76,10 +76,10 @@ if (isset($_GET['act'])) {
             break;
         case 'info':
             if (isset($_SESSION['username'])) {
-                var_dump($_SESSION['username']);
-                var_dump($_SESSION['password']);
+                // var_dump($_SESSION['username']);
+                // var_dump($_SESSION['password']);
                 $user = load_login_users($_SESSION['username'], $_SESSION['password']);
-                var_dump($user);
+                // var_dump($user);
                 extract($user);
             }
             include "view/user/info.php";

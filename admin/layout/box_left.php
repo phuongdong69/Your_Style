@@ -48,8 +48,7 @@
             </a>
             <div id="collapseSPChiTiet" class="collapse-menu">
                 <div class="collapse-menu-inner">
-                    <a class="collapse-menu-item" href="index.php?act=listbdt">Chi tiết đơn hàng</a>
-                    <a class="collapse-menu-item" href="index.php?act=listbs">Trạng thái đơn hàng</a>
+                    
                     <a class="collapse-menu-item" href="index.php?act=listbr">Brands</a>
                     <a class="collapse-menu-item" href="index.php?act=listcl">Color</a>
                     <a class="collapse-menu-item" href="index.php?act=listsz">Size</a>
@@ -68,6 +67,8 @@
             </a>
             <div id="collapseDonHang" class="collapse-menu">
                 <div class="collapse-menu-inner">
+                <a class="collapse-menu-item" href="index.php?act=listbdt">Chi tiết đơn hàng</a>
+                <a class="collapse-menu-item" href="index.php?act=listbs">Trạng thái đơn hàng</a>
                     <a class="collapse-menu-item" href="index.php?act=listbill">Bill</a>
                     <a class="collapse-menu-item" href="index.php?act=listvou">Voucher</a>
                 </div>
