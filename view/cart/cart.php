@@ -40,7 +40,10 @@ if (isset($_SESSION['cart'])) {
                         ?> VNĐ
                     </p>
                 </div>
-                <a href="index.php?act=thanhtoan"><button style="float: right; font-size: 20px; margin-left: 10px;">Thanh Toán</button></a>
+                <a href="index.php?act=thanhtoan">
+                    <button type="submit" name="thanhtoan" value="111" style="float: right; font-size: 20px; margin-left: 10px;">Thanh Toán</button>
+               
+                </a>
 
                         <div class="discount-code"></div>
                    
