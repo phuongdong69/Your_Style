@@ -11,12 +11,17 @@ function load_bill()
 //         VALUES (NULL, '$creat_at', NULL, '$name', '$phoneNumber', '$email', '$address');";
 //     return pdo_execute($sql);
 // }
-function insert_bill( $name, $phoneNumber, $email, $address)
+function insert_bill($name, $phoneNumber, $email, $address)
 {
-   
-            $sql = "INSERT INTO `bill` ( `id`,`create_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
+
+    $sql = "INSERT INTO `bill` ( `id`,`create_at`,`id_user`,`name`,`phoneNumber`,`email`,`address`) 
         VALUES (NULL, NOW(), NULL, '$name', '$phoneNumber', '$email', '$address');";
     return pdo_execute($sql);
+}
+function getidbill()
+{
+    $sql = "SELECT id FROM `bill` order by id desc limit 1;";
+    return pdo_query($sql);
 }
 // function update_bill($id, $creat_at, $id_user, $name, $phoneNumber, $email, $address)
 // {
@@ -46,13 +51,14 @@ function load_one_bill_id($id)
     WHERE `id` = $id;";
     return pdo_query_one($sql);
 }
-function get_id_bill_by_id_user($id_user){
+function get_id_bill_by_id_user($id_user)
+{
     // $sql="Select * from bill where id_user = $id_user";
-   $sql="SELECT * FROM `bill` WHERE `id_user` = $id_user ORDER BY `id` DESC LIMIT 1";
+    $sql = "SELECT * FROM `bill` WHERE `id_user` = $id_user ORDER BY `id` DESC LIMIT 1";
     return pdo_query_one($sql);
 }
-function get_id_bill(){
-    $sql="SELECT * FROM `bill` ORDER BY `id` DESC LIMIT 1";
+function get_id_bill()
+{
+    $sql = "SELECT * FROM `bill` ORDER BY `id` DESC LIMIT 1";
     return pdo_query($sql);
 }
- 
