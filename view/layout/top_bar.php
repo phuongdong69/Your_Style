@@ -47,7 +47,7 @@
                                  echo '<a href="#" class="log">'.htmlspecialchars($_SESSION['username']).'</a>';
                                  echo '<ul class="dropdown-content">';
 
-                                 echo '<li><a href="index.php?act=userinfo">Tài Khoản Của Tôi</a></li>';
+                                 echo '<li><a href="index.php?act=info">Tài Khoản Của Tôi</a></li>';
 
                                  echo '<li><a href="index.php?act=logout">Thoát</a></li>';
 

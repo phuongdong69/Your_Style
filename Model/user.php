@@ -19,6 +19,7 @@ function load_all_user(){
     $sql = "Select `user`.*,`role`.`roleName` from `user` join `role` on `role`.`id` = `user`.`id_role`;";
     return pdo_query($sql);
 }
+
 function load_login_users($username, $password){
     $sql = "SELECT * FROM `user` where `username` = '$username' and `password` = '$password'";
     return pdo_query_one($sql);

@@ -108,6 +108,10 @@ function load_all_product($id_cate = 0) {
     return pdo_query($sql);
 
 }
+function get_id($name){
+    $sql = "SELECT `id` from `product` where `name` = '$name'";
+    return pdo_query($sql);
+}
 function load_all_products_by_brand($id_brands) {
     $sql = "SELECT DISTINCT  product.*, product_detail.price,
             brands.name AS brand_name,

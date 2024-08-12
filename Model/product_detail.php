@@ -61,7 +61,14 @@ function load_name_product_detail($id_product)
     ON `product_detail`.`id_product` = `product`.`id` where `product_detail`.`id_product` = $id_product;";
     return pdo_query_one($sql);
 }
-
+function get_id_product_detail($id_product,$sizeValue, $color_name){
+    $sql = "SELECT `product_detail`.`id` from `product_detail`
+    join `product` on `product_detail1`.`id_product` = `product`.`id`
+    join `size` on `size`.`id` = `product_detail`.`id_size`
+    join `color` on `color`.`id` = `product_detail`.`id_color`
+     where `product`.`id_product` = $id_product,`size`.`sizeValue` = '$sizeValue', `color`.`name` = '$color_name'";
+     return pdo_query($sql);
+}
 function load_one_product_detail($id)
 {
     $sql = "SELECT id AS id_prodt, price, id_product ,id_size,id_color
