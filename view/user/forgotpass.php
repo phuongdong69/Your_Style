@@ -5,8 +5,7 @@
                 <div class="col-md-9">
                     <div class="checkout-page">
                         <h2>Quên Mật Khẩu</h2>
-                        <form action="?act=resetpassword" method="POST" style="margin-left: 10px;">
-
+                        <form action="?act=forgotpass" method="POST" style="margin-left: 10px;">
                             <h5 style="padding-left: 15px;">Nhập các thông tin dưới đây để lấy lại mật khẩu</h5><br>
                             <h5 style="padding-left: 15px;">Username</h5>
                             <input style="width: 80%;" type="text" name="username" id="" ><br><br>
@@ -17,8 +16,9 @@
                             <?= $repass?>
                             <div class="">
                             <button style="margin-left: 22px;"><a style="color: #fff;" href="?act=login">Hủy</a></button>
-                            <button style="width: 181px; margin-left: 22px;" name="forgotpass">Khôi phục mật khẩu</button>
+                            <button style="width: 181px; margin-left: 22px;" type="submit" name="forgotpass">Khôi phục mật khẩu</button>
                             </div>
+                            <?= $errorMsg ?>
                         </form>
                         <hr style="margin-top: 20px; margin-bottom: 20px;">
                     </div>
